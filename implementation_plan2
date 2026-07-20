@@ -1,0 +1,54 @@
+# CourseForge — Sprint 2: Máquina de Produção de Conteúdo
+
+O objetivo deste Sprint é tirar o foco da arquitetura subjacente e maximizar a eficiência na produção do conteúdo. O professor deverá ser capaz de criar um novo capítulo completo, gerar o prompt para a IA e atualizar a estrutura do site em menos de dois minutos.
+
+## User Review Required
+
+> [!IMPORTANT]  
+> A validação de links do comando `publicar` será feita de forma elegante através do próprio MkDocs utilizando a flag `--strict`. Dessa forma, o MkDocs checa todos os links relativos durante o processo de *build* e informa se há algum quebrado. Você concorda com essa abordagem?
+
+## Proposed Changes
+
+### 1. Interface de Linha de Comando (CLI)
+
+#### [MODIFY] [main.py](file:///c:/Users/Professor%20CUCA/Downloads/curso/CourseForge/main.py)
+- Alterar o entrypoint para verificar argumentos da linha de comando (`sys.argv`).
+- Implementar roteamento para suportar os novos comandos: `python main.py publicar` e `python main.py gerar-capitulo`.
+- Criar o método `_fluxo_gerar_capitulo()` orquestrando a seleção simplificada de dados, a geração do arquivo Markdown, a geração automática do prompt e a atualização do mkdocs.yml, tudo num único fluxo.
+- Criar o método `_fluxo_publicar()` que vai acionar o `MkDocsUpdater`, executar a validação e efetuar o `mkdocs build --strict`.
+
+### 2. Melhoria de Templates Profissionais
+
+Melhorar os templates existentes para garantir que o resultado final tenha blocos admonitions do Material, tabs e organização visual premium.
+
+#### [MODIFY] [templates/capitulo.md](file:///c:/Users/Professor%20CUCA/Downloads/curso/CourseForge/templates/capitulo.md)
+Refinar a estrutura do capítulo para ser mais dinâmica.
+#### [MODIFY] [templates/projeto.md](file:///c:/Users/Professor%20CUCA/Downloads/curso/CourseForge/templates/projeto.md)
+Refinar para exibir requisitos e passos de forma mais interativa.
+#### [MODIFY] [templates/exercicios.md](file:///c:/Users/Professor%20CUCA/Downloads/curso/CourseForge/templates/exercicios.md)
+Aprimorar para suportar blocos ocultos/reveláveis de respostas.
+#### [MODIFY] [templates/laboratorio.md](file:///c:/Users/Professor%20CUCA/Downloads/curso/CourseForge/templates/laboratorio.md)
+Tornar o formato mais guiado, passo a passo (Step-by-step).
+#### [MODIFY] [templates/quiz.md](file:///c:/Users/Professor%20CUCA/Downloads/curso/CourseForge/templates/quiz.md)
+Configurar modelo com formatação que facilite o estudo (com *admonitions* de solução).
+#### [NEW] [templates/resumo.md](file:///c:/Users/Professor%20CUCA/Downloads/curso/CourseForge/templates/resumo.md)
+Criar um template dedicado a encerramento de módulos ou *cheat sheets*.
+
+### 3. Ajustes nos Geradores
+
+#### [MODIFY] [generators/gerar_capitulo.py](file:///c:/Users/Professor%20CUCA/Downloads/curso/CourseForge/generators/gerar_capitulo.py)
+- Ajustes menores para garantir que possa ser chamado facilmente pelo novo fluxo orquestrado do `main.py` passando os parâmetros diretamente sem prompts, ou permitindo overriding do "Número".
+
+## Verification Plan
+
+### Automated Tests
+- Executaremos `pytest` localmente para garantir que o roteamento e a refatoração do `main.py` não quebrem fluxos existentes.
+
+### Manual Verification
+- Ao final do desenvolvimento do Sprint, será apresentado o fluxo end-to-end:
+  1. Criação de um curso de teste ("Curso de Python" caso ainda não exista um adequado).
+  2. Criação do Módulo 1.
+  3. Execução do fluxo: `python main.py gerar-capitulo` para o capítulo **"Persistência de Dados com JSON"**.
+  4. Inspeção do Prompt gerado.
+  5. Execução do `python main.py publicar` para checar se o link validation e o build rodam perfeitamente.
+  6. Documentação dos resultados via artefato *Walkthrough*.

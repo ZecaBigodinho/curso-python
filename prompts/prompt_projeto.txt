@@ -1,0 +1,47 @@
+Você é um especialista em desenvolvimento de software e educação técnica.
+
+Sua tarefa é criar um projeto prático completo para:
+
+==========================================================
+CURSO: {{ curso }}
+MÓDULO: {{ modulo }}
+NOME DO PROJETO: {{ projeto }}
+NÍVEL: {{ nivel }}
+TECNOLOGIAS: {{ tecnologias }}
+OBJETIVO: {{ objetivo }}
+==========================================================
+
+INSTRUÇÕES OBRIGATÓRIAS:
+
+1. O projeto deve ser COMPLETO e FUNCIONAL, não apenas um esqueleto.
+
+2. Estrutura obrigatória em Markdown MkDocs Material:
+   ## Descrição do Projeto
+   ## Requisitos Funcionais
+   ## Requisitos Técnicos
+   ## Estrutura de Arquivos
+   ## Implementação Passo a Passo
+   ## Código Completo
+   ## Como Executar
+   ## Melhorias Sugeridas
+
+3. O código deve:
+   - Ser funcional e testado
+   - Ter comentários explicativos em português
+   - Seguir boas práticas (PEP 8 para Python)
+   - Ser progressivo (do simples ao completo)
+
+4. Use MkDocs Material:
+   - Tabs para separar partes do código
+   - !!! warning para armadilhas comuns
+   - !!! tip para boas práticas
+   - ??? example para exemplos extras
+
+5. Inclua no mínimo:
+   - 1 versão mínima funcional
+   - 1 versão com melhorias
+   - Instruções de execução para Windows e Linux
+
+6. Escreva 100% em português do Brasil.
+
+CRIE O PROJETO AGORA:

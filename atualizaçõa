@@ -1,0 +1,380 @@
+# CourseForge — Sprint 1.5: Relatório de Auditoria
+
+> **Data:** 2026-07-17 | **Auditor:** Staff Engineer / Arquiteto Python  
+> **Escopo:** Sprint 1 completo (27 arquivos, ~1.700 linhas)
+
+---
+
+## RESUMO EXECUTIVO
+
+O Sprint 1 entregou uma base funcional e bem estruturada. A separação em camadas (models, generators, utils, converter) está correta. No entanto, a auditoria identificou **32 problemas** distribuídos entre alta, média e baixa prioridade que, se não corrigidos, comprometerão a escalabilidade do projeto conforme ele crescer.
+
+---
+
+## 🔴 ALTA PRIORIDADE
+
+> Problemas que violam contratos fundamentais de arquitetura, causam bugs ou criam dívida técnica séria.
+
+---
+
+### A1 — Violação DRY CRÍTICA: `_slugify` triplicada
+
+**Arquivo(s):** `models/course.py:14`, `models/module.py:12`, `models/chapter.py:12`  
+**Problema:** A função `_slugify()` é idêntica nos três arquivos de modelo — 12 linhas duplicadas três vezes.  
+**Impacto:** Qualquer correção (ex: suporte a `ü`, `ß`, etc.) precisa ser feita em 3 lugares. É inevitável que divergirão com o tempo.  
+**Solução:** Extrair para `utils/slugify.py` (módulo dedicado) e importar nos três modelos.
+
+---
+
+### A2 — Violação DRY CRÍTICA: `_selecionar_curso` e `_selecionar_modulo` duplicadas
+
+**Arquivo(s):** `generators/gerar_modulo.py:83`, `generators/gerar_capitulo.py:87`, `main.py:221`, `main.py:255`  
+**Problema:** A lógica de "listar cursos disponíveis e pedir seleção" é copiada em 4 lugares. Idem para módulos.  
+**Impacto:** Qualquer mudança na forma de listar/selecionar exige atualização em 4 arquivos.  
+**Solução:** Criar `utils/selectors.py` com funções `selecionar_curso(fm, ui)` e `selecionar_modulo(fm, ui, curso_slug)`.
+
+---
+
+### A3 — Violação SRP: `main.py` contém lógica de negócio
+
+**Arquivo(s):** `main.py:208-285`  
+**Problema:** Os métodos `_criar_exercicios()` e `_criar_projeto()` em `main.py` contêm lógica de criação de arquivos, construção de contextos e validação. `main.py` deveria conter APENAS roteamento de menu.  
+**Impacto:** Impossível testar `_criar_exercicios` sem instanciar a app completa.  
+**Solução:** Mover para `generators/gerar_exercicio.py` e `generators/gerar_projeto.py` como geradores dedicados.
+
+---
+
+### A4 — Violação SRP: `_slugify` privado dentro de `main.py`
+
+**Arquivo(s):** `main.py:279-285`  
+**Problema:** `CourseForgeApp._slugify()` é um método de utilidade genérico dentro da classe de apresentação.  
+**Impacto:** Duplicação e responsabilidade errada para a classe.  
+**Solução:** Usar a função unificada de `utils/slugify.py` (ver A1).
+
+---
+
+### A5 — `PromptGenerator` ignora o `template_engine` injetado
+
+**Arquivo(s):** `generators/gerar_prompt.py:37-41`  
+**Problema:** O construtor recebe `template_engine: TemplateEngine` mas o ignora completamente, criando uma nova instância apontando para `prompts/`.
+
+```python
+def __init__(self, fm: FileManager, template_engine: TemplateEngine):
+    self.fm = fm
+    # template_engine é silenciosamente descartado aqui!
+    self.te = TemplateEngine(fm.path("prompts"))
+```
+
+**Impacto:** Viola o princípio de Injeção de Dependências. O parâmetro é mentiroso — o caller acredita estar injetando o engine, mas na verdade não controla nada. Impossível testar com engine mockado.  
+**Solução:** Aceitar o diretório de prompts como parâmetro OU criar o engine de prompts no `main.py` e injetá-lo corretamente.
+
+---
+
+### A6 — Ausência total de logging
+
+**Arquivo(s):** Todos os arquivos  
+**Problema:** Não existe nenhum uso de `logging`. Erros são silenciados ou exibidos apenas via `UI.erro()`, misturando apresentação com diagnóstico.  
+**Impacto:** Impossível diagnosticar problemas em produção. Erros em `_criar_estrutura` desaparecem silenciosamente se o chamador não exibir a exceção.  
+**Solução:** Criar `utils/logger.py` com configuração centralizada do `logging`. Todos os módulos devem usar `logger = logging.getLogger(__name__)`.
+
+---
+
+### A7 — Ausência total de testes
+
+**Arquivo(s):** Projeto inteiro (sem diretório `tests/`)  
+**Problema:** Nenhum teste automatizado existe.  
+**Impacto:** Qualquer refatoração é cega. Impossível garantir que uma mudança em `slugify` não quebra a geração de diretórios.  
+**Solução:** Criar `tests/` com pytest. Mínimo: criação de curso, módulo, capítulo, mkdocs, prompt, e conversão HTML.
+
+---
+
+### A8 — Constante `METADATA_FILE` não existe
+
+**Arquivo(s):** `utils/file_manager.py:116,122`  
+**Problema:** O nome `.courseforge.yaml` aparece hardcoded em dois métodos distintos. Se renomeado, falha em silêncio porque o outro método não encontrará o arquivo.  
+**Solução:** Extrair para constante em `utils/constants.py`:
+
+```python
+METADATA_FILENAME = ".courseforge.yaml"
+MODULE_PREFIX = "modulo_"
+CURSOS_DIR = "cursos"
+```
+
+---
+
+### A9 — `module.py` importa `List` do `typing` mas não usa
+
+**Arquivo(s):** `models/module.py:9`  
+**Problema:** `from typing import List` — `List` não é utilizado no arquivo.  
+**Impacto:** Import morto, ruído de código.  
+**Solução:** Remover.
+
+---
+
+### A10 — `chapter.py` importa `Optional` e `Path` sem uso
+
+**Arquivo(s):** `models/chapter.py:9`  
+**Problema:** `from typing import List, Optional` — `Optional` não é usado. `Path` não é importado mas o tipo de retorno não exige.  
+**Solução:** Remover imports mortos.
+
+---
+
+### A11 — `gerar_prompt.py` usa imports dentro de método
+
+**Arquivo(s):** `generators/gerar_prompt.py:122-125`  
+**Problema:**
+```python
+def _exibir_prompt(self, prompt: str) -> None:
+    from rich.syntax import Syntax   # ← import dentro de método
+    from utils.cli_ui import console
+    from rich.panel import Panel
+```
+`Syntax` é importado mas **nunca usado**. `console` e `Panel` deveriam estar no topo do arquivo.  
+**Impacto:** Import morto + violação de convenções PEP 8. Dificulta análise estática.
+
+---
+
+## 🟡 MÉDIA PRIORIDADE
+
+> Problemas que reduzem a qualidade, testabilidade e manutenibilidade sem serem bloqueadores imediatos.
+
+---
+
+### M1 — Ausência de Enums para valores constantes
+
+**Arquivo(s):** `models/chapter.py:48`, `utils/validators.py:97`, `generators/gerar_capitulo.py:127`  
+**Problema:** `nivel` é uma `str` com valores possíveis "iniciante", "intermediário", "avançado" espalhados como strings literais pelo código. Se um novo nível for adicionado, é necessário buscar em múltiplos arquivos.  
+**Solução:** Criar `models/enums.py` com `class NivelDificuldade(str, Enum)`.
+
+---
+
+### M2 — `_nome_legivel` em `MkDocsUpdater` não preserva acentos
+
+**Arquivo(s):** `generators/atualizar_mkdocs.py:168`  
+**Problema:**
+```python
+partes = nome_arquivo.replace("_", " ").split()
+return " ".join(p.capitalize() for p in partes)
+```
+Converte "modulo_01_introducao_ao_python" → "Modulo 01 Introducao Ao Python" perdendo o acento e gerando nomes feios no nav do MkDocs.  
+**Solução:** Usar metadados do `.courseforge.yaml` para nomes legíveis em vez de converter o slug do diretório.
+
+---
+
+### M3 — `gerar_modulo.py` cria placeholders com string hardcoded
+
+**Arquivo(s):** `generators/gerar_modulo.py:158-161`  
+**Problema:** O placeholder de capítulo é montado por concatenação de string:
+```python
+placeholder = (
+    f"# Capítulo {i:02d}\n\n"
+    f"> *Use o menu 'Criar Capítulo' para gerar o conteúdo completo.*\n"
+)
+```
+**Solução:** Criar template `placeholder_capitulo.md` em `templates/`.
+
+---
+
+### M4 — Ausência de `__post_init__` para validação nos dataclasses
+
+**Arquivo(s):** `models/course.py`, `models/module.py`, `models/chapter.py`  
+**Problema:** `Course(nome="", autor="x", num_modulos=-5)` é construído sem erro. A validação só acontece na camada CLI (validators.py), o que significa que chamadas programáticas podem criar objetos inválidos.  
+**Solução:** Adicionar `__post_init__` com validações básicas nos dataclasses.
+
+---
+
+### M5 — `atualizar_silencioso` duplica lógica de `atualizar`
+
+**Arquivo(s):** `generators/atualizar_mkdocs.py:43-64`  
+**Problema:** Os dois métodos executam exatamente as mesmas 3 operações. A diferença é apenas o output visual.  
+**Solução:**
+```python
+def atualizar(self, silencioso: bool = False) -> Path:
+    ...
+    if not silencioso:
+        UI.sucesso(...)
+```
+
+---
+
+### M6 — `FileManager` não tem tipo de retorno correto em `ler_metadados_curso`
+
+**Arquivo(s):** `utils/file_manager.py:120`  
+**Problema:** Retorno declarado como `Optional[dict]` mas os callers fazem `or {}` em todo lugar, sugerindo que `{}` seria melhor padrão do que `None`.  
+**Impacto:** Forçar verificação de None em todos os lugares de uso (boilerplate repetido).  
+**Solução:** Mudar para retornar `dict` (vazio se não existir).
+
+---
+
+### M7 — `cli_ui.py` modifica `sys.stdout` globalmente
+
+**Arquivo(s):** `utils/cli_ui.py:22-27`  
+**Problema:** Ao importar `cli_ui`, `sys.stdout` é substituído silenciosamente. Isso pode quebrar outros módulos que esperam o stdout original, especialmente durante testes.  
+**Solução:** Mover essa lógica para uma função `configurar_encoding()` chamada explicitamente no `main.py`, não no import.
+
+---
+
+### M8 — `gerar_curso.py` tem acoplamento com `UI` dentro de `_criar_estrutura`
+
+**Arquivo(s):** `generators/gerar_curso.py:155,159`  
+**Problema:** `_criar_estrutura` chama `UI.muted()` diretamente. Isso mistura geração de arquivo com apresentação visual, impossibilitando testar a geração sem mockar a UI.  
+**Solução:** Retornar lista de paths criados e deixar o caller decidir o que exibir, OU usar logging.
+
+---
+
+### M9 — Ausência de `typing` completo
+
+**Arquivo(s):** Vários  
+**Problema:** Funções como `_processar_elemento` em `html_to_markdown.py:124` não têm tipo de retorno declarado para o parâmetro `elemento` (usa duck typing implícito).  
+**Solução:** Adicionar `Union[Tag, BeautifulSoup]` como tipo do parâmetro.
+
+---
+
+### M10 — `HtmlToMarkdown._processar_lista` muta o DOM de entrada
+
+**Arquivo(s):** `converter/html_to_markdown.py:277`  
+**Problema:**
+```python
+sublista.extract()  # ← muta o objeto BeautifulSoup original!
+```
+`extract()` modifica a árvore DOM in-place. Se o mesmo objeto soup for processado duas vezes (improvável mas possível em testes), os resultados serão diferentes.  
+**Solução:** Trabalhar com cópias ou redesenhar o algoritmo para não mutar o DOM.
+
+---
+
+### M11 — `config.yaml` ausência de validação de schema
+
+**Arquivo(s):** `config/config.yaml`, `main.py:88`  
+**Problema:** O arquivo YAML é carregado sem nenhuma validação. Se estiver malformado ou com campos faltando, os erros aparecem muito depois como `KeyError` ou `AttributeError`.  
+**Solução:** Adicionar `utils/config_loader.py` com validação do schema e valores padrão.
+
+---
+
+### M12 — Ausência de `.gitignore`
+
+**Arquivo(s):** Raiz do projeto  
+**Problema:** Não existe `.gitignore`. Diretórios como `cursos/`, `mkdocs/`, `convertidos/`, `prompts_gerados/`, `__pycache__/`, `.venv/` seriam todos versionados acidentalmente.
+
+---
+
+## 🟢 BAIXA PRIORIDADE
+
+> Melhorias de qualidade, legibilidade e organização que não causam bugs mas elevam o nível profissional.
+
+---
+
+### B1 — Convenção de nomenclatura inconsistente (PT vs EN)
+
+**Arquivo(s):** Todos  
+**Problema:** Mistura de inglês e português nos nomes de métodos:
+- `validate_nome` (EN_PT)
+- `criar_diretorio` (PT puro)
+- `FileManager` (EN)
+- `gerar_curso` (PT)
+Não há uma decisão explícita e documentada.  
+**Solução:** Definir e documentar a convenção: nomes de classes em inglês (Python convention), métodos em português (domínio).
+
+---
+
+### B2 — `course.py` importa `Path` sem uso
+
+**Arquivo(s):** `models/course.py:10`  
+**Problema:** `from pathlib import Path` não é usado.
+
+---
+
+### B3 — Banner em `cli_ui.py` usa box drawing hardcoded incorreto
+
+**Arquivo(s):** `utils/cli_ui.py:70-73`  
+**Problema:** A caixa ASCII do banner está visualmente desalinhada:
+```
+╔═══════════════════════════════╗
+║        C O U R S E F O R G E       ║   ← irregular
+║   Plataforma de Cursos MkDocs   ║
+╚═══════════════════════════════╝
+```
+**Solução:** Usar `rich.text.Text` com alinhamento central ou construir o banner de forma programática.
+
+---
+
+### B4 — `_limpar` usa variável `l` (letra ele minúscula)
+
+**Arquivo(s):** `converter/html_to_markdown.py:376`  
+**Problema:** `for l in markdown.splitlines()` — `l` é indistinguível de `1` em muitas fontes. PEP 8 desaconselha.  
+**Solução:** Renomear para `linha`.
+
+---
+
+### B5 — `requirements.txt` lista `html2text` e `markdownify` sem uso real
+
+**Arquivo(s):** `requirements.txt`  
+**Problema:** `html2text` e `markdownify` foram listados mas o conversor usa BeautifulSoup customizado. São dependências mortas que aumentam o footprint de instalação.  
+**Solução:** Remover até que sejam de fato utilizadas.
+
+---
+
+### B6 — Ausência de `README` técnico para contribuidores
+
+**Arquivo(s):** `README.md`  
+**Problema:** O README descreve uso mas não arquitetura, como criar novos geradores, como rodar testes, ou decisões de design.  
+**Solução:** Adicionar seção "Desenvolvimento" e "Como Contribuir".
+
+---
+
+### B7 — `atualizar_mkdocs.py` usa `yaml.dump` direto em vez do `FileManager`
+
+**Arquivo(s):** `generators/atualizar_mkdocs.py:152`  
+**Problema:**
+```python
+with output_path.open("w", encoding="utf-8") as f:
+    yaml.dump(...)
+```
+Burla o `FileManager`, criando uma segunda forma de escrever arquivos no projeto.  
+**Solução:** Usar `self.fm.escrever_yaml()`.
+
+---
+
+### B8 — Ausência de `py.typed` para suporte a type checkers externos
+
+**Arquivo(s):** Raiz  
+**Problema:** Sem `py.typed`, mypy e IDEs não conseguem inferir tipos do pacote.
+
+---
+
+### B9 — Docstrings inconsistentes nos `__init__` dos geradores
+
+**Arquivo(s):** `generators/gerar_modulo.py:35`, `generators/gerar_capitulo.py:34`  
+**Problema:** Os construtores de `ModuleGenerator` e `ChapterGenerator` não têm docstring, enquanto `CourseGenerator` tem.
+
+---
+
+## SUMÁRIO
+
+| Prioridade | Quantidade | Críticos |
+|---|---|---|
+| 🔴 Alta | 11 | A1, A2, A3, A5, A6, A7 |
+| 🟡 Média | 12 | M1, M2, M7, M8, M10, M11 |
+| 🟢 Baixa | 9 | B1, B5 |
+| **Total** | **32** | |
+
+## ORDEM DE REFATORAÇÃO RECOMENDADA
+
+```
+1. A1  → utils/slugify.py (DRY crítico — base para tudo)
+2. A8  → utils/constants.py (elimina magic strings)
+3. A6  → utils/logger.py (infraestrutura de diagnóstico)
+4. M11 → utils/config_loader.py (segurança na inicialização)
+5. A9/A10/B2 → remover imports mortos (limpeza rápida)
+6. M1  → models/enums.py (NivelDificuldade)
+7. A2  → utils/selectors.py (DRY geradores)
+8. A3  → generators/gerar_exercicio.py + gerar_projeto.py
+9. A5  → corrigir injeção de dependências no PromptGenerator
+10. M5  → simplificar atualizar/atualizar_silencioso
+11. B5  → remover dependências mortas do requirements.txt
+12. M7  → mover configuração de encoding para main.py
+13. B3  → corrigir banner
+14. B4  → renomear variável `l`
+15. B7  → usar FileManager no MkDocsUpdater
+16. A7  → criar tests/ com pytest
+17. M12 → criar .gitignore
+```

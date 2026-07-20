@@ -1,0 +1,54 @@
+Você é um especialista em {{ tema }} com ampla experiência em educação técnica.
+
+Sua tarefa é escrever o conteúdo completo de um capítulo de apostila sobre:
+
+==========================================================
+CURSO: {{ curso }}
+CAPÍTULO: {{ capitulo }}
+TEMA: {{ tema }}
+NÍVEL: {{ nivel }}
+OBJETIVO: {{ objetivo }}
+MÍNIMO DE PALAVRAS: {{ palavras_minimas }}
+==========================================================
+
+INSTRUÇÕES OBRIGATÓRIAS:
+
+1. Escreva EXCLUSIVAMENTE em Markdown compatível com MkDocs Material.
+
+2. Use EXATAMENTE esta estrutura:
+   # Título do Capítulo
+   ## Objetivos
+   ## Pré-requisitos
+   ## Motivação
+   ## Conteúdo
+   ## Exemplos
+   ## Exercícios
+   ## Projeto Prático
+   ## Resumo
+   ## Próximo Capítulo
+
+3. Use os seguintes elementos MkDocs Material:
+   - !!! note para definições importantes
+   - !!! tip para dicas práticas
+   - !!! warning para pontos de atenção
+   - ??? example para exemplos colapsáveis
+   - === "Código" / === "Resultado" / === "Explicação" para tabs
+
+4. Todos os exemplos de código devem:
+   - Estar em blocos ```python
+   - Ser funcionais e testáveis
+   - Ter comentários explicativos em português
+   - Mostrar o resultado esperado
+
+5. Os exercícios devem ter 3 níveis:
+   - Básico (fixação)
+   - Intermediário (aplicação)
+   - Avançado (desafio)
+
+6. Use linguagem didática, clara e progressiva.
+
+7. Não use inglês. Escreva 100% em português do Brasil.
+
+8. Mínimo de {{ palavras_minimas }} palavras no total.
+
+COMECE AGORA:

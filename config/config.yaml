@@ -1,0 +1,76 @@
+# ============================================================
+#  CourseForge — Configuração Global da Plataforma
+# ============================================================
+
+plataforma:
+  nome: CourseForge
+  versao: "1.0.0"
+  autor_padrao: "Professor"
+  idioma: "pt-BR"
+
+# Diretórios principais (relativos à raiz do projeto)
+diretorios:
+  cursos: cursos
+  mkdocs_output: mkdocs
+  templates: templates
+  prompts: prompts
+
+# Configurações do MkDocs gerado
+mkdocs:
+  site_name: "CourseForge Docs"
+  site_description: "Plataforma de Cursos"
+  site_author: "Professor"
+  theme:
+    name: material
+    language: pt
+    palette:
+      - scheme: default
+        primary: indigo
+        accent: indigo
+        toggle:
+          icon: material/brightness-7
+          name: Modo escuro
+      - scheme: slate
+        primary: indigo
+        accent: indigo
+        toggle:
+          icon: material/brightness-4
+          name: Modo claro
+    features:
+      - navigation.tabs
+      - navigation.sections
+      - navigation.expand
+      - navigation.top
+      - toc.integrate
+      - search.suggest
+      - search.highlight
+      - content.tabs.link
+      - content.code.copy
+  markdown_extensions:
+    - admonition
+    - pymdownx.details
+    - pymdownx.superfences
+    - pymdownx.tabbed:
+        alternate_style: true
+    - pymdownx.highlight:
+        anchor_linenums: true
+    - pymdownx.inlinehilite
+    - pymdownx.snippets
+    - attr_list
+    - md_in_html
+    - toc:
+        permalink: true
+
+# Numeração automática de módulos e capítulos
+numeracao:
+  modulos: true
+  capitulos: true
+  formato_modulo: "modulo_{:02d}"
+  formato_capitulo: "{:02d}_{slug}"
+
+# Configurações de prompt para IA
+prompt:
+  ia_padrao: "DeepSeek"
+  idioma_saida: "pt-BR"
+  nivel_padrao: "intermediário"
+  palavras_minimas: 1500

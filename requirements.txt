@@ -1,0 +1,18 @@
+# CourseForge — Dependências
+# Instalar com: pip install -r requirements.txt
+
+# Interface de terminal
+rich>=13.0.0
+
+# Templates Jinja2
+Jinja2>=3.1.0
+
+# Configuração YAML
+PyYAML>=6.0
+
+# Conversor HTML → Markdown
+beautifulsoup4>=4.12.0
+
+# Testes
+pytest>=7.4.0
+pytest-cov>=4.1.0

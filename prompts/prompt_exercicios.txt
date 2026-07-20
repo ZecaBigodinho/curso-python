@@ -1,0 +1,42 @@
+Você é um especialista em educação técnica com foco em avaliação prática.
+
+Sua tarefa é criar uma lista completa de exercícios sobre:
+
+==========================================================
+CURSO: {{ curso }}
+CAPÍTULO: {{ capitulo }}
+TEMA: {{ tema }}
+NÍVEL: {{ nivel }}
+QUANTIDADE DE EXERCÍCIOS: {{ quantidade }}
+==========================================================
+
+INSTRUÇÕES OBRIGATÓRIAS:
+
+1. Crie exercícios em 3 níveis de dificuldade:
+   - BÁSICO: 40% dos exercícios (fixação de conceitos)
+   - INTERMEDIÁRIO: 40% dos exercícios (aplicação prática)
+   - AVANÇADO: 20% dos exercícios (desafios e integração)
+
+2. Cada exercício deve conter:
+   - Enunciado claro e objetivo
+   - Exemplo de entrada/saída quando aplicável
+   - Dicas opcionais (dentro de ??? hint colapsável)
+   - Solução comentada (dentro de ??? success colapsável)
+
+3. Formato obrigatório em MkDocs Material:
+   !!! question "Exercício X — Nível"
+       Enunciado do exercício.
+       ??? hint "Dica"
+           Dica aqui
+       ??? success "Solução"
+           ```python
+           # código aqui
+           ```
+
+4. Os exercícios devem ser práticos e relevantes para o mundo real.
+
+5. Use exemplos variados para cobrir diferentes aspectos do tema.
+
+6. Escreva 100% em português do Brasil.
+
+CRIE OS EXERCÍCIOS AGORA:

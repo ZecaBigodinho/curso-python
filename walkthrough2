@@ -1,0 +1,52 @@
+# 🎉 Sprint 2 Concluído: A Máquina de Produção CourseForge
+
+Nesta sprint, o foco foi inteiramente direcionado à produtividade. Transformamos os geradores soltos num **fluxo de ponta a ponta otimizado**, permitindo a criação e publicação de conteúdos em menos de 2 minutos.
+
+Abaixo, descrevemos o que foi realizado e o teste end-to-end com sucesso.
+
+---
+
+## 🛠️ Mudanças Realizadas
+
+### 1. Comandos de CLI Simplificados
+A interface `main.py` foi atualizada para aceitar argumentos via linha de comando, saltando menus complexos quando você já sabe o que quer fazer:
+
+- **`python main.py gerar-capitulo`**: Inicia o assistente ultrarrápido (focado). Ele solicita apenas as metainformações essenciais, gera o arquivo `.md`, cria e salva o Prompt de IA sem perguntas adicionais e reconstrói o `mkdocs.yml`.
+- **`python main.py publicar`**: Dispara uma checagem rigorosa de links quebrados utilizando `mkdocs build --strict`. Se estiver tudo OK, ele automaticamente compila os ativos e reporta o sucesso no terminal. 
+
+> [!TIP]
+> Caso a validação do `publicar` encontre links quebrados num arquivo markdown (ou páginas não indexadas), o processo falhará imediatamente listando os erros para que você não publique um site com referências inválidas.
+
+### 2. Refinamento Profissional dos Templates
+Todos os `.md` utilizados pela plataforma para base da escrita foram modernizados:
+
+- ✅ **`capitulo.md`**: Adição de admonitions (`!!! note`, `!!! warning`), exemplos em código e abas visuais (`=== "Código"`).
+- ✅ **`projeto.md`**: Estrutura em fases tabuladas com guia passo a passo e checklist de requisitos.
+- ✅ **`exercicios.md`**: Novo formato usando detalhes ocultáveis do Material (`??? success`) para os gabaritos.
+- ✅ **`laboratorio.md`**: Uma guia step-by-step projetada para codificação simultânea.
+- ✅ **`quiz.md`**: Múltipla escolha visual com admonitions amigáveis para explicações.
+- ✅ **`resumo.md`** *(NOVO)*: Cheat sheet tabular, permitindo que alunos façam revisão rápida dos comandos chaves do módulo.
+
+---
+
+## 🚀 Demonstração (End-to-End Test)
+
+Para provar a fluidez do processo, geramos o cenário de teste solicitado:
+
+1. **Setup**: Criamos um mock rápido do **Curso de Python**, **Módulo 1: Armazenamento**.
+2. **Geração**: Executamos via terminal `python main.py gerar-capitulo`.
+3. **Respostas ao Assistente**:
+   - Título: *Persistência de Dados com JSON*
+   - Objetivo: *Aprender a salvar e ler dados em JSON*
+   - Nível: *Intermediário*
+4. **Resultado**: 
+   - A ferramenta instantaneamente criou `02_persistncia_de_dados_com_json.md`.
+   - O prompt da IA foi gerado, customizado com `1500 palavras` mínimas, e guardado em `prompts_gerados/`.
+   - O `mkdocs.yml` foi reescrito para incluir o novo capítulo e suas rotas precisas.
+5. **Publicação**: Executamos `python main.py publicar`. O MkDocs compilou o site validando cada arquivo e confirmou: **Build finalizado com sucesso! Sem links quebrados.**
+
+---
+
+## 📈 Próximos Passos
+
+O **CourseForge** está plenamente capaz de escalar a produção de apostilas. Você agora pode focar apenas em roteirizar os títulos e fornecer os prompts para o seu modelo de linguagem favorito preencher as aulas!
