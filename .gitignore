@@ -27,8 +27,6 @@ ENV/
 # Os cursos gerados são arquivos de trabalho do USUÁRIO.             #
 # Para versionar cursos específicos, use repositórios separados.     #
 # ------------------------------------------------------------------ #
-cursos/
-mkdocs/
 convertidos/
 prompts_gerados/
 

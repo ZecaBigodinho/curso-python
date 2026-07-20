@@ -1,0 +1,76 @@
+site_name: CourseForge Docs
+site_description: Plataforma de Cursos
+site_author: Professor
+theme:
+  name: material
+  language: pt
+  palette:
+  - scheme: default
+    primary: indigo
+    accent: indigo
+    toggle:
+      icon: material/brightness-7
+      name: Modo escuro
+  - scheme: slate
+    primary: indigo
+    accent: indigo
+    toggle:
+      icon: material/brightness-4
+      name: Modo claro
+  features:
+  - navigation.tabs
+  - navigation.sections
+  - navigation.expand
+  - navigation.top
+  - toc.integrate
+  - search.suggest
+  - search.highlight
+  - content.tabs.link
+  - content.code.copy
+markdown_extensions:
+- admonition
+- pymdownx.details
+- pymdownx.superfences
+- pymdownx.tabbed:
+    alternate_style: true
+- pymdownx.highlight:
+    anchor_linenums: true
+- pymdownx.inlinehilite
+- pymdownx.snippets
+- attr_list
+- md_in_html
+- toc:
+    permalink: true
+nav:
+- Home: index.md
+- Curso de Python:
+  - Índice: curso_de_python/docs/index.md
+  - Armazenamento:
+    - Visão Geral: curso_de_python/modulo_01_armazenamento/index.md
+    - Capitulo: curso_de_python/modulo_01_armazenamento/01_capitulo.md
+    - Persistncia De Dados Com Json: curso_de_python/modulo_01_armazenamento/02_persistncia_de_dados_com_json.md
+- Python:
+  - Índice: python/docs/index.md
+  - Introducao:
+    - Visão Geral: python/modulo_01_introducao/index.md
+    - Variaveis: python/modulo_01_introducao/01_variaveis.md
+- Python para Desktop:
+  - Índice: python_para_desktop/docs/index.md
+  - Fundamentos:
+    - Visão Geral: python_para_desktop/modulo_01_fundamentos/index.md
+    - Variaveis: python_para_desktop/modulo_01_fundamentos/01_variaveis.md
+    - Operadores: python_para_desktop/modulo_01_fundamentos/02_operadores.md
+    - If Else: python_para_desktop/modulo_01_fundamentos/03_if_else.md
+    - Repeticoes: python_para_desktop/modulo_01_fundamentos/04_repeticoes.md
+    - Funcoes: python_para_desktop/modulo_01_fundamentos/05_funcoes.md
+    - Módulos: python_para_desktop/modulo_01_fundamentos/06_modulos.md
+    - Coleções: python_para_desktop/modulo_01_fundamentos/07_colecoes.md
+    - Strings: python_para_desktop/modulo_01_fundamentos/08_strings.md
+    - Arquivos e Pastas: python_para_desktop/modulo_01_fundamentos/09_arquivos.md
+    - Exceções: python_para_desktop/modulo_01_fundamentos/10_excecoes.md
+    - Projeto Final: python_para_desktop/modulo_01_fundamentos/11_projeto_final.md
+  - Interfaces Gráficas:
+    - Visão Geral: python_para_desktop/modulo_02_interfaces_graficas/index.md
+  - Banco de Dados e Configurações:
+    - Visão Geral: python_para_desktop/modulo_03_banco_de_dados/index.md
+docs_dir: ../cursos

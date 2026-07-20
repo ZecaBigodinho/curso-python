@@ -1,0 +1,2079 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Plataforma de Cursos">
+      
+      
+        <meta name="author" content="Professor">
+      
+      
+      
+        <link rel="prev" href="../07_colecoes/">
+      
+      
+        <link rel="next" href="../09_arquivos/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Strings - CourseForge Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#08-manipulacao-de-strings" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../.." title="CourseForge Docs" class="md-header__button md-logo" aria-label="CourseForge Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CourseForge Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Strings
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../curso_de_python/docs/" class="md-tabs__link">
+          
+  
+  
+  Curso de Python
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../python/docs/" class="md-tabs__link">
+          
+  
+  
+  Python
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../docs/" class="md-tabs__link">
+          
+  
+  
+  Python para Desktop
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="CourseForge Docs" class="md-nav__button md-logo" aria-label="CourseForge Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CourseForge Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Curso de Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Curso de Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../curso_de_python/docs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Índice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Armazenamento
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Armazenamento
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../curso_de_python/modulo_01_armazenamento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão Geral
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../curso_de_python/modulo_01_armazenamento/01_capitulo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capitulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../curso_de_python/modulo_01_armazenamento/02_persistncia_de_dados_com_json/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Persistncia De Dados Com Json
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/docs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Índice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducao
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Introducao
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/modulo_01_introducao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão Geral
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/modulo_01_introducao/01_variaveis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variaveis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python para Desktop
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python para Desktop
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Índice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão Geral
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_variaveis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variaveis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_operadores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_if_else/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    If Else
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_repeticoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Repeticoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_funcoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Funcoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_modulos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Módulos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_colecoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coleções
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strings
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-requisitos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pré-requisitos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motivacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motivação
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conteudo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conteúdo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conteúdo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strings-como-sequencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strings como sequências
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indexacao-e-fatiamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Indexação e fatiamento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concatenacao-e-repeticao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concatenação e repetição
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodos-de-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Métodos de string
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Métodos de string">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transformacao-de-maiusculasminusculas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transformação de maiúsculas/minúsculas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remocao-de-espacos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remoção de espaços
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#substituicao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Substituição
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#divisao-e-juncao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Divisão e junção
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#busca-e-contagem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Busca e contagem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validacao-de-conteudo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validação de conteúdo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatacao-de-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formatação de strings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Formatação de strings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#f-strings-python-36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        f-strings (Python 3.6+)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodo-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Método format()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatacao-com-estilo-antigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formatação com % (estilo antigo)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validacao-de-padroes-com-metodos-nativos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validação de padrões com métodos nativos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imutabilidade-e-boas-praticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Imutabilidade e boas práticas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercícios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercícios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basico-fixacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Básico (fixação)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intermediario-aplicacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intermediário (aplicação)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avancado-desafio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avançado (desafio)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#projeto-pratico-processador-de-cadastros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Projeto Prático: Processador de Cadastros
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumo
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_arquivos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquivos e Pastas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_excecoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exceções
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_projeto_final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto Final
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="08-manipulacao-de-strings">08. Manipulação de Strings<a class="headerlink" href="#08-manipulacao-de-strings" title="Permanent link">&para;</a></h1>
+<h2 id="objetivos">Objetivos<a class="headerlink" href="#objetivos" title="Permanent link">&para;</a></h2>
+<p>Neste capítulo, você aprenderá a:
+- Compreender que strings são sequências imutáveis de caracteres.
+- Acessar caracteres individuais e fatiar strings para extrair trechos.
+- Concatenar, repetir e interpolar strings de forma eficiente.
+- Utilizar os principais métodos de string para limpar, modificar e inspecionar textos.
+- Realizar buscas e substituições dentro de strings.
+- Aplicar formatação moderna com f-strings para criar saídas profissionais.
+- Validar padrões simples, como formatos de CPF, e-mail ou telefone, usando métodos nativos.</p>
+<h2 id="pre-requisitos">Pré-requisitos<a class="headerlink" href="#pre-requisitos" title="Permanent link">&para;</a></h2>
+<p>Antes de prosseguir, certifique-se de que você domina:
+- Tipos de dados básicos (int, float, str, bool).
+- Operadores aritméticos, de comparação e lógicos.
+- Estruturas condicionais e laços de repetição.
+- Listas e tuplas (conceitos básicos de indexação e iteração).</p>
+<p>Esses fundamentos garantirão um aproveitamento completo dos tópicos abordados.</p>
+<h2 id="motivacao">Motivação<a class="headerlink" href="#motivacao" title="Permanent link">&para;</a></h2>
+<p>Em aplicações desktop, o processamento de texto é onipresente: ler dados de formulários, exibir relatórios, salvar configurações em arquivos, validar entradas do usuário, gerar e-mails automáticos. Saber manipular strings com destreza é tão essencial quanto calcular números. Um nome mal formatado, um CPF com pontuação incorreta ou um arquivo CSV com campos desalinhados podem comprometer toda uma aplicação.</p>
+<p>Felizmente, Python oferece um conjunto riquíssimo de ferramentas para trabalhar com texto. Você aprenderá a fatiar, formatar, limpar e validar strings de maneira expressiva e eficiente. Ao final deste capítulo, você será capaz de domar até mesmo os dados textuais mais bagunçados e transformá-los em informação útil e confiável.</p>
+<h2 id="conteudo">Conteúdo<a class="headerlink" href="#conteudo" title="Permanent link">&para;</a></h2>
+<h3 id="strings-como-sequencias">Strings como sequências<a class="headerlink" href="#strings-como-sequencias" title="Permanent link">&para;</a></h3>
+<p>Em Python, uma string é uma sequência ordenada e <strong>imutável</strong> de caracteres Unicode. Isso significa que cada caractere ocupa uma posição (índice) e que, uma vez criada, a string não pode ser alterada — qualquer operação que pareça modificar uma string na verdade gera uma nova.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">texto</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>   <span class="c1"># &#39;P&#39;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># &#39;n&#39;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">texto</span><span class="p">))</span> <span class="c1"># 6</span>
+</code></pre></div>
+<h3 id="indexacao-e-fatiamento">Indexação e fatiamento<a class="headerlink" href="#indexacao-e-fatiamento" title="Permanent link">&para;</a></h3>
+<p>Podemos acessar caracteres individuais com índices (iniciando em 0) e extrair substrings com a notação de fatiamento <code>[inicio:fim:passo]</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">frase</span> <span class="o">=</span> <span class="s2">&quot;Aprendendo Python&quot;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">frase</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>    <span class="c1"># &#39;Aprendendo&#39; (caracteres 0 a 9)</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">frase</span><span class="p">[</span><span class="mi">11</span><span class="p">:])</span>     <span class="c1"># &#39;Python&#39; (do índice 11 até o final)</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">frase</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>     <span class="c1"># &#39;Aprendendo&#39; (do início ao 9)</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">frase</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span>     <span class="c1"># &#39;Arned yhn&#39; (a cada 2 caracteres)</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">frase</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>    <span class="c1"># &#39;nohtyP odnednerpA&#39; (string invertida)</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Fatiamento não gera erro com índices fora do intervalo</p>
+<p>Ao contrário da indexação direta (<code>texto[100]</code> gera <code>IndexError</code>), o fatiamento retorna uma string vazia se os limites estiverem fora do tamanho, o que é muito conveniente.</p>
+</div>
+<h3 id="concatenacao-e-repeticao">Concatenação e repetição<a class="headerlink" href="#concatenacao-e-repeticao" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Concatenação</strong>: <code>+</code> junta duas strings.</li>
+<li><strong>Repetição</strong>: <code>*</code> repete uma string várias vezes.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">nome</span> <span class="o">=</span> <span class="s2">&quot;João&quot;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">sobrenome</span> <span class="o">=</span> <span class="s2">&quot;Silva&quot;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">nome_completo</span> <span class="o">=</span> <span class="n">nome</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">sobrenome</span>  <span class="c1"># &#39;João Silva&#39;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">linha</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">30</span>  <span class="c1"># &#39;------------------------------&#39;</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Evite concatenar muitas strings em laços</p>
+<p>Como strings são imutáveis, cada concatenação cria uma nova string, o que pode ser ineficiente. Prefira usar <code>''.join(lista)</code> para construir strings longas.</p>
+</div>
+<h3 id="metodos-de-string">Métodos de string<a class="headerlink" href="#metodos-de-string" title="Permanent link">&para;</a></h3>
+<p>Python oferece mais de 40 métodos para objetos do tipo <code>str</code>. Vamos agrupar os mais úteis por categoria.</p>
+<h4 id="transformacao-de-maiusculasminusculas">Transformação de maiúsculas/minúsculas<a class="headerlink" href="#transformacao-de-maiusculasminusculas" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>upper()</code>: todas maiúsculas.</li>
+<li><code>lower()</code>: todas minúsculas.</li>
+<li><code>capitalize()</code>: primeira letra maiúscula, resto minúsculo.</li>
+<li><code>title()</code>: primeira letra de cada palavra maiúscula.</li>
+<li><code>swapcase()</code>: inverte maiúsculas/minúsculas.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;pYthon é INCRÍVEL&quot;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>       <span class="c1"># &#39;python é incrível&#39;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>       <span class="c1"># &#39;Python É Incrível&#39;</span>
+</code></pre></div>
+<h4 id="remocao-de-espacos">Remoção de espaços<a class="headerlink" href="#remocao-de-espacos" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>strip()</code>: remove espaços do início e fim.</li>
+<li><code>lstrip()</code>: remove do início.</li>
+<li><code>rstrip()</code>: remove do fim.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">entrada</span> <span class="o">=</span> <span class="s2">&quot;   Maria   &quot;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">entrada</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>  <span class="c1"># &#39;Maria&#39;</span>
+</code></pre></div>
+<h4 id="substituicao">Substituição<a class="headerlink" href="#substituicao" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>replace(antigo, novo, contagem)</code>: substitui trechos.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">frase</span> <span class="o">=</span> <span class="s2">&quot;banana, maçã, banana&quot;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">frase</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;laranja&quot;</span><span class="p">))</span>  <span class="c1"># &#39;laranja, maçã, laranja&#39;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">frase</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;laranja&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>  <span class="c1"># &#39;laranja, maçã, banana&#39;</span>
+</code></pre></div>
+<h4 id="divisao-e-juncao">Divisão e junção<a class="headerlink" href="#divisao-e-juncao" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>split(separador)</code>: divide a string em uma lista de substrings.</li>
+<li><code>join(iteravel)</code>: junta elementos de um iterável em uma string, usando a string original como separador.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">dados</span> <span class="o">=</span> <span class="s2">&quot;João,25,SP&quot;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">partes</span> <span class="o">=</span> <span class="n">dados</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">partes</span><span class="p">)</span>  <span class="c1"># [&#39;João&#39;, &#39;25&#39;, &#39;SP&#39;]</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="s2">&quot;é&quot;</span><span class="p">,</span> <span class="s2">&quot;legal&quot;</span><span class="p">]</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">frase</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">frase</span><span class="p">)</span>  <span class="c1"># &#39;Python é legal&#39;</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">O poder do join</p>
+<p><code>join</code> é extremamente rápido e deve ser usado sempre que você precisar combinar muitas strings.</p>
+</div>
+<h4 id="busca-e-contagem">Busca e contagem<a class="headerlink" href="#busca-e-contagem" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>find(sub)</code>: retorna o índice da primeira ocorrência de <code>sub</code>, ou <code>-1</code> se não encontrado.</li>
+<li><code>rfind(sub)</code>: busca da direita para a esquerda.</li>
+<li><code>index(sub)</code>: similar ao <code>find</code>, mas gera <code>ValueError</code> se não encontrar.</li>
+<li><code>count(sub)</code>: conta quantas vezes <code>sub</code> aparece.</li>
+<li><code>startswith(prefixo)</code> e <code>endswith(sufixo)</code>: verificam início/fim da string.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">texto</span> <span class="o">=</span> <span class="s2">&quot;abacaxi&quot;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;ca&quot;</span><span class="p">))</span>      <span class="c1"># 3</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">))</span>      <span class="c1"># 3</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;aba&quot;</span><span class="p">))</span> <span class="c1"># True</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;xi&quot;</span><span class="p">))</span>   <span class="c1"># True</span>
+</code></pre></div>
+<h4 id="validacao-de-conteudo">Validação de conteúdo<a class="headerlink" href="#validacao-de-conteudo" title="Permanent link">&para;</a></h4>
+<p>Estes métodos retornam <code>True</code> ou <code>False</code>, sendo úteis para validar dados de entrada:
+- <code>isalpha()</code>: todos os caracteres são letras.
+- <code>isdigit()</code>: todos os caracteres são dígitos.
+- <code>isalnum()</code>: todos são letras ou dígitos.
+- <code>isspace()</code>: só espaços em branco.
+- <code>islower()</code> / <code>isupper()</code>: todas minúsculas/maiúsculas.
+- <code>istitle()</code>: formato título.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="o">.</span><span class="n">isdigit</span><span class="p">())</span>      <span class="c1"># True</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="o">.</span><span class="n">isalpha</span><span class="p">())</span>      <span class="c1"># True</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;abc123&quot;</span><span class="o">.</span><span class="n">isalnum</span><span class="p">())</span>   <span class="c1"># True</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   &quot;</span><span class="o">.</span><span class="n">isspace</span><span class="p">())</span>      <span class="c1"># True</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Limitações dos métodos is</p>
+<p><code>isalpha()</code> retorna False se houver acentos? Não, em Python 3, caracteres acentuados são considerados letras. Teste <code>"café".isalpha()</code> → <code>True</code>. Isso é bom para português. Porém, <code>"123".isdigit()</code> é True mas <code>"12.5".isdigit()</code> é False por causa do ponto.</p>
+</div>
+<h3 id="formatacao-de-strings">Formatação de strings<a class="headerlink" href="#formatacao-de-strings" title="Permanent link">&para;</a></h3>
+<p>Formatar strings é inserir valores de variáveis dentro de um texto de maneira controlada.</p>
+<h4 id="f-strings-python-36">f-strings (Python 3.6+)<a class="headerlink" href="#f-strings-python-36" title="Permanent link">&para;</a></h4>
+<p>A forma moderna, legível e eficiente:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">nome</span> <span class="o">=</span> <span class="s2">&quot;Ana&quot;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">idade</span> <span class="o">=</span> <span class="mi">28</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">nome</span><span class="si">}</span><span class="s2"> tem </span><span class="si">{</span><span class="n">idade</span><span class="si">}</span><span class="s2"> anos e no próximo ano fará </span><span class="si">{</span><span class="n">idade</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>É possível formatar números:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">preco</span> <span class="o">=</span> <span class="mf">19.999</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Preço: R$ </span><span class="si">{</span><span class="n">preco</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># &#39;Preço: R$ 19.99&#39;</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">percentual</span> <span class="o">=</span> <span class="mf">0.255</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Desconto: </span><span class="si">{</span><span class="n">percentual</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># &#39;Desconto: 25.5%&#39;</span>
+</code></pre></div>
+<p>Alinhamento e preenchimento:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">produto</span> <span class="o">=</span> <span class="s2">&quot;Café&quot;</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">preco</span> <span class="o">=</span> <span class="mf">12.5</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">produto</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2"> R$ </span><span class="si">{</span><span class="n">preco</span><span class="si">:</span><span class="s2">&gt;6.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># alinhado à esquerda (10) e à direita (6)</span>
+</code></pre></div>
+<h4 id="metodo-format">Método format()<a class="headerlink" href="#metodo-format" title="Permanent link">&para;</a></h4>
+<p>Método tradicional, ainda muito usado:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> tem </span><span class="si">{}</span><span class="s2"> anos&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nome</span><span class="p">,</span> <span class="n">idade</span><span class="p">))</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{nome}</span><span class="s2"> tem </span><span class="si">{idade}</span><span class="s2"> anos&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nome</span><span class="o">=</span><span class="s2">&quot;João&quot;</span><span class="p">,</span> <span class="n">idade</span><span class="o">=</span><span class="mi">25</span><span class="p">))</span>
+</code></pre></div>
+<h4 id="formatacao-com-estilo-antigo">Formatação com % (estilo antigo)<a class="headerlink" href="#formatacao-com-estilo-antigo" title="Permanent link">&para;</a></h4>
+<p>Menos recomendado, mas você pode encontrar em código legado:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> tem </span><span class="si">%d</span><span class="s2"> anos&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">nome</span><span class="p">,</span> <span class="n">idade</span><span class="p">))</span>
+</code></pre></div>
+<p>Hoje, prefira <strong>f-strings</strong> por sua clareza e desempenho.</p>
+<h3 id="validacao-de-padroes-com-metodos-nativos">Validação de padrões com métodos nativos<a class="headerlink" href="#validacao-de-padroes-com-metodos-nativos" title="Permanent link">&para;</a></h3>
+<p>Podemos combinar métodos para validar formatos comuns sem usar regex.</p>
+<p>Exemplo: verificar se uma string contém exatamente 11 dígitos (CPF sem pontuação):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">cpf_valido</span><span class="p">(</span><span class="n">cpf</span><span class="p">):</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>    <span class="k">return</span> <span class="n">cpf</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">cpf</span><span class="p">)</span> <span class="o">==</span> <span class="mi">11</span>
+</code></pre></div>
+<p>Ou validar um e-mail simplificado (contém <code>@</code> e <code>.</code> após <code>@</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">email_valido</span><span class="p">(</span><span class="n">email</span><span class="p">):</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    <span class="k">if</span> <span class="s2">&quot;@&quot;</span> <span class="ow">in</span> <span class="n">email</span><span class="p">:</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>        <span class="n">partes</span> <span class="o">=</span> <span class="n">email</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;@&quot;</span><span class="p">)</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">partes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="s2">&quot;.&quot;</span> <span class="ow">in</span> <span class="n">partes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>    <span class="k">return</span> <span class="kc">False</span>
+</code></pre></div>
+<p>Essas validações são ingênuas, mas funcionam como ponto de partida. Para produção, utilize <code>re</code> ou bibliotecas especializadas.</p>
+<h3 id="imutabilidade-e-boas-praticas">Imutabilidade e boas práticas<a class="headerlink" href="#imutabilidade-e-boas-praticas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Strings são imutáveis: qualquer método retorna uma <strong>nova</strong> string; a original permanece inalterada.</li>
+<li>Use <code>join</code> para concatenar múltiplas strings, evitando <code>+</code> em laços.</li>
+<li>Aproveite métodos encadeados: <code>texto.strip().lower().replace(" ", "_")</code>.</li>
+<li>Documente padrões de validação com comentários.</li>
+<li>Para processamento de arquivos grandes, considere iterar linha a linha sem carregar tudo na memória.</li>
+</ul>
+<h2 id="exemplos">Exemplos<a class="headerlink" href="#exemplos" title="Permanent link">&para;</a></h2>
+<details class="example">
+<summary>Exemplo 1: Limpeza de dados de formulário</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Código</label><label for="__tabbed_1_2">Resultado</label><label for="__tabbed_1_3">Explicação</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># Simula entrada de usuário com espaços e maiúsculas inconsistentes</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">nome</span> <span class="o">=</span> <span class="s2">&quot;  MARIA DA SILVA  &quot;</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="n">email</span> <span class="o">=</span> <span class="s2">&quot;Maria@Exemplo.Com&quot;</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="c1"># Limpeza e padronização</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="n">nome_limpo</span> <span class="o">=</span> <span class="n">nome</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>  <span class="c1"># &#39;Maria Da Silva&#39;</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="n">email_limpo</span> <span class="o">=</span> <span class="n">email</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>  <span class="c1"># &#39;maria@exemplo.com&#39;</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nome formatado: &#39;</span><span class="si">{</span><span class="n">nome_limpo</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;E-mail normalizado: &#39;</span><span class="si">{</span><span class="n">email_limpo</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Nome formatado: &#39;Maria Da Silva&#39;
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>E-mail normalizado: &#39;maria@exemplo.com&#39;
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><code>strip()</code> remove espaços extras das bordas. <code>title()</code> capitaliza cada palavra, embora "da" também vire maiúscula — um tratamento mais fino exigiria lista de preposições. <code>lower()</code> uniformiza o e-mail para minúsculas, prática comum em cadastros.</p>
+</div>
+</div>
+</div>
+</details>
+<details class="example">
+<summary>Exemplo 2: Análise e formatação de dados brutos</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Código</label><label for="__tabbed_2_2">Resultado</label><label for="__tabbed_2_3">Explicação</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># Dados brutos de um arquivo CSV simulado</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">linha</span> <span class="o">=</span> <span class="s2">&quot;123,João,joao@exemplo.com, 1500.50&quot;</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="n">partes</span> <span class="o">=</span> <span class="n">linha</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="c1"># Extrai e converte campos</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="n">id_cliente</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">partes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="n">nome</span> <span class="o">=</span> <span class="n">partes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="n">email</span> <span class="o">=</span> <span class="n">partes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="n">saldo</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">partes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="c1"># Exibe relatório formatado</span>
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ID: </span><span class="si">{</span><span class="n">id_cliente</span><span class="si">:</span><span class="s2">04d</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nome: </span><span class="si">{</span><span class="n">nome</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;E-mail: </span><span class="si">{</span><span class="n">email</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saldo: R$ </span><span class="si">{</span><span class="n">saldo</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># vírgulas de milhar</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>ID: 0123
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>Nome: João
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>E-mail: joao@exemplo.com
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>Saldo: R$ 1,500.50
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><code>split(",")</code> quebra a linha em campos. Cada campo é limpo com <code>strip()</code> e convertido ao tipo adequado. Na formatação, <code>04d</code> preenche com zeros à esquerda, e <code>:,.2f</code> insere separadores de milhar e duas casas decimais, tudo com f-string.</p>
+</div>
+</div>
+</div>
+</details>
+<details class="example">
+<summary>Exemplo 3: Validação de senha com métodos</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Código</label><label for="__tabbed_3_2">Resultado</label><label for="__tabbed_3_3">Explicação</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">validar_senha</span><span class="p">(</span><span class="n">senha</span><span class="p">):</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Valida se a senha atende critérios mínimos.&quot;&quot;&quot;</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>    <span class="n">problemas</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">senha</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">:</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>        <span class="n">problemas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Mínimo 8 caracteres&quot;</span><span class="p">)</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">isupper</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">senha</span><span class="p">):</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>        <span class="n">problemas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Ao menos uma maiúscula&quot;</span><span class="p">)</span>
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">senha</span><span class="p">):</span>
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>        <span class="n">problemas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Ao menos um dígito&quot;</span><span class="p">)</span>
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>    <span class="k">if</span> <span class="n">senha</span><span class="o">.</span><span class="n">isalnum</span><span class="p">():</span>
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>        <span class="n">problemas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Deve conter caractere especial&quot;</span><span class="p">)</span>
+<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>    <span class="k">return</span> <span class="n">problemas</span>
+<a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>
+<a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a><span class="c1"># Teste</span>
+<a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a><span class="n">senhas</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="s2">&quot;ABCDEFGH&quot;</span><span class="p">,</span> <span class="s2">&quot;abc12345&quot;</span><span class="p">,</span> <span class="s2">&quot;Abc@1234&quot;</span><span class="p">]</span>
+<a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">senhas</span><span class="p">:</span>
+<a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a>    <span class="n">erros</span> <span class="o">=</span> <span class="n">validar_senha</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Senha &#39;</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="s1">&#39;Válida&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">erros</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">erros</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Senha &#39;abc&#39;: [&#39;Mínimo 8 caracteres&#39;, &#39;Ao menos uma maiúscula&#39;, &#39;Ao menos um dígito&#39;, &#39;Deve conter caractere especial&#39;]
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>Senha &#39;ABCDEFGH&#39;: [&#39;Ao menos um dígito&#39;, &#39;Deve conter caractere especial&#39;]
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>Senha &#39;abc12345&#39;: [&#39;Ao menos uma maiúscula&#39;, &#39;Deve conter caractere especial&#39;]
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>Senha &#39;Abc@1234&#39;: Válida
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>A função <code>validar_senha</code> utiliza métodos <code>isupper()</code>, <code>isdigit()</code>, <code>isalnum()</code> e a função embutida <code>any()</code> para verificar a presença de tipos de caracteres. Os problemas são coletados em uma lista e exibidos. Note que <code>isalnum()</code> é falso se houver caractere especial, então exigimos que a senha não seja alfanumérica pura. A lógica é simples e não requer regex.</p>
+</div>
+</div>
+</div>
+</details>
+<h2 id="exercicios">Exercícios<a class="headerlink" href="#exercicios" title="Permanent link">&para;</a></h2>
+<h3 id="basico-fixacao">Básico (fixação)<a class="headerlink" href="#basico-fixacao" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Peça ao usuário seu nome completo e exiba:<ul>
+<li>O nome em maiúsculas.</li>
+<li>O nome em minúsculas.</li>
+<li>O número de caracteres (sem espaços).</li>
+<li>O primeiro nome (dica: use <code>split</code>).</li>
+</ul>
+</li>
+<li>Solicite uma frase e conte quantas vezes a letra "a" (minúscula ou maiúscula) aparece nela. Exiba o resultado.</li>
+<li>Dada a string <code>" Python é demais "</code>, remova os espaços extras, substitua "demais" por "incrível" e exiba a nova string toda em maiúsculas.</li>
+</ul>
+<h3 id="intermediario-aplicacao">Intermediário (aplicação)<a class="headerlink" href="#intermediario-aplicacao" title="Permanent link">&para;</a></h3>
+<p>Crie uma função <code>formatar_nome(nome)</code> que receba um nome completo e retorne no formato "SOBRENOME, Nome". Exemplo: "Maria da Silva Santos" → "SANTOS, Maria". Considere que o sobrenome é a última palavra. Trate entradas com espaços extras. Utilize métodos de string como <code>strip</code>, <code>split</code>, <code>upper</code>, etc.</p>
+<h3 id="avancado-desafio">Avançado (desafio)<a class="headerlink" href="#avancado-desafio" title="Permanent link">&para;</a></h3>
+<p>Desenvolva uma função <code>validar_cpf(cpf)</code> que verifique se o CPF (string) possui formato válido e dígitos verificadores corretos. O formato pode conter pontos e traço (ex.: "123.456.789-09"). A validação deve:
+1. Remover caracteres não numéricos.
+2. Verificar se possui 11 dígitos.
+3. Calcular os dois dígitos verificadores conforme algoritmo oficial.
+4. Retornar <code>True</code> se válido, <code>False</code> caso contrário.</p>
+<p>Use apenas métodos de string e operações aritméticas (sem regex). Documente a função com docstring.</p>
+<h2 id="projeto-pratico-processador-de-cadastros">Projeto Prático: Processador de Cadastros<a class="headerlink" href="#projeto-pratico-processador-de-cadastros" title="Permanent link">&para;</a></h2>
+<p>Você receberá um arquivo de texto <code>cadastros.txt</code> (simulado como string longa no código) com linhas no formato:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>nome;email;telefone;cidade
+</code></pre></div>
+Exemplo de conteúdo:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>João Silva;joao@email.com;(11) 91234-5678;São Paulo
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>Maria Oliveira;maria@email.com;(21)99876-5432;Rio de Janeiro
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>...
+</code></pre></div></p>
+<p><strong>Requisitos do programa:</strong>
+1. Leia todas as linhas (use <code>splitlines()</code>).
+2. Para cada linha:
+    - Separe os campos usando <code>;</code>.
+    - Limpe espaços extras (<code>strip</code>).
+    - Formate o nome para título (<code>title</code>).
+    - Normalize o e-mail para minúsculas.
+    - Extraia apenas os dígitos do telefone (remova parênteses, espaços, traços) e formate como <code>(XX) XXXXX-XXXX</code>.
+    - Capitalize a cidade.
+3. Armazene os registros processados em uma lista de dicionários.
+4. Exiba um relatório formatado, com colunas alinhadas (use f-strings com largura fixa).
+5. Identifique e exiba registros inválidos:
+    - E-mail sem <code>@</code>.
+    - Telefone sem 11 dígitos após limpeza.
+    - Campos vazios.</p>
+<p>Este projeto integra fatiamento, métodos de string, formatação, validação e organização de dados, oferecendo uma experiência completa de manipulação textual.</p>
+<h2 id="resumo">Resumo<a class="headerlink" href="#resumo" title="Permanent link">&para;</a></h2>
+<p>Neste capítulo, você aprendeu que:
+- Strings são sequências imutáveis que podem ser indexadas e fatiadas.
+- Métodos como <code>upper</code>, <code>lower</code>, <code>strip</code>, <code>replace</code>, <code>split</code> e <code>join</code> permitem transformar e limpar textos.
+- <strong>f-strings</strong> são a forma moderna e expressiva de formatar strings com variáveis, incluindo controle de alinhamento e casas decimais.
+- Métodos como <code>isalpha</code>, <code>isdigit</code>, <code>startswith</code> e <code>endswith</code> ajudam na validação de padrões simples.
+- A combinação dessas técnicas viabiliza o processamento robusto de dados textuais em aplicações desktop.</p>
+<p>Dominar strings é um passo fundamental para qualquer desenvolvedor. Você agora está equipado para lidar com entradas do usuário, gerar relatórios elegantes e validar informações com confiança.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar ao topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
