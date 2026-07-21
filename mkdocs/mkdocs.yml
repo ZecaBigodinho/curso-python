@@ -4,29 +4,37 @@ site_author: Professor
 theme:
   name: material
   language: pt
+  icon:
+    logo: material/school
   palette:
   - scheme: default
-    primary: indigo
-    accent: indigo
+    primary: deep purple
+    accent: teal
     toggle:
       icon: material/brightness-7
       name: Modo escuro
   - scheme: slate
-    primary: indigo
-    accent: indigo
+    primary: deep purple
+    accent: teal
     toggle:
       icon: material/brightness-4
       name: Modo claro
+  font:
+    text: Inter
+    code: JetBrains Mono
   features:
   - navigation.tabs
   - navigation.sections
-  - navigation.expand
+  - navigation.indexes
+  - navigation.path
   - navigation.top
   - toc.integrate
   - search.suggest
   - search.highlight
   - content.tabs.link
   - content.code.copy
+extra_css:
+- stylesheets/custom.css
 markdown_extensions:
 - admonition
 - pymdownx.details
@@ -37,6 +45,9 @@ markdown_extensions:
     anchor_linenums: true
 - pymdownx.inlinehilite
 - pymdownx.snippets
+- pymdownx.emoji:
+    emoji_index: !!python/name:material.extensions.emoji.twemoji
+    emoji_generator: !!python/name:material.extensions.emoji.to_svg
 - attr_list
 - md_in_html
 - toc:
@@ -45,30 +56,30 @@ nav:
 - Home: index.md
 - Python para Desktop:
   - Índice: python_para_desktop/docs/index.md
-  - Fundamentos:
+  - 🐍 Fundamentos:
     - Visão Geral: python_para_desktop/modulo_01_fundamentos/index.md
     - Variaveis: python_para_desktop/modulo_01_fundamentos/01_variaveis.md
     - Operadores: python_para_desktop/modulo_01_fundamentos/02_operadores.md
     - If Else: python_para_desktop/modulo_01_fundamentos/03_if_else.md
     - Repeticoes: python_para_desktop/modulo_01_fundamentos/04_repeticoes.md
     - Funcoes: python_para_desktop/modulo_01_fundamentos/05_funcoes.md
-    - Módulos: python_para_desktop/modulo_01_fundamentos/06_modulos.md
-    - Coleções: python_para_desktop/modulo_01_fundamentos/07_colecoes.md
+    - Modulos: python_para_desktop/modulo_01_fundamentos/06_modulos.md
+    - Colecoes: python_para_desktop/modulo_01_fundamentos/07_colecoes.md
     - Strings: python_para_desktop/modulo_01_fundamentos/08_strings.md
-    - Arquivos e Pastas: python_para_desktop/modulo_01_fundamentos/09_arquivos.md
-    - Exceções: python_para_desktop/modulo_01_fundamentos/10_excecoes.md
+    - Arquivos: python_para_desktop/modulo_01_fundamentos/09_arquivos.md
+    - Excecoes: python_para_desktop/modulo_01_fundamentos/10_excecoes.md
     - Projeto Final: python_para_desktop/modulo_01_fundamentos/11_projeto_final.md
-  - Interfaces Gráficas:
+  - 🖥️ Interfaces Graficas:
     - Visão Geral: python_para_desktop/modulo_02_interfaces_graficas/index.md
-    - Introdução ao Tkinter: python_para_desktop/modulo_02_interfaces_graficas/01_tkinter_basico.md
-    - Gerenciamento de Layout: python_para_desktop/modulo_02_interfaces_graficas/02_layout_managers.md
-    - Eventos e Interatividade: python_para_desktop/modulo_02_interfaces_graficas/03_eventos_interatividade.md
-    - CustomTkinter: python_para_desktop/modulo_02_interfaces_graficas/04_customtkinter.md
-    - Projeto Prático: python_para_desktop/modulo_02_interfaces_graficas/05_projeto_pratico.md
-  - Banco de Dados e Configurações:
+    - Tkinter Basico: python_para_desktop/modulo_02_interfaces_graficas/01_tkinter_basico.md
+    - Layout Managers: python_para_desktop/modulo_02_interfaces_graficas/02_layout_managers.md
+    - Eventos Interatividade: python_para_desktop/modulo_02_interfaces_graficas/03_eventos_interatividade.md
+    - Customtkinter: python_para_desktop/modulo_02_interfaces_graficas/04_customtkinter.md
+    - Projeto Pratico: python_para_desktop/modulo_02_interfaces_graficas/05_projeto_pratico.md
+  - 🗄️ Banco De Dados:
     - Visão Geral: python_para_desktop/modulo_03_banco_de_dados/index.md
-    - Introdução ao SQLite: python_para_desktop/modulo_03_banco_de_dados/01_introducao_sqlite.md
-    - Integração com Interface: python_para_desktop/modulo_03_banco_de_dados/02_integracao_interface.md
-    - Variáveis de Ambiente (.env): python_para_desktop/modulo_03_banco_de_dados/03_variaveis_ambiente.md
-    - Projeto Final e Arquitetura: python_para_desktop/modulo_03_banco_de_dados/04_projeto_final.md
+    - Introducao Sqlite: python_para_desktop/modulo_03_banco_de_dados/01_introducao_sqlite.md
+    - Integracao Interface: python_para_desktop/modulo_03_banco_de_dados/02_integracao_interface.md
+    - Variaveis Ambiente: python_para_desktop/modulo_03_banco_de_dados/03_variaveis_ambiente.md
+    - Projeto Final: python_para_desktop/modulo_03_banco_de_dados/04_projeto_final.md
 docs_dir: ../cursos

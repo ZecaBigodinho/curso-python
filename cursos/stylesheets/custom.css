@@ -1,0 +1,290 @@
+/* ============================================================
+   CourseForge — Custom Sidebar Styles
+   Melhoria visual da navegação lateral para facilitar 
+   a distinção entre módulos/seções do curso.
+   ============================================================ */
+
+/* ------------------------------------------------------------ */
+/* Variáveis de Design                                           */
+/* ------------------------------------------------------------ */
+:root {
+  --cf-sidebar-section-gap: 0.5rem;
+  --cf-section-border-radius: 8px;
+  --cf-transition-speed: 0.2s;
+  --cf-accent-fundamentos: #7c4dff;
+  --cf-accent-interfaces: #00bfa5;
+  --cf-accent-banco: #ff6d00;
+  --cf-accent-default: #6200ea;
+  --cf-nav-bg-hover: rgba(98, 0, 234, 0.06);
+  --cf-nav-bg-active: rgba(98, 0, 234, 0.1);
+  --cf-section-header-color: #424242;
+  --cf-section-bg: rgba(0, 0, 0, 0.02);
+}
+
+/* Dark mode overrides */
+[data-md-color-scheme="slate"] {
+  --cf-nav-bg-hover: rgba(179, 136, 255, 0.08);
+  --cf-nav-bg-active: rgba(179, 136, 255, 0.14);
+  --cf-section-header-color: #e0e0e0;
+  --cf-section-bg: rgba(255, 255, 255, 0.03);
+}
+
+/* ------------------------------------------------------------ */
+/* Sidebar Global                                                */
+/* ------------------------------------------------------------ */
+
+/* Scrollbar mais limpa no sidebar */
+.md-sidebar__scrollwrap::-webkit-scrollbar {
+  width: 4px;
+}
+
+.md-sidebar__scrollwrap::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.md-sidebar__scrollwrap::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+[data-md-color-scheme="slate"] .md-sidebar__scrollwrap::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* ------------------------------------------------------------ */
+/* Seções de Navegação (Módulos)                                 */
+/* ------------------------------------------------------------ */
+
+/* Container de cada seção/módulo — adiciona separação visual */
+.md-nav__item--nested {
+  margin-top: var(--cf-sidebar-section-gap);
+  margin-bottom: var(--cf-sidebar-section-gap);
+  border-radius: var(--cf-section-border-radius);
+  overflow: hidden;
+}
+
+/* Separador visual entre módulos no nível 2+ */
+.md-nav--primary > .md-nav__list > .md-nav__item--nested + .md-nav__item--nested {
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+  padding-top: 0.4rem;
+}
+
+[data-md-color-scheme="slate"] .md-nav--primary > .md-nav__list > .md-nav__item--nested + .md-nav__item--nested {
+  border-top-color: rgba(255, 255, 255, 0.07);
+}
+
+/* ------------------------------------------------------------ */
+/* Headers de Seção (títulos de módulo no sidebar)               */
+/* ------------------------------------------------------------ */
+
+/* Estiliza o label dos grupos/seções */
+.md-nav__item--section > .md-nav__link {
+  font-weight: 700 !important;
+  font-size: 0.68rem !important;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--cf-section-header-color) !important;
+  padding: 0.6rem 0.6rem 0.3rem !important;
+  opacity: 1 !important;
+}
+
+/* Borda lateral colorida nos headers de seção ativos */
+.md-nav__item--section > .md-nav__link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.3rem;
+  bottom: 0.3rem;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--cf-accent-default);
+  opacity: 0;
+  transition: opacity var(--cf-transition-speed) ease;
+}
+
+.md-nav__item--section > .md-nav__link {
+  position: relative;
+}
+
+.md-nav__item--section.md-nav__item--active > .md-nav__link::before {
+  opacity: 1;
+}
+
+/* ------------------------------------------------------------ */
+/* Links individuais (capítulos)                                 */
+/* ------------------------------------------------------------ */
+
+/* Hover suave nos itens do nav */
+.md-nav__item > .md-nav__link {
+  border-radius: 6px;
+  margin: 1px 4px;
+  padding: 0.35rem 0.6rem !important;
+  transition: all var(--cf-transition-speed) ease;
+}
+
+.md-nav__item > .md-nav__link:hover {
+  background: var(--cf-nav-bg-hover);
+  transform: translateX(2px);
+}
+
+/* Item ativo — destaque visual claro (pill) */
+.md-nav__item .md-nav__link--active {
+  background: var(--cf-nav-bg-active) !important;
+  font-weight: 600 !important;
+  border-radius: 6px;
+  position: relative;
+}
+
+.md-nav__item .md-nav__link--active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 25%;
+  height: 50%;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--md-primary-fg-color);
+}
+
+/* ------------------------------------------------------------ */
+/* Seções colapsáveis — melhor feedback visual                   */
+/* ------------------------------------------------------------ */
+
+/* Ícone de toggle mais suave */
+.md-nav__item--nested .md-nav__toggle ~ .md-nav__link::after {
+  transition: transform var(--cf-transition-speed) ease;
+}
+
+/* Quando expandido, sutilmente destaca o fundo */
+.md-nav__item--nested .md-nav__toggle:checked ~ .md-nav {
+  background: var(--cf-section-bg);
+  border-radius: 0 0 var(--cf-section-border-radius) var(--cf-section-border-radius);
+  padding-bottom: 0.3rem;
+}
+
+/* ------------------------------------------------------------ */
+/* Cores por módulo (via data attribute ou nth-child)            */
+/* Aplica bordas laterais coloridas por posição                  */
+/* ------------------------------------------------------------ */
+
+/* O tab de navegação do curso contém os módulos como filhos diretos */
+/* Primeiro módulo (Fundamentos) — roxo */
+.md-nav--primary > .md-nav__list > .md-nav__item--nested:nth-child(1) .md-nav__item--section > .md-nav__link::before,
+.md-nav--primary > .md-nav__list > .md-nav__item--nested:nth-child(1) .md-nav__item--section.md-nav__item--active > .md-nav__link::before {
+  background: var(--cf-accent-fundamentos);
+}
+
+/* Segundo módulo (Interfaces Gráficas) — teal */
+.md-nav--primary > .md-nav__list > .md-nav__item--nested:nth-child(2) .md-nav__item--section > .md-nav__link::before,
+.md-nav--primary > .md-nav__list > .md-nav__item--nested:nth-child(2) .md-nav__item--section.md-nav__item--active > .md-nav__link::before {
+  background: var(--cf-accent-interfaces);
+}
+
+/* Terceiro módulo (Banco de Dados) — laranja */
+.md-nav--primary > .md-nav__list > .md-nav__item--nested:nth-child(3) .md-nav__item--section > .md-nav__link::before,
+.md-nav--primary > .md-nav__list > .md-nav__item--nested:nth-child(3) .md-nav__item--section.md-nav__item--active > .md-nav__link::before {
+  background: var(--cf-accent-banco);
+}
+
+/* ------------------------------------------------------------ */
+/* Numeração visual dos capítulos via CSS counters               */
+/* ------------------------------------------------------------ */
+
+/* Contador nos itens dentro de cada seção de módulo */
+.md-nav__item--section > .md-nav > .md-nav__list {
+  counter-reset: chapter;
+}
+
+.md-nav__item--section > .md-nav > .md-nav__list > .md-nav__item:not(:first-child) > .md-nav__link::before {
+  counter-increment: chapter;
+  content: counter(chapter, decimal-leading-zero);
+  font-size: 0.65rem;
+  font-weight: 700;
+  opacity: 0.4;
+  margin-right: 0.55rem;
+  font-variant-numeric: tabular-nums;
+  display: inline-block;
+  min-width: 1.2em;
+  text-align: right;
+}
+
+/* ------------------------------------------------------------ */
+/* Breadcrumbs (navigation.path)                                 */
+/* ------------------------------------------------------------ */
+
+.md-path {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  margin-bottom: 0.5rem;
+}
+
+/* ------------------------------------------------------------ */
+/* Tabs de navegação (cursos no topo)                            */
+/* ------------------------------------------------------------ */
+
+.md-tabs__link {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: all var(--cf-transition-speed) ease;
+}
+
+.md-tabs__link:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.md-tabs__link--active {
+  border-bottom: 2px solid var(--md-accent-fg-color);
+}
+
+/* ------------------------------------------------------------ */
+/* Responsividade — mobile sidebar                               */
+/* ------------------------------------------------------------ */
+
+@media screen and (max-width: 76.25em) {
+  /* No mobile, a sidebar vira drawer — manter estilos essenciais */
+  .md-nav__item--section > .md-nav__link {
+    font-size: 0.72rem !important;
+    padding: 0.8rem 1rem 0.4rem !important;
+  }
+
+  .md-nav__item > .md-nav__link {
+    padding: 0.5rem 1rem !important;
+  }
+}
+
+/* ------------------------------------------------------------ */
+/* Melhorias gerais de tipografia do conteúdo                    */
+/* ------------------------------------------------------------ */
+
+/* Headings do conteúdo mais impactantes */
+.md-content h1 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  border-bottom: 2px solid var(--md-primary-fg-color);
+  padding-bottom: 0.4rem;
+}
+
+.md-content h2 {
+  font-weight: 700;
+  margin-top: 2rem;
+  color: var(--md-primary-fg-color);
+}
+
+/* Code blocks com borda sutil */
+.md-content .highlight {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+[data-md-color-scheme="slate"] .md-content .highlight {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Admonitions mais polidos */
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}

@@ -23,29 +23,37 @@ mkdocs:
   theme:
     name: material
     language: pt
+    icon:
+      logo: material/school
     palette:
       - scheme: default
-        primary: indigo
-        accent: indigo
+        primary: deep purple
+        accent: teal
         toggle:
           icon: material/brightness-7
           name: Modo escuro
       - scheme: slate
-        primary: indigo
-        accent: indigo
+        primary: deep purple
+        accent: teal
         toggle:
           icon: material/brightness-4
           name: Modo claro
+    font:
+      text: Inter
+      code: JetBrains Mono
     features:
       - navigation.tabs
       - navigation.sections
-      - navigation.expand
+      - navigation.indexes
+      - navigation.path
       - navigation.top
       - toc.integrate
       - search.suggest
       - search.highlight
       - content.tabs.link
       - content.code.copy
+  extra_css:
+    - stylesheets/custom.css
   markdown_extensions:
     - admonition
     - pymdownx.details

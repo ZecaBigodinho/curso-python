@@ -36,6 +36,27 @@ class MkDocsUpdater:
     - Gerar mkdocs.yml completo via FileManager
     """
 
+    # Mapeamento de palavras-chave → ícone para módulos do sidebar.
+    # Quando o nome do módulo contém uma dessas palavras, o ícone é prefixado.
+    ICONES_MODULO: dict[str, str] = {
+        "fundament": "🐍",
+        "interface": "🖥️",
+        "grafica": "🖥️",
+        "banco": "🗄️",
+        "dados": "🗄️",
+        "web": "🌐",
+        "api": "🔌",
+        "teste": "🧪",
+        "deploy": "🚀",
+        "seguranca": "🔒",
+        "avancad": "⚡",
+        "projeto": "🏗️",
+        "automacao": "🤖",
+        "machine": "🧠",
+        "ia": "🧠",
+        "rede": "🌐",
+    }
+
     def __init__(self, fm: FileManager, config_global: dict) -> None:
         """
         Args:
@@ -93,7 +114,7 @@ class MkDocsUpdater:
           - Home: index.md
           - Python para Iniciantes:
             - Índice: cursos/python_para_iniciantes/docs/index.md
-            - Introdução ao Python:
+            - 🐍 Introdução ao Python:
               - Visão Geral: .../index.md
               - Variáveis e Tipos: .../01_variaveis.md
         """
@@ -140,6 +161,11 @@ class MkDocsUpdater:
         nome_sem_numero = "_".join(modulo_dir.name.split("_")[2:])
         modulo_nome = nome_sem_numero.replace("_", " ").title() if nome_sem_numero else modulo_dir.name
 
+        # Prefixar com ícone baseado em palavras-chave
+        icone = self._resolver_icone_modulo(modulo_nome)
+        if icone:
+            modulo_nome = f"{icone} {modulo_nome}"
+
         modulo_entries: list = []
 
         # Índice do módulo
@@ -177,13 +203,57 @@ class MkDocsUpdater:
     # ------------------------------------------------------------------ #
 
     def _salvar(self, cfg: dict) -> Path:
-        """Salva o mkdocs.yml usando FileManager (não yaml.dump direto)."""
+        """
+        Salva o mkdocs.yml usando FileManager.
+
+        Após a escrita YAML padrão, injeta a extensão pymdownx.emoji
+        com tags !!python/name: que o yaml.dump não consegue serializar.
+        """
         output_dir = self.fm.path(DIR_MKDOCS)
         self.fm.criar_diretorio(output_dir)
         output_path = output_dir / MKDOCS_FILENAME
         # Usa escrever_yaml do FileManager — única via de escrita YAML no projeto
         self.fm.escrever_yaml(output_path, cfg, sobrescrever=True)
+
+        # Injetar pymdownx.emoji com tags !!python/name (incompatíveis com yaml.dump)
+        self._injetar_emoji_extension(output_path)
+
         return output_path
+
+    @staticmethod
+    def _injetar_emoji_extension(path: Path) -> None:
+        """
+        Adiciona a extensão pymdownx.emoji ao mkdocs.yml após a serialização YAML.
+
+        Os tags !!python/name: são necessários para o MkDocs Material mas não são
+        suportados por yaml.safe_load/dump, então são injetados como texto raw.
+        """
+        emoji_block = (
+            "- pymdownx.emoji:\n"
+            "    emoji_index: !!python/name:material.extensions.emoji.twemoji\n"
+            "    emoji_generator: !!python/name:material.extensions.emoji.to_svg\n"
+        )
+
+        content = path.read_text(encoding="utf-8")
+
+        # Inserir antes da linha "- attr_list" nas markdown_extensions
+        marker = "- attr_list"
+        if marker in content and "pymdownx.emoji" not in content:
+            # Detectar a indentação do marker
+            for line in content.splitlines():
+                if marker in line:
+                    indent = line[: len(line) - len(line.lstrip())]
+                    emoji_indented = "".join(
+                        f"{indent}{ln}\n" if ln.strip() else "\n"
+                        for ln in emoji_block.splitlines()
+                    )
+                    content = content.replace(
+                        f"{indent}{marker}",
+                        f"{emoji_indented}{indent}{marker}",
+                    )
+                    break
+
+            path.write_text(content, encoding="utf-8")
 
     # ------------------------------------------------------------------ #
     # Helpers                                                              #
@@ -201,3 +271,23 @@ class MkDocsUpdater:
         if partes and partes[0].isdigit():
             partes = partes[1:]
         return " ".join(p.capitalize() for p in partes) if partes else stem
+
+    @classmethod
+    def _resolver_icone_modulo(cls, nome_modulo: str) -> str | None:
+        """
+        Resolve o ícone (emoji) para um módulo com base em palavras-chave.
+
+        Busca match parcial (case-insensitive) no dicionário ICONES_MODULO.
+        Retorna o primeiro ícone encontrado, ou None se nenhuma palavra-chave bater.
+
+        Args:
+            nome_modulo: Nome legível do módulo (ex: "Fundamentos").
+
+        Returns:
+            Emoji string ou None.
+        """
+        nome_lower = nome_modulo.lower()
+        for palavra, icone in cls.ICONES_MODULO.items():
+            if palavra in nome_lower:
+                return icone
+        return None
