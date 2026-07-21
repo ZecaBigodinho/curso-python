@@ -1,7 +1,7 @@
 # Módulo 01 — Fundamentos
 
 > **Curso:** python_para_desktop  
-> **Módulo:** 1 de ?  
+> **Módulo:** 1 de 3  
 > **Descrição:** Fundamentos essenciais da linguagem Python, cobrindo desde a sintaxe básica até o tratamento de exceções, preparando o aluno para o desenvolvimento de aplicações.
 
 ---

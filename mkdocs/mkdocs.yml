@@ -43,17 +43,6 @@ markdown_extensions:
     permalink: true
 nav:
 - Home: index.md
-- Curso de Python:
-  - Índice: curso_de_python/docs/index.md
-  - Armazenamento:
-    - Visão Geral: curso_de_python/modulo_01_armazenamento/index.md
-    - Capitulo: curso_de_python/modulo_01_armazenamento/01_capitulo.md
-    - Persistncia De Dados Com Json: curso_de_python/modulo_01_armazenamento/02_persistncia_de_dados_com_json.md
-- Python:
-  - Índice: python/docs/index.md
-  - Introducao:
-    - Visão Geral: python/modulo_01_introducao/index.md
-    - Variaveis: python/modulo_01_introducao/01_variaveis.md
 - Python para Desktop:
   - Índice: python_para_desktop/docs/index.md
   - Fundamentos:
@@ -71,6 +60,15 @@ nav:
     - Projeto Final: python_para_desktop/modulo_01_fundamentos/11_projeto_final.md
   - Interfaces Gráficas:
     - Visão Geral: python_para_desktop/modulo_02_interfaces_graficas/index.md
+    - Introdução ao Tkinter: python_para_desktop/modulo_02_interfaces_graficas/01_tkinter_basico.md
+    - Gerenciamento de Layout: python_para_desktop/modulo_02_interfaces_graficas/02_layout_managers.md
+    - Eventos e Interatividade: python_para_desktop/modulo_02_interfaces_graficas/03_eventos_interatividade.md
+    - CustomTkinter: python_para_desktop/modulo_02_interfaces_graficas/04_customtkinter.md
+    - Projeto Prático: python_para_desktop/modulo_02_interfaces_graficas/05_projeto_pratico.md
   - Banco de Dados e Configurações:
     - Visão Geral: python_para_desktop/modulo_03_banco_de_dados/index.md
+    - Introdução ao SQLite: python_para_desktop/modulo_03_banco_de_dados/01_introducao_sqlite.md
+    - Integração com Interface: python_para_desktop/modulo_03_banco_de_dados/02_integracao_interface.md
+    - Variáveis de Ambiente (.env): python_para_desktop/modulo_03_banco_de_dados/03_variaveis_ambiente.md
+    - Projeto Final e Arquitetura: python_para_desktop/modulo_03_banco_de_dados/04_projeto_final.md
 docs_dir: ../cursos
