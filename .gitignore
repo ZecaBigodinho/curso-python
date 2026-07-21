@@ -29,6 +29,14 @@ ENV/
 # ------------------------------------------------------------------ #
 convertidos/
 prompts_gerados/
+mkdocs/site/
+
+# Documentos internos de planejamento/handoff (não publicar)
+AI_COURSEFORGE_PLAYBOOK.md
+walkthrough*
+implementation_plan*
+relatorio_sprint*.md
+atualiza*
 
 # ------------------------------------------------------------------ #
 # Logs                                                                #
