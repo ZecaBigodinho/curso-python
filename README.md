@@ -49,23 +49,6 @@ O curso está dividido em **3 módulos progressivos**:
 
 ---
 
-## 🏆 Certificado
-
-O **Projeto Final** (Módulo 03) é **obrigatório** para emissão do certificado.  
-Ele integra tudo que foi aprendido: Python + Interface Gráfica + Banco de Dados.
-
----
-
-## 📅 Prazo
-
-| Info | Detalhe |
-|------|---------|
-| **Início** | Julho 2026 |
-| **Prazo Final** | **20 de Agosto de 2026** |
-| **Entregável** | Projeto Final (Módulo 03) |
-
----
-
 ## 🛠️ Tecnologias Utilizadas
 
 | Tecnologia | Uso |
