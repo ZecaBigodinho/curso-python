@@ -82,4 +82,22 @@ nav:
     - Integracao Interface: python_para_desktop/modulo_03_banco_de_dados/02_integracao_interface.md
     - Variaveis Ambiente: python_para_desktop/modulo_03_banco_de_dados/03_variaveis_ambiente.md
     - Projeto Final: python_para_desktop/modulo_03_banco_de_dados/04_projeto_final.md
+  - 🏗️ Projeto Finalizador:
+    - Visão Geral: python_para_desktop/modulo_04_projeto_finalizador/index.md
+    - Introducao Ao Projeto: python_para_desktop/modulo_04_projeto_finalizador/01_introducao_ao_projeto.md
+    - Arquitetura Do Sistema: python_para_desktop/modulo_04_projeto_finalizador/02_arquitetura_do_sistema.md
+    - Tela De Login: python_para_desktop/modulo_04_projeto_finalizador/03_tela_de_login.md
+    - Menu Principal: python_para_desktop/modulo_04_projeto_finalizador/04_menu_principal.md
+    - Multiplas Janelas: python_para_desktop/modulo_04_projeto_finalizador/05_multiplas_janelas.md
+    - Cadastro De Alunos: python_para_desktop/modulo_04_projeto_finalizador/06_cadastro_de_alunos.md
+    - Sqlite: python_para_desktop/modulo_04_projeto_finalizador/07_sqlite.md
+    - Sqlite Local: python_para_desktop/modulo_04_projeto_finalizador/07_sqlite_local.md
+    - Crud: python_para_desktop/modulo_04_projeto_finalizador/08_crud.md
+    - Crud Completo: python_para_desktop/modulo_04_projeto_finalizador/08_crud_completo.md
+    - Banco Em Nuvem: python_para_desktop/modulo_04_projeto_finalizador/09_banco_em_nuvem.md
+    - Integracao: python_para_desktop/modulo_04_projeto_finalizador/10_integracao.md
+    - Integracao E Testes: python_para_desktop/modulo_04_projeto_finalizador/10_integracao_e_testes.md
+    - Refatoracao: python_para_desktop/modulo_04_projeto_finalizador/11_refatoracao.md
+    - Refatoracao E Entrega: python_para_desktop/modulo_04_projeto_finalizador/11_refatoracao_e_entrega.md
+    - Projeto Final: python_para_desktop/modulo_04_projeto_finalizador/12_projeto_final.md
 docs_dir: ../cursos

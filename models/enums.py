@@ -64,6 +64,7 @@ class TipoPrompt(str, Enum):
     CAPITULO = "capitulo"
     EXERCICIOS = "exercicios"
     PROJETO = "projeto"
+    PROJETO_FINALIZADOR = "projeto_finalizador"
 
     def template_filename(self) -> str:
         """Retorna o nome do arquivo de template correspondente."""
@@ -75,5 +76,6 @@ class TipoPrompt(str, Enum):
             TipoPrompt.CAPITULO: "Capítulo Completo",
             TipoPrompt.EXERCICIOS: "Lista de Exercícios",
             TipoPrompt.PROJETO: "Projeto Prático",
+            TipoPrompt.PROJETO_FINALIZADOR: "Capítulo do Projeto Finalizador",
         }
         return descricoes[self]
