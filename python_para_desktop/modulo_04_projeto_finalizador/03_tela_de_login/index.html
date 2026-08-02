@@ -1,0 +1,2674 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Plataforma de Cursos">
+      
+      
+        <meta name="author" content="Professor">
+      
+      
+      
+        <link rel="prev" href="../02_arquitetura_do_sistema/">
+      
+      
+        <link rel="next" href="../04_menu_principal/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Tela De Login - CourseForge Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#03-tela-de-login" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../.." title="CourseForge Docs" class="md-header__button md-logo" aria-label="CourseForge Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CourseForge Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tela De Login
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="teal"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="teal"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../docs/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Python para Desktop
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="CourseForge Docs" class="md-nav__button md-logo" aria-label="CourseForge Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    CourseForge Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../docs/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python para Desktop
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python para Desktop
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modulo_01_fundamentos/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🐍 Fundamentos
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🐍 Fundamentos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/01_variaveis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variaveis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/02_operadores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/03_if_else/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    If Else
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/04_repeticoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Repeticoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/05_funcoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Funcoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/06_modulos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/07_colecoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Colecoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/08_strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/09_arquivos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquivos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/10_excecoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Excecoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/11_projeto_final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto Final
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modulo_02_interfaces_graficas/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🖥️ Interfaces Graficas
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🖥️ Interfaces Graficas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/01_tkinter_basico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tkinter Basico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/02_layout_managers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Layout Managers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/03_eventos_interatividade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eventos Interatividade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/04_customtkinter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customtkinter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/05_projeto_pratico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto Pratico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modulo_03_banco_de_dados/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗄️ Banco De Dados
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🗄️ Banco De Dados
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_03_banco_de_dados/01_introducao_sqlite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducao Sqlite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_03_banco_de_dados/02_integracao_interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integracao Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_03_banco_de_dados/03_variaveis_ambiente/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variaveis Ambiente
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_03_banco_de_dados/04_projeto_final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto Final
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏗️ Projeto Finalizador
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🏗️ Projeto Finalizador
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_introducao_ao_projeto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducao Ao Projeto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_arquitetura_do_sistema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitetura Do Sistema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tela De Login
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tela De Login
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Objetivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contextualizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📍 Contextualização
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultado-esperado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Resultado Esperado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementacao-guiada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Implementação Guiada
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Implementação Guiada">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passo-1-criando-a-logica-de-autenticacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 1 — Criando a lógica de autenticação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-2-criando-a-tela-de-login-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 2 — Criando a tela de login (View)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-3-atualizando-o-mainpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 3 — Atualizando o main.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-4-executando-e-testando" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 4 — Executando e testando
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercicio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📝 Exercício
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#missao-da-equipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏆 Missão da Equipe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desafio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚡ Desafio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erros-comuns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Erros Comuns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boas-praticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 Boas Práticas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ☑️ Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proximo-capitulo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ➡️ Próximo Capítulo
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_menu_principal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Menu Principal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_multiplas_janelas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multiplas Janelas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_cadastro_de_alunos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cadastro De Alunos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_sqlite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sqlite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_sqlite_local/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sqlite Local
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_crud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_crud_completo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crud Completo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_banco_em_nuvem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Banco Em Nuvem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_integracao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integracao
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_integracao_e_testes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integracao E Testes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_refatoracao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Refatoracao
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_refatoracao_e_entrega/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Refatoracao E Entrega
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_projeto_final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto Final
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navegação" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../docs/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Python para Desktop
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    🏗️ Projeto Finalizador
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="03-tela-de-login">03 — Tela de Login<a class="headerlink" href="#03-tela-de-login" title="Permanent link">&para;</a></h1>
+<h2 id="objetivo">🎯 Objetivo<a class="headerlink" href="#objetivo" title="Permanent link">&para;</a></h2>
+<p>Neste capítulo você vai construir a Tela de Login do Sistema Escolar, a primeira interface funcional que o usuário encontrará ao abrir o sistema.</p>
+<p>Ao final, você terá:</p>
+<ul>
+<li>Um formulário centralizado com campos de usuário e senha</li>
+<li>Um campo de senha que oculta os caracteres digitados com asteriscos</li>
+<li>Um botão Entrar que valida as credenciais do usuário</li>
+<li>Feedback visual de erro usando messagebox quando as credenciais forem inválidas</li>
+<li>O código organizado em dois novos módulos: <code>views/login.py</code> e <code>controllers/auth.py</code></li>
+</ul>
+<h2 id="contextualizacao">📍 Contextualização<a class="headerlink" href="#contextualizacao" title="Permanent link">&para;</a></h2>
+<p>No Capítulo 02, você criou a arquitetura do projeto: as pastas <code>views/</code>, <code>controllers/</code>, <code>database/</code> e <code>utils/</code> com seus respectivos <code>__init__.py</code>, além do <code>main.py</code> que abre uma janela vazia de 800x600 centralizada. Foi a fundação do sistema.</p>
+<p>Agora, essa janela vazia ganhará vida. Você construirá a primeira tela real — o Login — e a conectará a uma lógica de autenticação separada da interface. É o primeiro exemplo concreto de como as camadas View e Controller se comunicam.</p>
+<p><strong>Progresso do Sistema:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>✅ Capítulo 01 — Introdução e Planejamento
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>✅ Capítulo 02 — Arquitetura do Sistema
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>🔨 Tela de Login ← VOCÊ ESTÁ AQUI
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>⬜ Menu Principal
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>⬜ Múltiplas Janelas
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>⬜ Cadastro de Alunos
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>⬜ SQLite Local
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>⬜ CRUD Completo
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>⬜ Banco em Nuvem
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>⬜ Integração e Testes
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>⬜ Refatoração e Entrega
+</code></pre></div>
+<h2 id="resultado-esperado">✅ Resultado Esperado<a class="headerlink" href="#resultado-esperado" title="Permanent link">&para;</a></h2>
+<p>Ao executar <code>python main.py</code>, o sistema abrirá uma janela com o formulário de login centralizado. Visualmente, será assim:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>┌──────────────────────────────────────────────┐
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│  Sistema Escolar                         _ □ X│
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│                                              │
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│                                              │
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│           ┌─────────────────────┐            │
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│           │    🔐 Acesso        │            │
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│           │                     │            │
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│           │  Usuário:           │            │
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│           │  ┌───────────────┐  │            │
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│           │  │               │  │            │
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│           │  └───────────────┘  │            │
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>│           │                     │            │
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>│           │  Senha:             │            │
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>│           │  ┌───────────────┐  │            │
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>│           │  │ ****          │  │            │
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>│           │  └───────────────┘  │            │
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>│           │                     │            │
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>│           │  ┌───────────────┐  │            │
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>│           │  │    Entrar     │  │            │
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>│           │  └───────────────┘  │            │
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>│           └─────────────────────┘            │
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>│                                              │
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>│                                              │
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>└──────────────────────────────────────────────┘
+</code></pre></div>
+<p>Comportamento esperado:</p>
+<ul>
+<li>O campo Usuário aceita texto livre</li>
+<li>O campo Senha exibe asteriscos no lugar dos caracteres</li>
+<li>Clicar em Entrar com usuário admin e senha admin exibe um messagebox de sucesso (por enquanto — a transição para o menu virá no próximo capítulo)</li>
+<li>Clicar em Entrar com qualquer outra combinação exibe um messagebox de erro: "Usuário ou senha inválidos."</li>
+</ul>
+<p>Arquivos criados ou modificados:</p>
+<table>
+<thead>
+<tr>
+<th>Arquivo</th>
+<th>Ação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>controllers/auth.py</code></td>
+<td>Novo — função de validação de login</td>
+</tr>
+<tr>
+<td><code>views/login.py</code></td>
+<td>Novo — tela de login com formulário</td>
+</tr>
+<tr>
+<td><code>main.py</code></td>
+<td>Modificado — agora importa e exibe a tela de login</td>
+</tr>
+</tbody>
+</table>
+<h2 id="implementacao-guiada">💻 Implementação Guiada<a class="headerlink" href="#implementacao-guiada" title="Permanent link">&para;</a></h2>
+<h3 id="passo-1-criando-a-logica-de-autenticacao">Passo 1 — Criando a lógica de autenticação<a class="headerlink" href="#passo-1-criando-a-logica-de-autenticacao" title="Permanent link">&para;</a></h3>
+<p>Antes de desenhar a tela, vamos criar a camada que decide se o login é válido ou não. Isso pertence ao Controller.</p>
+<p>Crie o arquivo <code>controllers/auth.py</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># ======================================================================</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># auth.py — Controlador de Autenticação</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># ======================================================================</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Eu sou responsável por validar as credenciais do usuário.</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># Por enquanto, as credenciais estão em um dicionário fixo.</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># No Capítulo 07, eu vou consultar o banco de dados SQLite.</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># ======================================================================</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="kn">from</span><span class="w"> </span><span class="nn">tkinter</span><span class="w"> </span><span class="kn">import</span> <span class="n">messagebox</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c1"># ---------- CREDENCIAIS (PROVISÓRIO) ----------</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1"># Eu guardo os usuários e senhas válidos do sistema.</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="c1"># No futuro, estes dados estarão na tabela &quot;usuarios&quot; do banco.</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="n">USUARIOS</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    <span class="s2">&quot;admin&quot;</span><span class="p">:</span> <span class="s2">&quot;admin&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    <span class="s2">&quot;professor&quot;</span><span class="p">:</span> <span class="s2">&quot;1234&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="p">}</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="k">def</span><span class="w"> </span><span class="nf">validar_login</span><span class="p">(</span><span class="n">usuario</span><span class="p">,</span> <span class="n">senha</span><span class="p">):</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="sd">    Eu valido as credenciais do usuário.</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="sd">    Verifico se o usuário existe no dicionário e se a senha</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="sd">    fornecida corresponde à senha cadastrada.</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="sd">    Parâmetros:</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="sd">        usuario: string com o nome de usuário digitado</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="sd">        senha: string com a senha digitada</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="sd">    Retorno:</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="sd">        True se o login for válido, False caso contrário</span>
+<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a>    <span class="c1"># Eu verifico se o usuário existe no dicionário.</span>
+<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>    <span class="k">if</span> <span class="n">usuario</span> <span class="ow">in</span> <span class="n">USUARIOS</span><span class="p">:</span>
+<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a>        <span class="c1"># Eu comparo a senha digitada com a senha cadastrada.</span>
+<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a>        <span class="k">if</span> <span class="n">USUARIOS</span><span class="p">[</span><span class="n">usuario</span><span class="p">]</span> <span class="o">==</span> <span class="n">senha</span><span class="p">:</span>
+<a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a>            <span class="c1"># Credenciais corretas!</span>
+<a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a>            <span class="k">return</span> <span class="kc">True</span>
+<a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a>
+<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a>    <span class="c1"># Se cheguei até aqui, algo está errado.</span>
+<a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a>    <span class="c1"># Eu exibo uma mensagem de erro para o usuário.</span>
+<a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a>    <span class="n">messagebox</span><span class="o">.</span><span class="n">showerror</span><span class="p">(</span>
+<a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a>        <span class="s2">&quot;Erro de Login&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a>        <span class="s2">&quot;Usuário ou senha inválidos. Tente novamente.&quot;</span>
+<a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a>    <span class="p">)</span>
+<a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a>    <span class="k">return</span> <span class="kc">False</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Conceito Importante</p>
+<p>Repare que a função <code>validar_login</code> não sabe nada sobre a interface. Ela não conhece Entry, Button ou Tkinter (exceto pelo messagebox). Isso é intencional: se amanhã você trocar Tkinter por outra biblioteca gráfica, a lógica de autenticação continua funcionando.</p>
+</div>
+<h3 id="passo-2-criando-a-tela-de-login-view">Passo 2 — Criando a tela de login (View)<a class="headerlink" href="#passo-2-criando-a-tela-de-login-view" title="Permanent link">&para;</a></h3>
+<p>Agora vamos construir a interface. A tela de login será um Frame que preenche a janela principal e exibe o formulário centralizado.</p>
+<p>Crie o arquivo <code>views/login.py</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># ======================================================================</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># login.py — Tela de Login (View)</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># ======================================================================</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Eu sou a tela de login do Sistema Escolar.</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1"># Minha responsabilidade é exibir o formulário e capturar</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1"># os dados digitados pelo usuário.</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1">#</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1"># Eu NÃO tomo decisões sobre autenticação — apenas repasso</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c1"># os dados para o controller (auth.py).</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="c1"># ======================================================================</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="kn">import</span><span class="w"> </span><span class="nn">tkinter</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tk</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="kn">from</span><span class="w"> </span><span class="nn">controllers.auth</span><span class="w"> </span><span class="kn">import</span> <span class="n">validar_login</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="k">def</span><span class="w"> </span><span class="nf">criar_tela_login</span><span class="p">(</span><span class="n">janela</span><span class="p">):</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="sd">    Eu construo a tela de login dentro da janela principal.</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="sd">    Crio um Frame que ocupa todo o espaço disponível e centralizo</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="sd">    os widgets do formulário (Labels, Entries, Button) dentro dele.</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="sd">    Parâmetros:</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="sd">        janela: a instância de tk.Tk() ou tk.Toplevel() que me contém</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>    <span class="c1"># ---------- FRAME PRINCIPAL ----------</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>    <span class="c1"># Eu sou o container que ocupa toda a janela.</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>    <span class="c1"># Uso &#39;expand=True&#39; e &#39;fill=tk.BOTH&#39; para preencher todo o espaço.</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>    <span class="n">frame_fundo</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Frame</span><span class="p">(</span><span class="n">janela</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;#f0f0f0&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>    <span class="n">frame_fundo</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">BOTH</span><span class="p">)</span>
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>    <span class="c1"># ---------- FRAME DO FORMULÁRIO ----------</span>
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>    <span class="c1"># Eu sou o quadro branco que envolve o formulário.</span>
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>    <span class="c1"># Dou destaque visual com borda e fundo claro.</span>
+<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>    <span class="n">frame_form</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Frame</span><span class="p">(</span>
+<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>        <span class="n">frame_fundo</span><span class="p">,</span>
+<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>        <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>        <span class="n">bd</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>        <span class="n">relief</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">RIDGE</span><span class="p">,</span>
+<a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>        <span class="n">padx</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+<a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>        <span class="n">pady</span><span class="o">=</span><span class="mi">30</span>
+<a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>    <span class="p">)</span>
+<a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>    <span class="c1"># Eu fico centralizado dentro do frame de fundo.</span>
+<a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>    <span class="n">frame_form</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">relx</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">rely</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">CENTER</span><span class="p">)</span>
+<a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>
+<a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>    <span class="c1"># ---------- TÍTULO ----------</span>
+<a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>    <span class="c1"># Eu sou o título do formulário, com fonte maior e em negrito.</span>
+<a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a>    <span class="n">lbl_titulo</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span>
+<a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a>        <span class="n">frame_form</span><span class="p">,</span>
+<a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a>        <span class="n">text</span><span class="o">=</span><span class="s2">&quot;🔐 Acesso ao Sistema&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a>        <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="s2">&quot;bold&quot;</span><span class="p">),</span>
+<a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a>        <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a>        <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;#333333&quot;</span>
+<a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a>    <span class="p">)</span>
+<a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a>    <span class="n">lbl_titulo</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a>
+<a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a>    <span class="c1"># ---------- CAMPO USUÁRIO ----------</span>
+<a id="__codelineno-3-58" name="__codelineno-3-58" href="#__codelineno-3-58"></a>    <span class="c1"># Eu sou o label que identifica o campo de usuário.</span>
+<a id="__codelineno-3-59" name="__codelineno-3-59" href="#__codelineno-3-59"></a>    <span class="n">lbl_usuario</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span>
+<a id="__codelineno-3-60" name="__codelineno-3-60" href="#__codelineno-3-60"></a>        <span class="n">frame_form</span><span class="p">,</span>
+<a id="__codelineno-3-61" name="__codelineno-3-61" href="#__codelineno-3-61"></a>        <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Usuário:&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-62" name="__codelineno-3-62" href="#__codelineno-3-62"></a>        <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span>
+<a id="__codelineno-3-63" name="__codelineno-3-63" href="#__codelineno-3-63"></a>        <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-64" name="__codelineno-3-64" href="#__codelineno-3-64"></a>        <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;#555555&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-65" name="__codelineno-3-65" href="#__codelineno-3-65"></a>        <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;w&quot;</span>
+<a id="__codelineno-3-66" name="__codelineno-3-66" href="#__codelineno-3-66"></a>    <span class="p">)</span>
+<a id="__codelineno-3-67" name="__codelineno-3-67" href="#__codelineno-3-67"></a>    <span class="n">lbl_usuario</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">X</span><span class="p">)</span>
+<a id="__codelineno-3-68" name="__codelineno-3-68" href="#__codelineno-3-68"></a>
+<a id="__codelineno-3-69" name="__codelineno-3-69" href="#__codelineno-3-69"></a>    <span class="c1"># Eu sou o campo onde o usuário digita o nome.</span>
+<a id="__codelineno-3-70" name="__codelineno-3-70" href="#__codelineno-3-70"></a>    <span class="c1"># Sou um Entry comum — aceito qualquer texto.</span>
+<a id="__codelineno-3-71" name="__codelineno-3-71" href="#__codelineno-3-71"></a>    <span class="n">entry_usuario</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Entry</span><span class="p">(</span>
+<a id="__codelineno-3-72" name="__codelineno-3-72" href="#__codelineno-3-72"></a>        <span class="n">frame_form</span><span class="p">,</span>
+<a id="__codelineno-3-73" name="__codelineno-3-73" href="#__codelineno-3-73"></a>        <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+<a id="__codelineno-3-74" name="__codelineno-3-74" href="#__codelineno-3-74"></a>        <span class="n">width</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+<a id="__codelineno-3-75" name="__codelineno-3-75" href="#__codelineno-3-75"></a>        <span class="n">bd</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-3-76" name="__codelineno-3-76" href="#__codelineno-3-76"></a>        <span class="n">relief</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">SOLID</span>
+<a id="__codelineno-3-77" name="__codelineno-3-77" href="#__codelineno-3-77"></a>    <span class="p">)</span>
+<a id="__codelineno-3-78" name="__codelineno-3-78" href="#__codelineno-3-78"></a>    <span class="n">entry_usuario</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+<a id="__codelineno-3-79" name="__codelineno-3-79" href="#__codelineno-3-79"></a>    <span class="c1"># Eu coloco o foco automaticamente aqui quando a tela abre.</span>
+<a id="__codelineno-3-80" name="__codelineno-3-80" href="#__codelineno-3-80"></a>    <span class="n">entry_usuario</span><span class="o">.</span><span class="n">focus_set</span><span class="p">()</span>
+<a id="__codelineno-3-81" name="__codelineno-3-81" href="#__codelineno-3-81"></a>
+<a id="__codelineno-3-82" name="__codelineno-3-82" href="#__codelineno-3-82"></a>    <span class="c1"># ---------- CAMPO SENHA ----------</span>
+<a id="__codelineno-3-83" name="__codelineno-3-83" href="#__codelineno-3-83"></a>    <span class="c1"># Eu sou o label que identifica o campo de senha.</span>
+<a id="__codelineno-3-84" name="__codelineno-3-84" href="#__codelineno-3-84"></a>    <span class="n">lbl_senha</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span>
+<a id="__codelineno-3-85" name="__codelineno-3-85" href="#__codelineno-3-85"></a>        <span class="n">frame_form</span><span class="p">,</span>
+<a id="__codelineno-3-86" name="__codelineno-3-86" href="#__codelineno-3-86"></a>        <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Senha:&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-87" name="__codelineno-3-87" href="#__codelineno-3-87"></a>        <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span>
+<a id="__codelineno-3-88" name="__codelineno-3-88" href="#__codelineno-3-88"></a>        <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-89" name="__codelineno-3-89" href="#__codelineno-3-89"></a>        <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;#555555&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-90" name="__codelineno-3-90" href="#__codelineno-3-90"></a>        <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;w&quot;</span>
+<a id="__codelineno-3-91" name="__codelineno-3-91" href="#__codelineno-3-91"></a>    <span class="p">)</span>
+<a id="__codelineno-3-92" name="__codelineno-3-92" href="#__codelineno-3-92"></a>    <span class="n">lbl_senha</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">X</span><span class="p">)</span>
+<a id="__codelineno-3-93" name="__codelineno-3-93" href="#__codelineno-3-93"></a>
+<a id="__codelineno-3-94" name="__codelineno-3-94" href="#__codelineno-3-94"></a>    <span class="c1"># Eu sou o campo de senha.</span>
+<a id="__codelineno-3-95" name="__codelineno-3-95" href="#__codelineno-3-95"></a>    <span class="c1"># A mágica está em show=&quot;*&quot;: cada caractere digitado aparece</span>
+<a id="__codelineno-3-96" name="__codelineno-3-96" href="#__codelineno-3-96"></a>    <span class="c1"># como um asterisco, protegendo a senha de olhares curiosos.</span>
+<a id="__codelineno-3-97" name="__codelineno-3-97" href="#__codelineno-3-97"></a>    <span class="n">entry_senha</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Entry</span><span class="p">(</span>
+<a id="__codelineno-3-98" name="__codelineno-3-98" href="#__codelineno-3-98"></a>        <span class="n">frame_form</span><span class="p">,</span>
+<a id="__codelineno-3-99" name="__codelineno-3-99" href="#__codelineno-3-99"></a>        <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+<a id="__codelineno-3-100" name="__codelineno-3-100" href="#__codelineno-3-100"></a>        <span class="n">width</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+<a id="__codelineno-3-101" name="__codelineno-3-101" href="#__codelineno-3-101"></a>        <span class="n">bd</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-3-102" name="__codelineno-3-102" href="#__codelineno-3-102"></a>        <span class="n">relief</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">SOLID</span><span class="p">,</span>
+<a id="__codelineno-3-103" name="__codelineno-3-103" href="#__codelineno-3-103"></a>        <span class="n">show</span><span class="o">=</span><span class="s2">&quot;*&quot;</span>
+<a id="__codelineno-3-104" name="__codelineno-3-104" href="#__codelineno-3-104"></a>    <span class="p">)</span>
+<a id="__codelineno-3-105" name="__codelineno-3-105" href="#__codelineno-3-105"></a>    <span class="n">entry_senha</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<a id="__codelineno-3-106" name="__codelineno-3-106" href="#__codelineno-3-106"></a>
+<a id="__codelineno-3-107" name="__codelineno-3-107" href="#__codelineno-3-107"></a>    <span class="c1"># ---------- FUNÇÃO DE LOGIN ----------</span>
+<a id="__codelineno-3-108" name="__codelineno-3-108" href="#__codelineno-3-108"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">ao_clicar_entrar</span><span class="p">():</span>
+<a id="__codelineno-3-109" name="__codelineno-3-109" href="#__codelineno-3-109"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-3-110" name="__codelineno-3-110" href="#__codelineno-3-110"></a><span class="sd">        Eu sou chamada quando o usuário clica no botão Entrar.</span>
+<a id="__codelineno-3-111" name="__codelineno-3-111" href="#__codelineno-3-111"></a>
+<a id="__codelineno-3-112" name="__codelineno-3-112" href="#__codelineno-3-112"></a><span class="sd">        Capturo os valores digitados, removo espaços extras</span>
+<a id="__codelineno-3-113" name="__codelineno-3-113" href="#__codelineno-3-113"></a><span class="sd">        e envio para o controller validar.</span>
+<a id="__codelineno-3-114" name="__codelineno-3-114" href="#__codelineno-3-114"></a><span class="sd">        &quot;&quot;&quot;</span>
+<a id="__codelineno-3-115" name="__codelineno-3-115" href="#__codelineno-3-115"></a>        <span class="n">usuario</span> <span class="o">=</span> <span class="n">entry_usuario</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-3-116" name="__codelineno-3-116" href="#__codelineno-3-116"></a>        <span class="n">senha</span> <span class="o">=</span> <span class="n">entry_senha</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-3-117" name="__codelineno-3-117" href="#__codelineno-3-117"></a>
+<a id="__codelineno-3-118" name="__codelineno-3-118" href="#__codelineno-3-118"></a>        <span class="c1"># Eu delego a validação para o controller.</span>
+<a id="__codelineno-3-119" name="__codelineno-3-119" href="#__codelineno-3-119"></a>        <span class="c1"># A view não sabe COMO validar — apenas QUEM sabe.</span>
+<a id="__codelineno-3-120" name="__codelineno-3-120" href="#__codelineno-3-120"></a>        <span class="k">if</span> <span class="n">validar_login</span><span class="p">(</span><span class="n">usuario</span><span class="p">,</span> <span class="n">senha</span><span class="p">):</span>
+<a id="__codelineno-3-121" name="__codelineno-3-121" href="#__codelineno-3-121"></a>            <span class="c1"># Login bem-sucedido.</span>
+<a id="__codelineno-3-122" name="__codelineno-3-122" href="#__codelineno-3-122"></a>            <span class="c1"># Por enquanto, apenas mostro uma mensagem.</span>
+<a id="__codelineno-3-123" name="__codelineno-3-123" href="#__codelineno-3-123"></a>            <span class="c1"># No Capítulo 04, aqui chamaremos a tela do Menu Principal.</span>
+<a id="__codelineno-3-124" name="__codelineno-3-124" href="#__codelineno-3-124"></a>            <span class="kn">from</span><span class="w"> </span><span class="nn">tkinter</span><span class="w"> </span><span class="kn">import</span> <span class="n">messagebox</span>
+<a id="__codelineno-3-125" name="__codelineno-3-125" href="#__codelineno-3-125"></a>            <span class="n">messagebox</span><span class="o">.</span><span class="n">showinfo</span><span class="p">(</span>
+<a id="__codelineno-3-126" name="__codelineno-3-126" href="#__codelineno-3-126"></a>                <span class="s2">&quot;Sucesso&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-127" name="__codelineno-3-127" href="#__codelineno-3-127"></a>                <span class="sa">f</span><span class="s2">&quot;Bem-vindo(a), </span><span class="si">{</span><span class="n">usuario</span><span class="si">}</span><span class="s2">!&quot;</span>
+<a id="__codelineno-3-128" name="__codelineno-3-128" href="#__codelineno-3-128"></a>            <span class="p">)</span>
+<a id="__codelineno-3-129" name="__codelineno-3-129" href="#__codelineno-3-129"></a>
+<a id="__codelineno-3-130" name="__codelineno-3-130" href="#__codelineno-3-130"></a>    <span class="c1"># ---------- BOTÃO ENTRAR ----------</span>
+<a id="__codelineno-3-131" name="__codelineno-3-131" href="#__codelineno-3-131"></a>    <span class="c1"># Eu sou o botão que dispara a autenticação.</span>
+<a id="__codelineno-3-132" name="__codelineno-3-132" href="#__codelineno-3-132"></a>    <span class="c1"># Tenho uma cor de destaque e um padding interno confortável.</span>
+<a id="__codelineno-3-133" name="__codelineno-3-133" href="#__codelineno-3-133"></a>    <span class="n">btn_entrar</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span>
+<a id="__codelineno-3-134" name="__codelineno-3-134" href="#__codelineno-3-134"></a>        <span class="n">frame_form</span><span class="p">,</span>
+<a id="__codelineno-3-135" name="__codelineno-3-135" href="#__codelineno-3-135"></a>        <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Entrar&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-136" name="__codelineno-3-136" href="#__codelineno-3-136"></a>        <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;bold&quot;</span><span class="p">),</span>
+<a id="__codelineno-3-137" name="__codelineno-3-137" href="#__codelineno-3-137"></a>        <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;#4CAF50&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-138" name="__codelineno-3-138" href="#__codelineno-3-138"></a>        <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-139" name="__codelineno-3-139" href="#__codelineno-3-139"></a>        <span class="n">activebackground</span><span class="o">=</span><span class="s2">&quot;#45a049&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-140" name="__codelineno-3-140" href="#__codelineno-3-140"></a>        <span class="n">activeforeground</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-141" name="__codelineno-3-141" href="#__codelineno-3-141"></a>        <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-3-142" name="__codelineno-3-142" href="#__codelineno-3-142"></a>        <span class="n">height</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-3-143" name="__codelineno-3-143" href="#__codelineno-3-143"></a>        <span class="n">bd</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-3-144" name="__codelineno-3-144" href="#__codelineno-3-144"></a>        <span class="n">cursor</span><span class="o">=</span><span class="s2">&quot;hand2&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-145" name="__codelineno-3-145" href="#__codelineno-3-145"></a>        <span class="n">command</span><span class="o">=</span><span class="n">ao_clicar_entrar</span>
+<a id="__codelineno-3-146" name="__codelineno-3-146" href="#__codelineno-3-146"></a>    <span class="p">)</span>
+<a id="__codelineno-3-147" name="__codelineno-3-147" href="#__codelineno-3-147"></a>    <span class="n">btn_entrar</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<a id="__codelineno-3-148" name="__codelineno-3-148" href="#__codelineno-3-148"></a>
+<a id="__codelineno-3-149" name="__codelineno-3-149" href="#__codelineno-3-149"></a>    <span class="c1"># ---------- BIND DA TECLA ENTER ----------</span>
+<a id="__codelineno-3-150" name="__codelineno-3-150" href="#__codelineno-3-150"></a>    <span class="c1"># Eu permito que o usuário pressione Enter no campo de senha</span>
+<a id="__codelineno-3-151" name="__codelineno-3-151" href="#__codelineno-3-151"></a>    <span class="c1"># para acionar o login, sem precisar clicar no botão.</span>
+<a id="__codelineno-3-152" name="__codelineno-3-152" href="#__codelineno-3-152"></a>    <span class="n">entry_senha</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s2">&quot;&lt;Return&gt;&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">event</span><span class="p">:</span> <span class="n">ao_clicar_entrar</span><span class="p">())</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Dica Profissional</p>
+<p>Note que o botão tem <code>cursor="hand2"</code>. Isso faz o cursor virar uma mãozinha ao passar sobre ele — um detalhe sutil de usabilidade que usuários esperam em sistemas modernos.</p>
+</div>
+<h3 id="passo-3-atualizando-o-mainpy">Passo 3 — Atualizando o main.py<a class="headerlink" href="#passo-3-atualizando-o-mainpy" title="Permanent link">&para;</a></h3>
+<p>Agora precisamos conectar a tela de login ao ponto de entrada. O <code>main.py</code> deve importar e chamar a função <code>criar_tela_login</code>.</p>
+<p>Abra o arquivo <code>main.py</code> que criamos no capítulo anterior. Vamos modificá-lo.</p>
+<p>O código atual do <code>main.py</code> é:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># ===== CÓDIGO EXISTENTE (Capítulo 02) =====</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">tkinter</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tk</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">centralizar_janela</span><span class="p">(</span><span class="n">janela</span><span class="p">,</span> <span class="n">largura</span><span class="p">,</span> <span class="n">altura</span><span class="p">):</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="n">largura_tela</span> <span class="o">=</span> <span class="n">janela</span><span class="o">.</span><span class="n">winfo_screenwidth</span><span class="p">()</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="n">altura_tela</span> <span class="o">=</span> <span class="n">janela</span><span class="o">.</span><span class="n">winfo_screenheight</span><span class="p">()</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="n">pos_x</span> <span class="o">=</span> <span class="p">(</span><span class="n">largura_tela</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">largura</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="n">pos_y</span> <span class="o">=</span> <span class="p">(</span><span class="n">altura_tela</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">altura</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="n">janela</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">largura</span><span class="si">}</span><span class="s2">x</span><span class="si">{</span><span class="n">altura</span><span class="si">}</span><span class="s2">+</span><span class="si">{</span><span class="n">pos_x</span><span class="si">}</span><span class="s2">+</span><span class="si">{</span><span class="n">pos_y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="n">janela</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="n">janela</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Sistema Escolar&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="n">centralizar_janela</span><span class="p">(</span><span class="n">janela</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="n">janela</span><span class="o">.</span><span class="n">resizable</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="n">janela</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+</code></pre></div>
+<p>Adicione a linha de import e a chamada da tela de login antes do <code>mainloop()</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># ===== CÓDIGO EXISTENTE (não altere) =====</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">tkinter</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tk</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">centralizar_janela</span><span class="p">(</span><span class="n">janela</span><span class="p">,</span> <span class="n">largura</span><span class="p">,</span> <span class="n">altura</span><span class="p">):</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="n">largura_tela</span> <span class="o">=</span> <span class="n">janela</span><span class="o">.</span><span class="n">winfo_screenwidth</span><span class="p">()</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="n">altura_tela</span> <span class="o">=</span> <span class="n">janela</span><span class="o">.</span><span class="n">winfo_screenheight</span><span class="p">()</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="n">pos_x</span> <span class="o">=</span> <span class="p">(</span><span class="n">largura_tela</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">largura</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    <span class="n">pos_y</span> <span class="o">=</span> <span class="p">(</span><span class="n">altura_tela</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">altura</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    <span class="n">janela</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">largura</span><span class="si">}</span><span class="s2">x</span><span class="si">{</span><span class="n">altura</span><span class="si">}</span><span class="s2">+</span><span class="si">{</span><span class="n">pos_x</span><span class="si">}</span><span class="s2">+</span><span class="si">{</span><span class="n">pos_y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="n">janela</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="n">janela</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Sistema Escolar&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="n">centralizar_janela</span><span class="p">(</span><span class="n">janela</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="n">janela</span><span class="o">.</span><span class="n">resizable</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="c1"># ===== CÓDIGO NOVO (adicione abaixo) =====</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="c1"># Eu importo a função que constrói a tela de login.</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="kn">from</span><span class="w"> </span><span class="nn">views.login</span><span class="w"> </span><span class="kn">import</span> <span class="n">criar_tela_login</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="c1"># Eu chamo a função, passando a janela principal como container.</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="c1"># A tela de login será desenhada DENTRO desta janela.</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="n">criar_tela_login</span><span class="p">(</span><span class="n">janela</span><span class="p">)</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="c1"># ===== LOOP PRINCIPAL (permanece igual) =====</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="n">janela</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">A importação no meio do arquivo</p>
+<p>Normalmente, imports ficam no topo. Colocamos aqui por questões didáticas — para destacar o que foi adicionado. No código final, sinta-se à vontade para mover o <code>from views.login import criar_tela_login</code> para o topo, junto com <code>import tkinter as tk</code>.</p>
+</div>
+<h3 id="passo-4-executando-e-testando">Passo 4 — Executando e testando<a class="headerlink" href="#passo-4-executando-e-testando" title="Permanent link">&para;</a></h3>
+<p>Chegou a hora de ver o login em ação. No terminal, navegue até a pasta <code>sistema_escolar</code> e execute:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>python<span class="w"> </span>main.py
+</code></pre></div>
+<p>Teste os seguintes cenários:</p>
+<ul>
+<li>Login correto: Digite <code>admin</code> / <code>admin</code> e clique em Entrar. Deve aparecer: "Bem-vindo(a), admin!"</li>
+<li>Login incorreto: Digite qualquer outra combinação. Deve aparecer: "Usuário ou senha inválidos."</li>
+<li>Segundo usuário: Digite <code>professor</code> / <code>1234</code>. Também deve funcionar.</li>
+<li>Campo vazio: Deixe os campos em branco e clique em Entrar. Deve exibir erro de login.</li>
+<li>Tecla Enter: Digite as credenciais e pressione Enter no campo de senha. O login deve ser acionado.</li>
+</ul>
+<h2 id="exercicio">📝 Exercício<a class="headerlink" href="#exercicio" title="Permanent link">&para;</a></h2>
+<p><strong>Tempo estimado:</strong> 15-20 minutos</p>
+<p><strong>Tarefa:</strong> Melhore a experiência do usuário adicionando uma validação extra: impeça que o usuário clique em "Entrar" com os campos vazios.</p>
+<p>Em vez de depender apenas da mensagem de erro do controller, faça a própria view verificar se os campos estão preenchidos antes de chamar <code>validar_login</code>. Se algum campo estiver vazio, exiba um <code>messagebox.showwarning</code> pedindo para preencher todos os campos.</p>
+<p>Dica: Modifique a função <code>ao_clicar_entrar()</code> dentro de <code>views/login.py</code>.</p>
+<details class="hint">
+<summary>Dica</summary>
+<p>Use <code>entry_usuario.get().strip()</code> e <code>entry_senha.get().strip()</code>. Se qualquer um dos dois for uma string vazia <code>("")</code>, exiba o aviso e interrompa a função com <code>return</code>.</p>
+</details>
+<details class="success">
+<summary>Solução</summary>
+<p>Dentro de <code>views/login.py</code>, altere a função <code>ao_clicar_entrar</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">ao_clicar_entrar</span><span class="p">():</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="n">usuario</span> <span class="o">=</span> <span class="n">entry_usuario</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="n">senha</span> <span class="o">=</span> <span class="n">entry_senha</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="c1"># ===== VALIDAÇÃO DE CAMPOS VAZIOS (novo) =====</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="c1"># Eu impeço que o usuário envie o formulário incompleto.</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">usuario</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">senha</span><span class="p">:</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>        <span class="n">messagebox</span><span class="o">.</span><span class="n">showwarning</span><span class="p">(</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>            <span class="s2">&quot;Campos Obrigatórios&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>            <span class="s2">&quot;Por favor, preencha todos os campos antes de entrar.&quot;</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>        <span class="p">)</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>        <span class="k">return</span>  <span class="c1"># Interrompe a função aqui — não chama o controller.</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>    <span class="c1"># =============================================</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>    <span class="k">if</span> <span class="n">validar_login</span><span class="p">(</span><span class="n">usuario</span><span class="p">,</span> <span class="n">senha</span><span class="p">):</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>        <span class="n">messagebox</span><span class="o">.</span><span class="n">showinfo</span><span class="p">(</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>            <span class="s2">&quot;Sucesso&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>            <span class="sa">f</span><span class="s2">&quot;Bem-vindo(a), </span><span class="si">{</span><span class="n">usuario</span><span class="si">}</span><span class="s2">!&quot;</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>        <span class="p">)</span>
+</code></pre></div>
+<p>Lembre-se de que <code>messagebox</code> já está importado no escopo da função (foi importado dentro dela no código original) ou você pode movê-lo para o topo do arquivo.</p>
+</details>
+<h2 id="missao-da-equipe">🏆 Missão da Equipe<a class="headerlink" href="#missao-da-equipe" title="Permanent link">&para;</a></h2>
+<p><strong>Tempo estimado:</strong> 30-45 minutos</p>
+<p><strong>Tarefa:</strong> Criem a tela de login para o projeto da equipe de vocês.</p>
+<p><strong>Entregável:</strong> Os seguintes arquivos no projeto da equipe:</p>
+<ul>
+<li><code>controllers/auth.py</code> — com dicionário de credenciais da equipe e função <code>validar_login</code></li>
+<li><code>views/login.py</code> — com a tela de login adaptada visualmente ao tema</li>
+<li><code>main.py</code> — atualizado para exibir a tela de login ao iniciar</li>
+</ul>
+<p><strong>Checklist da Missão:</strong></p>
+<ul>
+<li>[ ] O arquivo <code>controllers/auth.py</code> existe e contém pelo menos 2 usuários</li>
+<li>[ ] O arquivo <code>views/login.py</code> existe com formulário funcional</li>
+<li>[ ] O título do formulário reflete o nome do projeto da equipe</li>
+<li>[ ] O <code>main.py</code> importa e exibe a tela de login</li>
+<li>[ ] Login com credenciais corretas mostra mensagem de sucesso</li>
+<li>[ ] Login com credenciais erradas mostra mensagem de erro</li>
+<li>[ ] Os campos vazios são tratados (após o exercício)</li>
+<li>[ ] O professor executou e testou o login da equipe</li>
+</ul>
+<p><strong>Sugestões de adaptação visual:</strong></p>
+<ul>
+<li>Mude o ícone ou texto do título (🔐 Acesso ao Sistema → 📚 Biblioteca Fácil, 📦 Controle de Estoque)</li>
+<li>Altere as cores dos botões e do fundo para combinar com o tema</li>
+<li>Adicione um logo ou nome do sistema fictício</li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Nota para o Professor</p>
+<p>Verifique: Cada equipe deve ter a tela de login funcional. Teste com credenciais corretas e erradas. Confira se os arquivos estão organizados nas pastas corretas e se a estrutura MVC está sendo seguida.</p>
+</div>
+<h2 id="desafio">⚡ Desafio<a class="headerlink" href="#desafio" title="Permanent link">&para;</a></h2>
+<p><strong>Vá além:</strong> Adicione um botão "Mostrar/Ocultar Senha" ao lado do campo de senha.</p>
+<p>Funcionalidade esperada:</p>
+<ul>
+<li>Um pequeno botão ou checkbox que, quando pressionado, revela a senha digitada (remove <code>show="*"</code>)</li>
+<li>Quando solto ou desmarcado, volta a ocultar com asteriscos</li>
+<li>Dica: use <code>entry_senha.config(show="")</code> para mostrar e <code>entry_senha.config(show="*")</code> para ocultar</li>
+</ul>
+<p>Exemplo de implementação com botão que alterna:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Variável de controle (adicione antes da função ao_clicar_entrar)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">senha_visivel</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">alternar_visibilidade</span><span class="p">():</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="k">nonlocal</span> <span class="n">senha_visivel</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="n">senha_visivel</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">senha_visivel</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    <span class="k">if</span> <span class="n">senha_visivel</span><span class="p">:</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>        <span class="n">entry_senha</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>        <span class="n">btn_olho</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;🙈&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>        <span class="n">entry_senha</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>        <span class="n">btn_olho</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;👁️&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="c1"># Botão ao lado do campo de senha</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="n">btn_olho</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">frame_form</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;👁️&quot;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">alternar_visibilidade</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="erros-comuns">⚠️ Erros Comuns<a class="headerlink" href="#erros-comuns" title="Permanent link">&para;</a></h2>
+<div class="admonition danger">
+<p class="admonition-title">Esquecer de criar os arquivos nas pastas corretas</p>
+<p><strong>Sintoma:</strong> <code>ModuleNotFoundError: No module named 'controllers.auth'</code> ao executar <code>main.py</code>.</p>
+<p><strong>Causa:</strong> Os arquivos <code>auth.py</code> e <code>login.py</code> foram criados na raiz do projeto, e não dentro das pastas <code>controllers/</code> e <code>views/</code>.</p>
+<p><strong>Solução:</strong> Verifique se <code>auth.py</code> está dentro de <code>sistema_escolar/controllers/</code> e <code>login.py</code> dentro de <code>sistema_escolar/views/</code>. O caminho no import deve corresponder exatamente à localização do arquivo.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Import circular</p>
+<p><strong>Sintoma:</strong> <code>ImportError: cannot import name 'validar_login' from partially initialized module</code>.</p>
+<p><strong>Causa:</strong> O arquivo <code>login.py</code> importa de <code>auth.py</code> e <code>auth.py</code> tenta importar algo de <code>login.py</code> (direta ou indiretamente).</p>
+<p><strong>Solução:</strong> Mantenha o fluxo de dependência em um único sentido: View → Controller → Model. A View pode importar do Controller, mas o Controller nunca deve importar da View.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Não usar show='*' no campo de senha</p>
+<p><strong>Sintoma:</strong> A senha aparece em texto legível na tela — qualquer pessoa ao lado pode vê-la.</p>
+<p><strong>Causa:</strong> O parâmetro <code>show</code> foi esquecido ao criar o Entry da senha.</p>
+<p><strong>Solução:</strong> Sempre defina <code>show="*"</code> ao criar campos de senha. É uma linha que faz toda a diferença em segurança visual.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Limpar os campos após erro</p>
+<p><strong>Sintoma:</strong> Após uma tentativa de login incorreta, o campo de senha mantém o valor digitado.</p>
+<p><strong>Causa:</strong> A função de validação não limpa os campos em caso de falha.</p>
+<p><strong>Solução:</strong> Dentro de <code>ao_clicar_entrar</code>, após chamar <code>validar_login</code>, se o retorno for <code>False</code>, limpe o campo de senha com <code>entry_senha.delete(0, tk.END)</code> e coloque o foco de volta com <code>entry_senha.focus_set()</code>. É uma melhoria de usabilidade.</p>
+</div>
+<h2 id="boas-praticas">💡 Boas Práticas<a class="headerlink" href="#boas-praticas" title="Permanent link">&para;</a></h2>
+<p><strong>1. Separação clara entre View e Controller</strong></p>
+<p>A função <code>criar_tela_login</code> (View) não sabe validar credenciais. A função <code>validar_login</code> (Controller) não sabe que existe uma Entry. Essa separação permite que você modifique a interface sem afetar a lógica, e vice-versa. No mercado, essa é a base de arquiteturas como MVC, MVP e MVVM.</p>
+<p><strong>2. Credenciais em dicionário (por enquanto)</strong></p>
+<p>Deixamos explícito nos comentários que o dicionário <code>USUARIOS</code> é provisório. Isso prepara mentalmente você para a migração ao banco de dados. Em projetos reais, nunca se deve hardcodar senhas — mas para este estágio de protótipo, é aceitável.</p>
+<p><strong>3. Tratamento de entradas com .strip()</strong></p>
+<p>Usamos <code>.strip()</code> nos valores de <code>entry_usuario.get()</code> e <code>entry_senha.get()</code>. Isso remove espaços em branco acidentais que o usuário possa digitar no início ou fim do campo. É um detalhe que demonstra preocupação com a experiência do usuário.</p>
+<p><strong>4. Bind da tecla Enter</strong></p>
+<p>Adicionar <code>entry_senha.bind("&lt;Return&gt;", ...)</code> permite que o usuário faça login pressionando Enter. É um padrão esperado em formulários e reduz o atrito da navegação mouse-teclado.</p>
+<p><strong>5. Cores e cursores</strong></p>
+<p>Usamos <code>bg="#4CAF50"</code> (verde) para o botão de ação principal e <code>cursor="hand2"</code> para feedback visual. São microinterações que, somadas, tornam o sistema mais profissional. Frameworks como CustomTkinter levam isso ainda mais longe, mas Tkinter puro já permite esse polimento.</p>
+<h2 id="checklist">☑️ Checklist<a class="headerlink" href="#checklist" title="Permanent link">&para;</a></h2>
+<p>Antes de prosseguir para o próximo capítulo, confirme:</p>
+<ul>
+<li>[ ] O arquivo <code>controllers/auth.py</code> existe e contém a função <code>validar_login</code></li>
+<li>[ ] O arquivo <code>views/login.py</code> existe e contém a função <code>criar_tela_login</code></li>
+<li>[ ] O <code>main.py</code> importa e chama <code>criar_tela_login(janela)</code></li>
+<li>[ ] A tela de login abre centralizada dentro da janela principal</li>
+<li>[ ] O campo de senha exibe asteriscos ao digitar</li>
+<li>[ ] Login com admin / admin mostra mensagem de sucesso</li>
+<li>[ ] Login com credenciais erradas mostra mensagem de erro</li>
+<li>[ ] Pressionar Enter no campo de senha aciona o login</li>
+<li>[ ] Os comentários explicam a intenção do código, não a sintaxe</li>
+<li>[ ] Minha equipe concluiu a Missão da Equipe para o projeto dela</li>
+</ul>
+<h2 id="proximo-capitulo">➡️ Próximo Capítulo<a class="headerlink" href="#proximo-capitulo" title="Permanent link">&para;</a></h2>
+<p>No <strong>Capítulo 04 — Menu Principal</strong>, você construirá a central de navegação do sistema. Após o login bem-sucedido, a tela de login será substituída por um menu com botões para Cadastro, Consulta e Sair.</p>
+<p>Você aprenderá a fazer transição entre telas — ou seja, como "apagar" a tela de login e "desenhar" o menu no mesmo espaço. Esse é o primeiro passo para criar um sistema com múltiplas telas sem abrir janelas pop-up descontroladas.</p>
+<p>Prepare-se: revise a criação de botões (<code>Button</code>) e o método <code>pack_forget()</code> ou <code>destroy()</code> para remover widgets. A mágica da navegação está logo ali. 🧭</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar ao topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.path", "navigation.top", "toc.integrate", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

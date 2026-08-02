@@ -1,0 +1,2640 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Plataforma de Cursos">
+      
+      
+        <meta name="author" content="Professor">
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../02_arquitetura_do_sistema/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Introducao Ao Projeto - CourseForge Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#01-introducao-ao-projeto" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../.." title="CourseForge Docs" class="md-header__button md-logo" aria-label="CourseForge Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CourseForge Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introducao Ao Projeto
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="teal"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="teal"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../docs/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Python para Desktop
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="CourseForge Docs" class="md-nav__button md-logo" aria-label="CourseForge Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    CourseForge Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../docs/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python para Desktop
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python para Desktop
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modulo_01_fundamentos/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🐍 Fundamentos
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🐍 Fundamentos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/01_variaveis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variaveis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/02_operadores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/03_if_else/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    If Else
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/04_repeticoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Repeticoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/05_funcoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Funcoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/06_modulos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/07_colecoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Colecoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/08_strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/09_arquivos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquivos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/10_excecoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Excecoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/11_projeto_final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto Final
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modulo_02_interfaces_graficas/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🖥️ Interfaces Graficas
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🖥️ Interfaces Graficas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/01_tkinter_basico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tkinter Basico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/02_layout_managers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Layout Managers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/03_eventos_interatividade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eventos Interatividade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/04_customtkinter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customtkinter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/05_projeto_pratico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto Pratico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modulo_03_banco_de_dados/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗄️ Banco De Dados
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🗄️ Banco De Dados
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_03_banco_de_dados/01_introducao_sqlite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducao Sqlite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_03_banco_de_dados/02_integracao_interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integracao Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_03_banco_de_dados/03_variaveis_ambiente/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variaveis Ambiente
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_03_banco_de_dados/04_projeto_final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto Final
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏗️ Projeto Finalizador
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🏗️ Projeto Finalizador
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducao Ao Projeto
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducao Ao Projeto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Objetivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contextualizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📍 Contextualização
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultado-esperado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Resultado Esperado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#planejamento-guiado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Planejamento Guiado
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Planejamento Guiado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passo-1-entendendo-o-que-e-um-sistema-de-gestao-escolar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 1 — Entendendo o que é um Sistema de Gestão Escolar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-2-levantando-os-requisitos-funcionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 2 — Levantando os Requisitos Funcionais
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-3-o-caminho-do-desenvolvimento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 3 — O Caminho do Desenvolvimento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-4-metodologia-pbl-project-based-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 4 — Metodologia PBL (Project Based Learning)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-5-formacao-das-equipes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 5 — Formação das Equipes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercicio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📝 Exercício
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#missao-da-equipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏆 Missão da Equipe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desafio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚡ Desafio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erros-comuns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Erros Comuns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boas-praticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 Boas Práticas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ☑️ Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proximo-capitulo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ➡️ Próximo Capítulo
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_arquitetura_do_sistema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitetura Do Sistema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_tela_de_login/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tela De Login
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_menu_principal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Menu Principal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_multiplas_janelas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multiplas Janelas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_cadastro_de_alunos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cadastro De Alunos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_sqlite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sqlite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_sqlite_local/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sqlite Local
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_crud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_crud_completo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crud Completo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_banco_em_nuvem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Banco Em Nuvem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_integracao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integracao
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_integracao_e_testes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integracao E Testes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_refatoracao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Refatoracao
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_refatoracao_e_entrega/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Refatoracao E Entrega
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_projeto_final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto Final
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navegação" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../docs/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Python para Desktop
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    🏗️ Projeto Finalizador
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="01-introducao-ao-projeto">01 — Introdução ao Projeto<a class="headerlink" href="#01-introducao-ao-projeto" title="Permanent link">&para;</a></h1>
+<h2 id="objetivo">🎯 Objetivo<a class="headerlink" href="#objetivo" title="Permanent link">&para;</a></h2>
+<p>Neste capítulo você vai conhecer o Sistema Escolar, o projeto completo que será construído ao longo de todo o módulo.</p>
+<p>Ao final, você terá:</p>
+<ul>
+<li>Compreendido o escopo completo de um sistema de gestão escolar</li>
+<li>Definido os requisitos funcionais (Login, Menu, Cadastro, CRUD, Banco)</li>
+<li>Entendido a diferença entre programar exercícios e desenvolver um sistema real</li>
+<li>Formado sua equipe de desenvolvimento e escolhido o tema do projeto</li>
+<li>Visualizado o cronograma até a entrega final (20 de agosto)</li>
+</ul>
+<h2 id="contextualizacao">📍 Contextualização<a class="headerlink" href="#contextualizacao" title="Permanent link">&para;</a></h2>
+<p>Você acaba de concluir três módulos intensos: Fundamentos do Python, Interfaces Gráficas com Tkinter e CustomTkinter e Banco de Dados com SQLite. Sabe criar variáveis, funções, classes, conectar-se a um banco e construir janelas com botões e tabelas.</p>
+<p>Agora chegou o momento de abandonar os exercícios isolados e pensar como um desenvolvedor de verdade.</p>
+<p>Durante o Módulo 04 — Projeto Finalizador, você não fará mais mini-programas nem exemplos didáticos. Cada linha de código contribuirá para um sistema completo. Ao final, você terá um software funcional pronto para usar, testar e mostrar em uma entrevista de emprego.</p>
+<p><strong>Progresso do Sistema:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>✅ Módulo 01 — Fundamentos do Python
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>✅ Módulo 02 — Interfaces Gráficas (Tkinter/CustomTkinter)
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>✅ Módulo 03 — Banco de Dados com SQLite
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>🔨 Introdução ao Projeto ← VOCÊ ESTÁ AQUI
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>⬜ Arquitetura do Sistema
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>⬜ Tela de Login
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>⬜ Menu Principal
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>⬜ Múltiplas Janelas
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>⬜ Cadastro de Alunos
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>⬜ SQLite Local
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>⬜ CRUD Completo
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>⬜ Banco em Nuvem
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>⬜ Integração e Testes
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>⬜ Refatoração e Entrega
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Aviso</p>
+<p>Este é o único capítulo predominantemente conceitual do módulo. Ele estabelece as bases para todas as implementações futuras. A partir do próximo capítulo, mão no código!</p>
+</div>
+<h2 id="resultado-esperado">✅ Resultado Esperado<a class="headerlink" href="#resultado-esperado" title="Permanent link">&para;</a></h2>
+<p>Ao final deste capítulo, você não terá modificado o código (ainda!), mas terá uma visão cristalina do sistema que construirá. Saberá exatamente:</p>
+<ul>
+<li>O que cada tela fará</li>
+<li>Como os componentes se conectam</li>
+<li>Quando cada parte será desenvolvida</li>
+</ul>
+<p>O sistema final terá este fluxo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>┌─────────────────────────────────────────────────┐
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│                  SISTEMA ESCOLAR                │
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│                                                 │
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│  ┌──────────┐    autenticação    ┌───────────┐  │
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│  │  LOGIN   │ ─────────────────▶ │   MENU    │  │
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│  │usuário   │                    │ PRINCIPAL │  │
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│  │senha     │                    │┌──┐┌──┐┌─┐│  │
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│  └──────────┘                    ││Cad││Con││Sai│  │
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│                                  │└──┘└──┘└─┘│  │
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│                                  └─────┬─────┘  │
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│                                        │        │
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>│                               navegação│        │
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>│                                        ▼        │
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>│  ┌──────────────────────────────────────────┐   │
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>│  │         TELA DE CADASTRO (CRUD)          │   │
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>│  │                                          │   │
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>│  │  ┌────────────────────────────┐          │   │
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>│  │  │     FORMULÁRIO             │          │   │
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>│  │  │  Nome:  [____________]     │          │   │
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>│  │  │  Idade: [____________]     │          │   │
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>│  │  │  Turma: [____________]     │          │   │
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>│  │  └────────────────────────────┘          │   │
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>│  │                                          │   │
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>│  │  ┌────────────────────────────┐          │   │
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>│  │  │  LISTAGEM (Treeview)       │          │   │
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>│  │  │  Nome    │ Idade │ Turma   │          │   │
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>│  │  │  ────────┼───────┼───────  │          │   │
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>│  │  │  João    │ 15    │ 9A      │          │   │
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>│  │  │  Maria   │ 14    │ 9B      │          │   │
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>│  │  └────────────────────────────┘          │   │
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>│  │                                          │   │
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>│  │  [💾 Salvar] [✏️ Editar]                 │   │
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>│  │  [🗑️ Excluir] [🧹 Limpar]               │   │
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>│  └──────────────────┬───────────────────────┘   │
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>│                     │                           │
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>│          persistência                           │
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>│                     ▼                           │
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>│  ┌──────────────────────────────────────────┐   │
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>│  │          BANCO DE DADOS                  │   │
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>│  │  ┌─────────────┐   ┌──────────────┐      │   │
+<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>│  │  │   SQLite    │   │  API Nuvem   │      │   │
+<a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>│  │  │  (escola.db)│   │ (Firebase)   │      │   │
+<a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a>│  │  └─────────────┘   └──────────────┘      │   │
+<a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>│  └──────────────────────────────────────────┘   │
+<a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a>│                                                 │
+<a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>└─────────────────────────────────────────────────┘
+</code></pre></div>
+<h2 id="planejamento-guiado">💻 Planejamento Guiado<a class="headerlink" href="#planejamento-guiado" title="Permanent link">&para;</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Atenção</p>
+<p>Neste capítulo, a seção de "Implementação" é substituída pelo planejamento detalhado do sistema. Não escreveremos código hoje, mas definiremos cada detalhe que guiará o desenvolvimento.</p>
+</div>
+<h3 id="passo-1-entendendo-o-que-e-um-sistema-de-gestao-escolar">Passo 1 — Entendendo o que é um Sistema de Gestão Escolar<a class="headerlink" href="#passo-1-entendendo-o-que-e-um-sistema-de-gestao-escolar" title="Permanent link">&para;</a></h3>
+<p>Um sistema de gestão escolar é um software que automatiza as tarefas administrativas de uma escola. O nosso sistema focará no módulo de cadastro de alunos, permitindo que um secretário ou coordenador:</p>
+<ul>
+<li>Faça login com credenciais seguras</li>
+<li>Visualize um menu principal com opções de navegação</li>
+<li>Cadastre novos alunos (nome, idade, turma)</li>
+<li>Consulte a lista de alunos cadastrados</li>
+<li>Edite dados de um aluno existente</li>
+<li>Exclua um registro do sistema</li>
+<li>Tenha os dados salvos localmente (SQLite) e sincronizados com uma base em nuvem</li>
+</ul>
+<p>É um sistema aparentemente simples, mas que exercita todos os conceitos que você aprendeu: variáveis, funções, classes, interfaces gráficas, banco de dados e arquitetura de software.</p>
+<div class="admonition note">
+<p class="admonition-title">Conceito Importante</p>
+<p>Um sistema não é um programa. Um programa resolve um problema pontual. Um sistema é composto de múltiplas partes que interagem entre si (autenticação, navegação, persistência, interface) e atende a um fluxo de trabalho real.</p>
+</div>
+<h3 id="passo-2-levantando-os-requisitos-funcionais">Passo 2 — Levantando os Requisitos Funcionais<a class="headerlink" href="#passo-2-levantando-os-requisitos-funcionais" title="Permanent link">&para;</a></h3>
+<p>Em desenvolvimento de software, requisitos funcionais descrevem o que o sistema deve fazer, do ponto de vista do usuário. São frases no formato: "O sistema deve...".</p>
+<p>Vamos levantar os nossos requisitos:</p>
+<p><strong>Tabela de Requisitos Funcionais (RF)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Código</th>
+<th>Descrição</th>
+<th>Módulo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RF01</td>
+<td>O sistema deve ter uma tela de login com campos de usuário e senha</td>
+<td>Autenticação</td>
+</tr>
+<tr>
+<td>RF02</td>
+<td>O sistema deve validar as credenciais e negar acesso em caso de erro</td>
+<td>Autenticação</td>
+</tr>
+<tr>
+<td>RF03</td>
+<td>O sistema deve exibir uma mensagem de erro se usuário ou senha estiverem incorretos</td>
+<td>Autenticação</td>
+</tr>
+<tr>
+<td>RF04</td>
+<td>Após login bem-sucedido, o sistema deve abrir o Menu Principal</td>
+<td>Autenticação</td>
+</tr>
+<tr>
+<td>RF05</td>
+<td>O Menu Principal deve ter botões para Cadastro, Consulta e Sair</td>
+<td>Navegação</td>
+</tr>
+<tr>
+<td>RF06</td>
+<td>O botão "Cadastro" deve abrir a tela de Cadastro de Alunos</td>
+<td>Navegação</td>
+</tr>
+<tr>
+<td>RF07</td>
+<td>O botão "Consulta" deve abrir a tela de Consulta de Alunos</td>
+<td>Navegação</td>
+</tr>
+<tr>
+<td>RF08</td>
+<td>O botão "Sair" deve encerrar o sistema</td>
+<td>Navegação</td>
+</tr>
+<tr>
+<td>RF09</td>
+<td>A tela de Cadastro deve ter um formulário com campos: Nome, Idade, Turma</td>
+<td>CRUD</td>
+</tr>
+<tr>
+<td>RF10</td>
+<td>A tela de Cadastro deve ter botões: Salvar, Editar, Excluir, Limpar</td>
+<td>CRUD</td>
+</tr>
+<tr>
+<td>RF11</td>
+<td>A tela de Cadastro deve ter uma tabela (Treeview) listando todos os alunos</td>
+<td>CRUD</td>
+</tr>
+<tr>
+<td>RF12</td>
+<td>O botão Salvar deve inserir um novo registro no banco de dados</td>
+<td>CRUD</td>
+</tr>
+<tr>
+<td>RF13</td>
+<td>O botão Editar deve permitir modificar um registro selecionado na tabela</td>
+<td>CRUD</td>
+</tr>
+<tr>
+<td>RF14</td>
+<td>O botão Excluir deve remover um registro selecionado com confirmação</td>
+<td>CRUD</td>
+</tr>
+<tr>
+<td>RF15</td>
+<td>O botão Limpar deve limpar todos os campos do formulário</td>
+<td>CRUD</td>
+</tr>
+<tr>
+<td>RF16</td>
+<td>Os dados devem ser persistidos em banco SQLite local (escola.db)</td>
+<td>Persistência</td>
+</tr>
+<tr>
+<td>RF17</td>
+<td>O sistema deve ter uma funcionalidade de sincronização com banco em nuvem</td>
+<td>Persistência</td>
+</tr>
+<tr>
+<td>RF18</td>
+<td>O sistema deve ser organizado em módulos separados por responsabilidade</td>
+<td>Arquitetura</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Dica Profissional</p>
+<p>No mercado, o levantamento de requisitos é a etapa mais crítica. Um erro aqui pode custar semanas de retrabalho. Preste atenção nos detalhes: é exatamente isso que diferencia um programador de um engenheiro de software.</p>
+</div>
+<h3 id="passo-3-o-caminho-do-desenvolvimento">Passo 3 — O Caminho do Desenvolvimento<a class="headerlink" href="#passo-3-o-caminho-do-desenvolvimento" title="Permanent link">&para;</a></h3>
+<p>Construiremos o sistema de forma incremental. Cada aula adicionará uma nova camada. Ao final, tudo estará integrado. Este é o nosso roteiro:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Aula 01 (hoje)      → Introdução e Planejamento
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Aula 02             → Arquitetura (pastas, módulos, esqueleto MVC)
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Aula 03             → Tela de Login com validação
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Aula 04             → Menu Principal e navegação entre janelas
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>Aula 05             → Múltiplas janelas com transição controlada
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>Aula 06             → Tela de Cadastro com formulário e Treeview
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>Aula 07             → Integração com SQLite (conexão e primeiras queries)
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>Aula 08             → CRUD Completo (Create, Read, Update, Delete)
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>Aula 09             → Sincronização com banco em nuvem (Firebase)
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>Aula 10             → Integração final e testes
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>Aula 11             → Refatoração, polimento e preparação para entrega
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>Aula 12 (20/08)     → Apresentação dos Projetos Finais
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Datas importantes</p>
+<p>A entrega final será no dia 20 de agosto. Guarde essa data. Tudo o que você fizer até lá contribuirá para o seu projeto.</p>
+</div>
+<h3 id="passo-4-metodologia-pbl-project-based-learning">Passo 4 — Metodologia PBL (Project Based Learning)<a class="headerlink" href="#passo-4-metodologia-pbl-project-based-learning" title="Permanent link">&para;</a></h3>
+<p>Nosso curso adota o PBL — Aprendizado Baseado em Projetos. Isso significa que você não aprenderá "sobre botões" para depois usar um botão. Você aprenderá a criar o menu do sistema, e o botão fará parte natural desse processo.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>❌ Abordagem tradicional:  &quot;Aula de Entry&quot; → cria campo de texto solto
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>✅ Abordagem PBL:          &quot;Vamos validar o login&quot; → Entry faz parte da tela
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>❌ Abordagem tradicional:  &quot;Aula de Treeview&quot; → cria tabela genérica
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>✅ Abordagem PBL:          &quot;Vamos listar alunos&quot; → Treeview mostra dados reais
+</code></pre></div>
+<p>Cada capítulo deste módulo é um passo na construção do sistema. Nenhum código será descartado. Tudo o que você escrever hoje será usado amanhã e expandido depois de amanhã.</p>
+<h3 id="passo-5-formacao-das-equipes">Passo 5 — Formação das Equipes<a class="headerlink" href="#passo-5-formacao-das-equipes" title="Permanent link">&para;</a></h3>
+<p>Você trabalhará em equipe para construir o Projeto Final. Este projeto será uma adaptação do Sistema Escolar para um domínio diferente.</p>
+<p>Exemplos de temas que as equipes podem escolher:</p>
+<ul>
+<li>Sistema de Gestão de Biblioteca (livros, autores, empréstimos)</li>
+<li>Sistema de Cadastro de Clientes (clientes, telefones, endereços)</li>
+<li>Sistema de Controle de Estoque (produtos, quantidades, fornecedores)</li>
+<li>Sistema de Agendamento de Consultas (pacientes, médicos, horários)</li>
+<li>Sistema de Gerenciamento de Tarefas (tarefas, prioridades, status)</li>
+</ul>
+<p>Cada equipe deve ter 2 a 4 integrantes. Definam os papéis iniciais (quem cuidará de qual parte), mas lembrem-se: todos devem programar. Não existe "só a pessoa que digita".</p>
+<div class="admonition warning">
+<p class="admonition-title">Atenção</p>
+<p>O sistema da sua equipe seguirá a mesma arquitetura do Sistema Escolar (Login, Menu, CRUD, SQLite, Nuvem). A diferença estará apenas no domínio (o que será cadastrado) e nos campos específicos. A estrutura, o fluxo e a tecnologia serão idênticas.</p>
+</div>
+<h2 id="exercicio">📝 Exercício<a class="headerlink" href="#exercicio" title="Permanent link">&para;</a></h2>
+<p><strong>Tempo estimado:</strong> 15-20 minutos</p>
+<p><strong>Tarefa:</strong> Analise os requisitos funcionais (RF01 a RF18) e identifique quais funcionalidades podem ser mapeadas diretamente para os conceitos que você aprendeu nos módulos anteriores.</p>
+<p>Preencha a tabela abaixo no seu caderno ou arquivo de anotações:</p>
+<table>
+<thead>
+<tr>
+<th>Requisito</th>
+<th>Conceito relacionado</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RF01 — Tela de Login</td>
+<td>Tkinter, Entry, Label, Button, grid/pack</td>
+<td>Criar janela, posicionar widgets</td>
+</tr>
+<tr>
+<td>RF...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Objetivo:</strong> Reforçar que você já possui as ferramentas necessárias para construir este sistema. Basta organizá-las.</p>
+<details class="hint">
+<summary>Dica</summary>
+<p>Reveja os conteúdos dos módulos 02 (Interfaces Gráficas) e 03 (Banco de Dados). Tudo o que está listado nos requisitos usa exatamente o que você já estudou: janelas, widgets, eventos, conexão SQLite, queries SQL.</p>
+</details>
+<details class="success">
+<summary>Solução (exemplo)</summary>
+<table>
+<thead>
+<tr>
+<th>Requisito</th>
+<th>Conceito relacionado</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RF01 — Tela de Login</td>
+<td>Tkinter, Entry, Label, Button, grid</td>
+<td><code>tk.Entry(janela, show="*")</code></td>
+</tr>
+<tr>
+<td>RF02 — Validar credenciais</td>
+<td>Funções, condicionais, messagebox</td>
+<td><code>if usuario == "admin" and senha == "123":</code></td>
+</tr>
+<tr>
+<td>RF04 — Abrir Menu Principal</td>
+<td>Toplevel, transição de janelas</td>
+<td><code>MenuPrincipal()</code></td>
+</tr>
+<tr>
+<td>RF09 — Formulário de Cadastro</td>
+<td>Entry, Label, Frame, grid</td>
+<td>Campos posicionados com grid</td>
+</tr>
+<tr>
+<td>RF11 — Tabela de alunos</td>
+<td>Treeview, Scrollbar</td>
+<td><code>ttk.Treeview(janela, columns=("nome", "idade"))</code></td>
+</tr>
+<tr>
+<td>RF12 — Salvar no banco</td>
+<td>INSERT SQL, sqlite3.connect</td>
+<td><code>cursor.execute("INSERT INTO alunos...")</code></td>
+</tr>
+<tr>
+<td>RF16 — SQLite local</td>
+<td>sqlite3, criar tabelas, CRUD</td>
+<td><code>conexao = sqlite3.connect("escola.db")</code></td>
+</tr>
+</tbody>
+</table>
+</details>
+<h2 id="missao-da-equipe">🏆 Missão da Equipe<a class="headerlink" href="#missao-da-equipe" title="Permanent link">&para;</a></h2>
+<p><strong>Tempo estimado:</strong> 30-45 minutos</p>
+<p><strong>Tarefa:</strong> Definam o tema do Projeto Final da equipe e levantem os requisitos funcionais adaptados.</p>
+<p><strong>Entregável:</strong> Um documento (pode ser um arquivo <code>.md</code> ou uma folha de papel) contendo:</p>
+<ul>
+<li>Nome do projeto</li>
+<li>Nome dos integrantes e seus papéis iniciais</li>
+<li>Tema escolhido com breve descrição (2-3 frases)</li>
+<li>Lista de requisitos funcionais adaptados (mínimo 15 requisitos)</li>
+</ul>
+<p><strong>Checklist da Missão:</strong></p>
+<ul>
+<li>[ ] Nome do projeto definido</li>
+<li>[ ] Integrantes listados (2 a 4 pessoas)</li>
+<li>[ ] Tema claramente descrito</li>
+<li>[ ] Pelo menos 15 requisitos funcionais listados</li>
+<li>[ ] Os requisitos cobrem Login, Menu, Cadastro, CRUD, Banco</li>
+<li>[ ] O professor validou o tema e os requisitos</li>
+</ul>
+<p><strong>Exemplo de adaptação dos requisitos (Sistema de Biblioteca):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Código original</th>
+<th>Adaptação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RF09 — Campos: Nome, Idade, Turma</td>
+<td>RF09 — Campos: Título, Autor, ISBN, Ano</td>
+</tr>
+<tr>
+<td>RF16 — Tabela alunos</td>
+<td>RF16 — Tabela livros</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition important">
+<p class="admonition-title">Nota para o Professor</p>
+<p>Verifique: Cada equipe deve ter tema único, requisitos coerentes e todos os integrantes devem saber explicar o sistema proposto.</p>
+</div>
+<h2 id="desafio">⚡ Desafio<a class="headerlink" href="#desafio" title="Permanent link">&para;</a></h2>
+<p><strong>Vá além:</strong> Crie um fluxograma do sistema da sua equipe.</p>
+<p>Você pode fazer isso:</p>
+<ul>
+<li>No papel, com lápis e borracha</li>
+<li>No computador, usando o draw.io (gratuito)</li>
+</ul>
+<p>O fluxograma deve mostrar:</p>
+<ul>
+<li>Tela de Login → Menu Principal → Tela de Cadastro</li>
+<li>As opções do menu</li>
+<li>As ações disponíveis na tela de cadastro</li>
+<li>A conexão com o banco de dados</li>
+</ul>
+<p><strong>Dica:</strong> use o diagrama ASCII que vimos no capítulo como inspiração. O importante é visualizar o fluxo completo antes de começar a programar.</p>
+<h2 id="erros-comuns">⚠️ Erros Comuns<a class="headerlink" href="#erros-comuns" title="Permanent link">&para;</a></h2>
+<div class="admonition danger">
+<p class="admonition-title">Pular o planejamento</p>
+<p><strong>Sintoma:</strong> A equipe quer começar a programar imediatamente, sem definir requisitos.</p>
+<p><strong>Causa:</strong> Ansiedade para "fazer algo" e subestimar a importância do planejamento.</p>
+<p><strong>Solução:</strong> Lembre-se: 1 hora de planejamento economiza 10 horas de programação. Defina os requisitos primeiro. Eles serão seu mapa. Sem mapa, você se perde.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Escolher tema complexo demais</p>
+<p><strong>Sintoma:</strong> A equipe decide fazer um sistema com 20 telas, gráficos, relatórios, etc.</p>
+<p><strong>Causa:</strong> Empolgação inicial e vontade de impressionar.</p>
+<p><strong>Solução:</strong> Mantenha a mesma estrutura do Sistema Escolar (Login + Menu + CRUD + Banco). Troque apenas o domínio. A complexidade virá naturalmente. Um sistema que funciona é melhor que um sistema "incrível" que nunca fica pronto.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Não entender o fluxo completo</p>
+<p><strong>Sintoma:</strong> Aluno pergunta "Mas por que precisamos de login?" ou "O banco não pode esperar?"</p>
+<p><strong>Causa:</strong> Visão fragmentada — pensar em "aulas" em vez de "sistema".</p>
+<p><strong>Solução:</strong> Volte ao diagrama de fluxo deste capítulo sempre que tiver dúvidas. Cada peça tem um propósito. O login protege os dados. O menu organiza o acesso. O banco persiste as informações. Nada é opcional.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Má distribuição de tarefas na equipe</p>
+<p><strong>Sintoma:</strong> Um integrante programa tudo e os outros só assistem.</p>
+<p><strong>Causa:</strong> Falta de definição clara de papéis.</p>
+<p><strong>Solução:</strong> Definam quem será responsável por cada módulo (views, controllers, database), mas façam rotação. Todos devem passar por todas as camadas. O objetivo é que todos aprendam tudo.</p>
+</div>
+<h2 id="boas-praticas">💡 Boas Práticas<a class="headerlink" href="#boas-praticas" title="Permanent link">&para;</a></h2>
+<p><strong>1. Comece pelo "O QUÊ", depois vá para o "COMO"</strong></p>
+<p>Antes de escrever uma linha de código, saiba o que o sistema deve fazer. Os requisitos funcionais são o seu contrato. No mercado, desenvolvedores que ignoram requisitos entregam software que ninguém pediu.</p>
+<p><strong>2. Documente desde o início</strong></p>
+<p>Sua equipe deve manter um arquivo <code>README.md</code> na raiz do projeto. Nele, registrem:</p>
+<ul>
+<li>O objetivo do sistema</li>
+<li>Os integrantes</li>
+<li>Os requisitos funcionais</li>
+<li>O cronograma da equipe</li>
+</ul>
+<p>Isso é o que empresas esperam de um desenvolvedor profissional.</p>
+<p><strong>3. Mantenha o escopo sob controle</strong></p>
+<p>É tentador adicionar "funcionalidades extras". Resista. Primeiro, faça o básico funcionar perfeitamente. Depois, se houver tempo, adicione melhorias. Um sistema simples que funciona vale mais que um sistema complexo e quebrado.</p>
+<p><strong>4. Use controle de versão (Git)</strong></p>
+<p>Se possível, criem um repositório no GitHub para o projeto da equipe. Façam commits frequentes. Isso evita perda de código e ensina o fluxo de trabalho profissional.</p>
+<p><strong>5. Comunicação constante</strong></p>
+<p>Conversem sobre o que estão fazendo. Se alguém travou, peça ajuda. Se alguém terminou, ajude o colega. No mercado, ninguém trabalha isolado.</p>
+<h2 id="checklist">☑️ Checklist<a class="headerlink" href="#checklist" title="Permanent link">&para;</a></h2>
+<p>Antes de prosseguir para o próximo capítulo, confirme:</p>
+<ul>
+<li>[ ] Entendi o escopo completo do Sistema Escolar</li>
+<li>[ ] Li e compreendi todos os 18 requisitos funcionais</li>
+<li>[ ] Sei a diferença entre programar exercícios e desenvolver um sistema</li>
+<li>[ ] Entendi como a metodologia PBL funciona neste módulo</li>
+<li>[ ] Minha equipe está formada (2 a 4 integrantes)</li>
+<li>[ ] Definimos o tema do Projeto Final da equipe</li>
+<li>[ ] Listamos pelo menos 15 requisitos funcionais adaptados</li>
+<li>[ ] O professor validou nosso tema e requisitos</li>
+<li>[ ] Tenho anotada a data de entrega: 20 de agosto</li>
+<li>[ ] Compreendi o cronograma das próximas aulas</li>
+</ul>
+<h2 id="proximo-capitulo">➡️ Próximo Capítulo<a class="headerlink" href="#proximo-capitulo" title="Permanent link">&para;</a></h2>
+<p>No <strong>Capítulo 02 — Arquitetura do Sistema</strong>, você finalmente colocará a mão no código!</p>
+<p>Vamos criar a estrutura de pastas do projeto, entender o padrão MVC (Model-View-Controller) e construir o esqueleto que sustentará todo o desenvolvimento futuro. Você aprenderá por que separar o código em módulos não é frescura — é necessidade.</p>
+<p>Prepare-se: revise o conceito de imports em Python, criação de pacotes (<code>__init__.py</code>) e o básico de classes. Tudo isso será usado já na próxima aula.</p>
+<p>Até lá, mantenha o foco. Você está a um passo de se tornar um desenvolvedor de verdade. 🚀</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar ao topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.path", "navigation.top", "toc.integrate", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

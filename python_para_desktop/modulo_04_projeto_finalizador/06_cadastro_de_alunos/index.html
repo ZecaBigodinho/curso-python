@@ -1,0 +1,2797 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Plataforma de Cursos">
+      
+      
+        <meta name="author" content="Professor">
+      
+      
+      
+        <link rel="prev" href="../05_multiplas_janelas/">
+      
+      
+        <link rel="next" href="../07_sqlite/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Cadastro De Alunos - CourseForge Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#06-cadastro-de-alunos" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../.." title="CourseForge Docs" class="md-header__button md-logo" aria-label="CourseForge Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CourseForge Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cadastro De Alunos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="teal"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="teal"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../docs/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Python para Desktop
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="CourseForge Docs" class="md-nav__button md-logo" aria-label="CourseForge Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    CourseForge Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../docs/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python para Desktop
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python para Desktop
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modulo_01_fundamentos/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🐍 Fundamentos
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🐍 Fundamentos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/01_variaveis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variaveis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/02_operadores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/03_if_else/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    If Else
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/04_repeticoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Repeticoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/05_funcoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Funcoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/06_modulos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/07_colecoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Colecoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/08_strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/09_arquivos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquivos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/10_excecoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Excecoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/11_projeto_final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto Final
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modulo_02_interfaces_graficas/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🖥️ Interfaces Graficas
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🖥️ Interfaces Graficas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/01_tkinter_basico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tkinter Basico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/02_layout_managers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Layout Managers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/03_eventos_interatividade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eventos Interatividade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/04_customtkinter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customtkinter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/05_projeto_pratico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto Pratico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modulo_03_banco_de_dados/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗄️ Banco De Dados
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🗄️ Banco De Dados
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_03_banco_de_dados/01_introducao_sqlite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducao Sqlite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_03_banco_de_dados/02_integracao_interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integracao Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_03_banco_de_dados/03_variaveis_ambiente/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variaveis Ambiente
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_03_banco_de_dados/04_projeto_final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto Final
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏗️ Projeto Finalizador
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🏗️ Projeto Finalizador
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_introducao_ao_projeto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducao Ao Projeto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_arquitetura_do_sistema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitetura Do Sistema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_tela_de_login/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tela De Login
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_menu_principal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Menu Principal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_multiplas_janelas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multiplas Janelas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cadastro De Alunos
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cadastro De Alunos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Objetivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contextualizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📍 Contextualização
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultado-esperado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Resultado Esperado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementacao-guiada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Implementação Guiada
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Implementação Guiada">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passo-1-criando-o-controller-de-alunos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 1 — Criando o Controller de Alunos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-2-criando-a-view-de-cadastro-parte-1-formulario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 2 — Criando a View de Cadastro (parte 1: formulário)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-3-criando-a-view-de-cadastro-parte-2-treeview-e-botoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 3 — Criando a View de Cadastro (parte 2: Treeview e botões)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-4-atualizando-o-menu-para-abrir-a-tela-real" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 4 — Atualizando o Menu para abrir a tela real
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-5-testando-o-fluxo-completo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 5 — Testando o fluxo completo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercicio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📝 Exercício
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#missao-da-equipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏆 Missão da Equipe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desafio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚡ Desafio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erros-comuns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Erros Comuns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boas-praticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 Boas Práticas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ☑️ Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proximo-capitulo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ➡️ Próximo Capítulo
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_sqlite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sqlite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_sqlite_local/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sqlite Local
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_crud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_crud_completo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crud Completo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_banco_em_nuvem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Banco Em Nuvem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_integracao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integracao
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_integracao_e_testes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integracao E Testes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_refatoracao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Refatoracao
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_refatoracao_e_entrega/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Refatoracao E Entrega
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_projeto_final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto Final
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navegação" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../docs/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Python para Desktop
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    🏗️ Projeto Finalizador
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="06-cadastro-de-alunos">06 — Cadastro de Alunos<a class="headerlink" href="#06-cadastro-de-alunos" title="Permanent link">&para;</a></h1>
+<h2 id="objetivo">🎯 Objetivo<a class="headerlink" href="#objetivo" title="Permanent link">&para;</a></h2>
+<p>Neste capítulo você vai construir o formulário de cadastro de alunos — a primeira tela funcional completa do Sistema Escolar, com entrada de dados, validação e exibição em tabela.</p>
+<p>Ao final, você terá:</p>
+<ul>
+<li>Um formulário com campos para Nome, Idade e Turma</li>
+<li>Validação inteligente: impede campos vazios, idade não numérica e idade negativa</li>
+<li>Uma tabela Treeview com scrollbar listando todos os alunos cadastrados</li>
+<li>Botões Salvar (adiciona à lista e atualiza a tabela) e Limpar (reseta o formulário)</li>
+<li>Dados armazenados em uma lista em memória — preparada para migração ao SQLite no próximo capítulo</li>
+<li>O menu principal abrindo a tela de cadastro como uma janela Toplevel totalmente funcional</li>
+</ul>
+<h2 id="contextualizacao">📍 Contextualização<a class="headerlink" href="#contextualizacao" title="Permanent link">&para;</a></h2>
+<p>No Capítulo 05, você dominou a navegação entre múltiplas janelas: Toplevel, withdraw, deiconify, controle de duplicação e interceptação do botão X. As janelas de funcionalidade eram placeholders vazios — meros esqueletos.</p>
+<p>Agora, você preencherá o esqueleto com músculos e órgãos. A janela de Cadastro de Alunos ganhará vida com widgets reais, validação de dados e uma tabela que se atualiza dinamicamente. Você também conhecerá o Treeview — o widget mais poderoso do Tkinter para exibir dados tabulares — e aprenderá a integrá-lo com uma fonte de dados (por enquanto, uma lista em memória).</p>
+<p>Este é o capítulo mais denso da primeira metade do módulo. Respire fundo e vamos construir.</p>
+<p><strong>Progresso do Sistema:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>✅ Capítulo 01 — Introdução e Planejamento
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>✅ Capítulo 02 — Arquitetura do Sistema
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>✅ Capítulo 03 — Tela de Login
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>✅ Capítulo 04 — Menu Principal
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>✅ Capítulo 05 — Múltiplas Janelas
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>🔨 Cadastro de Alunos ← VOCÊ ESTÁ AQUI
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>⬜ SQLite Local
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>⬜ CRUD Completo
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>⬜ Banco em Nuvem
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>⬜ Integração e Testes
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>⬜ Refatoração e Entrega
+</code></pre></div>
+<h2 id="resultado-esperado">✅ Resultado Esperado<a class="headerlink" href="#resultado-esperado" title="Permanent link">&para;</a></h2>
+<p>Ao clicar em "Cadastrar Alunos" no menu, o sistema abrirá uma janela independente com este visual:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>┌──────────────────────────────────────────────────┐
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│  Cadastro de Alunos                          _ □ X│
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│                                                  │
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│  ┌─ Dados do Aluno ────────────────────────────┐ │
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│  │  Nome:  [________________________]          │ │
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│  │  Idade: [________]  Turma: [____▾]          │ │
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│  │                                             │ │
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│  │  [💾 Salvar]  [🧹 Limpar]                   │ │
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│  └─────────────────────────────────────────────┘ │
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│                                                  │
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│  ┌─ Alunos Cadastrados ────────────────────────┐ │
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>│  │  Nome          │ Idade │ Turma              │ │
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>│  │  ──────────────┼───────┼──────              │ │
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>│  │  João Silva    │ 15    │ 9A                 │ │
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>│  │  Maria Souza   │ 14    │ 9B                 │ │
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>│  │  ...           │ ...   │ ...                │ │
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>│  │                                     ▴       │ │
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>│  │                                     ▾       │ │
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>│  └─────────────────────────────────────────────┘ │
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>│                                                  │
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>└──────────────────────────────────────────────────┘
+</code></pre></div>
+<p>Comportamento esperado:</p>
+<ul>
+<li>Ao digitar dados válidos e clicar em Salvar, o aluno aparece na tabela e os campos são limpos</li>
+<li>Se algum campo estiver vazio, um messagebox de aviso é exibido</li>
+<li>Se "Idade" não for um número inteiro positivo, um messagebox de erro é exibido</li>
+<li>O botão Limpar apaga o conteúdo de todos os campos sem afetar a tabela</li>
+<li>Os dados persistem enquanto a janela estiver aberta (na memória). Ao fechar a janela, os dados se perdem — isso será resolvido com SQLite no Capítulo 07</li>
+</ul>
+<p>Arquivos criados ou modificados:</p>
+<table>
+<thead>
+<tr>
+<th>Arquivo</th>
+<th>Ação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>controllers/aluno.py</code></td>
+<td>Novo — lógica de negócio (salvar, listar, limpar)</td>
+</tr>
+<tr>
+<td><code>views/cadastro.py</code></td>
+<td>Novo — formulário e Treeview</td>
+</tr>
+<tr>
+<td><code>views/menu.py</code></td>
+<td>Modificado — botão "Cadastrar Alunos" abre a tela real</td>
+</tr>
+</tbody>
+</table>
+<h2 id="implementacao-guiada">💻 Implementação Guiada<a class="headerlink" href="#implementacao-guiada" title="Permanent link">&para;</a></h2>
+<h3 id="passo-1-criando-o-controller-de-alunos">Passo 1 — Criando o Controller de Alunos<a class="headerlink" href="#passo-1-criando-o-controller-de-alunos" title="Permanent link">&para;</a></h3>
+<p>Começamos pela camada de lógica, seguindo o padrão MVC. O controller não conhece a interface — apenas manipula os dados.</p>
+<p>Crie o arquivo <code>controllers/aluno.py</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># ======================================================================</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># aluno.py — Controlador de Alunos</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># ======================================================================</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Eu sou responsável por gerenciar os dados dos alunos.</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># Por enquanto, eu guardo tudo em uma lista na memória.</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1">#</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># ⚠️ No Capítulo 07, eu vou trocar esta lista por um banco SQLite.</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1">#    As funções terão os mesmos nomes — só a implementação mudará.</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># ======================================================================</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c1"># ---------- BANCO DE DADOS EM MEMÓRIA (PROVISÓRIO) ----------</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1"># Eu sou a lista que armazena os alunos cadastrados.</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="c1"># Cada aluno é um dicionário com as chaves: nome, idade, turma.</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="n">alunos</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="k">def</span><span class="w"> </span><span class="nf">salvar_aluno</span><span class="p">(</span><span class="n">nome</span><span class="p">,</span> <span class="n">idade</span><span class="p">,</span> <span class="n">turma</span><span class="p">):</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="sd">    Eu adiciono um novo aluno à lista em memória.</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="sd">    Parâmetros:</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="sd">        nome: string com o nome completo do aluno</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="sd">        idade: inteiro com a idade do aluno</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="sd">        turma: string com a turma (ex: &#39;9A&#39;, &#39;1B&#39;)</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="sd">    Retorno:</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="sd">        dict com os dados do aluno recém-criado</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>    <span class="c1"># Eu monto o dicionário que representa o aluno.</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>    <span class="n">aluno</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>        <span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="n">nome</span><span class="p">,</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>        <span class="s2">&quot;idade&quot;</span><span class="p">:</span> <span class="n">idade</span><span class="p">,</span>
+<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>        <span class="s2">&quot;turma&quot;</span><span class="p">:</span> <span class="n">turma</span>
+<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a>    <span class="p">}</span>
+<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>    <span class="c1"># Eu adiciono o aluno à lista.</span>
+<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a>    <span class="n">alunos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">aluno</span><span class="p">)</span>
+<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a>    <span class="c1"># Eu retorno o aluno para que a view possa usá-lo se necessário.</span>
+<a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a>    <span class="k">return</span> <span class="n">aluno</span>
+<a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a>
+<a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a>
+<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a><span class="k">def</span><span class="w"> </span><span class="nf">listar_alunos</span><span class="p">():</span>
+<a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a><span class="sd">    Eu devolvo a lista completa de alunos cadastrados.</span>
+<a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a>
+<a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a><span class="sd">    Retorno:</span>
+<a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a><span class="sd">        list de dict — cada dict contém nome, idade, turma</span>
+<a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a>    <span class="c1"># Simplesmente retorno a lista que está na memória.</span>
+<a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a>    <span class="c1"># No futuro, aqui haverá um SELECT no banco de dados.</span>
+<a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a>    <span class="k">return</span> <span class="n">alunos</span>
+<a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a>
+<a id="__codelineno-2-52" name="__codelineno-2-52" href="#__codelineno-2-52"></a>
+<a id="__codelineno-2-53" name="__codelineno-2-53" href="#__codelineno-2-53"></a><span class="k">def</span><span class="w"> </span><span class="nf">limpar_dados</span><span class="p">():</span>
+<a id="__codelineno-2-54" name="__codelineno-2-54" href="#__codelineno-2-54"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-2-55" name="__codelineno-2-55" href="#__codelineno-2-55"></a><span class="sd">    Eu removo todos os alunos da memória.</span>
+<a id="__codelineno-2-56" name="__codelineno-2-56" href="#__codelineno-2-56"></a><span class="sd">    Útil para testes ou para a funcionalidade de &#39;Resetar&#39;.</span>
+<a id="__codelineno-2-57" name="__codelineno-2-57" href="#__codelineno-2-57"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-2-58" name="__codelineno-2-58" href="#__codelineno-2-58"></a>    <span class="c1"># Esvazio a lista.</span>
+<a id="__codelineno-2-59" name="__codelineno-2-59" href="#__codelineno-2-59"></a>    <span class="n">alunos</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Conceito Importante</p>
+<p>Repare que as funções <code>salvar_aluno</code>, <code>listar_alunos</code> e <code>limpar_dados</code> não usam Tkinter. Elas são puro Python. Isso permite testá-las isoladamente e, no futuro, trocar a implementação interna (de lista para SQLite) sem quebrar a interface.</p>
+</div>
+<h3 id="passo-2-criando-a-view-de-cadastro-parte-1-formulario">Passo 2 — Criando a View de Cadastro (parte 1: formulário)<a class="headerlink" href="#passo-2-criando-a-view-de-cadastro-parte-1-formulario" title="Permanent link">&para;</a></h3>
+<p>Agora, a interface. Será um Toplevel com dois LabelFrame: um para o formulário de entrada e outro para a tabela de listagem.</p>
+<p>Crie o arquivo <code>views/cadastro.py</code>. Vamos começar com a estrutura geral e o formulário:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># ======================================================================</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># cadastro.py — Tela de Cadastro de Alunos (View)</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># ======================================================================</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Eu sou a tela de cadastro de alunos do Sistema Escolar.</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1"># Exibo o formulário de entrada e a tabela com os dados cadastrados.</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1">#</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># Eu NÃO manipulo os dados diretamente — sempre passo pelo controller.</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1"># ======================================================================</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="kn">import</span><span class="w"> </span><span class="nn">tkinter</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tk</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="kn">from</span><span class="w"> </span><span class="nn">tkinter</span><span class="w"> </span><span class="kn">import</span> <span class="n">ttk</span><span class="p">,</span> <span class="n">messagebox</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="kn">from</span><span class="w"> </span><span class="nn">controllers.aluno</span><span class="w"> </span><span class="kn">import</span> <span class="n">salvar_aluno</span><span class="p">,</span> <span class="n">listar_alunos</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="k">def</span><span class="w"> </span><span class="nf">abrir_janela_cadastro</span><span class="p">(</span><span class="n">janela_pai</span><span class="p">):</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="sd">    Eu abro a janela de cadastro como um Toplevel.</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="sd">    Parâmetros:</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="sd">        janela_pai: a janela principal (tk.Tk) que me chamou</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>    <span class="c1"># ---------- CRIAÇÃO DA JANELA ----------</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>    <span class="n">janela</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Toplevel</span><span class="p">(</span><span class="n">janela_pai</span><span class="p">)</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>    <span class="n">janela</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Cadastro de Alunos&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>    <span class="c1"># Importo a função de centralização (evita dependência no topo).</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">utils.helpers</span><span class="w"> </span><span class="kn">import</span> <span class="n">centralizar_janela</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>    <span class="n">centralizar_janela</span><span class="p">(</span><span class="n">janela</span><span class="p">,</span> <span class="mi">750</span><span class="p">,</span> <span class="mi">550</span><span class="p">)</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>    <span class="n">janela</span><span class="o">.</span><span class="n">resizable</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>    <span class="n">janela</span><span class="o">.</span><span class="n">protocol</span><span class="p">(</span><span class="s2">&quot;WM_DELETE_WINDOW&quot;</span><span class="p">,</span> <span class="n">janela</span><span class="o">.</span><span class="n">destroy</span><span class="p">)</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>    <span class="c1"># ---------- COR DE FUNDO ----------</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>    <span class="n">janela</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">bg</span><span class="o">=</span><span class="s2">&quot;#f5f6fa&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>    <span class="c1"># ---------- FRAME DO FORMULÁRIO ----------</span>
+<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>    <span class="c1"># Eu crio um LabelFrame com borda e título para o formulário.</span>
+<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>    <span class="n">frame_form</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">LabelFrame</span><span class="p">(</span>
+<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>        <span class="n">janela</span><span class="p">,</span>
+<a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>        <span class="n">text</span><span class="o">=</span><span class="s2">&quot; Dados do Aluno &quot;</span><span class="p">,</span>
+<a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>        <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;bold&quot;</span><span class="p">),</span>
+<a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>        <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;#ffffff&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>        <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;#2c3e50&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>        <span class="n">bd</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>        <span class="n">relief</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">GROOVE</span><span class="p">,</span>
+<a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>        <span class="n">padx</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+<a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>        <span class="n">pady</span><span class="o">=</span><span class="mi">15</span>
+<a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>    <span class="p">)</span>
+<a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>    <span class="n">frame_form</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a>
+<a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a>    <span class="c1"># ---------- CAMPO NOME ----------</span>
+<a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a>    <span class="n">lbl_nome</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span>
+<a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a>        <span class="n">frame_form</span><span class="p">,</span>
+<a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a>        <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Nome:&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a>        <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span>
+<a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a>        <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;#ffffff&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a>        <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;#333333&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a>        <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;w&quot;</span>
+<a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a>    <span class="p">)</span>
+<a id="__codelineno-3-58" name="__codelineno-3-58" href="#__codelineno-3-58"></a>    <span class="n">lbl_nome</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<a id="__codelineno-3-59" name="__codelineno-3-59" href="#__codelineno-3-59"></a>
+<a id="__codelineno-3-60" name="__codelineno-3-60" href="#__codelineno-3-60"></a>    <span class="n">entry_nome</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Entry</span><span class="p">(</span>
+<a id="__codelineno-3-61" name="__codelineno-3-61" href="#__codelineno-3-61"></a>        <span class="n">frame_form</span><span class="p">,</span>
+<a id="__codelineno-3-62" name="__codelineno-3-62" href="#__codelineno-3-62"></a>        <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+<a id="__codelineno-3-63" name="__codelineno-3-63" href="#__codelineno-3-63"></a>        <span class="n">width</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span>
+<a id="__codelineno-3-64" name="__codelineno-3-64" href="#__codelineno-3-64"></a>        <span class="n">bd</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-3-65" name="__codelineno-3-65" href="#__codelineno-3-65"></a>        <span class="n">relief</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">SOLID</span>
+<a id="__codelineno-3-66" name="__codelineno-3-66" href="#__codelineno-3-66"></a>    <span class="p">)</span>
+<a id="__codelineno-3-67" name="__codelineno-3-67" href="#__codelineno-3-67"></a>    <span class="n">entry_nome</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;ew&quot;</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">pady</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<a id="__codelineno-3-68" name="__codelineno-3-68" href="#__codelineno-3-68"></a>    <span class="n">entry_nome</span><span class="o">.</span><span class="n">focus_set</span><span class="p">()</span>
+<a id="__codelineno-3-69" name="__codelineno-3-69" href="#__codelineno-3-69"></a>
+<a id="__codelineno-3-70" name="__codelineno-3-70" href="#__codelineno-3-70"></a>    <span class="c1"># ---------- CAMPO IDADE ----------</span>
+<a id="__codelineno-3-71" name="__codelineno-3-71" href="#__codelineno-3-71"></a>    <span class="n">lbl_idade</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span>
+<a id="__codelineno-3-72" name="__codelineno-3-72" href="#__codelineno-3-72"></a>        <span class="n">frame_form</span><span class="p">,</span>
+<a id="__codelineno-3-73" name="__codelineno-3-73" href="#__codelineno-3-73"></a>        <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Idade:&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-74" name="__codelineno-3-74" href="#__codelineno-3-74"></a>        <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span>
+<a id="__codelineno-3-75" name="__codelineno-3-75" href="#__codelineno-3-75"></a>        <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;#ffffff&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-76" name="__codelineno-3-76" href="#__codelineno-3-76"></a>        <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;#333333&quot;</span>
+<a id="__codelineno-3-77" name="__codelineno-3-77" href="#__codelineno-3-77"></a>    <span class="p">)</span>
+<a id="__codelineno-3-78" name="__codelineno-3-78" href="#__codelineno-3-78"></a>    <span class="n">lbl_idade</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<a id="__codelineno-3-79" name="__codelineno-3-79" href="#__codelineno-3-79"></a>
+<a id="__codelineno-3-80" name="__codelineno-3-80" href="#__codelineno-3-80"></a>    <span class="n">entry_idade</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Entry</span><span class="p">(</span>
+<a id="__codelineno-3-81" name="__codelineno-3-81" href="#__codelineno-3-81"></a>        <span class="n">frame_form</span><span class="p">,</span>
+<a id="__codelineno-3-82" name="__codelineno-3-82" href="#__codelineno-3-82"></a>        <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+<a id="__codelineno-3-83" name="__codelineno-3-83" href="#__codelineno-3-83"></a>        <span class="n">width</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+<a id="__codelineno-3-84" name="__codelineno-3-84" href="#__codelineno-3-84"></a>        <span class="n">bd</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-3-85" name="__codelineno-3-85" href="#__codelineno-3-85"></a>        <span class="n">relief</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">SOLID</span>
+<a id="__codelineno-3-86" name="__codelineno-3-86" href="#__codelineno-3-86"></a>    <span class="p">)</span>
+<a id="__codelineno-3-87" name="__codelineno-3-87" href="#__codelineno-3-87"></a>    <span class="n">entry_idade</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">pady</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<a id="__codelineno-3-88" name="__codelineno-3-88" href="#__codelineno-3-88"></a>
+<a id="__codelineno-3-89" name="__codelineno-3-89" href="#__codelineno-3-89"></a>    <span class="c1"># ---------- CAMPO TURMA ----------</span>
+<a id="__codelineno-3-90" name="__codelineno-3-90" href="#__codelineno-3-90"></a>    <span class="n">lbl_turma</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span>
+<a id="__codelineno-3-91" name="__codelineno-3-91" href="#__codelineno-3-91"></a>        <span class="n">frame_form</span><span class="p">,</span>
+<a id="__codelineno-3-92" name="__codelineno-3-92" href="#__codelineno-3-92"></a>        <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Turma:&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-93" name="__codelineno-3-93" href="#__codelineno-3-93"></a>        <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span>
+<a id="__codelineno-3-94" name="__codelineno-3-94" href="#__codelineno-3-94"></a>        <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;#ffffff&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-95" name="__codelineno-3-95" href="#__codelineno-3-95"></a>        <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;#333333&quot;</span>
+<a id="__codelineno-3-96" name="__codelineno-3-96" href="#__codelineno-3-96"></a>    <span class="p">)</span>
+<a id="__codelineno-3-97" name="__codelineno-3-97" href="#__codelineno-3-97"></a>    <span class="n">lbl_turma</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<a id="__codelineno-3-98" name="__codelineno-3-98" href="#__codelineno-3-98"></a>
+<a id="__codelineno-3-99" name="__codelineno-3-99" href="#__codelineno-3-99"></a>    <span class="c1"># Eu uso uma Combobox para a turma — assim o usuário escolhe de uma lista</span>
+<a id="__codelineno-3-100" name="__codelineno-3-100" href="#__codelineno-3-100"></a>    <span class="c1"># predefinida, reduzindo erros de digitação.</span>
+<a id="__codelineno-3-101" name="__codelineno-3-101" href="#__codelineno-3-101"></a>    <span class="n">turmas_disponiveis</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-3-102" name="__codelineno-3-102" href="#__codelineno-3-102"></a>        <span class="s2">&quot;6A&quot;</span><span class="p">,</span> <span class="s2">&quot;6B&quot;</span><span class="p">,</span> <span class="s2">&quot;7A&quot;</span><span class="p">,</span> <span class="s2">&quot;7B&quot;</span><span class="p">,</span> <span class="s2">&quot;8A&quot;</span><span class="p">,</span> <span class="s2">&quot;8B&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-103" name="__codelineno-3-103" href="#__codelineno-3-103"></a>        <span class="s2">&quot;9A&quot;</span><span class="p">,</span> <span class="s2">&quot;9B&quot;</span><span class="p">,</span> <span class="s2">&quot;1A&quot;</span><span class="p">,</span> <span class="s2">&quot;1B&quot;</span><span class="p">,</span> <span class="s2">&quot;2A&quot;</span><span class="p">,</span> <span class="s2">&quot;2B&quot;</span><span class="p">,</span> <span class="s2">&quot;3A&quot;</span><span class="p">,</span> <span class="s2">&quot;3B&quot;</span>
+<a id="__codelineno-3-104" name="__codelineno-3-104" href="#__codelineno-3-104"></a>    <span class="p">]</span>
+<a id="__codelineno-3-105" name="__codelineno-3-105" href="#__codelineno-3-105"></a>    <span class="n">combo_turma</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Combobox</span><span class="p">(</span>
+<a id="__codelineno-3-106" name="__codelineno-3-106" href="#__codelineno-3-106"></a>        <span class="n">frame_form</span><span class="p">,</span>
+<a id="__codelineno-3-107" name="__codelineno-3-107" href="#__codelineno-3-107"></a>        <span class="n">values</span><span class="o">=</span><span class="n">turmas_disponiveis</span><span class="p">,</span>
+<a id="__codelineno-3-108" name="__codelineno-3-108" href="#__codelineno-3-108"></a>        <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+<a id="__codelineno-3-109" name="__codelineno-3-109" href="#__codelineno-3-109"></a>        <span class="n">width</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>
+<a id="__codelineno-3-110" name="__codelineno-3-110" href="#__codelineno-3-110"></a>        <span class="n">state</span><span class="o">=</span><span class="s2">&quot;readonly&quot;</span>
+<a id="__codelineno-3-111" name="__codelineno-3-111" href="#__codelineno-3-111"></a>    <span class="p">)</span>
+<a id="__codelineno-3-112" name="__codelineno-3-112" href="#__codelineno-3-112"></a>    <span class="n">combo_turma</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">pady</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<a id="__codelineno-3-113" name="__codelineno-3-113" href="#__codelineno-3-113"></a>    <span class="n">combo_turma</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>  <span class="c1"># Começa vazio</span>
+<a id="__codelineno-3-114" name="__codelineno-3-114" href="#__codelineno-3-114"></a>
+<a id="__codelineno-3-115" name="__codelineno-3-115" href="#__codelineno-3-115"></a>    <span class="c1"># Configuro a grid do frame_form para expandir o campo nome.</span>
+<a id="__codelineno-3-116" name="__codelineno-3-116" href="#__codelineno-3-116"></a>    <span class="n">frame_form</span><span class="o">.</span><span class="n">columnconfigure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-3-117" name="__codelineno-3-117" href="#__codelineno-3-117"></a>
+<a id="__codelineno-3-118" name="__codelineno-3-118" href="#__codelineno-3-118"></a>    <span class="c1"># ---------- FRAME DOS BOTÕES ----------</span>
+<a id="__codelineno-3-119" name="__codelineno-3-119" href="#__codelineno-3-119"></a>    <span class="n">frame_botoes</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Frame</span><span class="p">(</span><span class="n">frame_form</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;#ffffff&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-120" name="__codelineno-3-120" href="#__codelineno-3-120"></a>    <span class="n">frame_botoes</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</code></pre></div>
+<h3 id="passo-3-criando-a-view-de-cadastro-parte-2-treeview-e-botoes">Passo 3 — Criando a View de Cadastro (parte 2: Treeview e botões)<a class="headerlink" href="#passo-3-criando-a-view-de-cadastro-parte-2-treeview-e-botoes" title="Permanent link">&para;</a></h3>
+<p>Continuando no mesmo arquivo <code>views/cadastro.py</code>, abaixo do código anterior, ainda dentro da função <code>abrir_janela_cadastro</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>    <span class="c1"># ===== CONTINUAÇÃO DENTRO DE abrir_janela_cadastro =====</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="c1"># ---------- FRAME DA LISTAGEM ----------</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="n">frame_lista</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">LabelFrame</span><span class="p">(</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        <span class="n">janela</span><span class="p">,</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        <span class="n">text</span><span class="o">=</span><span class="s2">&quot; Alunos Cadastrados &quot;</span><span class="p">,</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>        <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;bold&quot;</span><span class="p">),</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>        <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;#ffffff&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>        <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;#2c3e50&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>        <span class="n">bd</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>        <span class="n">relief</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">GROOVE</span><span class="p">,</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>        <span class="n">padx</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>        <span class="n">pady</span><span class="o">=</span><span class="mi">15</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    <span class="p">)</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    <span class="n">frame_lista</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">BOTH</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>    <span class="c1"># ---------- TREVIEW ----------</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>    <span class="c1"># Eu crio a tabela que exibirá os alunos.</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>    <span class="c1"># columns define as colunas visíveis (além da coluna fantasma #0).</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>    <span class="n">colunas</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;nome&quot;</span><span class="p">,</span> <span class="s2">&quot;idade&quot;</span><span class="p">,</span> <span class="s2">&quot;turma&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>    <span class="n">tree</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Treeview</span><span class="p">(</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>        <span class="n">frame_lista</span><span class="p">,</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>        <span class="n">columns</span><span class="o">=</span><span class="n">colunas</span><span class="p">,</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>        <span class="n">show</span><span class="o">=</span><span class="s2">&quot;headings&quot;</span><span class="p">,</span>  <span class="c1"># Esconde a coluna fantasma #0</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>        <span class="n">height</span><span class="o">=</span><span class="mi">10</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>    <span class="p">)</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>    <span class="c1"># Eu configuro os cabeçalhos das colunas.</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>    <span class="n">tree</span><span class="o">.</span><span class="n">heading</span><span class="p">(</span><span class="s2">&quot;nome&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Nome&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>    <span class="n">tree</span><span class="o">.</span><span class="n">heading</span><span class="p">(</span><span class="s2">&quot;idade&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Idade&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>    <span class="n">tree</span><span class="o">.</span><span class="n">heading</span><span class="p">(</span><span class="s2">&quot;turma&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Turma&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>    <span class="c1"># Eu configuro a largura e o alinhamento de cada coluna.</span>
+<a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>    <span class="n">tree</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;nome&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>    <span class="n">tree</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;idade&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>    <span class="n">tree</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;turma&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>
+<a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a>    <span class="c1"># ---------- SCROLLBAR ----------</span>
+<a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a>    <span class="c1"># Eu adiciono uma barra de rolagem vertical vinculada ao Treeview.</span>
+<a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a>    <span class="n">scrollbar</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Scrollbar</span><span class="p">(</span>
+<a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a>        <span class="n">frame_lista</span><span class="p">,</span>
+<a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a>        <span class="n">orient</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">VERTICAL</span><span class="p">,</span>
+<a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a>        <span class="n">command</span><span class="o">=</span><span class="n">tree</span><span class="o">.</span><span class="n">yview</span>
+<a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a>    <span class="p">)</span>
+<a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a>    <span class="n">tree</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">yscrollcommand</span><span class="o">=</span><span class="n">scrollbar</span><span class="o">.</span><span class="n">set</span><span class="p">)</span>
+<a id="__codelineno-4-46" name="__codelineno-4-46" href="#__codelineno-4-46"></a>
+<a id="__codelineno-4-47" name="__codelineno-4-47" href="#__codelineno-4-47"></a>    <span class="c1"># Eu posiciono a tabela e a scrollbar lado a lado.</span>
+<a id="__codelineno-4-48" name="__codelineno-4-48" href="#__codelineno-4-48"></a>    <span class="n">tree</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;nsew&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-49" name="__codelineno-4-49" href="#__codelineno-4-49"></a>    <span class="n">scrollbar</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;ns&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-50" name="__codelineno-4-50" href="#__codelineno-4-50"></a>
+<a id="__codelineno-4-51" name="__codelineno-4-51" href="#__codelineno-4-51"></a>    <span class="c1"># Eu configuro o frame_lista para expandir a tabela.</span>
+<a id="__codelineno-4-52" name="__codelineno-4-52" href="#__codelineno-4-52"></a>    <span class="n">frame_lista</span><span class="o">.</span><span class="n">rowconfigure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-4-53" name="__codelineno-4-53" href="#__codelineno-4-53"></a>    <span class="n">frame_lista</span><span class="o">.</span><span class="n">columnconfigure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-4-54" name="__codelineno-4-54" href="#__codelineno-4-54"></a>
+<a id="__codelineno-4-55" name="__codelineno-4-55" href="#__codelineno-4-55"></a>    <span class="c1"># ---------- FUNÇÕES DOS BOTÕES ----------</span>
+<a id="__codelineno-4-56" name="__codelineno-4-56" href="#__codelineno-4-56"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">ao_clicar_salvar</span><span class="p">():</span>
+<a id="__codelineno-4-57" name="__codelineno-4-57" href="#__codelineno-4-57"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-4-58" name="__codelineno-4-58" href="#__codelineno-4-58"></a><span class="sd">        Eu valido os campos, salvo o aluno e atualizo a tabela.</span>
+<a id="__codelineno-4-59" name="__codelineno-4-59" href="#__codelineno-4-59"></a><span class="sd">        &quot;&quot;&quot;</span>
+<a id="__codelineno-4-60" name="__codelineno-4-60" href="#__codelineno-4-60"></a>        <span class="c1"># Capturo e limpo os valores.</span>
+<a id="__codelineno-4-61" name="__codelineno-4-61" href="#__codelineno-4-61"></a>        <span class="n">nome</span> <span class="o">=</span> <span class="n">entry_nome</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-4-62" name="__codelineno-4-62" href="#__codelineno-4-62"></a>        <span class="n">idade_str</span> <span class="o">=</span> <span class="n">entry_idade</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-4-63" name="__codelineno-4-63" href="#__codelineno-4-63"></a>        <span class="n">turma</span> <span class="o">=</span> <span class="n">combo_turma</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-4-64" name="__codelineno-4-64" href="#__codelineno-4-64"></a>
+<a id="__codelineno-4-65" name="__codelineno-4-65" href="#__codelineno-4-65"></a>        <span class="c1"># ---------- VALIDAÇÃO ----------</span>
+<a id="__codelineno-4-66" name="__codelineno-4-66" href="#__codelineno-4-66"></a>        <span class="c1"># 1. Campos obrigatórios</span>
+<a id="__codelineno-4-67" name="__codelineno-4-67" href="#__codelineno-4-67"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">nome</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">idade_str</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">turma</span><span class="p">:</span>
+<a id="__codelineno-4-68" name="__codelineno-4-68" href="#__codelineno-4-68"></a>            <span class="n">messagebox</span><span class="o">.</span><span class="n">showwarning</span><span class="p">(</span>
+<a id="__codelineno-4-69" name="__codelineno-4-69" href="#__codelineno-4-69"></a>                <span class="s2">&quot;Campos Obrigatórios&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-70" name="__codelineno-4-70" href="#__codelineno-4-70"></a>                <span class="s2">&quot;Por favor, preencha todos os campos antes de salvar.&quot;</span>
+<a id="__codelineno-4-71" name="__codelineno-4-71" href="#__codelineno-4-71"></a>            <span class="p">)</span>
+<a id="__codelineno-4-72" name="__codelineno-4-72" href="#__codelineno-4-72"></a>            <span class="k">return</span>
+<a id="__codelineno-4-73" name="__codelineno-4-73" href="#__codelineno-4-73"></a>
+<a id="__codelineno-4-74" name="__codelineno-4-74" href="#__codelineno-4-74"></a>        <span class="c1"># 2. Idade deve ser um número inteiro</span>
+<a id="__codelineno-4-75" name="__codelineno-4-75" href="#__codelineno-4-75"></a>        <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-4-76" name="__codelineno-4-76" href="#__codelineno-4-76"></a>            <span class="n">idade</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">idade_str</span><span class="p">)</span>
+<a id="__codelineno-4-77" name="__codelineno-4-77" href="#__codelineno-4-77"></a>        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+<a id="__codelineno-4-78" name="__codelineno-4-78" href="#__codelineno-4-78"></a>            <span class="n">messagebox</span><span class="o">.</span><span class="n">showerror</span><span class="p">(</span>
+<a id="__codelineno-4-79" name="__codelineno-4-79" href="#__codelineno-4-79"></a>                <span class="s2">&quot;Erro de Validação&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-80" name="__codelineno-4-80" href="#__codelineno-4-80"></a>                <span class="s2">&quot;O campo &#39;Idade&#39; deve ser um número inteiro.</span><span class="se">\n</span><span class="s2">Exemplo: 15&quot;</span>
+<a id="__codelineno-4-81" name="__codelineno-4-81" href="#__codelineno-4-81"></a>            <span class="p">)</span>
+<a id="__codelineno-4-82" name="__codelineno-4-82" href="#__codelineno-4-82"></a>            <span class="n">entry_idade</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tk</span><span class="o">.</span><span class="n">END</span><span class="p">)</span>
+<a id="__codelineno-4-83" name="__codelineno-4-83" href="#__codelineno-4-83"></a>            <span class="n">entry_idade</span><span class="o">.</span><span class="n">focus_set</span><span class="p">()</span>
+<a id="__codelineno-4-84" name="__codelineno-4-84" href="#__codelineno-4-84"></a>            <span class="k">return</span>
+<a id="__codelineno-4-85" name="__codelineno-4-85" href="#__codelineno-4-85"></a>
+<a id="__codelineno-4-86" name="__codelineno-4-86" href="#__codelineno-4-86"></a>        <span class="c1"># 3. Idade deve ser positiva</span>
+<a id="__codelineno-4-87" name="__codelineno-4-87" href="#__codelineno-4-87"></a>        <span class="k">if</span> <span class="n">idade</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-4-88" name="__codelineno-4-88" href="#__codelineno-4-88"></a>            <span class="n">messagebox</span><span class="o">.</span><span class="n">showerror</span><span class="p">(</span>
+<a id="__codelineno-4-89" name="__codelineno-4-89" href="#__codelineno-4-89"></a>                <span class="s2">&quot;Erro de Validação&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-90" name="__codelineno-4-90" href="#__codelineno-4-90"></a>                <span class="s2">&quot;A idade deve ser um valor positivo maior que zero.&quot;</span>
+<a id="__codelineno-4-91" name="__codelineno-4-91" href="#__codelineno-4-91"></a>            <span class="p">)</span>
+<a id="__codelineno-4-92" name="__codelineno-4-92" href="#__codelineno-4-92"></a>            <span class="n">entry_idade</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tk</span><span class="o">.</span><span class="n">END</span><span class="p">)</span>
+<a id="__codelineno-4-93" name="__codelineno-4-93" href="#__codelineno-4-93"></a>            <span class="n">entry_idade</span><span class="o">.</span><span class="n">focus_set</span><span class="p">()</span>
+<a id="__codelineno-4-94" name="__codelineno-4-94" href="#__codelineno-4-94"></a>            <span class="k">return</span>
+<a id="__codelineno-4-95" name="__codelineno-4-95" href="#__codelineno-4-95"></a>
+<a id="__codelineno-4-96" name="__codelineno-4-96" href="#__codelineno-4-96"></a>        <span class="c1"># ---------- PERSISTÊNCIA ----------</span>
+<a id="__codelineno-4-97" name="__codelineno-4-97" href="#__codelineno-4-97"></a>        <span class="c1"># Passou nas validações — delego ao controller.</span>
+<a id="__codelineno-4-98" name="__codelineno-4-98" href="#__codelineno-4-98"></a>        <span class="n">salvar_aluno</span><span class="p">(</span><span class="n">nome</span><span class="p">,</span> <span class="n">idade</span><span class="p">,</span> <span class="n">turma</span><span class="p">)</span>
+<a id="__codelineno-4-99" name="__codelineno-4-99" href="#__codelineno-4-99"></a>
+<a id="__codelineno-4-100" name="__codelineno-4-100" href="#__codelineno-4-100"></a>        <span class="c1"># ---------- FEEDBACK E ATUALIZAÇÃO ----------</span>
+<a id="__codelineno-4-101" name="__codelineno-4-101" href="#__codelineno-4-101"></a>        <span class="n">messagebox</span><span class="o">.</span><span class="n">showinfo</span><span class="p">(</span><span class="s2">&quot;Sucesso&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Aluno &#39;</span><span class="si">{</span><span class="n">nome</span><span class="si">}</span><span class="s2">&#39; cadastrado com sucesso!&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-102" name="__codelineno-4-102" href="#__codelineno-4-102"></a>        <span class="n">limpar_campos</span><span class="p">()</span>
+<a id="__codelineno-4-103" name="__codelineno-4-103" href="#__codelineno-4-103"></a>        <span class="n">atualizar_tabela</span><span class="p">()</span>
+<a id="__codelineno-4-104" name="__codelineno-4-104" href="#__codelineno-4-104"></a>
+<a id="__codelineno-4-105" name="__codelineno-4-105" href="#__codelineno-4-105"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">limpar_campos</span><span class="p">():</span>
+<a id="__codelineno-4-106" name="__codelineno-4-106" href="#__codelineno-4-106"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-4-107" name="__codelineno-4-107" href="#__codelineno-4-107"></a><span class="sd">        Eu limpo todos os campos do formulário.</span>
+<a id="__codelineno-4-108" name="__codelineno-4-108" href="#__codelineno-4-108"></a><span class="sd">        &quot;&quot;&quot;</span>
+<a id="__codelineno-4-109" name="__codelineno-4-109" href="#__codelineno-4-109"></a>        <span class="n">entry_nome</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tk</span><span class="o">.</span><span class="n">END</span><span class="p">)</span>
+<a id="__codelineno-4-110" name="__codelineno-4-110" href="#__codelineno-4-110"></a>        <span class="n">entry_idade</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tk</span><span class="o">.</span><span class="n">END</span><span class="p">)</span>
+<a id="__codelineno-4-111" name="__codelineno-4-111" href="#__codelineno-4-111"></a>        <span class="n">combo_turma</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-112" name="__codelineno-4-112" href="#__codelineno-4-112"></a>        <span class="n">entry_nome</span><span class="o">.</span><span class="n">focus_set</span><span class="p">()</span>
+<a id="__codelineno-4-113" name="__codelineno-4-113" href="#__codelineno-4-113"></a>
+<a id="__codelineno-4-114" name="__codelineno-4-114" href="#__codelineno-4-114"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">atualizar_tabela</span><span class="p">():</span>
+<a id="__codelineno-4-115" name="__codelineno-4-115" href="#__codelineno-4-115"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-4-116" name="__codelineno-4-116" href="#__codelineno-4-116"></a><span class="sd">        Eu recarrego a tabela com os dados atuais da lista de alunos.</span>
+<a id="__codelineno-4-117" name="__codelineno-4-117" href="#__codelineno-4-117"></a><span class="sd">        &quot;&quot;&quot;</span>
+<a id="__codelineno-4-118" name="__codelineno-4-118" href="#__codelineno-4-118"></a>        <span class="c1"># Primeiro, removo todas as linhas existentes na tabela.</span>
+<a id="__codelineno-4-119" name="__codelineno-4-119" href="#__codelineno-4-119"></a>        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">tree</span><span class="o">.</span><span class="n">get_children</span><span class="p">():</span>
+<a id="__codelineno-4-120" name="__codelineno-4-120" href="#__codelineno-4-120"></a>            <span class="n">tree</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<a id="__codelineno-4-121" name="__codelineno-4-121" href="#__codelineno-4-121"></a>
+<a id="__codelineno-4-122" name="__codelineno-4-122" href="#__codelineno-4-122"></a>        <span class="c1"># Depois, insiro cada aluno da lista como uma nova linha.</span>
+<a id="__codelineno-4-123" name="__codelineno-4-123" href="#__codelineno-4-123"></a>        <span class="k">for</span> <span class="n">aluno</span> <span class="ow">in</span> <span class="n">listar_alunos</span><span class="p">():</span>
+<a id="__codelineno-4-124" name="__codelineno-4-124" href="#__codelineno-4-124"></a>            <span class="n">tree</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span>
+<a id="__codelineno-4-125" name="__codelineno-4-125" href="#__codelineno-4-125"></a>                <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-126" name="__codelineno-4-126" href="#__codelineno-4-126"></a>                <span class="n">tk</span><span class="o">.</span><span class="n">END</span><span class="p">,</span>
+<a id="__codelineno-4-127" name="__codelineno-4-127" href="#__codelineno-4-127"></a>                <span class="n">values</span><span class="o">=</span><span class="p">(</span><span class="n">aluno</span><span class="p">[</span><span class="s2">&quot;nome&quot;</span><span class="p">],</span> <span class="n">aluno</span><span class="p">[</span><span class="s2">&quot;idade&quot;</span><span class="p">],</span> <span class="n">aluno</span><span class="p">[</span><span class="s2">&quot;turma&quot;</span><span class="p">])</span>
+<a id="__codelineno-4-128" name="__codelineno-4-128" href="#__codelineno-4-128"></a>            <span class="p">)</span>
+<a id="__codelineno-4-129" name="__codelineno-4-129" href="#__codelineno-4-129"></a>
+<a id="__codelineno-4-130" name="__codelineno-4-130" href="#__codelineno-4-130"></a>    <span class="c1"># ---------- BOTÕES DO FORMULÁRIO ----------</span>
+<a id="__codelineno-4-131" name="__codelineno-4-131" href="#__codelineno-4-131"></a>    <span class="n">btn_salvar</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span>
+<a id="__codelineno-4-132" name="__codelineno-4-132" href="#__codelineno-4-132"></a>        <span class="n">frame_botoes</span><span class="p">,</span>
+<a id="__codelineno-4-133" name="__codelineno-4-133" href="#__codelineno-4-133"></a>        <span class="n">text</span><span class="o">=</span><span class="s2">&quot;💾 Salvar&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-134" name="__codelineno-4-134" href="#__codelineno-4-134"></a>        <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="s2">&quot;bold&quot;</span><span class="p">),</span>
+<a id="__codelineno-4-135" name="__codelineno-4-135" href="#__codelineno-4-135"></a>        <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;#27ae60&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-136" name="__codelineno-4-136" href="#__codelineno-4-136"></a>        <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-137" name="__codelineno-4-137" href="#__codelineno-4-137"></a>        <span class="n">activebackground</span><span class="o">=</span><span class="s2">&quot;#219a52&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-138" name="__codelineno-4-138" href="#__codelineno-4-138"></a>        <span class="n">activeforeground</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-139" name="__codelineno-4-139" href="#__codelineno-4-139"></a>        <span class="n">width</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+<a id="__codelineno-4-140" name="__codelineno-4-140" href="#__codelineno-4-140"></a>        <span class="n">height</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-4-141" name="__codelineno-4-141" href="#__codelineno-4-141"></a>        <span class="n">bd</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-4-142" name="__codelineno-4-142" href="#__codelineno-4-142"></a>        <span class="n">cursor</span><span class="o">=</span><span class="s2">&quot;hand2&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-143" name="__codelineno-4-143" href="#__codelineno-4-143"></a>        <span class="n">command</span><span class="o">=</span><span class="n">ao_clicar_salvar</span>
+<a id="__codelineno-4-144" name="__codelineno-4-144" href="#__codelineno-4-144"></a>    <span class="p">)</span>
+<a id="__codelineno-4-145" name="__codelineno-4-145" href="#__codelineno-4-145"></a>    <span class="n">btn_salvar</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">LEFT</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<a id="__codelineno-4-146" name="__codelineno-4-146" href="#__codelineno-4-146"></a>
+<a id="__codelineno-4-147" name="__codelineno-4-147" href="#__codelineno-4-147"></a>    <span class="n">btn_limpar</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span>
+<a id="__codelineno-4-148" name="__codelineno-4-148" href="#__codelineno-4-148"></a>        <span class="n">frame_botoes</span><span class="p">,</span>
+<a id="__codelineno-4-149" name="__codelineno-4-149" href="#__codelineno-4-149"></a>        <span class="n">text</span><span class="o">=</span><span class="s2">&quot;🧹 Limpar&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-150" name="__codelineno-4-150" href="#__codelineno-4-150"></a>        <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="s2">&quot;bold&quot;</span><span class="p">),</span>
+<a id="__codelineno-4-151" name="__codelineno-4-151" href="#__codelineno-4-151"></a>        <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;#e67e22&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-152" name="__codelineno-4-152" href="#__codelineno-4-152"></a>        <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-153" name="__codelineno-4-153" href="#__codelineno-4-153"></a>        <span class="n">activebackground</span><span class="o">=</span><span class="s2">&quot;#d35400&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-154" name="__codelineno-4-154" href="#__codelineno-4-154"></a>        <span class="n">activeforeground</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-155" name="__codelineno-4-155" href="#__codelineno-4-155"></a>        <span class="n">width</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+<a id="__codelineno-4-156" name="__codelineno-4-156" href="#__codelineno-4-156"></a>        <span class="n">height</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-4-157" name="__codelineno-4-157" href="#__codelineno-4-157"></a>        <span class="n">bd</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-4-158" name="__codelineno-4-158" href="#__codelineno-4-158"></a>        <span class="n">cursor</span><span class="o">=</span><span class="s2">&quot;hand2&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-159" name="__codelineno-4-159" href="#__codelineno-4-159"></a>        <span class="n">command</span><span class="o">=</span><span class="n">limpar_campos</span>
+<a id="__codelineno-4-160" name="__codelineno-4-160" href="#__codelineno-4-160"></a>    <span class="p">)</span>
+<a id="__codelineno-4-161" name="__codelineno-4-161" href="#__codelineno-4-161"></a>    <span class="n">btn_limpar</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">LEFT</span><span class="p">)</span>
+<a id="__codelineno-4-162" name="__codelineno-4-162" href="#__codelineno-4-162"></a>
+<a id="__codelineno-4-163" name="__codelineno-4-163" href="#__codelineno-4-163"></a>    <span class="c1"># ---------- CARREGAMENTO INICIAL ----------</span>
+<a id="__codelineno-4-164" name="__codelineno-4-164" href="#__codelineno-4-164"></a>    <span class="c1"># Eu preencho a tabela com os dados que já existem na memória.</span>
+<a id="__codelineno-4-165" name="__codelineno-4-165" href="#__codelineno-4-165"></a>    <span class="c1"># (Útil se a janela for reaberta e houver dados de uma sessão anterior.)</span>
+<a id="__codelineno-4-166" name="__codelineno-4-166" href="#__codelineno-4-166"></a>    <span class="n">atualizar_tabela</span><span class="p">()</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Dica Profissional</p>
+<p>A função <code>atualizar_tabela</code> primeiro limpa todas as linhas (<code>tree.get_children()</code>) e depois reinsere cada aluno. Essa abordagem é simples e garante que a tabela sempre reflita exatamente a lista. Para tabelas muito grandes, técnicas mais eficientes existem — mas para nosso escopo, está perfeito.</p>
+</div>
+<h3 id="passo-4-atualizando-o-menu-para-abrir-a-tela-real">Passo 4 — Atualizando o Menu para abrir a tela real<a class="headerlink" href="#passo-4-atualizando-o-menu-para-abrir-a-tela-real" title="Permanent link">&para;</a></h3>
+<p>Agora, o botão "Cadastrar Alunos" do menu deve chamar nossa nova função <code>abrir_janela_cadastro</code> em vez de exibir um placeholder.</p>
+<p>Abra <code>views/menu.py</code> e faça as seguintes alterações:</p>
+<ul>
+<li>No topo do arquivo, adicione o import:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># ===== ADICIONE ESTA LINHA no topo de views/menu.py =====</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">views.cadastro</span><span class="w"> </span><span class="kn">import</span> <span class="n">abrir_janela_cadastro</span>
+</code></pre></div>
+<ul>
+<li>No dicionário <code>botoes_config</code>, altere o comando do botão "Cadastrar Alunos":</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># ===== CÓDIGO EXISTENTE =====</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="s2">&quot;comando&quot;</span><span class="p">:</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">abrir_janela_cadastro</span><span class="p">(</span><span class="n">janela</span><span class="p">)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># ===== MANTENHA ESTA LINHA (já estava assim no Capítulo 05) =====</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1"># Agora a função abrir_janela_cadastro existe em views/cadastro.py</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c1"># e substitui o placeholder.</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Verificação</p>
+<p>No Capítulo 05, o botão "Cadastrar Alunos" já chamava <code>abrir_janela_cadastro(janela)</code>, mas a função estava definida dentro do próprio <code>menu.py</code> como um placeholder. Agora, com o import, a chamada aponta para a função real em <code>views/cadastro.py</code>. Certifique-se de remover a função placeholder <code>abrir_janela_cadastro</code> que estava em <code>views/menu.py</code>, assim como a variável global <code>janela_cadastro_aberta</code> — essas agora são gerenciadas em <code>views/cadastro.py</code>.</p>
+</div>
+<p>Limpeza em <code>views/menu.py</code>: Remova a função <code>abrir_janela_cadastro</code> antiga, a função <code>fechar_janela_cadastro</code> antiga e a variável global <code>janela_cadastro_aberta</code>. Elas não são mais necessárias lá. (Deixe apenas os imports e o dicionário de botões apontando para a nova função.)</p>
+<p>O controle de duplicação será tratado em <code>views/cadastro.py</code> no próximo capítulo (ou você pode adicioná-lo já, seguindo o padrão do Capítulo 05). Para manter o foco, deixaremos a duplicação como melhoria opcional.</p>
+<h3 id="passo-5-testando-o-fluxo-completo">Passo 5 — Testando o fluxo completo<a class="headerlink" href="#passo-5-testando-o-fluxo-completo" title="Permanent link">&para;</a></h3>
+<p>Execute o sistema:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>python<span class="w"> </span>main.py
+</code></pre></div>
+<p>Faça o login (admin / admin) e clique em Cadastrar Alunos.</p>
+<p>Teste os seguintes cenários:</p>
+<ul>
+<li>Salvar com campos vazios: Deixe um campo em branco e clique em Salvar → deve aparecer "Campos Obrigatórios".</li>
+<li>Idade não numérica: Digite "abc" em Idade e clique em Salvar → deve aparecer "O campo 'Idade' deve ser um número inteiro".</li>
+<li>Idade negativa: Digite "-5" em Idade e clique em Salvar → deve aparecer "A idade deve ser um valor positivo".</li>
+<li>Cadastro válido: Preencha Nome="João Silva", Idade="15", Turma="9A" → "Aluno 'João Silva' cadastrado com sucesso!" e a tabela se atualiza.</li>
+<li>Múltiplos cadastros: Cadastre 3 alunos diferentes → todos aparecem na tabela.</li>
+<li>Limpar: Preencha os campos e clique em Limpar → todos os campos ficam vazios, mas a tabela permanece intacta.</li>
+<li>Fechar e reabrir: Feche a janela de cadastro e abra novamente → a tabela estará vazia (os dados se perderam, pois estavam apenas na memória). Isso será resolvido no próximo capítulo com SQLite!</li>
+</ul>
+<h2 id="exercicio">📝 Exercício<a class="headerlink" href="#exercicio" title="Permanent link">&para;</a></h2>
+<p><strong>Tempo estimado:</strong> 15-20 minutos</p>
+<p><strong>Tarefa:</strong> Adicione um novo campo ao formulário: E-mail. Ele deve:</p>
+<ul>
+<li>Ser um Entry com largura 30</li>
+<li>Ser validado como campo obrigatório</li>
+<li>Ter uma validação extra: conter o caractere <code>@</code> (validação simples de e-mail)</li>
+<li>Aparecer como uma nova coluna no Treeview ("E-mail")</li>
+<li>Ser armazenado no dicionário do aluno como chave "email"</li>
+</ul>
+<p>Dica: Adicione o campo no <code>frame_form</code>, atualize <code>colunas</code> do Treeview, a função <code>ao_clicar_salvar</code> e o controller <code>aluno.py</code>.</p>
+<details class="hint">
+<summary>Dica</summary>
+<p>No <code>frame_form</code>, adicione o campo E-mail em uma nova linha (<code>row=2</code>). A validação do <code>@</code> pode ser feita com <code>if "@" not in email: messagebox.showerror(...)</code>. Não se esqueça de adicionar "email" nas colunas do Treeview e no dicionário de <code>salvar_aluno</code>.</p>
+</details>
+<details class="success">
+<summary>Solução (trechos principais)</summary>
+<p>Em <code>controllers/aluno.py</code>, altere <code>salvar_aluno</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">salvar_aluno</span><span class="p">(</span><span class="n">nome</span><span class="p">,</span> <span class="n">idade</span><span class="p">,</span> <span class="n">turma</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="n">aluno</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>        <span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="n">nome</span><span class="p">,</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>        <span class="s2">&quot;idade&quot;</span><span class="p">:</span> <span class="n">idade</span><span class="p">,</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>        <span class="s2">&quot;turma&quot;</span><span class="p">:</span> <span class="n">turma</span><span class="p">,</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="n">email</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    <span class="p">}</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    <span class="n">alunos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">aluno</span><span class="p">)</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>    <span class="k">return</span> <span class="n">aluno</span>
+</code></pre></div>
+<p>Em <code>views/cadastro.py</code>, adicione o campo (dentro de <code>frame_form</code>, antes do frame de botões):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">lbl_email</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">frame_form</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;E-mail:&quot;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;#ffffff&quot;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;#333333&quot;</span><span class="p">)</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">lbl_email</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">entry_email</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Entry</span><span class="p">(</span><span class="n">frame_form</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">bd</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">relief</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">SOLID</span><span class="p">)</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">entry_email</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;ew&quot;</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">pady</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</code></pre></div>
+<p>Atualize colunas do Treeview para <code>("nome", "idade", "turma", "email")</code> e os headings/columns correspondentes. Em <code>ao_clicar_salvar</code>, capture <code>email = entry_email.get().strip()</code>, valide <code>"@" in email</code>, e passe para <code>salvar_aluno(nome, idade, turma, email)</code>. Em <code>atualizar_tabela</code>, inclua <code>aluno["email"]</code> nos values.</p>
+</details>
+<h2 id="missao-da-equipe">🏆 Missão da Equipe<a class="headerlink" href="#missao-da-equipe" title="Permanent link">&para;</a></h2>
+<p><strong>Tempo estimado:</strong> 30-45 minutos</p>
+<p><strong>Tarefa:</strong> Criem o formulário de cadastro do projeto da equipe, adaptando os campos ao domínio escolhido.</p>
+<p><strong>Entregável:</strong> Os arquivos <code>controllers/[entidade].py</code> e <code>views/cadastro.py</code> (ou nome equivalente) funcionais.</p>
+<p><strong>Checklist da Missão:</strong></p>
+<ul>
+<li>[ ] Controller criado com as funções <code>salvar_*</code>, <code>listar_*</code> (ex: <code>salvar_livro</code>, <code>listar_livros</code>)</li>
+<li>[ ] View de cadastro com formulário contendo pelo menos 3 campos específicos do domínio</li>
+<li>[ ] Treeview configurado com as colunas adequadas</li>
+<li>[ ] Validação de campos obrigatórios implementada</li>
+<li>[ ] Validação de tipo (numérico, data, etc.) em pelo menos um campo</li>
+<li>[ ] Botões Salvar e Limpar funcionais</li>
+<li>[ ] A tabela atualiza automaticamente após cada cadastro</li>
+<li>[ ] O menu principal abre a tela de cadastro real (não placeholder)</li>
+<li>[ ] O professor testou o cadastro com dados de exemplo</li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Nota para o Professor</p>
+<p>Verifique: Cada equipe deve ter adaptado os campos ao seu domínio. Exemplos: para Biblioteca → Título, Autor, ISBN, Ano; para Estoque → Produto, Quantidade, Fornecedor, Preço. Verifique se a validação funciona (campos vazios, tipo incorreto). O Treeview deve refletir exatamente os campos do formulário.</p>
+</div>
+<h2 id="desafio">⚡ Desafio<a class="headerlink" href="#desafio" title="Permanent link">&para;</a></h2>
+<p><strong>Vá além:</strong> Implemente validação de duplicidade — impeça que dois alunos com o mesmo nome sejam cadastrados.</p>
+<p>Quando o usuário tentar salvar um aluno cujo nome já existe na lista, exiba um messagebox de aviso: "Já existe um aluno cadastrado com o nome 'X'." e interrompa o cadastro.</p>
+<p>Dica: Antes de chamar <code>salvar_aluno</code>, percorra a lista de alunos com <code>listar_alunos()</code> e verifique se algum possui o mesmo nome (case-insensitive). Use <code>nome.lower()</code> para comparar ignorando maiúsculas/minúsculas.</p>
+<p>Exemplo de implementação em <code>ao_clicar_salvar</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Verifico duplicidade (case-insensitive)</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">for</span> <span class="n">aluno_existente</span> <span class="ow">in</span> <span class="n">listar_alunos</span><span class="p">():</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="k">if</span> <span class="n">aluno_existente</span><span class="p">[</span><span class="s2">&quot;nome&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="n">nome</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>        <span class="n">messagebox</span><span class="o">.</span><span class="n">showwarning</span><span class="p">(</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>            <span class="s2">&quot;Duplicidade&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>            <span class="sa">f</span><span class="s2">&quot;Já existe um aluno cadastrado com o nome &#39;</span><span class="si">{</span><span class="n">nome</span><span class="si">}</span><span class="s2">&#39;.&quot;</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>        <span class="p">)</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>        <span class="n">entry_nome</span><span class="o">.</span><span class="n">focus_set</span><span class="p">()</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>        <span class="k">return</span>
+</code></pre></div>
+<h2 id="erros-comuns">⚠️ Erros Comuns<a class="headerlink" href="#erros-comuns" title="Permanent link">&para;</a></h2>
+<div class="admonition danger">
+<p class="admonition-title">Esquecer de configurar columnconfigure no frame_form</p>
+<p><strong>Sintoma:</strong> O campo Nome não expande horizontalmente, ficando curto mesmo com <code>width=35</code>.</p>
+<p><strong>Causa:</strong> O <code>frame_form</code> não tem <code>columnconfigure</code> para dar peso à coluna do Entry.</p>
+<p><strong>Solução:</strong> Adicione <code>frame_form.columnconfigure(1, weight=1)</code> após posicionar os widgets. Isso faz a coluna 1 (onde está o Entry de Nome) expandir.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Treeview não aparece dados após salvar</p>
+<p><strong>Sintoma:</strong> A mensagem de sucesso aparece, mas a tabela continua vazia.</p>
+<p><strong>Causa:</strong> Ou a função <code>atualizar_tabela</code> não está sendo chamada, ou <code>listar_alunos</code> está retornando uma lista vazia.</p>
+<p><strong>Solução:</strong> Verifique se <code>atualizar_tabela()</code> está dentro de <code>ao_clicar_salvar</code>, após <code>salvar_aluno</code>. Verifique também se <code>salvar_aluno</code> realmente adiciona à lista <code>alunos</code> no controller.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Usar tk.END no lugar de tk.END para Treeview</p>
+<p><strong>Sintoma:</strong> <code>AttributeError: module 'tkinter' has no attribute 'END'</code></p>
+<p><strong>Causa:</strong> Para Treeview, <code>tk.END</code> é válido, mas o erro surge quando se tenta usar <code>END</code> sem qualificação em um contexto onde não foi importado. Na verdade, <code>tk.END</code> existe e funciona. O erro mais comum aqui é digitar <code>END</code> em vez de <code>tk.END</code>.</p>
+<p><strong>Solução:</strong> Sempre use <code>tk.END</code> (com o prefixo <code>tk.</code>). Não confunda com <code>tk.END</code> vs <code>"end"</code> — ambos funcionam no Treeview, mas <code>tk.END</code> é o padrão.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Combobox com state='readonly' não permite digitar</p>
+<p><strong>Sintoma:</strong> O usuário não consegue digitar uma turma personalizada, apenas selecionar da lista.</p>
+<p><strong>Causa:</strong> <code>state="readonly"</code> foi usado intencionalmente para forçar o uso das opções predefinidas.</p>
+<p><strong>Solução:</strong> Se o domínio exigir que o usuário possa digitar valores novos, mude para <code>state="normal"</code> ou remova o parâmetro. No nosso caso, manter <code>readonly</code> é uma decisão de design — padroniza as turmas e evita erros de digitação.</p>
+</div>
+<h2 id="boas-praticas">💡 Boas Práticas<a class="headerlink" href="#boas-praticas" title="Permanent link">&para;</a></h2>
+<p><strong>1. Validação em camadas</strong></p>
+<p>A validação foi feita na View (<code>ao_clicar_salvar</code>), não no Controller. Isso é uma escolha arquitetural: a View é responsável pela experiência do usuário (mensagens, foco nos campos), enquanto o Controller foca na lógica de negócio. Em sistemas maiores, pode-se adicionar validação também no Controller para garantir integridade independente da interface.</p>
+<p><strong>2. Combobox para valores controlados</strong></p>
+<p>Usar Combobox com <code>state="readonly"</code> para o campo Turma evita que o usuário digite "9a", "9A", "nove A", etc. — todos representando a mesma turma mas com grafias diferentes. Isso simplifica consultas futuras e mantém a base de dados limpa.</p>
+<p><strong>3. Treeview com show="headings"</strong></p>
+<p>O parâmetro <code>show="headings"</code> esconde a coluna fantasma <code>#0</code> que o Treeview cria por padrão. Sem isso, a tabela teria uma coluna vazia extra à esquerda, desperdiçando espaço.</p>
+<p><strong>4. Atualização completa da tabela</strong></p>
+<p>A função <code>atualizar_tabela</code> limpa todas as linhas e as recria. Para poucos registros (centenas), isso é instantâneo e garante consistência. Se um dia o sistema tiver milhares de registros, técnicas de atualização incremental podem ser necessárias — mas comece simples.</p>
+<p><strong>5. Preparação para persistência</strong></p>
+<p>Os comentários no controller (⚠️ No Capítulo 07, eu vou trocar esta lista por um banco SQLite) preparam o terreno mental. A assinatura das funções (<code>salvar_aluno(nome, idade, turma)</code>) foi projetada para ser compatível com uma futura operação de INSERT. Quando migrarmos para SQLite, a View não precisará ser alterada — apenas o Controller.</p>
+<h2 id="checklist">☑️ Checklist<a class="headerlink" href="#checklist" title="Permanent link">&para;</a></h2>
+<p>Antes de prosseguir para o próximo capítulo, confirme:</p>
+<ul>
+<li>[ ] O arquivo <code>controllers/aluno.py</code> existe com as funções <code>salvar_aluno</code>, <code>listar_alunos</code></li>
+<li>[ ] O arquivo <code>views/cadastro.py</code> existe com <code>abrir_janela_cadastro</code></li>
+<li>[ ] O formulário contém campos Nome, Idade e Turma (Combobox)</li>
+<li>[ ] A validação de campos vazios funciona</li>
+<li>[ ] A validação de idade numérica e positiva funciona</li>
+<li>[ ] A tabela Treeview exibe colunas Nome, Idade, Turma com headings</li>
+<li>[ ] A scrollbar está vinculada ao Treeview</li>
+<li>[ ] O botão Salvar adiciona o aluno e atualiza a tabela</li>
+<li>[ ] O botão Limpar limpa os campos sem afetar a tabela</li>
+<li>[ ] O menu principal abre a tela de cadastro real (não placeholder)</li>
+<li>[ ] Os comentários mencionam a migração futura para SQLite</li>
+<li>[ ] Minha equipe concluiu a Missão da Equipe</li>
+</ul>
+<h2 id="proximo-capitulo">➡️ Próximo Capítulo<a class="headerlink" href="#proximo-capitulo" title="Permanent link">&para;</a></h2>
+<p>No <strong>Capítulo 07 — SQLite</strong>, você resolverá o maior problema atual: a volatilidade dos dados. Tudo o que você cadastra se perde quando a janela fecha.</p>
+<p>Você aprenderá a:</p>
+<ul>
+<li>Criar um banco de dados SQLite (<code>escola.db</code>)</li>
+<li>Conectar-se a ele pelo Python (módulo <code>database/conexao.py</code>)</li>
+<li>Criar tabelas via SQL (<code>CREATE TABLE alunos</code>)</li>
+<li>Adaptar as funções do Controller para usar <code>INSERT</code>, <code>SELECT</code> e <code>DELETE</code></li>
+<li>Manter os dados entre sessões</li>
+</ul>
+<p>A estrutura do seu código foi projetada para essa transição: você alterará apenas o Controller. A View permanecerá intacta. Esse é o poder do MVC. 🗄️</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar ao topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.path", "navigation.top", "toc.integrate", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

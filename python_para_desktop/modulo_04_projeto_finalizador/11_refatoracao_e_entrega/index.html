@@ -1,0 +1,2730 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Plataforma de Cursos">
+      
+      
+        <meta name="author" content="Professor">
+      
+      
+      
+        <link rel="prev" href="../11_refatoracao/">
+      
+      
+        <link rel="next" href="../12_projeto_final/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Refatoracao E Entrega - CourseForge Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#11-refatoracao" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../.." title="CourseForge Docs" class="md-header__button md-logo" aria-label="CourseForge Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CourseForge Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Refatoracao E Entrega
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="teal"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="teal"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../docs/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Python para Desktop
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="CourseForge Docs" class="md-nav__button md-logo" aria-label="CourseForge Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    CourseForge Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../docs/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python para Desktop
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python para Desktop
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modulo_01_fundamentos/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🐍 Fundamentos
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🐍 Fundamentos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/01_variaveis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variaveis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/02_operadores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/03_if_else/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    If Else
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/04_repeticoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Repeticoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/05_funcoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Funcoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/06_modulos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/07_colecoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Colecoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/08_strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/09_arquivos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquivos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/10_excecoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Excecoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/11_projeto_final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto Final
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modulo_02_interfaces_graficas/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🖥️ Interfaces Graficas
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🖥️ Interfaces Graficas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/01_tkinter_basico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tkinter Basico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/02_layout_managers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Layout Managers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/03_eventos_interatividade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eventos Interatividade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/04_customtkinter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customtkinter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/05_projeto_pratico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto Pratico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modulo_03_banco_de_dados/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗄️ Banco De Dados
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🗄️ Banco De Dados
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_03_banco_de_dados/01_introducao_sqlite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducao Sqlite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_03_banco_de_dados/02_integracao_interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integracao Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_03_banco_de_dados/03_variaveis_ambiente/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variaveis Ambiente
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_03_banco_de_dados/04_projeto_final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto Final
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏗️ Projeto Finalizador
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🏗️ Projeto Finalizador
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_introducao_ao_projeto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducao Ao Projeto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_arquitetura_do_sistema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitetura Do Sistema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_tela_de_login/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tela De Login
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_menu_principal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Menu Principal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_multiplas_janelas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multiplas Janelas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_cadastro_de_alunos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cadastro De Alunos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_sqlite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sqlite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_sqlite_local/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sqlite Local
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_crud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_crud_completo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crud Completo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_banco_em_nuvem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Banco Em Nuvem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_integracao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integracao
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_integracao_e_testes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integracao E Testes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_refatoracao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Refatoracao
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Refatoracao E Entrega
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Refatoracao E Entrega
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Objetivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contextualizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📍 Contextualização
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultado-esperado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Resultado Esperado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementacao-guiada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Implementação Guiada
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Implementação Guiada">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passo-1-o-que-e-e-o-que-nao-e-refatoracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 1 — O que é (e o que não é) refatoração
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-2-identificando-e-eliminando-duplicacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 2 — Identificando e eliminando duplicações
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-3-adicionando-docstrings-em-todo-o-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 3 — Adicionando docstrings em todo o código
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-4-revisando-nomes-de-variaveis-e-funcoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 4 — Revisando nomes de variáveis e funções
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-5-criando-o-readmemd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 5 — Criando o README.md
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-6-criando-o-requirementstxt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 6 — Criando o requirements.txt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-7-verificando-a-pep-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 7 — Verificando a PEP 8
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-8-removendo-codigo-morto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 8 — Removendo código morto
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-9-teste-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 9 — Teste final
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercicio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📝 Exercício
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#missao-da-equipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏆 Missão da Equipe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desafio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚡ Desafio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erros-comuns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Erros Comuns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boas-praticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 Boas Práticas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ☑️ Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proximo-capitulo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ➡️ Próximo Capítulo
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_projeto_final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto Final
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navegação" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../docs/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Python para Desktop
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    🏗️ Projeto Finalizador
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="11-refatoracao">11 — Refatoração<a class="headerlink" href="#11-refatoracao" title="Permanent link">&para;</a></h1>
+<h2 id="objetivo">🎯 Objetivo<a class="headerlink" href="#objetivo" title="Permanent link">&para;</a></h2>
+<p>Neste capítulo você vai refatorar o código do Sistema Escolar — não para adicionar funcionalidades, mas para torná-lo mais limpo, legível e profissional, pronto para ser apresentado e mantido no futuro.</p>
+<p>Ao final, você terá:</p>
+<ul>
+<li>Código livre de duplicações (princípio DRY)</li>
+<li>Docstrings no padrão Google em todas as funções e módulos</li>
+<li>Nomes de variáveis e funções revisados e descritivos</li>
+<li>Arquivo <code>README.md</code> completo com descrição, instruções e tecnologias</li>
+<li>Arquivo <code>requirements.txt</code> com todas as dependências</li>
+<li>Código formatado segundo a PEP 8</li>
+<li>Nenhum print() de debug ou código comentado sem propósito</li>
+</ul>
+<h2 id="contextualizacao">📍 Contextualização<a class="headerlink" href="#contextualizacao" title="Permanent link">&para;</a></h2>
+<p>No Capítulo 10, você concluiu a integração de todas as funcionalidades. O sistema está completo: Login, Menu, CRUD, SQLite, Nuvem, atalhos de teclado, barra de status, tratamento de erros. Tudo funciona.</p>
+<p>Mas pare por um momento e olhe seu código. Provavelmente você encontrará:</p>
+<ul>
+<li>Trechos repetidos em lugares diferentes</li>
+<li>Algumas funções longas que fazem "coisas demais"</li>
+<li>Variáveis com nomes como <code>x</code>, <code>temp</code>, <code>val</code></li>
+<li>Comentários que explicam o óbvio ou, pior, código comentado que sobrou de testes</li>
+</ul>
+<p>Refatorar é o processo de melhorar a estrutura interna do código sem alterar seu comportamento. É como arrumar a casa depois de uma grande obra: tudo já funciona, mas você quer que fique bonito, organizado e fácil de manter.</p>
+<p><strong>Progresso do Sistema:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>✅ Capítulos 01 a 10 — Construção e Integração
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>🔨 Refatoração ← VOCÊ ESTÁ AQUI
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>⬜ Projeto Final (Apresentação)
+</code></pre></div>
+<h2 id="resultado-esperado">✅ Resultado Esperado<a class="headerlink" href="#resultado-esperado" title="Permanent link">&para;</a></h2>
+<p>Ao final deste capítulo, o comportamento do sistema será exatamente o mesmo de antes. A diferença estará na qualidade do código:</p>
+<ul>
+<li>Antes: Funções de 40 linhas, lógica de validação repetida, comentários esparsos.</li>
+<li>Depois: Funções enxutas (máximo 20 linhas), validação extraída para função reutilizável, docstrings em todos os módulos.</li>
+</ul>
+<p>Arquivos modificados:</p>
+<p>Todos os arquivos <code>.py</code> do projeto serão revisados. Além disso, dois novos arquivos serão criados:</p>
+<table>
+<thead>
+<tr>
+<th>Arquivo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>README.md</code></td>
+<td>Documento de apresentação do projeto</td>
+</tr>
+<tr>
+<td><code>requirements.txt</code></td>
+<td>Lista de dependências Python</td>
+</tr>
+</tbody>
+</table>
+<h2 id="implementacao-guiada">💻 Implementação Guiada<a class="headerlink" href="#implementacao-guiada" title="Permanent link">&para;</a></h2>
+<h3 id="passo-1-o-que-e-e-o-que-nao-e-refatoracao">Passo 1 — O que é (e o que não é) refatoração<a class="headerlink" href="#passo-1-o-que-e-e-o-que-nao-e-refatoracao" title="Permanent link">&para;</a></h3>
+<p>Antes de mexer no código, entenda os limites:</p>
+<ul>
+<li>✅ <strong>Refatoração é:</strong> Renomear variáveis, extrair funções, remover duplicações, adicionar docstrings, formatar código.</li>
+<li>❌ <strong>Refatoração não é:</strong> Adicionar novas funcionalidades, mudar o comportamento do sistema, reescrever do zero.</li>
+</ul>
+<p>A regra de ouro: <strong>teste após cada mudança</strong>. Se o sistema parar de funcionar, volte atrás imediatamente. Refatoração sem testes é como fazer malabarismo com facas — impressionante até dar errado.</p>
+<h3 id="passo-2-identificando-e-eliminando-duplicacoes">Passo 2 — Identificando e eliminando duplicações<a class="headerlink" href="#passo-2-identificando-e-eliminando-duplicacoes" title="Permanent link">&para;</a></h3>
+<p>O princípio DRY (Don't Repeat Yourself) diz que cada pedaço de conhecimento deve ter uma representação única no código. Vamos caçar duplicações.</p>
+<p><strong>Exemplo 1: Validação de campos repetida</strong></p>
+<p>No nosso <code>views/cadastro.py</code>, a validação de campos vazios e idade aparece duas vezes — em <code>ao_clicar_salvar</code> e <code>ao_clicar_editar</code>. Já extraímos para <code>validar_campos</code> no Capítulo 10, mas vamos verificar se está realmente sendo usada em ambos os lugares.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">ANTES (duplicação)</label><label for="__tabbed_1_2">DEPOIS (DRY)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">ao_clicar_salvar</span><span class="p">():</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">nome</span> <span class="o">=</span> <span class="n">entry_nome</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">idade_str</span> <span class="o">=</span> <span class="n">entry_idade</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">turma</span> <span class="o">=</span> <span class="n">combo_turma</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="c1"># Validação repetida...</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">nome</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">idade_str</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">turma</span><span class="p">:</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        <span class="n">messagebox</span><span class="o">.</span><span class="n">showwarning</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        <span class="k">return</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        <span class="n">idade</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">idade_str</span><span class="p">)</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>        <span class="n">messagebox</span><span class="o">.</span><span class="n">showerror</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>        <span class="k">return</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="c1"># ... resto da função</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="k">def</span><span class="w"> </span><span class="nf">ao_clicar_editar</span><span class="p">():</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>    <span class="n">nome</span> <span class="o">=</span> <span class="n">entry_nome</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>    <span class="n">idade_str</span> <span class="o">=</span> <span class="n">entry_idade</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>    <span class="n">turma</span> <span class="o">=</span> <span class="n">combo_turma</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    <span class="c1"># MESMA validação repetida...</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">nome</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">idade_str</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">turma</span><span class="p">:</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>        <span class="n">messagebox</span><span class="o">.</span><span class="n">showwarning</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>        <span class="k">return</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>        <span class="n">idade</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">idade_str</span><span class="p">)</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>        <span class="n">messagebox</span><span class="o">.</span><span class="n">showerror</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>        <span class="k">return</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>    <span class="c1"># ... resto da função</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">validar_campos</span><span class="p">(</span><span class="n">nome</span><span class="p">,</span> <span class="n">idade_str</span><span class="p">,</span> <span class="n">turma</span><span class="p">):</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Valida os campos e retorna (valido, idade_int).&quot;&quot;&quot;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">nome</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">idade_str</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">turma</span><span class="p">:</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>        <span class="n">messagebox</span><span class="o">.</span><span class="n">showwarning</span><span class="p">(</span><span class="s2">&quot;⚠️ Atenção&quot;</span><span class="p">,</span> <span class="s2">&quot;Preencha todos os campos.&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        <span class="n">idade</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">idade_str</span><span class="p">)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>        <span class="n">messagebox</span><span class="o">.</span><span class="n">showerror</span><span class="p">(</span><span class="s2">&quot;❌ Erro&quot;</span><span class="p">,</span> <span class="s2">&quot;Idade deve ser um número inteiro.&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>        <span class="n">entry_idade</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tk</span><span class="o">.</span><span class="n">END</span><span class="p">)</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>        <span class="n">entry_idade</span><span class="o">.</span><span class="n">focus_set</span><span class="p">()</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    <span class="k">if</span> <span class="n">idade</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>        <span class="n">messagebox</span><span class="o">.</span><span class="n">showerror</span><span class="p">(</span><span class="s2">&quot;❌ Erro&quot;</span><span class="p">,</span> <span class="s2">&quot;Idade deve ser um valor positivo.&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>        <span class="n">entry_idade</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tk</span><span class="o">.</span><span class="n">END</span><span class="p">)</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>        <span class="n">entry_idade</span><span class="o">.</span><span class="n">focus_set</span><span class="p">()</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">idade</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="k">def</span><span class="w"> </span><span class="nf">ao_clicar_salvar</span><span class="p">():</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>    <span class="n">nome</span> <span class="o">=</span> <span class="n">entry_nome</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>    <span class="n">idade_str</span> <span class="o">=</span> <span class="n">entry_idade</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>    <span class="n">turma</span> <span class="o">=</span> <span class="n">combo_turma</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>    <span class="n">valido</span><span class="p">,</span> <span class="n">idade</span> <span class="o">=</span> <span class="n">validar_campos</span><span class="p">(</span><span class="n">nome</span><span class="p">,</span> <span class="n">idade_str</span><span class="p">,</span> <span class="n">turma</span><span class="p">)</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">valido</span><span class="p">:</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>        <span class="k">return</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>    <span class="c1"># ... resto da função (sem validação repetida)</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="k">def</span><span class="w"> </span><span class="nf">ao_clicar_editar</span><span class="p">():</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>    <span class="n">nome</span> <span class="o">=</span> <span class="n">entry_nome</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>    <span class="n">idade_str</span> <span class="o">=</span> <span class="n">entry_idade</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>    <span class="n">turma</span> <span class="o">=</span> <span class="n">combo_turma</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>    <span class="n">valido</span><span class="p">,</span> <span class="n">idade</span> <span class="o">=</span> <span class="n">validar_campos</span><span class="p">(</span><span class="n">nome</span><span class="p">,</span> <span class="n">idade_str</span><span class="p">,</span> <span class="n">turma</span><span class="p">)</span>
+<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">valido</span><span class="p">:</span>
+<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>        <span class="k">return</span>
+<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a>    <span class="c1"># ... resto da função (sem validação repetida)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Verifique se seu código já está assim. Se não estiver, esta é a hora de ajustar.</p>
+<p><strong>Exemplo 2: Criação de botões estilizados</strong></p>
+<p>Se você criou vários botões manualmente com os mesmos parâmetros de fonte, borda e cursor, considere extrair uma função fábrica:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Em utils/helpers.py (ou no próprio arquivo da view)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">criar_botao</span><span class="p">(</span><span class="n">pai</span><span class="p">,</span> <span class="n">texto</span><span class="p">,</span> <span class="n">cor_fundo</span><span class="p">,</span> <span class="n">comando</span><span class="p">,</span> <span class="n">largura</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">altura</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="sd">    Eu crio um botão padronizado com os estilos do sistema.</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="sd">    Evita repetir os mesmos parâmetros em cada Button.</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="k">return</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>        <span class="n">pai</span><span class="p">,</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>        <span class="n">text</span><span class="o">=</span><span class="n">texto</span><span class="p">,</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>        <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="s2">&quot;bold&quot;</span><span class="p">),</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>        <span class="n">bg</span><span class="o">=</span><span class="n">cor_fundo</span><span class="p">,</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>        <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>        <span class="n">activebackground</span><span class="o">=</span><span class="n">_escurecer_cor</span><span class="p">(</span><span class="n">cor_fundo</span><span class="p">),</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>        <span class="n">activeforeground</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>        <span class="n">width</span><span class="o">=</span><span class="n">largura</span><span class="p">,</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>        <span class="n">height</span><span class="o">=</span><span class="n">altura</span><span class="p">,</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>        <span class="n">bd</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>        <span class="n">cursor</span><span class="o">=</span><span class="s2">&quot;hand2&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>        <span class="n">command</span><span class="o">=</span><span class="n">comando</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>    <span class="p">)</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Dica Profissional</p>
+<p>Se você se pegar copiando e colando mais de 3 linhas de código, pergunte-se: "Isso pode virar uma função?" Na maioria das vezes, a resposta é sim.</p>
+</div>
+<h3 id="passo-3-adicionando-docstrings-em-todo-o-codigo">Passo 3 — Adicionando docstrings em todo o código<a class="headerlink" href="#passo-3-adicionando-docstrings-em-todo-o-codigo" title="Permanent link">&para;</a></h3>
+<p>Docstrings são strings de documentação colocadas logo após a definição de módulos, classes e funções. Elas explicam o que a função faz, quais parâmetros recebe e o que retorna.</p>
+<p>Adote o padrão Google para docstrings. Exemplo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">salvar_aluno</span><span class="p">(</span><span class="n">nome</span><span class="p">,</span> <span class="n">idade</span><span class="p">,</span> <span class="n">turma</span><span class="p">):</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="sd">    Insere um novo aluno no banco de dados.</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="sd">    Args:</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="sd">        nome (str): Nome completo do aluno.</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="sd">        idade (int): Idade do aluno em anos.</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="sd">        turma (str): Turma do aluno (ex: &#39;9A&#39;).</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="sd">        dict: Dicionário com os dados do aluno inserido,</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="sd">              incluindo o &#39;id&#39; gerado pelo banco.</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="sd">    Raises:</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="sd">        Exception: Se ocorrer um erro de conexão com o banco.</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>    <span class="c1"># ... implementação</span>
+</code></pre></div>
+<p>Roteiro para adicionar docstrings:</p>
+<ol>
+<li>Abra cada arquivo <code>.py</code> do seu projeto.</li>
+<li>Para cada função, verifique se há uma docstring.</li>
+<li>Se não houver, adicione uma seguindo o padrão acima.</li>
+<li>Não exagere: funções internas muito simples (ex: <code>lambda</code>) não precisam de docstring completa.</li>
+</ol>
+<h3 id="passo-4-revisando-nomes-de-variaveis-e-funcoes">Passo 4 — Revisando nomes de variáveis e funções<a class="headerlink" href="#passo-4-revisando-nomes-de-variaveis-e-funcoes" title="Permanent link">&para;</a></h3>
+<p>Nomes ruins são o maior inimigo da legibilidade. Faça uma varredura:</p>
+<table>
+<thead>
+<tr>
+<th>Nome atual</th>
+<th>Problema</th>
+<th>Nome sugerido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x</code>, <code>y</code></td>
+<td>Genérico demais</td>
+<td><code>pos_x</code>, <code>pos_y</code></td>
+</tr>
+<tr>
+<td><code>temp</code></td>
+<td>Não diz o que armazena</td>
+<td><code>aluno_temp</code> ou <code>dados_temporarios</code></td>
+</tr>
+<tr>
+<td><code>val</code></td>
+<td>Abreviação ambígua</td>
+<td><code>valor</code> ou <code>resultado</code></td>
+</tr>
+<tr>
+<td><code>conn</code></td>
+<td>Aceitável (convenção)</td>
+<td>Pode manter</td>
+</tr>
+<tr>
+<td><code>cur</code></td>
+<td>Abreviação desnecessária</td>
+<td><code>cursor</code></td>
+</tr>
+</tbody>
+</table>
+<p>Regras para bons nomes:</p>
+<ul>
+<li><strong>Funções:</strong> Verbo + substantivo → <code>salvar_aluno()</code>, <code>buscar_por_nome()</code></li>
+<li><strong>Variáveis booleanas:</strong> Prefixo <code>is_</code> ou <code>tem_</code> → <code>is_online</code>, <code>tem_erro</code></li>
+<li><strong>Listas:</strong> Plural → <code>alunos</code>, <code>botoes_config</code></li>
+<li><strong>Constantes:</strong> MAIÚSCULAS → <code>CAMINHO_BANCO</code>, <code>TURMAS_DISPONIVEIS</code></li>
+</ul>
+<h3 id="passo-5-criando-o-readmemd">Passo 5 — Criando o README.md<a class="headerlink" href="#passo-5-criando-o-readmemd" title="Permanent link">&para;</a></h3>
+<p>O <code>README.md</code> é o cartão de visitas do seu projeto. Crie-o na raiz do projeto (<code>sistema_escolar/README.md</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="gh"># 🏫 Sistema Escolar</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Sistema desktop para gestão de alunos desenvolvido em Python como
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>projeto final do curso <span class="gs">**Python para Desktop — CourseForge**</span>.
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="gu">## ✨ Funcionalidades</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="k">-</span><span class="w"> </span>🔐 Login com autenticação
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="k">-</span><span class="w"> </span>📋 Cadastro completo de alunos (CRUD)
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="k">-</span><span class="w"> </span>🔍 Busca por nome
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="k">-</span><span class="w"> </span>💾 Persistência local com SQLite
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="k">-</span><span class="w"> </span>☁️ Sincronização com banco em nuvem (Firebase)
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="k">-</span><span class="w"> </span>🖥️ Interface gráfica com Tkinter
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="k">-</span><span class="w"> </span>⌨️ Atalhos de teclado (Enter, Escape)
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="gu">## 🛠️ Tecnologias Utilizadas</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>| Tecnologia | Finalidade |
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>|---|---|
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>| Python 3.10+ | Linguagem principal |
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>| Tkinter | Interface gráfica |
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>| SQLite | Banco de dados local |
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>| Firebase Realtime Database | Banco em nuvem |
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>| python-dotenv | Variáveis de ambiente |
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="gu">## 📦 Como Instalar e Executar</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="gu">### 1. Clone o repositório</span>
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>\`\`\`bash
+<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>git clone https://github.com/seu-usuario/sistema-escolar.git
+<a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>cd sistema-escolar
+<a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a>\`\`\`
+<a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a>
+<a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a><span class="gu">### 2. Crie um ambiente virtual (opcional, mas recomendado)</span>
+<a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a>\`\`\`bash
+<a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a>python -m venv venv
+<a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a>source venv/bin/activate  # Linux/macOS
+<a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a>venv\Scripts\activate     # Windows
+<a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a>\`\`\`
+<a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a>
+<a id="__codelineno-5-41" name="__codelineno-5-41" href="#__codelineno-5-41"></a><span class="gu">### 3. Instale as dependências</span>
+<a id="__codelineno-5-42" name="__codelineno-5-42" href="#__codelineno-5-42"></a>\`\`\`bash
+<a id="__codelineno-5-43" name="__codelineno-5-43" href="#__codelineno-5-43"></a>pip install -r requirements.txt
+<a id="__codelineno-5-44" name="__codelineno-5-44" href="#__codelineno-5-44"></a>\`\`\`
+<a id="__codelineno-5-45" name="__codelineno-5-45" href="#__codelineno-5-45"></a>
+<a id="__codelineno-5-46" name="__codelineno-5-46" href="#__codelineno-5-46"></a><span class="gu">### 4. Configure as credenciais do Firebase</span>
+<a id="__codelineno-5-47" name="__codelineno-5-47" href="#__codelineno-5-47"></a><span class="k">-</span><span class="w"> </span>Crie um projeto no Firebase Console
+<a id="__codelineno-5-48" name="__codelineno-5-48" href="#__codelineno-5-48"></a><span class="k">-</span><span class="w"> </span>Baixe o arquivo JSON de credenciais e coloque em <span class="sb">`database/`</span>
+<a id="__codelineno-5-49" name="__codelineno-5-49" href="#__codelineno-5-49"></a><span class="k">-</span><span class="w"> </span>Copie o arquivo <span class="sb">`.env.exemplo`</span> para <span class="sb">`.env`</span> e preencha com suas credenciais
+<a id="__codelineno-5-50" name="__codelineno-5-50" href="#__codelineno-5-50"></a>
+<a id="__codelineno-5-51" name="__codelineno-5-51" href="#__codelineno-5-51"></a><span class="gu">### 5. Execute</span>
+<a id="__codelineno-5-52" name="__codelineno-5-52" href="#__codelineno-5-52"></a>\`\`\`bash
+<a id="__codelineno-5-53" name="__codelineno-5-53" href="#__codelineno-5-53"></a>python main.py
+<a id="__codelineno-5-54" name="__codelineno-5-54" href="#__codelineno-5-54"></a>\`\`\`
+<a id="__codelineno-5-55" name="__codelineno-5-55" href="#__codelineno-5-55"></a>
+<a id="__codelineno-5-56" name="__codelineno-5-56" href="#__codelineno-5-56"></a><span class="gs">**Credenciais padrão**</span>
+<a id="__codelineno-5-57" name="__codelineno-5-57" href="#__codelineno-5-57"></a><span class="k">-</span><span class="w"> </span>Usuário: <span class="sb">`admin`</span>
+<a id="__codelineno-5-58" name="__codelineno-5-58" href="#__codelineno-5-58"></a><span class="k">-</span><span class="w"> </span>Senha: <span class="sb">`admin`</span>
+<a id="__codelineno-5-59" name="__codelineno-5-59" href="#__codelineno-5-59"></a>
+<a id="__codelineno-5-60" name="__codelineno-5-60" href="#__codelineno-5-60"></a><span class="gu">## 📁 Estrutura do Projeto</span>
+<a id="__codelineno-5-61" name="__codelineno-5-61" href="#__codelineno-5-61"></a>\`\`\`text
+<a id="__codelineno-5-62" name="__codelineno-5-62" href="#__codelineno-5-62"></a>sistema_escolar/
+<a id="__codelineno-5-63" name="__codelineno-5-63" href="#__codelineno-5-63"></a>├── main.py                 # Ponto de entrada
+<a id="__codelineno-5-64" name="__codelineno-5-64" href="#__codelineno-5-64"></a>├── README.md               # Este arquivo
+<a id="__codelineno-5-65" name="__codelineno-5-65" href="#__codelineno-5-65"></a>├── requirements.txt        # Dependências
+<a id="__codelineno-5-66" name="__codelineno-5-66" href="#__codelineno-5-66"></a>├── .env                    # Credenciais (não versionado)
+<a id="__codelineno-5-67" name="__codelineno-5-67" href="#__codelineno-5-67"></a>├── database/
+<a id="__codelineno-5-68" name="__codelineno-5-68" href="#__codelineno-5-68"></a>│   ├── conexao.py          # Conexão com SQLite
+<a id="__codelineno-5-69" name="__codelineno-5-69" href="#__codelineno-5-69"></a>│   ├── operacoes.py        # Operações CRUD
+<a id="__codelineno-5-70" name="__codelineno-5-70" href="#__codelineno-5-70"></a>│   └── nuvem.py            # Sincronização com Firebase
+<a id="__codelineno-5-71" name="__codelineno-5-71" href="#__codelineno-5-71"></a>├── views/
+<a id="__codelineno-5-72" name="__codelineno-5-72" href="#__codelineno-5-72"></a>│   ├── login.py            # Tela de login
+<a id="__codelineno-5-73" name="__codelineno-5-73" href="#__codelineno-5-73"></a>│   ├── menu.py             # Menu principal
+<a id="__codelineno-5-74" name="__codelineno-5-74" href="#__codelineno-5-74"></a>│   └── cadastro.py         # Tela de cadastro (CRUD)
+<a id="__codelineno-5-75" name="__codelineno-5-75" href="#__codelineno-5-75"></a>├── controllers/
+<a id="__codelineno-5-76" name="__codelineno-5-76" href="#__codelineno-5-76"></a>│   ├── auth.py             # Lógica de autenticação
+<a id="__codelineno-5-77" name="__codelineno-5-77" href="#__codelineno-5-77"></a>│   └── aluno.py            # Lógica de negócio
+<a id="__codelineno-5-78" name="__codelineno-5-78" href="#__codelineno-5-78"></a>└── utils/
+<a id="__codelineno-5-79" name="__codelineno-5-79" href="#__codelineno-5-79"></a>    └── helpers.py          # Funções utilitárias
+<a id="__codelineno-5-80" name="__codelineno-5-80" href="#__codelineno-5-80"></a>\`\`\`
+<a id="__codelineno-5-81" name="__codelineno-5-81" href="#__codelineno-5-81"></a>
+<a id="__codelineno-5-82" name="__codelineno-5-82" href="#__codelineno-5-82"></a><span class="gu">## 👥 Autores</span>
+<a id="__codelineno-5-83" name="__codelineno-5-83" href="#__codelineno-5-83"></a>
+<a id="__codelineno-5-84" name="__codelineno-5-84" href="#__codelineno-5-84"></a>| Nome | Papel |
+<a id="__codelineno-5-85" name="__codelineno-5-85" href="#__codelineno-5-85"></a>|---|---|
+<a id="__codelineno-5-86" name="__codelineno-5-86" href="#__codelineno-5-86"></a>| [Seu Nome] | Desenvolvedor(a) |
+<a id="__codelineno-5-87" name="__codelineno-5-87" href="#__codelineno-5-87"></a>
+<a id="__codelineno-5-88" name="__codelineno-5-88" href="#__codelineno-5-88"></a><span class="ge">*Projeto desenvolvido como parte do Módulo 04 — Projeto Finalizador do curso Python para Desktop (CourseForge).*</span>
+</code></pre></div>
+<h3 id="passo-6-criando-o-requirementstxt">Passo 6 — Criando o <code>requirements.txt</code><a class="headerlink" href="#passo-6-criando-o-requirementstxt" title="Permanent link">&para;</a></h3>
+<p>O <code>requirements.txt</code> lista todas as bibliotecas externas necessárias. Crie-o na raiz do projeto.</p>
+<p><strong>Método automático (recomendado):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
+</code></pre></div>
+<p>Depois, edite o arquivo e remova bibliotecas que não são usadas diretamente pelo projeto (ex: pip, setuptools e outras dependências automáticas do ambiente). O arquivo final deve conter apenas:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>firebase-admin==6.x.x
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>python-dotenv==1.x.x
+</code></pre></div>
+<p>(Ou os nomes sem versão fixa, se preferir.)</p>
+<p><strong>Método manual (se souber exatamente o que usa):</strong></p>
+<p>Crie o arquivo e adicione linha por linha:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>firebase-admin
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>python-dotenv
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Dica Profissional</p>
+<p>Versões fixas (<code>==6.5.0</code>) garantem que o projeto funcione exatamente igual em qualquer máquina. Versões abertas (<code>&gt;=6.0</code>) permitem atualizações automáticas, mas podem quebrar o código. Para um projeto de entrega, prefira versões fixas.</p>
+</div>
+<h3 id="passo-7-verificando-a-pep-8">Passo 7 — Verificando a PEP 8<a class="headerlink" href="#passo-7-verificando-a-pep-8" title="Permanent link">&para;</a></h3>
+<p>A PEP 8 é o guia de estilo oficial do Python. Verifique os pontos principais:</p>
+<ul>
+<li>[ ] Indentação: 4 espaços (nunca tabs)</li>
+<li>[ ] Linhas em branco: 2 linhas entre funções de módulo, 1 linha entre métodos de classe</li>
+<li>[ ] Espaços: Após vírgulas (<code>x, y</code>), ao redor de operadores (<code>a = b + c</code>)</li>
+<li>[ ] Comprimento de linha: Máximo 79 caracteres (ou 100, se o time concordar)</li>
+<li>[ ] Imports: Um por linha, organizados em: bibliotecas padrão → bibliotecas externas → módulos locais</li>
+</ul>
+<p>Exemplo de imports organizados:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Biblioteca padrão</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c1"># Bibliotecas externas</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">tkinter</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tk</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">tkinter</span><span class="w"> </span><span class="kn">import</span> <span class="n">ttk</span><span class="p">,</span> <span class="n">messagebox</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="c1"># Módulos locais</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="kn">from</span><span class="w"> </span><span class="nn">utils.helpers</span><span class="w"> </span><span class="kn">import</span> <span class="n">centralizar_janela</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="kn">from</span><span class="w"> </span><span class="nn">controllers.aluno</span><span class="w"> </span><span class="kn">import</span> <span class="n">salvar_aluno</span>
+</code></pre></div>
+<h3 id="passo-8-removendo-codigo-morto">Passo 8 — Removendo código morto<a class="headerlink" href="#passo-8-removendo-codigo-morto" title="Permanent link">&para;</a></h3>
+<p>Código morto é qualquer trecho que nunca é executado:</p>
+<ul>
+<li>❌ <code>print("debug: chegou aqui")</code> — remova todos</li>
+<li>❌ Código comentado em bloco (<code># def funcao_antiga...</code>) — remova</li>
+<li>❌ Funções que não são chamadas em lugar nenhum — remova</li>
+<li>❌ Imports não utilizados — remova</li>
+</ul>
+<p>Se algo for realmente útil para debug futuro, substitua por logging (veja o desafio do Capítulo 10).</p>
+<h3 id="passo-9-teste-final">Passo 9 — Teste final<a class="headerlink" href="#passo-9-teste-final" title="Permanent link">&para;</a></h3>
+<p>Após todas as refatorações, execute o roteiro de testes do Capítulo 10 novamente. O sistema deve se comportar exatamente como antes. Se algo quebrou, volte atrás na última refatoração e descubra o que mudou.</p>
+<h2 id="exercicio">📝 Exercício<a class="headerlink" href="#exercicio" title="Permanent link">&para;</a></h2>
+<p><strong>Tempo estimado:</strong> 20-25 minutos</p>
+<p><strong>Tarefa:</strong> Pegue uma função longa do seu projeto (mais de 25 linhas) e a divida em funções menores, cada uma com uma responsabilidade única.</p>
+<p>Exemplo: Se <code>abrir_janela_cadastro</code> tem 80 linhas, extraia partes como:
+- <code>_criar_formulario(janela)</code> → cria o frame do formulário
+- <code>_criar_tabela(janela)</code> → cria o Treeview e scrollbar
+- <code>_criar_barra_status(janela)</code> → cria a barra de status</p>
+<p>O ideal é que cada função faça uma coisa e a faça bem.</p>
+<details class="hint">
+<summary>Dica</summary>
+<p>Use o método "extrair função": selecione um bloco coeso de código, recorte-o, crie uma nova função com ele e chame-a de onde foi removido. Passe as variáveis necessárias como parâmetros.</p>
+</details>
+<details class="success">
+<summary>Exemplo</summary>
+<p><strong>Antes:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">abrir_janela_cadastro</span><span class="p">(</span><span class="n">janela_pai</span><span class="p">):</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="c1"># 30 linhas criando formulário...</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="c1"># 20 linhas criando Treeview...</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="c1"># 10 linhas criando barra de status...</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    <span class="c1"># 20 linhas de funções internas...</span>
+</code></pre></div></p>
+<p><strong>Depois:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">abrir_janela_cadastro</span><span class="p">(</span><span class="n">janela_pai</span><span class="p">):</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    <span class="n">janela</span> <span class="o">=</span> <span class="n">_criar_janela</span><span class="p">(</span><span class="n">janela_pai</span><span class="p">)</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    <span class="n">entry_nome</span><span class="p">,</span> <span class="n">entry_idade</span><span class="p">,</span> <span class="n">combo_turma</span> <span class="o">=</span> <span class="n">_criar_formulario</span><span class="p">(</span><span class="n">janela</span><span class="p">)</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="n">tree</span> <span class="o">=</span> <span class="n">_criar_tabela</span><span class="p">(</span><span class="n">janela</span><span class="p">)</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="n">lbl_status</span> <span class="o">=</span> <span class="n">_criar_barra_status</span><span class="p">(</span><span class="n">janela</span><span class="p">)</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    <span class="n">_configurar_eventos</span><span class="p">(</span><span class="n">janela</span><span class="p">,</span> <span class="n">entry_nome</span><span class="p">,</span> <span class="n">entry_idade</span><span class="p">,</span> <span class="n">combo_turma</span><span class="p">,</span> <span class="n">tree</span><span class="p">,</span> <span class="n">lbl_status</span><span class="p">)</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>    <span class="n">_carregar_dados_iniciais</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">lbl_status</span><span class="p">)</span>
+</code></pre></div>
+Cada função interna tem no máximo 15 linhas e um nome que explica o que ela cria ou configura.</p>
+</details>
+<h2 id="missao-da-equipe">🏆 Missão da Equipe<a class="headerlink" href="#missao-da-equipe" title="Permanent link">&para;</a></h2>
+<p><strong>Tempo estimado:</strong> 30-45 minutos</p>
+<p><strong>Tarefa:</strong> Refatorem o código do projeto da equipe e preparem a documentação para entrega.</p>
+<p><strong>Entregável:</strong> O projeto da equipe com:</p>
+<ul>
+<li>Código refatorado (DRY, nomes claros, funções enxutas)</li>
+<li>Docstrings em todas as funções e módulos</li>
+<li><code>README.md</code> completo e personalizado</li>
+<li><code>requirements.txt</code> com as dependências</li>
+<li>Código formatado seguindo PEP 8</li>
+<li>Nenhum <code>print()</code> de debug ou código comentado</li>
+</ul>
+<p><strong>Checklist da Missão:</strong></p>
+<ul>
+<li>[ ] Nenhuma duplicação de código (validações, criação de widgets repetidos)</li>
+<li>[ ] Todas as funções têm docstrings no padrão Google</li>
+<li>[ ] Nomes de variáveis e funções são descritivos e em português</li>
+<li>[ ] O <code>README.md</code> contém: descrição, funcionalidades, tecnologias, instruções de instalação, estrutura de pastas e autores</li>
+<li>[ ] O <code>requirements.txt</code> lista todas as dependências necessárias</li>
+<li>[ ] O código segue PEP 8 (indentação, espaços, imports organizados)</li>
+<li>[ ] Não há <code>print()</code> de debug nem código comentado</li>
+<li>[ ] O sistema foi testado após a refatoração e continua funcionando</li>
+<li>[ ] O professor revisou o código refatorado</li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Nota para o Professor</p>
+<p>Verifique: A refatoração é subjetiva — o critério principal é legibilidade. Um código bem refatorado pode ser lido em voz alta e fazer sentido. Verifique se os READMEs estão completos e personalizados (não apenas cópia do exemplo). Peça que expliquem uma função que foi extraída durante a refatoração.</p>
+</div>
+<h2 id="desafio">⚡ Desafio<a class="headerlink" href="#desafio" title="Permanent link">&para;</a></h2>
+<p><strong>Vá além:</strong> Use uma ferramenta de análise estática para verificar automaticamente a qualidade do código.</p>
+<p>Instale o Flake8:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>pip<span class="w"> </span>install<span class="w"> </span>flake8
+</code></pre></div>
+<p>Execute na raiz do projeto:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>flake8<span class="w"> </span>.<span class="w"> </span>--max-line-length<span class="o">=</span><span class="m">100</span><span class="w"> </span>--exclude<span class="o">=</span>venv,.git,__pycache__
+</code></pre></div>
+<p>O Flake8 apontará problemas como:</p>
+<ul>
+<li><code>E501: line too long</code> → linha muito longa</li>
+<li><code>W291: trailing whitespace</code> → espaços no final da linha</li>
+<li><code>F401: imported but unused</code> → import não utilizado</li>
+</ul>
+<p>Corrija todos os problemas apontados (exceto os que você considerar aceitáveis, como linhas de 100 caracteres se o time concordar).</p>
+<p>Você também pode usar o Black para formatar automaticamente:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>pip<span class="w"> </span>install<span class="w"> </span>black
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>black<span class="w"> </span>.<span class="w"> </span>--line-length<span class="o">=</span><span class="m">100</span>
+</code></pre></div>
+<h2 id="erros-comuns">⚠️ Erros Comuns<a class="headerlink" href="#erros-comuns" title="Permanent link">&para;</a></h2>
+<div class="admonition danger">
+<p class="admonition-title">Refatorar sem testar</p>
+<p><strong>Sintoma:</strong> Após várias mudanças, o sistema não abre ou uma funcionalidade quebra. Você não sabe qual mudança causou o problema.</p>
+<p><strong>Causa:</strong> Acumular muitas refatorações sem testar entre elas.</p>
+<p><strong>Solução:</strong> Refatore uma coisa por vez e teste imediatamente. Use <code>git commit</code> após cada refatoração bem-sucedida. Se algo quebrar, <code>git diff</code> mostra exatamente o que mudou.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Renomear variável e esquecer referências</p>
+<p><strong>Sintoma:</strong> <code>NameError: name 'nova_variavel' is not defined.</code></p>
+<p><strong>Causa:</strong> Você renomeou uma variável na definição, mas esqueceu de atualizar todos os lugares onde ela é usada.</p>
+<p><strong>Solução:</strong> Use a funcionalidade "Rename Symbol" do VS Code (F2 sobre o nome da variável) — ela atualiza todas as referências automaticamente. Se fizer manualmente, use "Find in Files" (Ctrl+Shift+F) para encontrar todas as ocorrências.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Remover código que parece morto, mas não é</p>
+<p><strong>Sintoma:</strong> Uma funcionalidade para de funcionar após remover uma função que "não era chamada em lugar nenhum".</p>
+<p><strong>Causa:</strong> A função era chamada indiretamente (ex: via string de configuração, callback armazenado em dicionário, ou <code>getattr</code>).</p>
+<p><strong>Solução:</strong> Antes de remover, faça uma busca no projeto inteiro pelo nome da função. Verifique também dicionários de configuração como <code>botoes_config</code> — o nome pode estar como valor de uma chave.</p>
+</div>
+<h2 id="boas-praticas">💡 Boas Práticas<a class="headerlink" href="#boas-praticas" title="Permanent link">&para;</a></h2>
+<p><strong>1. Commits frequentes durante a refatoração</strong></p>
+<p>Faça um commit a cada pequena melhoria: "extrai função de validação", "adiciona docstrings em views", "renomeia variáveis no controller". Se algo der errado, você pode voltar atrás sem perder todo o trabalho.</p>
+<p><strong>2. O princípio do escoteiro</strong></p>
+<p>"Sempre deixe o acampamento mais limpo do que você encontrou." Se você abrir um arquivo para corrigir um bug e encontrar uma variável com nome ruim, renomeie-a. Pequenas melhorias acumuladas tornam o código saudável.</p>
+<p><strong>3. Docstrings como documentação viva</strong></p>
+<p>Docstrings não são apenas para outras pessoas — são para você mesmo daqui a 6 meses. Quando você voltar ao código e não lembrar o que uma função faz, a docstring estará lá.</p>
+<p><strong>4. README.md bem escrito abre portas</strong></p>
+<p>Em processos seletivos e entrevistas, o README é a primeira coisa que recrutadores veem no seu GitHub. Um README claro, com instruções de instalação e demonstração das funcionalidades, causa uma impressão muito melhor do que um repositório sem documentação.</p>
+<p><strong>5. PEP 8 não é opcional</strong></p>
+<p>Seguir o guia de estilo da comunidade torna seu código familiar para qualquer pessoa Python. Ferramentas como <code>flake8</code> e <code>black</code> automatizam essa verificação — use-as.</p>
+<h2 id="checklist">☑️ Checklist<a class="headerlink" href="#checklist" title="Permanent link">&para;</a></h2>
+<p>Antes de prosseguir para o próximo capítulo, confirme:</p>
+<ul>
+<li>[ ] Todas as duplicações de código foram eliminadas (validações, criação de widgets)</li>
+<li>[ ] Todas as funções possuem docstrings no padrão Google</li>
+<li>[ ] Nomes de variáveis, funções e arquivos estão descritivos e em português</li>
+<li>[ ] O <code>README.md</code> está completo e personalizado</li>
+<li>[ ] O <code>requirements.txt</code> lista todas as dependências</li>
+<li>[ ] O código segue PEP 8 (ou foi verificado com flake8/black)</li>
+<li>[ ] Não há <code>print()</code> de debug, código comentado ou imports não utilizados</li>
+<li>[ ] O sistema foi testado após a refatoração e funciona exatamente como antes</li>
+<li>[ ] Minha equipe concluiu a Missão da Equipe</li>
+</ul>
+<h2 id="proximo-capitulo">➡️ Próximo Capítulo<a class="headerlink" href="#proximo-capitulo" title="Permanent link">&para;</a></h2>
+<p>No <strong>Capítulo 12 — Projeto Final</strong>, você entregará o sistema, apresentará para a turma e celebrará a conclusão do curso Python para Desktop.</p>
+<p>Depois de 11 capítulos intensos — do planejamento à refatoração, passando por interfaces gráficas, banco de dados e nuvem — você tem em mãos um sistema desktop completo, funcional e profissional.</p>
+<p>Prepare-se para brilhar na apresentação! 🎓🚀</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar ao topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.path", "navigation.top", "toc.integrate", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

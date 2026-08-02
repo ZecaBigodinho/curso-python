@@ -1,0 +1,2608 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Plataforma de Cursos">
+      
+      
+        <meta name="author" content="Professor">
+      
+      
+      
+        <link rel="prev" href="../07_sqlite/">
+      
+      
+        <link rel="next" href="../08_crud/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Sqlite Local - CourseForge Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#07-sqlite" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../.." title="CourseForge Docs" class="md-header__button md-logo" aria-label="CourseForge Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CourseForge Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Sqlite Local
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="teal"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="teal"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../docs/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Python para Desktop
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="CourseForge Docs" class="md-nav__button md-logo" aria-label="CourseForge Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    CourseForge Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../docs/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python para Desktop
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python para Desktop
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modulo_01_fundamentos/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🐍 Fundamentos
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🐍 Fundamentos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/01_variaveis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variaveis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/02_operadores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/03_if_else/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    If Else
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/04_repeticoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Repeticoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/05_funcoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Funcoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/06_modulos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/07_colecoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Colecoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/08_strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/09_arquivos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquivos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/10_excecoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Excecoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/11_projeto_final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto Final
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modulo_02_interfaces_graficas/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🖥️ Interfaces Graficas
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🖥️ Interfaces Graficas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/01_tkinter_basico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tkinter Basico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/02_layout_managers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Layout Managers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/03_eventos_interatividade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eventos Interatividade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/04_customtkinter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customtkinter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/05_projeto_pratico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto Pratico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modulo_03_banco_de_dados/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗄️ Banco De Dados
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🗄️ Banco De Dados
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_03_banco_de_dados/01_introducao_sqlite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducao Sqlite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_03_banco_de_dados/02_integracao_interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integracao Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_03_banco_de_dados/03_variaveis_ambiente/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variaveis Ambiente
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_03_banco_de_dados/04_projeto_final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto Final
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏗️ Projeto Finalizador
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🏗️ Projeto Finalizador
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_introducao_ao_projeto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducao Ao Projeto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_arquitetura_do_sistema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitetura Do Sistema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_tela_de_login/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tela De Login
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_menu_principal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Menu Principal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_multiplas_janelas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multiplas Janelas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_cadastro_de_alunos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cadastro De Alunos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_sqlite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sqlite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sqlite Local
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sqlite Local
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Objetivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contextualizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📍 Contextualização
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultado-esperado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Resultado Esperado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementacao-guiada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Implementação Guiada
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Implementação Guiada">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passo-1-criando-o-modulo-de-conexao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 1 — Criando o módulo de conexão
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-2-atualizando-o-mainpy-para-inicializar-o-banco" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 2 — Atualizando o main.py para inicializar o banco
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-3-refatorando-o-controller-de-alunos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 3 — Refatorando o Controller de Alunos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-4-atualizando-a-view-de-cadastro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 4 — Atualizando a View de Cadastro
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-5-testando-a-persistencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 5 — Testando a persistência
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercicio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📝 Exercício
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#missao-da-equipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏆 Missão da Equipe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desafio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚡ Desafio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erros-comuns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Erros Comuns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boas-praticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 Boas Práticas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ☑️ Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proximo-capitulo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ➡️ Próximo Capítulo
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_crud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_crud_completo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crud Completo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_banco_em_nuvem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Banco Em Nuvem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_integracao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integracao
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_integracao_e_testes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integracao E Testes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_refatoracao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Refatoracao
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_refatoracao_e_entrega/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Refatoracao E Entrega
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_projeto_final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto Final
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navegação" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../docs/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Python para Desktop
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    🏗️ Projeto Finalizador
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="07-sqlite">07 — SQLite<a class="headerlink" href="#07-sqlite" title="Permanent link">&para;</a></h1>
+<h2 id="objetivo">🎯 Objetivo<a class="headerlink" href="#objetivo" title="Permanent link">&para;</a></h2>
+<p>Neste capítulo você vai conectar o Sistema Escolar ao banco de dados SQLite, substituindo a frágil lista em memória por persistência real. Os alunos cadastrados sobreviverão ao fechamento do programa.</p>
+<p>Ao final, você terá:</p>
+<ul>
+<li>O módulo <code>database/conexao.py</code> com funções para conectar e inicializar o banco</li>
+<li>O arquivo <code>escola.db</code> criado automaticamente na primeira execução</li>
+<li>A tabela <code>alunos</code> com id, nome, idade e turma</li>
+<li>O controller <code>aluno.py</code> refatorado para usar INSERT e SELECT</li>
+<li>A tela de cadastro carregando os dados do banco ao abrir — sem perder nada</li>
+</ul>
+<h2 id="contextualizacao">📍 Contextualização<a class="headerlink" href="#contextualizacao" title="Permanent link">&para;</a></h2>
+<p>No Capítulo 06, você construiu um formulário de cadastro completo com validação e uma tabela Treeview. Os dados ficavam em uma lista no controller <code>aluno.py</code>. Funcionava, mas ao fechar a janela ou o sistema, tudo desaparecia.</p>
+<p>Isso é inaceitável para um software real. Um sistema de gestão escolar não pode esquecer os alunos a cada reinicialização.</p>
+<p>Agora você integrará o SQLite — um banco de dados leve, embutido e sem servidor — que é perfeito para aplicações desktop. A migração será suave porque você seguiu o padrão MVC: a View continuará igual; apenas o Controller e o novo módulo <code>database</code> serão alterados.</p>
+<p><strong>Progresso do Sistema:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>✅ Capítulo 01 — Introdução e Planejamento
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>✅ Capítulo 02 — Arquitetura do Sistema
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>✅ Capítulo 03 — Tela de Login
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>✅ Capítulo 04 — Menu Principal
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>✅ Capítulo 05 — Múltiplas Janelas
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>✅ Capítulo 06 — Cadastro de Alunos
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>🔨 SQLite ← VOCÊ ESTÁ AQUI
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>⬜ CRUD Completo
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>⬜ Banco em Nuvem
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>⬜ Integração e Testes
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>⬜ Refatoração e Entrega
+</code></pre></div>
+<h2 id="resultado-esperado">✅ Resultado Esperado<a class="headerlink" href="#resultado-esperado" title="Permanent link">&para;</a></h2>
+<p>Após este capítulo, o sistema se comportará da seguinte maneira:</p>
+<ul>
+<li>Ao executar <code>python main.py</code>, o banco <code>escola.db</code> é criado automaticamente (se não existir) e a tabela <code>alunos</code> é preparada.</li>
+<li>A tela de cadastro, ao ser aberta, exibe os alunos que já estavam salvos no banco.</li>
+<li>Ao salvar um novo aluno, ele é inserido no banco e permanece lá após fechar e reabrir o sistema.</li>
+<li>A tabela <code>alunos</code> tem a estrutura: <code>id</code> (chave primária autoincrement), <code>nome</code>, <code>idade</code>, <code>turma</code>.</li>
+</ul>
+<p>Aparência: A interface visual não muda. A diferença está nos bastidores.</p>
+<p>Arquivos criados ou modificados:</p>
+<table>
+<thead>
+<tr>
+<th>Arquivo</th>
+<th>Ação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>database/conexao.py</code></td>
+<td>Novo — conexão e inicialização do banco</td>
+</tr>
+<tr>
+<td><code>controllers/aluno.py</code></td>
+<td>Modificado — lógica de persistência migrada para SQL</td>
+</tr>
+<tr>
+<td><code>main.py</code></td>
+<td>Modificado — chama inicialização do banco</td>
+</tr>
+<tr>
+<td><code>views/cadastro.py</code></td>
+<td>Pequeno ajuste — atualizar tabela ao abrir usando banco</td>
+</tr>
+</tbody>
+</table>
+<h2 id="implementacao-guiada">💻 Implementação Guiada<a class="headerlink" href="#implementacao-guiada" title="Permanent link">&para;</a></h2>
+<h3 id="passo-1-criando-o-modulo-de-conexao">Passo 1 — Criando o módulo de conexão<a class="headerlink" href="#passo-1-criando-o-modulo-de-conexao" title="Permanent link">&para;</a></h3>
+<p>Toda interação com o banco passará por um ponto central. Crie o arquivo <code>database/conexao.py</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># ======================================================================</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># conexao.py — Gerenciador de Conexão com SQLite</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># ======================================================================</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Eu sou o responsável por conectar ao banco de dados e garantir</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># que as tabelas existam antes de qualquer operação.</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1"># ======================================================================</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="c1"># ---------- CONSTANTE DO CAMINHO ----------</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="c1"># Eu defino onde o arquivo do banco será salvo.</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1"># Uso pathlib para que funcione em qualquer sistema operacional.</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="n">CAMINHO_BANCO</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">&quot;escola.db&quot;</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="k">def</span><span class="w"> </span><span class="nf">conectar</span><span class="p">():</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="sd">    Eu crio e retorno uma conexão com o banco SQLite.</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="sd">    Uso um context manager para garantir que a conexão seja</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="sd">    fechada corretamente após o uso.</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="sd">    Retorno:</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="sd">        sqlite3.Connection: objeto de conexão ativo</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>    <span class="n">conexao</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">CAMINHO_BANCO</span><span class="p">))</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>    <span class="c1"># Ativo o modo de row_factory para acessar colunas por nome.</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>    <span class="n">conexao</span><span class="o">.</span><span class="n">row_factory</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Row</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>    <span class="k">return</span> <span class="n">conexao</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="k">def</span><span class="w"> </span><span class="nf">inicializar_banco</span><span class="p">():</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="sd">    Eu crio as tabelas do sistema, caso ainda não existam.</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="sd">    Esta função deve ser chamada uma vez no início do programa,</span>
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="sd">    antes de qualquer operação de leitura ou escrita.</span>
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>    <span class="c1"># Eu uso &#39;with&#39; para garantir que a conexão feche mesmo se houver erro.</span>
+<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>    <span class="k">with</span> <span class="n">conectar</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+<a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>        <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a>
+<a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>        <span class="c1"># ---------- TABELA DE ALUNOS ----------</span>
+<a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a>        <span class="c1"># Eu crio a tabela &#39;alunos&#39; com os campos necessários.</span>
+<a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>        <span class="c1"># Uso IF NOT EXISTS para evitar erro se a tabela já existir.</span>
+<a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a>        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a><span class="s2">            CREATE TABLE IF NOT EXISTS alunos (</span>
+<a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a><span class="s2">                id INTEGER PRIMARY KEY AUTOINCREMENT,</span>
+<a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a><span class="s2">                nome TEXT NOT NULL,</span>
+<a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a><span class="s2">                idade INTEGER NOT NULL,</span>
+<a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a><span class="s2">                turma TEXT NOT NULL</span>
+<a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a><span class="s2">            )</span>
+<a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a><span class="s2">        &quot;&quot;&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a>
+<a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a>        <span class="c1"># O commit é automático ao sair do with (a conexão fecha).</span>
+<a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a>        <span class="c1"># Mas eu chamo explicitamente por clareza.</span>
+<a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a>        <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Conceito Importante</p>
+<p><code>row_factory = sqlite3.Row</code> permite acessar os valores das colunas por nome (ex: <code>aluno["nome"]</code>) em vez de índice numérico. Isso torna o código muito mais legível.</p>
+</div>
+<h3 id="passo-2-atualizando-o-mainpy-para-inicializar-o-banco">Passo 2 — Atualizando o main.py para inicializar o banco<a class="headerlink" href="#passo-2-atualizando-o-mainpy-para-inicializar-o-banco" title="Permanent link">&para;</a></h3>
+<p>O banco precisa ser inicializado antes que qualquer tela tente acessá-lo. Basta uma linha no <code>main.py</code>.</p>
+<p>Abra <code>main.py</code> e adicione a chamada logo após criar a janela principal.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># ===== CÓDIGO EXISTENTE (trecho do main.py) =====</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">tkinter</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tk</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">utils.helpers</span><span class="w"> </span><span class="kn">import</span> <span class="n">centralizar_janela</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">views.login</span><span class="w"> </span><span class="kn">import</span> <span class="n">criar_tela_login</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">views.menu</span><span class="w"> </span><span class="kn">import</span> <span class="n">criar_menu</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">janela</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">janela</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Sistema Escolar&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">centralizar_janela</span><span class="p">(</span><span class="n">janela</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">janela</span><span class="o">.</span><span class="n">resizable</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1"># ===== CÓDIGO NOVO (adicione abaixo) =====</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="c1"># Eu inicio o banco de dados assim que o programa começa.</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="c1"># Isso garante que as tabelas existam antes de qualquer acesso.</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="kn">from</span><span class="w"> </span><span class="nn">database.conexao</span><span class="w"> </span><span class="kn">import</span> <span class="n">inicializar_banco</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="n">inicializar_banco</span><span class="p">()</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="c1"># ... callbacks e chamada da tela de login permanecem iguais</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Dica Profissional</p>
+<p>Em projetos maiores, a inicialização do banco pode ser movida para uma função <code>bootstrap()</code> ou para o próprio <code>conectar()</code>. Para nosso escopo, essa abordagem é clara e suficiente.</p>
+</div>
+<h3 id="passo-3-refatorando-o-controller-de-alunos">Passo 3 — Refatorando o Controller de Alunos<a class="headerlink" href="#passo-3-refatorando-o-controller-de-alunos" title="Permanent link">&para;</a></h3>
+<p>Esta é a migração propriamente dita. Abra <code>controllers/aluno.py</code>. O código atual usa uma lista <code>alunos</code> e funções que manipulam essa lista. Vamos substituí-lo por operações SQL.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">ANTES (lista em memória)</label><label for="__tabbed_1_2">DEPOIS (SQLite)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># controllers/aluno.py — versão antiga</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">alunos</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">salvar_aluno</span><span class="p">(</span><span class="n">nome</span><span class="p">,</span> <span class="n">idade</span><span class="p">,</span> <span class="n">turma</span><span class="p">):</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">aluno</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="n">nome</span><span class="p">,</span> <span class="s2">&quot;idade&quot;</span><span class="p">:</span> <span class="n">idade</span><span class="p">,</span> <span class="s2">&quot;turma&quot;</span><span class="p">:</span> <span class="n">turma</span><span class="p">}</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">alunos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">aluno</span><span class="p">)</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="k">return</span> <span class="n">aluno</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">listar_alunos</span><span class="p">():</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="k">return</span> <span class="n">alunos</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># controllers/aluno.py — versão nova</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">database.conexao</span><span class="w"> </span><span class="kn">import</span> <span class="n">conectar</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">salvar_aluno</span><span class="p">(</span><span class="n">nome</span><span class="p">,</span> <span class="n">idade</span><span class="p">,</span> <span class="n">turma</span><span class="p">):</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="k">with</span> <span class="n">conectar</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="s2">            INSERT INTO alunos (nome, idade, turma)</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="s2">            VALUES (?, ?, ?)</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="s2">        &quot;&quot;&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">nome</span><span class="p">,</span> <span class="n">idade</span><span class="p">,</span> <span class="n">turma</span><span class="p">))</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>        <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="n">nome</span><span class="p">,</span> <span class="s2">&quot;idade&quot;</span><span class="p">:</span> <span class="n">idade</span><span class="p">,</span> <span class="s2">&quot;turma&quot;</span><span class="p">:</span> <span class="n">turma</span><span class="p">}</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="k">def</span><span class="w"> </span><span class="nf">listar_alunos</span><span class="p">():</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    <span class="k">with</span> <span class="n">conectar</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>        <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM alunos ORDER BY nome&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>        <span class="n">alunos</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>        <span class="k">return</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">aluno</span><span class="p">)</span> <span class="k">for</span> <span class="n">aluno</span> <span class="ow">in</span> <span class="n">alunos</span><span class="p">]</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Crie o novo arquivo <code>controllers/aluno.py</code> com o conteúdo completo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># ======================================================================</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1"># aluno.py — Controlador de Alunos (com SQLite)</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1"># ======================================================================</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Eu agora persisto os dados no banco de dados SQLite.</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1"># As funções mantêm os mesmos nomes — a View não precisa mudar.</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1"># ======================================================================</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="kn">from</span><span class="w"> </span><span class="nn">database.conexao</span><span class="w"> </span><span class="kn">import</span> <span class="n">conectar</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="k">def</span><span class="w"> </span><span class="nf">salvar_aluno</span><span class="p">(</span><span class="n">nome</span><span class="p">,</span> <span class="n">idade</span><span class="p">,</span> <span class="n">turma</span><span class="p">):</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="sd">    Eu insiro um novo aluno na tabela &#39;alunos&#39; do banco.</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="sd">    Parâmetros:</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="sd">        nome: string</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="sd">        idade: int</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="sd">        turma: string</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="sd">    Retorno:</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="sd">        dict com os dados do aluno inserido</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>    <span class="c1"># Eu uso &#39;with&#39; para abrir e fechar a conexão automaticamente.</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>    <span class="k">with</span> <span class="n">conectar</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>        <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>        <span class="c1"># Query parametrizada: os &#39;?&#39; evitam SQL Injection.</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="s2">            INSERT INTO alunos (nome, idade, turma)</span>
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="s2">            VALUES (?, ?, ?)</span>
+<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="s2">        &quot;&quot;&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">nome</span><span class="p">,</span> <span class="n">idade</span><span class="p">,</span> <span class="n">turma</span><span class="p">))</span>
+<a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>        <span class="c1"># Commit: sem ele, a inserção não é salva permanentemente.</span>
+<a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a>        <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a>
+<a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a>    <span class="c1"># Retorno um dicionário para manter compatibilidade com a View.</span>
+<a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="n">nome</span><span class="p">,</span> <span class="s2">&quot;idade&quot;</span><span class="p">:</span> <span class="n">idade</span><span class="p">,</span> <span class="s2">&quot;turma&quot;</span><span class="p">:</span> <span class="n">turma</span><span class="p">}</span>
+<a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a>
+<a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a>
+<a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a><span class="k">def</span><span class="w"> </span><span class="nf">listar_alunos</span><span class="p">():</span>
+<a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a><span class="sd">    Eu busco todos os alunos cadastrados, ordenados por nome.</span>
+<a id="__codelineno-5-41" name="__codelineno-5-41" href="#__codelineno-5-41"></a>
+<a id="__codelineno-5-42" name="__codelineno-5-42" href="#__codelineno-5-42"></a><span class="sd">    Retorno:</span>
+<a id="__codelineno-5-43" name="__codelineno-5-43" href="#__codelineno-5-43"></a><span class="sd">        list de dict — cada dict contém id, nome, idade, turma</span>
+<a id="__codelineno-5-44" name="__codelineno-5-44" href="#__codelineno-5-44"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-5-45" name="__codelineno-5-45" href="#__codelineno-5-45"></a>    <span class="k">with</span> <span class="n">conectar</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+<a id="__codelineno-5-46" name="__codelineno-5-46" href="#__codelineno-5-46"></a>        <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<a id="__codelineno-5-47" name="__codelineno-5-47" href="#__codelineno-5-47"></a>        <span class="c1"># SELECT simples com ORDER BY para organização alfabética.</span>
+<a id="__codelineno-5-48" name="__codelineno-5-48" href="#__codelineno-5-48"></a>        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM alunos ORDER BY nome&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-49" name="__codelineno-5-49" href="#__codelineno-5-49"></a>        <span class="n">alunos</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+<a id="__codelineno-5-50" name="__codelineno-5-50" href="#__codelineno-5-50"></a>        <span class="c1"># Converte cada Row em um dicionário Python.</span>
+<a id="__codelineno-5-51" name="__codelineno-5-51" href="#__codelineno-5-51"></a>        <span class="k">return</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">aluno</span><span class="p">)</span> <span class="k">for</span> <span class="n">aluno</span> <span class="ow">in</span> <span class="n">alunos</span><span class="p">]</span>
+<a id="__codelineno-5-52" name="__codelineno-5-52" href="#__codelineno-5-52"></a>
+<a id="__codelineno-5-53" name="__codelineno-5-53" href="#__codelineno-5-53"></a>
+<a id="__codelineno-5-54" name="__codelineno-5-54" href="#__codelineno-5-54"></a><span class="k">def</span><span class="w"> </span><span class="nf">limpar_dados</span><span class="p">():</span>
+<a id="__codelineno-5-55" name="__codelineno-5-55" href="#__codelineno-5-55"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-5-56" name="__codelineno-5-56" href="#__codelineno-5-56"></a><span class="sd">    Eu removo todos os alunos do banco (útil para testes).</span>
+<a id="__codelineno-5-57" name="__codelineno-5-57" href="#__codelineno-5-57"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-5-58" name="__codelineno-5-58" href="#__codelineno-5-58"></a>    <span class="k">with</span> <span class="n">conectar</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+<a id="__codelineno-5-59" name="__codelineno-5-59" href="#__codelineno-5-59"></a>        <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<a id="__codelineno-5-60" name="__codelineno-5-60" href="#__codelineno-5-60"></a>        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;DELETE FROM alunos&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-61" name="__codelineno-5-61" href="#__codelineno-5-61"></a>        <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Erro Crítico — Nunca concatene strings para SQL</p>
+<p>Nunca faça: <code>cursor.execute(f"INSERT INTO alunos VALUES ('{nome}', {idade}, '{turma}')")</code>.
+Isso abre brechas de segurança (SQL Injection) e quebra com caracteres especiais.
+Use sempre placeholders <code>?</code> e passe os valores como tupla.</p>
+</div>
+<h3 id="passo-4-atualizando-a-view-de-cadastro">Passo 4 — Atualizando a View de Cadastro<a class="headerlink" href="#passo-4-atualizando-a-view-de-cadastro" title="Permanent link">&para;</a></h3>
+<p>A view <code>cadastro.py</code> do Capítulo 06 já chamava <code>listar_alunos()</code> em <code>atualizar_tabela()</code>. Como mantivemos a mesma assinatura de função, a view funciona sem nenhuma alteração. A única diferença é que agora <code>listar_alunos()</code> retorna dados do banco (incluindo o campo <code>id</code>).</p>
+<p>Contudo, podemos fazer uma pequena melhoria: como o Treeview agora recebe o <code>id</code>, podemos armazená-lo como um valor oculto. Isso será útil no próximo capítulo para identificar qual registro editar ou excluir.</p>
+<p>Em <code>views/cadastro.py</code>, dentro da função <code>atualizar_tabela()</code>, altere a linha do <code>tree.insert</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># ===== CÓDIGO EXISTENTE =====</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">tree</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">tk</span><span class="o">.</span><span class="n">END</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">(</span><span class="n">aluno</span><span class="p">[</span><span class="s2">&quot;nome&quot;</span><span class="p">],</span> <span class="n">aluno</span><span class="p">[</span><span class="s2">&quot;idade&quot;</span><span class="p">],</span> <span class="n">aluno</span><span class="p">[</span><span class="s2">&quot;turma&quot;</span><span class="p">]))</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># ===== CÓDIGO NOVO =====</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1"># Agora eu guardo o id do aluno como o iid da linha (primeiro argumento depois de &quot;&quot;).</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c1"># Isso permite identificar a linha unicamente sem exibir o id na tabela.</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">tree</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    <span class="n">tk</span><span class="o">.</span><span class="n">END</span><span class="p">,</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    <span class="n">iid</span><span class="o">=</span><span class="n">aluno</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">],</span>           <span class="c1"># iid = identificador interno da linha</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    <span class="n">values</span><span class="o">=</span><span class="p">(</span><span class="n">aluno</span><span class="p">[</span><span class="s2">&quot;nome&quot;</span><span class="p">],</span> <span class="n">aluno</span><span class="p">[</span><span class="s2">&quot;idade&quot;</span><span class="p">],</span> <span class="n">aluno</span><span class="p">[</span><span class="s2">&quot;turma&quot;</span><span class="p">])</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="p">)</span>
+</code></pre></div>
+<p>O campo <code>id</code> não será exibido (não está nas colunas), mas cada linha do Treeview terá um identificador único que corresponde ao <code>id</code> do banco. Isso é preparação para o CRUD do Capítulo 08.</p>
+<h3 id="passo-5-testando-a-persistencia">Passo 5 — Testando a persistência<a class="headerlink" href="#passo-5-testando-a-persistencia" title="Permanent link">&para;</a></h3>
+<p>Execute o sistema:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>python<span class="w"> </span>main.py
+</code></pre></div>
+<ul>
+<li>Faça login (admin / admin).</li>
+<li>Abra o Cadastro de Alunos e cadastre 2 ou 3 alunos.</li>
+<li>Feche a janela de cadastro.</li>
+<li>Feche o sistema completamente.</li>
+<li>Execute <code>python main.py</code> novamente.</li>
+<li>Abra o Cadastro de Alunos.</li>
+</ul>
+<p>Os alunos cadastrados ainda estarão lá. A persistência está funcionando.</p>
+<p>Você também pode verificar o arquivo <code>escola.db</code> na raiz do projeto. Com uma ferramenta como DB Browser for SQLite, você pode abrir o arquivo e ver a tabela <code>alunos</code> com os registros.</p>
+<h2 id="exercicio">📝 Exercício<a class="headerlink" href="#exercicio" title="Permanent link">&para;</a></h2>
+<p><strong>Tempo estimado:</strong> 15-20 minutos</p>
+<p><strong>Tarefa:</strong> Adicione uma funcionalidade que exiba a quantidade total de alunos cadastrados no título do LabelFrame da listagem. Por exemplo: "Alunos Cadastrados (5)".</p>
+<p>Dica: Use <code>SELECT COUNT(*) FROM alunos</code> no controller e um Label ou atualize o texto do LabelFrame após cada operação.</p>
+<details class="hint">
+<summary>Dica</summary>
+<p>Crie uma função <code>contar_alunos()</code> no controller que retorna um inteiro. Na view, após <code>atualizar_tabela()</code>, chame essa função e atualize o texto do LabelFrame usando <code>frame_lista.config(text=f" Alunos Cadastrados ({total}) ")</code>.</p>
+</details>
+<details class="success">
+<summary>Solução</summary>
+<p>Em <code>controllers/aluno.py</code>, adicione:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">contar_alunos</span><span class="p">():</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="k">with</span> <span class="n">conectar</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>        <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT COUNT(*) FROM alunos&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>        <span class="k">return</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+<p>Em <code>views/cadastro.py</code>, importe <code>contar_alunos</code> e dentro de <code>atualizar_tabela</code>, após reinserir as linhas:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">total</span> <span class="o">=</span> <span class="n">contar_alunos</span><span class="p">()</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">frame_lista</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot; Alunos Cadastrados (</span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s2">) &quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Chame <code>atualizar_tabela()</code> também após salvar, para que o contador atualize.</p>
+</details>
+<h2 id="missao-da-equipe">🏆 Missão da Equipe<a class="headerlink" href="#missao-da-equipe" title="Permanent link">&para;</a></h2>
+<p><strong>Tempo estimado:</strong> 30-45 minutos</p>
+<p><strong>Tarefa:</strong> Migrem o projeto da equipe para SQLite, criando o banco de dados e a(s) tabela(s) específica(s) do domínio.</p>
+<p><strong>Entregável:</strong> O sistema da equipe com persistência total em SQLite.</p>
+<p><strong>Checklist da Missão:</strong></p>
+<ul>
+<li>[ ] Criado o módulo <code>database/conexao.py</code> com <code>conectar()</code> e <code>inicializar_banco()</code></li>
+<li>[ ] A função <code>inicializar_banco()</code> cria a(s) tabela(s) com campos adequados ao domínio</li>
+<li>[ ] O <code>main.py</code> chama <code>inicializar_banco()</code> na inicialização</li>
+<li>[ ] O controller da entidade principal (ex: <code>livro.py</code>, <code>produto.py</code>) foi refatorado para usar SQL</li>
+<li>[ ] <code>salvar_*</code> faz INSERT com parâmetros</li>
+<li>[ ] <code>listar_*</code> faz SELECT e retorna lista de dicionários</li>
+<li>[ ] O Treeview carrega os dados do banco ao abrir a tela</li>
+<li>[ ] Os dados sobrevivem ao fechar e reabrir o programa</li>
+<li>[ ] O professor verificou o arquivo <code>.db</code> gerado</li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Nota para o Professor</p>
+<p>Verifique: Cada equipe deve ter um arquivo <code>.db</code> gerado após o primeiro cadastro. Peça que fechem e reabram o sistema para confirmar a persistência. Verifique se as queries são parametrizadas (sem concatenação).</p>
+</div>
+<h2 id="desafio">⚡ Desafio<a class="headerlink" href="#desafio" title="Permanent link">&para;</a></h2>
+<p><strong>Vá além:</strong> Substitua as credenciais hardcoded do login por uma tabela <code>usuarios</code> no banco de dados.</p>
+<p>Atualmente, <code>controllers/auth.py</code> valida o login contra um dicionário fixo. Sua missão é:</p>
+<ol>
+<li>Adicionar em <code>inicializar_banco()</code> a criação da tabela <code>usuarios</code> com campos <code>id</code>, <code>usuario</code>, <code>senha</code>.</li>
+<li>Inserir um usuário padrão (admin / admin) se a tabela estiver vazia.</li>
+<li>Refatorar <code>validar_login</code> para consultar o banco: <code>SELECT * FROM usuarios WHERE usuario=? AND senha=?</code>.</li>
+<li>(Opcional) No futuro, a senha deveria ser armazenada com hash — mas para este desafio, mantenha texto puro.</li>
+</ol>
+<p>Dica: Use <code>INSERT OR IGNORE</code> para evitar duplicar o usuário padrão.</p>
+<details class="success">
+<summary>Solução resumida</summary>
+<p>Em <code>database/conexao.py</code>, adicione na <code>inicializar_banco()</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="s2">    CREATE TABLE IF NOT EXISTS usuarios (</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="s2">        id INTEGER PRIMARY KEY AUTOINCREMENT,</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="s2">        usuario TEXT NOT NULL UNIQUE,</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="s2">        senha TEXT NOT NULL</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="s2">    )</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="s2">    INSERT OR IGNORE INTO usuarios (usuario, senha)</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="s2">    VALUES (&#39;admin&#39;, &#39;admin&#39;)</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Em <code>controllers/auth.py</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">database.conexao</span><span class="w"> </span><span class="kn">import</span> <span class="n">conectar</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">validar_login</span><span class="p">(</span><span class="n">usuario</span><span class="p">,</span> <span class="n">senha</span><span class="p">):</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="k">with</span> <span class="n">conectar</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>        <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>            <span class="s2">&quot;SELECT * FROM usuarios WHERE usuario=? AND senha=?&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>            <span class="p">(</span><span class="n">usuario</span><span class="p">,</span> <span class="n">senha</span><span class="p">)</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>        <span class="p">)</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>        <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">():</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>            <span class="k">return</span> <span class="kc">True</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>    <span class="n">messagebox</span><span class="o">.</span><span class="n">showerror</span><span class="p">(</span><span class="s2">&quot;Erro de Login&quot;</span><span class="p">,</span> <span class="s2">&quot;Usuário ou senha inválidos.&quot;</span><span class="p">)</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>    <span class="k">return</span> <span class="kc">False</span>
+</code></pre></div>
+</details>
+<h2 id="erros-comuns">⚠️ Erros Comuns<a class="headerlink" href="#erros-comuns" title="Permanent link">&para;</a></h2>
+<div class="admonition danger">
+<p class="admonition-title">Esquecer o commit() após INSERT</p>
+<p><strong>Sintoma:</strong> Nenhum erro aparece, os dados parecem salvos, mas ao reabrir o sistema a tabela está vazia.</p>
+<p><strong>Causa:</strong> O INSERT foi executado, mas sem <code>commit()</code> a transação não foi efetivada no disco.</p>
+<p><strong>Solução:</strong> Sempre chame <code>conn.commit()</code> após operações de escrita (INSERT, UPDATE, DELETE). Com o <code>with conectar()</code>, o commit pode ser colocado dentro do bloco.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Concatenação de strings na query SQL</p>
+<p><strong>Sintoma:</strong> <code>sqlite3.OperationalError: near "João": syntax error</code> ou, pior, o sistema funciona mas é vulnerável.</p>
+<p><strong>Causa:</strong> Uso de f-strings ou <code>+</code> para montar a query, como <code>f"INSERT INTO alunos VALUES ('{nome}', ...)"</code>. Se o nome tiver apóstrofo (ex: D'Artagnan), quebra a sintaxe SQL.</p>
+<p><strong>Solução:</strong> Use placeholders <code>?</code> e tupla: <code>cursor.execute("INSERT INTO alunos (nome) VALUES (?)", (nome,))</code>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caminho do banco relativo incorreto</p>
+<p><strong>Sintoma:</strong> <code>sqlite3.OperationalError: unable to open database file</code>.</p>
+<p><strong>Causa:</strong> O caminho para <code>escola.db</code> está errado ou o diretório não tem permissão de escrita. Às vezes, o programa tenta criar o banco numa pasta diferente da esperada.</p>
+<p><strong>Solução:</strong> Use <code>pathlib.Path(__file__).parent.parent / "escola.db"</code> para garantir que o banco fique na raiz do projeto, independente de onde o script é executado.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Não chamar inicializar_banco()</p>
+<p><strong>Sintoma:</strong> <code>sqlite3.OperationalError: no such table: alunos</code>.</p>
+<p><strong>Causa:</strong> O <code>main.py</code> não chama <code>inicializar_banco()</code> antes de usar o controller.</p>
+<p><strong>Solução:</strong> Adicione <code>inicializar_banco()</code> no início de <code>main.py</code>, após a criação da janela principal.</p>
+</div>
+<h2 id="boas-praticas">💡 Boas Práticas<a class="headerlink" href="#boas-praticas" title="Permanent link">&para;</a></h2>
+<p><strong>1. Context Manager (with) para conexões</strong></p>
+<p>Usar <code>with conectar() as conn:</code> garante que a conexão seja fechada mesmo se ocorrer uma exceção. Isso evita vazamentos de recursos e arquivos travados.</p>
+<p><strong>2. Queries parametrizadas com ?</strong></p>
+<p>Além de seguras, as queries parametrizadas permitem que o SQLite otimize o plano de execução. Nunca monte SQL concatenando strings do usuário.</p>
+<p><strong>3. row_factory = sqlite3.Row</strong></p>
+<p>Permite acessar colunas por nome (<code>aluno["nome"]</code>), tornando o código mais expressivo. Sem isso, você acessaria por índice (<code>aluno[1]</code>), o que é frágil se a ordem das colunas mudar.</p>
+<p><strong>4. IF NOT EXISTS nas criações de tabela</strong></p>
+<p>Evita erros se o banco já existir. É uma prática defensiva que torna o código idempotente (pode ser executado várias vezes sem efeitos colaterais).</p>
+<p><strong>5. Separação clara entre database e controllers</strong></p>
+<p>O módulo database sabe como conectar; o controller sabe o que fazer com os dados. Essa separação permite trocar de banco (ex: PostgreSQL) alterando apenas <code>database/conexao.py</code>.</p>
+<h2 id="checklist">☑️ Checklist<a class="headerlink" href="#checklist" title="Permanent link">&para;</a></h2>
+<p>Antes de prosseguir para o próximo capítulo, confirme:</p>
+<ul>
+<li>[ ] O arquivo <code>database/conexao.py</code> existe com <code>conectar()</code> e <code>inicializar_banco()</code></li>
+<li>[ ] A função <code>inicializar_banco()</code> cria a tabela <code>alunos</code> com <code>id</code>, <code>nome</code>, <code>idade</code>, <code>turma</code></li>
+<li>[ ] O <code>main.py</code> chama <code>inicializar_banco()</code> antes de abrir a tela de login</li>
+<li>[ ] O controller <code>aluno.py</code> usa INSERT INTO e SELECT parametrizados</li>
+<li>[ ] A view <code>cadastro.py</code> atualiza a tabela com dados do banco (sem alterações drásticas)</li>
+<li>[ ] Cadastrei alunos, fechei o sistema, reabri e os alunos ainda estavam lá</li>
+<li>[ ] O arquivo <code>escola.db</code> foi gerado na raiz do projeto</li>
+<li>[ ] Nenhum código usa concatenação de strings para SQL</li>
+<li>[ ] Minha equipe concluiu a Missão da Equipe</li>
+</ul>
+<h2 id="proximo-capitulo">➡️ Próximo Capítulo<a class="headerlink" href="#proximo-capitulo" title="Permanent link">&para;</a></h2>
+<p>No <strong>Capítulo 08 — CRUD Completo</strong>, você implementará as operações que faltam: Consultar com filtros, Editar um registro selecionado e Excluir com confirmação. O Treeview que você preparou com iid será a chave para identificar qual linha editar ou excluir.</p>
+<p>O sistema passará de "cadastro simples" para um CRUD completo. É o último grande passo antes da integração com a nuvem. 🗃️</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar ao topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.path", "navigation.top", "toc.integrate", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

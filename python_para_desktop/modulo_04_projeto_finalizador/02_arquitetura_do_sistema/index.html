@@ -1,0 +1,2584 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Plataforma de Cursos">
+      
+      
+        <meta name="author" content="Professor">
+      
+      
+      
+        <link rel="prev" href="../01_introducao_ao_projeto/">
+      
+      
+        <link rel="next" href="../03_tela_de_login/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Arquitetura Do Sistema - CourseForge Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#02-arquitetura-do-sistema" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../.." title="CourseForge Docs" class="md-header__button md-logo" aria-label="CourseForge Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CourseForge Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Arquitetura Do Sistema
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="teal"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="teal"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../docs/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Python para Desktop
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="CourseForge Docs" class="md-nav__button md-logo" aria-label="CourseForge Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    CourseForge Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../docs/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python para Desktop
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python para Desktop
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modulo_01_fundamentos/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🐍 Fundamentos
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🐍 Fundamentos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/01_variaveis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variaveis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/02_operadores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/03_if_else/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    If Else
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/04_repeticoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Repeticoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/05_funcoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Funcoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/06_modulos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/07_colecoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Colecoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/08_strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/09_arquivos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquivos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/10_excecoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Excecoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/11_projeto_final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto Final
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modulo_02_interfaces_graficas/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🖥️ Interfaces Graficas
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🖥️ Interfaces Graficas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/01_tkinter_basico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tkinter Basico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/02_layout_managers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Layout Managers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/03_eventos_interatividade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eventos Interatividade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/04_customtkinter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customtkinter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/05_projeto_pratico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto Pratico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modulo_03_banco_de_dados/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗄️ Banco De Dados
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🗄️ Banco De Dados
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_03_banco_de_dados/01_introducao_sqlite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducao Sqlite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_03_banco_de_dados/02_integracao_interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integracao Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_03_banco_de_dados/03_variaveis_ambiente/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variaveis Ambiente
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_03_banco_de_dados/04_projeto_final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto Final
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏗️ Projeto Finalizador
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🏗️ Projeto Finalizador
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_introducao_ao_projeto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducao Ao Projeto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitetura Do Sistema
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitetura Do Sistema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Objetivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contextualizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📍 Contextualização
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultado-esperado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Resultado Esperado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementacao-guiada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Implementação Guiada
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Implementação Guiada">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passo-1-por-que-nao-colocar-tudo-em-um-unico-arquivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 1 — Por que não colocar tudo em um único arquivo?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-2-o-padrao-mvc-para-aplicacoes-desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 2 — O padrão MVC para aplicações desktop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-3-criando-a-estrutura-de-pastas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 3 — Criando a estrutura de pastas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-4-transformando-pastas-em-pacotes-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 4 — Transformando pastas em pacotes Python
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-5-criando-o-mainpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 5 — Criando o main.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-6-executando-o-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 6 — Executando o sistema
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercicio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📝 Exercício
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#missao-da-equipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏆 Missão da Equipe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desafio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚡ Desafio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erros-comuns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Erros Comuns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boas-praticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 Boas Práticas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ☑️ Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proximo-capitulo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ➡️ Próximo Capítulo
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_tela_de_login/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tela De Login
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_menu_principal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Menu Principal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_multiplas_janelas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multiplas Janelas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_cadastro_de_alunos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cadastro De Alunos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_sqlite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sqlite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_sqlite_local/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sqlite Local
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_crud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_crud_completo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crud Completo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_banco_em_nuvem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Banco Em Nuvem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_integracao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integracao
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_integracao_e_testes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integracao E Testes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_refatoracao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Refatoracao
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_refatoracao_e_entrega/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Refatoracao E Entrega
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_projeto_final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto Final
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navegação" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../docs/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Python para Desktop
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    🏗️ Projeto Finalizador
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="02-arquitetura-do-sistema">02 — Arquitetura do Sistema<a class="headerlink" href="#02-arquitetura-do-sistema" title="Permanent link">&para;</a></h1>
+<h2 id="objetivo">🎯 Objetivo<a class="headerlink" href="#objetivo" title="Permanent link">&para;</a></h2>
+<p>Neste capítulo você vai criar a arquitetura do Sistema Escolar — a estrutura de pastas e arquivos que organizará todo o desenvolvimento futuro.</p>
+<p>Ao final, você terá:</p>
+<ul>
+<li>Compreendido o padrão MVC simplificado para aplicações desktop</li>
+<li>Criado a estrutura de pastas do projeto: <code>views/</code>, <code>controllers/</code>, <code>database/</code>, <code>utils/</code></li>
+<li>Transformado cada pasta em um pacote Python com <code>__init__.py</code></li>
+<li>Escrito o <code>main.py</code> — ponto de entrada que abre uma janela Tkinter centralizada</li>
+<li>Visualizado a janela principal com título "Sistema Escolar", 800x600, não redimensionável</li>
+</ul>
+<h2 id="contextualizacao">📍 Contextualização<a class="headerlink" href="#contextualizacao" title="Permanent link">&para;</a></h2>
+<p>No Capítulo 01, você definiu o escopo do Sistema Escolar, levantou 18 requisitos funcionais e formou sua equipe. Foi um capítulo de planejamento puro — essencial, mas sem código.</p>
+<p>Agora, o projeto começa a tomar forma. Você vai criar os alicerces sobre os quais todas as telas, lógicas e conexões serão construídas. Assim como uma casa precisa de fundação antes das paredes, um sistema profissional precisa de uma arquitetura sólida antes do primeiro botão.</p>
+<p><strong>Progresso do Sistema:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>✅ Capítulo 01 — Introdução e Planejamento
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>🔨 Arquitetura do Sistema ← VOCÊ ESTÁ AQUI
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>⬜ Tela de Login
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>⬜ Menu Principal
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>⬜ Múltiplas Janelas
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>⬜ Cadastro de Alunos
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>⬜ SQLite Local
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>⬜ CRUD Completo
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>⬜ Banco em Nuvem
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>⬜ Integração e Testes
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>⬜ Refatoração e Entrega
+</code></pre></div>
+<h2 id="resultado-esperado">✅ Resultado Esperado<a class="headerlink" href="#resultado-esperado" title="Permanent link">&para;</a></h2>
+<p>Ao final deste capítulo, você terá uma estrutura de pastas e um arquivo <code>main.py</code> que, quando executado, exibe uma janela como esta:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>┌─────────────────────────────────────────┐
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│  Sistema Escolar                    _ □ X│
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│                                         │
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│                                         │
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│            (janela vazia)               │
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│             800 x 600                   │
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│         centralizada na tela            │
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│                                         │
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│                                         │
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│                                         │
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>└─────────────────────────────────────────┘
+</code></pre></div>
+<p>E sua árvore de projeto estará assim:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sistema_escolar/
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>├── main.py              ← ponto de entrada (funcional)
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>├── views/               ← telas do sistema
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>│   └── __init__.py
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>├── controllers/         ← lógica de negócio
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>│   └── __init__.py
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>├── database/            ← conexão e operações
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>│   └── __init__.py
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>└── utils/               ← funções auxiliares
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    └── __init__.py
+</code></pre></div>
+<p>Parece simples? É simples mesmo — e é exatamente essa simplicidade que permite que sistemas complexos cresçam sem virar uma bagunça.</p>
+<h2 id="implementacao-guiada">💻 Implementação Guiada<a class="headerlink" href="#implementacao-guiada" title="Permanent link">&para;</a></h2>
+<h3 id="passo-1-por-que-nao-colocar-tudo-em-um-unico-arquivo">Passo 1 — Por que não colocar tudo em um único arquivo?<a class="headerlink" href="#passo-1-por-que-nao-colocar-tudo-em-um-unico-arquivo" title="Permanent link">&para;</a></h3>
+<p>Antes de criar qualquer pasta, entenda o problema que estamos resolvendo.</p>
+<p>Imagine que você escreva todas as funcionalidades do sistema em um único arquivo <code>sistema.py</code>:</p>
+<ul>
+<li>Código da tela de login</li>
+<li>Código do menu</li>
+<li>Código do cadastro</li>
+<li>Conexão com banco</li>
+<li>Queries SQL</li>
+<li>Tratamento de erros</li>
+</ul>
+<p>O que acontece? O arquivo teria centenas (talvez milhares) de linhas. Ficaria difícil de:</p>
+<ul>
+<li>Encontrar um bug</li>
+<li>Adicionar uma nova funcionalidade</li>
+<li>Dividir o trabalho entre a equipe</li>
+<li>Reaproveitar código em outro projeto</li>
+</ul>
+<p>A solução: separar responsabilidades em módulos.</p>
+<div class="admonition note">
+<p class="admonition-title">Conceito Importante</p>
+<p>Módulo, em Python, é simplesmente um arquivo <code>.py</code>. Pacote é uma pasta contendo um arquivo <code>__init__.py</code>. Isso permite usar <code>import</code>. Não há mágica — é só organização.</p>
+</div>
+<h3 id="passo-2-o-padrao-mvc-para-aplicacoes-desktop">Passo 2 — O padrão MVC para aplicações desktop<a class="headerlink" href="#passo-2-o-padrao-mvc-para-aplicacoes-desktop" title="Permanent link">&para;</a></h3>
+<p>MVC significa Model-View-Controller. É um padrão arquitetural que separa o sistema em três camadas:</p>
+<table>
+<thead>
+<tr>
+<th>Camada</th>
+<th>Responsabilidade</th>
+<th>No nosso projeto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Model</strong></td>
+<td>Dados e regras de negócio</td>
+<td><code>database/</code> (conexão, queries)</td>
+</tr>
+<tr>
+<td><strong>View</strong></td>
+<td>Tudo que o usuário vê</td>
+<td><code>views/</code> (telas, janelas, botões)</td>
+</tr>
+<tr>
+<td><strong>Controller</strong></td>
+<td>Ponte entre View e Model</td>
+<td><code>controllers/</code> (autenticação, lógica de aluno)</td>
+</tr>
+</tbody>
+</table>
+<p>Acrescentamos uma quarta camada auxiliar:</p>
+<p>| <strong>Utils</strong> | Funções genéricas reutilizáveis | <code>utils/</code> (centralizar janela, validar campos) |</p>
+<p>O <code>main.py</code> fica fora das camadas. Ele é o ponto de entrada — o arquivo que você executa para iniciar o sistema.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>┌─────────────────────────────────────────┐
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>│                main.py                  │
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>│          (ponto de entrada)             │
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>└──────────────────┬──────────────────────┘
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>                   │
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>      ┌────────────┼────────────┐
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>      ▼            ▼            ▼
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>┌──────────┐ ┌───────────┐ ┌──────────┐
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>│  views/  │ │controllers│ │database/ │
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>│ (telas)  │ │ (lógica)  │ │ (dados)  │
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>└──────────┘ └───────────┘ └──────────┘
+</code></pre></div>
+<p>No nosso caso, o <code>main.py</code> criará a janela principal e, futuramente, orquestrará a transição entre telas. As views cuidarão de cada tela específica. Os controllers processarão os dados. O database fará a persistência.</p>
+<h3 id="passo-3-criando-a-estrutura-de-pastas">Passo 3 — Criando a estrutura de pastas<a class="headerlink" href="#passo-3-criando-a-estrutura-de-pastas" title="Permanent link">&para;</a></h3>
+<p>Agora, mãos à obra. Crie uma pasta chamada <code>sistema_escolar</code> no seu computador. Dentro dela, crie as subpastas conforme o comando abaixo.</p>
+<p>Abra o terminal na pasta <code>sistema_escolar</code> e execute:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># No Windows (PowerShell) ou Linux/macOS</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>mkdir<span class="w"> </span>views<span class="w"> </span>controllers<span class="w"> </span>database<span class="w"> </span>utils
+</code></pre></div>
+<p>Ou, se preferir, crie as pastas manualmente pelo explorador de arquivos ou pelo VS Code (clique com botão direito → Nova Pasta).</p>
+<p>Sua estrutura agora está assim:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sistema_escolar/
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>├── views/           (vazia)
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>├── controllers/     (vazia)
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>├── database/        (vazia)
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>└── utils/           (vazia)
+</code></pre></div>
+<h3 id="passo-4-transformando-pastas-em-pacotes-python">Passo 4 — Transformando pastas em pacotes Python<a class="headerlink" href="#passo-4-transformando-pastas-em-pacotes-python" title="Permanent link">&para;</a></h3>
+<p>Para que o Python reconheça essas pastas como pacotes importáveis, cada uma precisa de um arquivo especial chamado <code>__init__.py</code>.</p>
+<p>Esse arquivo pode estar completamente vazio. Sua presença é o que diz ao Python: "Esta pasta é um pacote, você pode importar módulos daqui".</p>
+<p>Crie manualmente um arquivo <code>__init__.py</code> vazio dentro de cada pasta:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sistema_escolar/
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>├── views/
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>│   └── __init__.py       ← arquivo vazio
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>├── controllers/
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>│   └── __init__.py       ← arquivo vazio
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>├── database/
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>│   └── __init__.py       ← arquivo vazio
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>└── utils/
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    └── __init__.py       ← arquivo vazio
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Dica Profissional</p>
+<p>No VS Code, você pode criar um arquivo diretamente: clique com botão direito na pasta → New File → digite <code>__init__.py</code>. O atalho de teclado Ctrl+N também funciona — só lembre de salvar dentro da pasta correta.</p>
+</div>
+<p>Agora seu projeto já é um pacote Python corretamente estruturado. Falta o arquivo principal.</p>
+<h3 id="passo-5-criando-o-mainpy">Passo 5 — Criando o main.py<a class="headerlink" href="#passo-5-criando-o-mainpy" title="Permanent link">&para;</a></h3>
+<p>O <code>main.py</code> é o coração do sistema — é o arquivo que você executará para iniciar tudo.</p>
+<p>Crie o arquivo <code>main.py</code> na raiz do projeto (<code>sistema_escolar/main.py</code>) e adicione o código abaixo.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># ======================================================================</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1"># main.py — Ponto de Entrada do Sistema Escolar</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1"># ======================================================================</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># Eu sou o ponto de entrada do Sistema Escolar.</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1"># Tudo começa aqui. Quando você me executa, eu:</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="c1">#   1. Crio a janela principal</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1">#   2. Configuro o título e o tamanho</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="c1">#   3. Centralizo a janela na tela do usuário</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="c1">#   4. Entro no loop principal de eventos</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="c1">#</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="c1"># Nos próximos capítulos, eu serei responsável por orquestrar</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="c1"># a transição entre as telas (Login → Menu → Cadastro).</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="c1"># ======================================================================</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="kn">import</span><span class="w"> </span><span class="nn">tkinter</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tk</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="c1"># ---------- FUNÇÃO AUXILIAR ----------</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="k">def</span><span class="w"> </span><span class="nf">centralizar_janela</span><span class="p">(</span><span class="n">janela</span><span class="p">,</span> <span class="n">largura</span><span class="p">,</span> <span class="n">altura</span><span class="p">):</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="sd">    Eu centralizo a janela na tela do usuário.</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="sd">    Calculo a posição X e Y com base na resolução do monitor</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="sd">    para que a janela apareça exatamente no centro.</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="sd">    Parâmetros:</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="sd">        janela: a instância de tk.Tk() ou tk.Toplevel()</span>
+<a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="sd">        largura: largura desejada da janela (ex: 800)</span>
+<a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="sd">        altura: altura desejada da janela (ex: 600)</span>
+<a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a>    <span class="c1"># Eu obtenho a resolução da tela.</span>
+<a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a>    <span class="n">largura_tela</span> <span class="o">=</span> <span class="n">janela</span><span class="o">.</span><span class="n">winfo_screenwidth</span><span class="p">()</span>
+<a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a>    <span class="n">altura_tela</span> <span class="o">=</span> <span class="n">janela</span><span class="o">.</span><span class="n">winfo_screenheight</span><span class="p">()</span>
+<a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a>
+<a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a>    <span class="c1"># Eu calculo a posição X e Y para centralizar.</span>
+<a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a>    <span class="n">pos_x</span> <span class="o">=</span> <span class="p">(</span><span class="n">largura_tela</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">largura</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a>    <span class="n">pos_y</span> <span class="o">=</span> <span class="p">(</span><span class="n">altura_tela</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">altura</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a>
+<a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a>    <span class="c1"># Eu aplico a geometria: &quot;LARGURAxALTURA+X+Y&quot;.</span>
+<a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a>    <span class="n">janela</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">largura</span><span class="si">}</span><span class="s2">x</span><span class="si">{</span><span class="n">altura</span><span class="si">}</span><span class="s2">+</span><span class="si">{</span><span class="n">pos_x</span><span class="si">}</span><span class="s2">+</span><span class="si">{</span><span class="n">pos_y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a>
+<a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a>
+<a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a><span class="c1"># ---------- JANELA PRINCIPAL ----------</span>
+<a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a><span class="c1"># Eu crio a janela principal do sistema.</span>
+<a id="__codelineno-7-45" name="__codelineno-7-45" href="#__codelineno-7-45"></a><span class="c1"># Toda aplicação Tkinter começa com uma instância de Tk().</span>
+<a id="__codelineno-7-46" name="__codelineno-7-46" href="#__codelineno-7-46"></a><span class="n">janela</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>
+<a id="__codelineno-7-47" name="__codelineno-7-47" href="#__codelineno-7-47"></a>
+<a id="__codelineno-7-48" name="__codelineno-7-48" href="#__codelineno-7-48"></a><span class="c1"># Eu defino o título que aparece na barra superior da janela.</span>
+<a id="__codelineno-7-49" name="__codelineno-7-49" href="#__codelineno-7-49"></a><span class="c1"># É a identidade visual do sistema.</span>
+<a id="__codelineno-7-50" name="__codelineno-7-50" href="#__codelineno-7-50"></a><span class="n">janela</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Sistema Escolar&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-51" name="__codelineno-7-51" href="#__codelineno-7-51"></a>
+<a id="__codelineno-7-52" name="__codelineno-7-52" href="#__codelineno-7-52"></a><span class="c1"># Eu chamo a função que centraliza a janela.</span>
+<a id="__codelineno-7-53" name="__codelineno-7-53" href="#__codelineno-7-53"></a><span class="c1"># Passei 800x600 como tamanho inicial.</span>
+<a id="__codelineno-7-54" name="__codelineno-7-54" href="#__codelineno-7-54"></a><span class="n">centralizar_janela</span><span class="p">(</span><span class="n">janela</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+<a id="__codelineno-7-55" name="__codelineno-7-55" href="#__codelineno-7-55"></a>
+<a id="__codelineno-7-56" name="__codelineno-7-56" href="#__codelineno-7-56"></a><span class="c1"># Eu impeço que o usuário redimensione a janela.</span>
+<a id="__codelineno-7-57" name="__codelineno-7-57" href="#__codelineno-7-57"></a><span class="c1"># Isso garante que o layout das telas futuras não quebre.</span>
+<a id="__codelineno-7-58" name="__codelineno-7-58" href="#__codelineno-7-58"></a><span class="n">janela</span><span class="o">.</span><span class="n">resizable</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-7-59" name="__codelineno-7-59" href="#__codelineno-7-59"></a>
+<a id="__codelineno-7-60" name="__codelineno-7-60" href="#__codelineno-7-60"></a><span class="c1"># ---------- LOOP PRINCIPAL ----------</span>
+<a id="__codelineno-7-61" name="__codelineno-7-61" href="#__codelineno-7-61"></a><span class="c1"># Eu inicio o loop principal de eventos.</span>
+<a id="__codelineno-7-62" name="__codelineno-7-62" href="#__codelineno-7-62"></a><span class="c1"># A partir daqui, o Tkinter fica &quot;escutando&quot; cliques, teclas, etc.</span>
+<a id="__codelineno-7-63" name="__codelineno-7-63" href="#__codelineno-7-63"></a><span class="c1"># Tudo o que acontece no sistema passa por este loop.</span>
+<a id="__codelineno-7-64" name="__codelineno-7-64" href="#__codelineno-7-64"></a><span class="n">janela</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Observação sobre os comentários</p>
+<p>Repare que os comentários não repetem a sintaxe do Python. Eles explicam a intenção por trás de cada linha. É assim que um código profissional deve ser documentado.</p>
+</div>
+<h3 id="passo-6-executando-o-sistema">Passo 6 — Executando o sistema<a class="headerlink" href="#passo-6-executando-o-sistema" title="Permanent link">&para;</a></h3>
+<p>Abra o terminal, navegue até a pasta <code>sistema_escolar</code> e execute:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>python<span class="w"> </span>main.py
+</code></pre></div>
+<p><strong>Resultado esperado:</strong></p>
+<ul>
+<li>Uma janela se abre centralizada na tela</li>
+<li>Título: "Sistema Escolar"</li>
+<li>Tamanho fixo: 800x600</li>
+<li>A janela não pode ser redimensionada</li>
+<li>O interior está vazio (ainda!)</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>┌─────────────────────────────────────────┐
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>│  Sistema Escolar                    _ □ X│
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>├─────────────────────────────────────────┤
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>│                                         │
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>│                                         │
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>│            (janela vazia)               │
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>│             800 x 600                   │
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>│         centralizada na tela            │
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>│                                         │
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>│                                         │
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>│                                         │
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>└─────────────────────────────────────────┘
+</code></pre></div>
+<p>Parabéns! O esqueleto do Sistema Escolar está vivo.</p>
+<h2 id="exercicio">📝 Exercício<a class="headerlink" href="#exercicio" title="Permanent link">&para;</a></h2>
+<p><strong>Tempo estimado:</strong> 15-20 minutos</p>
+<p><strong>Tarefa:</strong> Reforce seu entendimento sobre centralização de janelas.</p>
+<ol>
+<li>Modifique o <code>main.py</code> para abrir uma janela de 600x400 em vez de 800x600.</li>
+<li>Altere o título para "Minha Primeira Janela".</li>
+<li>Teste se a centralização funciona corretamente.</li>
+<li>Agora, crie uma segunda janela (sem apagar a primeira) usando <code>tk.Toplevel()</code>, com título "Janela Secundária", tamanho 300x200, também centralizada e não redimensionável.</li>
+</ol>
+<p>Dica: <code>tk.Toplevel()</code> é como <code>tk.Tk()</code>, mas para janelas filhas. A função <code>centralizar_janela</code> funciona com ambas.</p>
+<details class="hint">
+<summary>Dica</summary>
+<p>Você já tem a função <code>centralizar_janela(janela, largura, altura)</code>. Use-a para centralizar a nova janela também. E para Toplevel, <code>resizable(False, False)</code> funciona da mesma forma.</p>
+</details>
+<details class="success">
+<summary>Solução</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">tkinter</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tk</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">centralizar_janela</span><span class="p">(</span><span class="n">janela</span><span class="p">,</span> <span class="n">largura</span><span class="p">,</span> <span class="n">altura</span><span class="p">):</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="n">largura_tela</span> <span class="o">=</span> <span class="n">janela</span><span class="o">.</span><span class="n">winfo_screenwidth</span><span class="p">()</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    <span class="n">altura_tela</span> <span class="o">=</span> <span class="n">janela</span><span class="o">.</span><span class="n">winfo_screenheight</span><span class="p">()</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>    <span class="n">pos_x</span> <span class="o">=</span> <span class="p">(</span><span class="n">largura_tela</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">largura</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>    <span class="n">pos_y</span> <span class="o">=</span> <span class="p">(</span><span class="n">altura_tela</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">altura</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>    <span class="n">janela</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">largura</span><span class="si">}</span><span class="s2">x</span><span class="si">{</span><span class="n">altura</span><span class="si">}</span><span class="s2">+</span><span class="si">{</span><span class="n">pos_x</span><span class="si">}</span><span class="s2">+</span><span class="si">{</span><span class="n">pos_y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="c1"># Janela principal</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="n">janela</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="n">janela</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Minha Primeira Janela&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="n">centralizar_janela</span><span class="p">(</span><span class="n">janela</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="n">janela</span><span class="o">.</span><span class="n">resizable</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="c1"># Janela secundária</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="n">janela2</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Toplevel</span><span class="p">()</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="n">janela2</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Janela Secundária&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="n">centralizar_janela</span><span class="p">(</span><span class="n">janela2</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="n">janela2</span><span class="o">.</span><span class="n">resizable</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>
+<a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="n">janela</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+</code></pre></div>
+</details>
+<p>Execute e veja as duas janelas centralizadas.</p>
+<h2 id="missao-da-equipe">🏆 Missão da Equipe<a class="headerlink" href="#missao-da-equipe" title="Permanent link">&para;</a></h2>
+<p><strong>Tempo estimado:</strong> 30-45 minutos</p>
+<p><strong>Tarefa:</strong> Criem a mesma estrutura de arquitetura para o projeto da equipe de vocês.</p>
+<p><strong>Entregável:</strong> A estrutura de pastas criada e o <code>main.py</code> funcional com:</p>
+<ul>
+<li>Janela com o título do projeto da equipe (ex: "Biblioteca Fácil", "Controle de Estoque", etc.)</li>
+<li>Tamanho 800x600 centralizado</li>
+<li>Não redimensionável</li>
+<li>Função <code>centralizar_janela</code> incluída</li>
+</ul>
+<p><strong>Checklist da Missão:</strong></p>
+<ul>
+<li>[ ] Pasta do projeto criada com o nome do sistema da equipe</li>
+<li>[ ] Subpastas <code>views/</code>, <code>controllers/</code>, <code>database/</code>, <code>utils/</code> criadas</li>
+<li>[ ] Arquivos <code>__init__.py</code> em cada subpasta</li>
+<li>[ ] <code>main.py</code> funcional com a janela principal</li>
+<li>[ ] Título da janela corresponde ao nome do projeto da equipe</li>
+<li>[ ] Janela centralizada e não redimensionável</li>
+<li>[ ] Todos os integrantes conseguem executar o <code>main.py</code> em suas máquinas</li>
+<li>[ ] Professor validou a estrutura</li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Nota para o Professor</p>
+<p>Verifique: Cada equipe deve ter a estrutura de pastas idêntica à do Sistema Escolar. O único arquivo com código deve ser o <code>main.py</code>. Os <code>__init__.py</code> devem existir (mesmo vazios). Execute o <code>main.py</code> de cada equipe para confirmar que a janela abre com o título correto.</p>
+</div>
+<h2 id="desafio">⚡ Desafio<a class="headerlink" href="#desafio" title="Permanent link">&para;</a></h2>
+<p><strong>Vá além:</strong> Crie um script que gere automaticamente a estrutura de pastas.</p>
+<p>Crie um arquivo chamado <code>criar_estrutura.py</code> (fora do projeto) que, quando executado, cria todas as pastas e arquivos <code>__init__.py</code> automaticamente. Use <code>os.makedirs()</code> e <code>pathlib.Path</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># Nome do projeto (pode ser alterado conforme a equipe)</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="n">nome_projeto</span> <span class="o">=</span> <span class="s2">&quot;meu_sistema&quot;</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="c1"># Pastas a serem criadas</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="n">pastas</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;views&quot;</span><span class="p">,</span> <span class="s2">&quot;controllers&quot;</span><span class="p">,</span> <span class="s2">&quot;database&quot;</span><span class="p">,</span> <span class="s2">&quot;utils&quot;</span><span class="p">]</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="c1"># Criar a pasta raiz</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="n">Path</span><span class="p">(</span><span class="n">nome_projeto</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="c1"># Criar as subpastas e os __init__.py</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="k">for</span> <span class="n">pasta</span> <span class="ow">in</span> <span class="n">pastas</span><span class="p">:</span>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>    <span class="n">caminho</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">nome_projeto</span><span class="p">)</span> <span class="o">/</span> <span class="n">pasta</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>    <span class="n">caminho</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>    <span class="c1"># Criar arquivo __init__.py vazio</span>
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>    <span class="p">(</span><span class="n">caminho</span> <span class="o">/</span> <span class="s2">&quot;__init__.py&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">touch</span><span class="p">()</span>
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Estrutura do projeto &#39;</span><span class="si">{</span><span class="n">nome_projeto</span><span class="si">}</span><span class="s2">&#39; criada com sucesso!&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Isso economiza tempo e evita erros de digitação ao criar muitos arquivos.</p>
+<h2 id="erros-comuns">⚠️ Erros Comuns<a class="headerlink" href="#erros-comuns" title="Permanent link">&para;</a></h2>
+<div class="admonition danger">
+<p class="admonition-title">Esquecer o <strong>init</strong>.py</p>
+<p><strong>Sintoma:</strong> Ao tentar importar um módulo de dentro de <code>views/</code>, o Python lança <code>ModuleNotFoundError: No module named 'views'</code>.</p>
+<p><strong>Causa:</strong> A pasta não contém o arquivo <code>__init__.py</code>, então o Python não a reconhece como pacote.</p>
+<p><strong>Solução:</strong> Verifique se cada subpasta (<code>views</code>, <code>controllers</code>, <code>database</code>, <code>utils</code>) possui um arquivo <code>__init__.py</code> — mesmo que vazio.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Colocar main.py dentro de uma subpasta</p>
+<p><strong>Sintoma:</strong> Ao executar, o terminal diz <code>python: can't open file 'main.py'</code>.</p>
+<p><strong>Causa:</strong> O arquivo <code>main.py</code> foi criado dentro de <code>views/</code> ou outra subpasta, e não na raiz do projeto.</p>
+<p><strong>Solução:</strong> O <code>main.py</code> deve ficar na raiz do projeto, ao lado das pastas <code>views</code>, <code>controllers</code>, etc. Ele é o ponto de entrada.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Não usar if <strong>name</strong> == '<strong>main</strong>': ainda</p>
+<p><strong>Sintoma:</strong> Não é exatamente um erro, mas cria complexidade desnecessária neste momento.</p>
+<p><strong>Causa:</strong> Alunos que já conhecem a boa prática tentam aplicá-la precocemente.</p>
+<p><strong>Solução:</strong> Neste capítulo, mantenha o código simples. O <code>main.py</code> só será importado por outros módulos em capítulos avançados. Por enquanto, <code>janela.mainloop()</code> direto funciona perfeitamente.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Hardcodar o caminho do Python</p>
+<p><strong>Sintoma:</strong> No terminal, o comando <code>python main.py</code> não funciona, mas <code>python3 main.py</code> ou <code>py main.py</code> funciona.</p>
+<p><strong>Causa:</strong> Diferentes sistemas operacionais e instalações do Python.</p>
+<p><strong>Solução:</strong> Use o comando que funciona na sua máquina. No Windows, geralmente é <code>python</code>. No Linux/macOS, pode ser <code>python3</code>. O importante é que o arquivo execute.</p>
+</div>
+<h2 id="boas-praticas">💡 Boas Práticas<a class="headerlink" href="#boas-praticas" title="Permanent link">&para;</a></h2>
+<p><strong>1. Estrutura de pacotes desde o primeiro dia</strong></p>
+<p>No mercado, todo projeto começa com a definição da arquitetura. Ninguém espera o código crescer para depois organizar. Criar as pastas e <code>__init__.py</code> desde o início é um hábito profissional.</p>
+<p><strong>2. main.py como orquestrador</strong></p>
+<p>O <code>main.py</code> não deve conter lógica de negócio, queries SQL ou criação de widgets complexos. Ele é o orquestrador — cria a janela principal e delega o resto para os módulos. Mantenha-o enxuto.</p>
+<p><strong>3. Nomes de pastas no plural</strong></p>
+<p>É uma convenção comum em Python: <code>views</code> (não view), <code>controllers</code>, <code>models</code>, <code>utils</code>. Facilita a leitura e sinaliza que a pasta contém múltiplos módulos relacionados.</p>
+<p><strong>4. Comentários que explicam a intenção</strong></p>
+<p>Repare nos comentários do <code>main.py</code>. Eles não dizem "importa o tkinter" — isso é óbvio pela sintaxe. Eles dizem "Eu sou o ponto de entrada". Comentários devem explicar por que, não o que.</p>
+<p><strong>5. Centralização como função reutilizável</strong></p>
+<p>Colocamos <code>centralizar_janela</code> como uma função separada, não como código solto. Isso permite reutilizá-la em qualquer janela (Login, Menu, Cadastro) sem repetir código. No futuro, podemos movê-la para <code>utils/helpers.py</code>.</p>
+<h2 id="checklist">☑️ Checklist<a class="headerlink" href="#checklist" title="Permanent link">&para;</a></h2>
+<p>Antes de prosseguir para o próximo capítulo, confirme:</p>
+<ul>
+<li>[ ] A pasta <code>sistema_escolar</code> existe e contém as subpastas <code>views</code>, <code>controllers</code>, <code>database</code>, <code>utils</code></li>
+<li>[ ] Cada subpasta possui um arquivo <code>__init__.py</code> (mesmo que vazio)</li>
+<li>[ ] O arquivo <code>main.py</code> está na raiz do projeto</li>
+<li>[ ] O <code>main.py</code> abre uma janela com título "Sistema Escolar"</li>
+<li>[ ] A janela tem tamanho 800x600 e aparece centralizada</li>
+<li>[ ] A janela não pode ser redimensionada</li>
+<li>[ ] Executei <code>python main.py</code> e vi a janela abrir sem erros</li>
+<li>[ ] Entendi o papel de cada camada (View, Controller, Model, Utils)</li>
+<li>[ ] Minha equipe criou a mesma estrutura para o projeto dela</li>
+<li>[ ] O <code>main.py</code> da equipe abre com o título do projeto deles</li>
+</ul>
+<h2 id="proximo-capitulo">➡️ Próximo Capítulo<a class="headerlink" href="#proximo-capitulo" title="Permanent link">&para;</a></h2>
+<p>No <strong>Capítulo 03 — Tela de Login</strong>, você construirá a primeira tela funcional do sistema: o formulário de autenticação.</p>
+<p>Aprenderá a criar uma nova janela com campos de usuário e senha, validar credenciais contra um dicionário (que depois será substituído pelo banco de dados) e fazer a transição para o Menu Principal após login bem-sucedido.</p>
+<p>Prepare-se: revise a criação de widgets (Entry, Label, Button), o gerenciador <code>grid</code> e o uso de <code>messagebox</code> para exibir mensagens de erro. Tudo isso será colocado em prática.</p>
+<p>A arquitetura que você criou hoje é a fundação. A partir de agora, cada tijolo que colocarmos tornará o sistema mais completo. 🧱</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar ao topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.path", "navigation.top", "toc.integrate", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

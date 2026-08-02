@@ -1,0 +1,2733 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Plataforma de Cursos">
+      
+      
+        <meta name="author" content="Professor">
+      
+      
+      
+        <link rel="prev" href="../10_integracao/">
+      
+      
+        <link rel="next" href="../11_refatoracao/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Integracao E Testes - CourseForge Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#10-integracao" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../.." title="CourseForge Docs" class="md-header__button md-logo" aria-label="CourseForge Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CourseForge Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Integracao E Testes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="teal"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="teal"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../docs/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Python para Desktop
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="CourseForge Docs" class="md-nav__button md-logo" aria-label="CourseForge Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    CourseForge Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../docs/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python para Desktop
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python para Desktop
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modulo_01_fundamentos/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🐍 Fundamentos
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🐍 Fundamentos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/01_variaveis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variaveis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/02_operadores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/03_if_else/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    If Else
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/04_repeticoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Repeticoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/05_funcoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Funcoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/06_modulos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/07_colecoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Colecoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/08_strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/09_arquivos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquivos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/10_excecoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Excecoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_01_fundamentos/11_projeto_final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto Final
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modulo_02_interfaces_graficas/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🖥️ Interfaces Graficas
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🖥️ Interfaces Graficas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/01_tkinter_basico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tkinter Basico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/02_layout_managers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Layout Managers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/03_eventos_interatividade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eventos Interatividade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/04_customtkinter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customtkinter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_02_interfaces_graficas/05_projeto_pratico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto Pratico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modulo_03_banco_de_dados/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗄️ Banco De Dados
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🗄️ Banco De Dados
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_03_banco_de_dados/01_introducao_sqlite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducao Sqlite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_03_banco_de_dados/02_integracao_interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integracao Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_03_banco_de_dados/03_variaveis_ambiente/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variaveis Ambiente
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo_03_banco_de_dados/04_projeto_final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto Final
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏗️ Projeto Finalizador
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🏗️ Projeto Finalizador
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_introducao_ao_projeto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducao Ao Projeto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_arquitetura_do_sistema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitetura Do Sistema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_tela_de_login/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tela De Login
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_menu_principal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Menu Principal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_multiplas_janelas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multiplas Janelas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_cadastro_de_alunos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cadastro De Alunos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_sqlite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sqlite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_sqlite_local/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sqlite Local
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_crud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_crud_completo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crud Completo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_banco_em_nuvem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Banco Em Nuvem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_integracao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integracao
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integracao E Testes
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integracao E Testes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Objetivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contextualizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📍 Contextualização
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultado-esperado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Resultado Esperado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementacao-guiada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Implementação Guiada
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Implementação Guiada">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passo-1-roteiro-de-testes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 1 — Roteiro de Testes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-2-atalhos-de-teclado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 2 — Atalhos de teclado
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Passo 2 — Atalhos de teclado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-atalho-escape-para-fechar-janelas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 — Atalho Escape para fechar janelas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-atalho-escape-na-janela-principal-para-sair-do-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 — Atalho Escape na janela principal para sair do sistema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-atalho-enter-no-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 — Atalho Enter no login
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-3-barra-de-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 3 — Barra de status
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Passo 3 — Barra de status">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-barra-de-status-na-tela-de-cadastro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 — Barra de status na tela de cadastro
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-4-padronizacao-de-mensagens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 4 — Padronização de mensagens
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-5-tratamento-de-excecoes-em-pontos-criticos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 5 — Tratamento de exceções em pontos críticos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Passo 5 — Tratamento de exceções em pontos críticos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-no-controller-alunopy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 — No controller aluno.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-na-view-cadastropy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 — Na view cadastro.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-no-carregamento-inicial-da-tabela" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 — No carregamento inicial da tabela
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-6-verificacao-do-gitignore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 6 — Verificação do .gitignore
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercicio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📝 Exercício
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#missao-da-equipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏆 Missão da Equipe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desafio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚡ Desafio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erros-comuns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Erros Comuns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boas-praticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 Boas Práticas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ☑️ Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proximo-capitulo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ➡️ Próximo Capítulo
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_refatoracao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Refatoracao
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_refatoracao_e_entrega/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Refatoracao E Entrega
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_projeto_final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto Final
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navegação" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../docs/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Python para Desktop
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    🏗️ Projeto Finalizador
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="10-integracao">10 — Integração<a class="headerlink" href="#10-integracao" title="Permanent link">&para;</a></h1>
+<h2 id="objetivo">🎯 Objetivo<a class="headerlink" href="#objetivo" title="Permanent link">&para;</a></h2>
+<p>Neste capítulo você vai polir e integrar todas as peças do Sistema Escolar, garantindo que o fluxo completo funcione sem falhas e oferecendo uma experiência de usuário profissional.</p>
+<p>Ao final, você terá:</p>
+<ul>
+<li>Todos os fluxos testados (Login → Menu → Cadastro → CRUD → Sincronização)</li>
+<li>Atalhos de teclado: Enter para login, Esc para sair de janelas</li>
+<li>Uma barra de status informativa no rodapé da janela principal</li>
+<li>Mensagens de feedback padronizadas (✅ sucesso, ❌ erro, ⚠️ confirmação)</li>
+<li>Tratamento de exceções em todos os pontos críticos</li>
+<li>Um roteiro de testes completo para validar o sistema</li>
+</ul>
+<h2 id="contextualizacao">📍 Contextualização<a class="headerlink" href="#contextualizacao" title="Permanent link">&para;</a></h2>
+<p>No Capítulo 09, você conectou o sistema ao Firebase, implementou sincronização e protegeu credenciais com <code>.env</code>. O sistema agora tem todas as funcionalidades previstas: Login, Menu, Cadastro, CRUD, SQLite e Nuvem.</p>
+<p>Mas um sistema funcional não é necessariamente um sistema robusto. Pequenas arestas podem comprometer a experiência: um botão que não responde ao Enter, uma mensagem de erro genérica, uma janela que não fecha com Esc, a ausência de um indicador do que está acontecendo.</p>
+<p>Este capítulo é sobre acabamento. Você não construirá novas funcionalidades — você tornará as existentes mais profissionais. É a diferença entre um protótipo e um produto.</p>
+<p><strong>Progresso do Sistema:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>✅ Capítulo 01 — Introdução e Planejamento
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>✅ Capítulo 02 — Arquitetura do Sistema
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>✅ Capítulo 03 — Tela de Login
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>✅ Capítulo 04 — Menu Principal
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>✅ Capítulo 05 — Múltiplas Janelas
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>✅ Capítulo 06 — Cadastro de Alunos
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>✅ Capítulo 07 — SQLite
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>✅ Capítulo 08 — CRUD Completo
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>✅ Capítulo 09 — Banco em Nuvem
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>🔨 Integração ← VOCÊ ESTÁ AQUI
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>⬜ Refatoração e Entrega
+</code></pre></div>
+<h2 id="resultado-esperado">✅ Resultado Esperado<a class="headerlink" href="#resultado-esperado" title="Permanent link">&para;</a></h2>
+<p>Após este capítulo, o sistema se comportará como um software comercial:</p>
+<ul>
+<li>Ao pressionar Enter no campo de senha, o login é acionado</li>
+<li>Ao pressionar Esc em qualquer janela secundária, ela se fecha</li>
+<li>No rodapé da tela de cadastro, uma barra de status mostra a quantidade de registros e o status da conexão</li>
+<li>Todas as mensagens seguem um padrão visual consistente</li>
+<li>Erros inesperados (banco corrompido, falha de rede) são capturados e exibem mensagens amigáveis</li>
+<li>O fluxo completo foi testado e nenhum caminho quebra o sistema</li>
+</ul>
+<p>Arquivos modificados:</p>
+<table>
+<thead>
+<tr>
+<th>Arquivo</th>
+<th>Modificação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>main.py</code></td>
+<td>Atalho Escape na janela principal</td>
+</tr>
+<tr>
+<td><code>views/login.py</code></td>
+<td>Atalho Enter no campo de senha (já existe), padronização de mensagens</td>
+</tr>
+<tr>
+<td><code>views/menu.py</code></td>
+<td>Atalho Escape para sair, ícones nos botões</td>
+</tr>
+<tr>
+<td><code>views/cadastro.py</code></td>
+<td>Barra de status, atalho Escape, try/except em todas as operações, padronização de mensagens</td>
+</tr>
+<tr>
+<td><code>controllers/auth.py</code></td>
+<td>Try/except na validação de login</td>
+</tr>
+<tr>
+<td><code>controllers/aluno.py</code></td>
+<td>Try/except em todas as operações de banco</td>
+</tr>
+</tbody>
+</table>
+<h2 id="implementacao-guiada">💻 Implementação Guiada<a class="headerlink" href="#implementacao-guiada" title="Permanent link">&para;</a></h2>
+<h3 id="passo-1-roteiro-de-testes">Passo 1 — Roteiro de Testes<a class="headerlink" href="#passo-1-roteiro-de-testes" title="Permanent link">&para;</a></h3>
+<p>Antes de modificar qualquer código, execute o roteiro abaixo e anote qualquer comportamento inesperado. Este roteiro cobre todos os fluxos do sistema.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ROTEIRO DE TESTES — SISTEMA ESCOLAR
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>🔐 LOGIN
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>[  ] Tela de login abre centralizada
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>[  ] Campo &quot;Usuário&quot; recebe foco automaticamente
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>[  ] Pressionar Enter no campo de senha aciona login
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>[  ] Login com admin/admin mostra Menu Principal
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>[  ] Login com credenciais erradas mostra mensagem de erro
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>[  ] Campos vazios mostram mensagem de aviso
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>[  ] Campo de senha exibe asteriscos
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>📋 MENU PRINCIPAL
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>[  ] Menu exibe três botões: Cadastrar Alunos, Consultar Alunos, Sair
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>[  ] Botão &quot;Cadastrar Alunos&quot; abre janela de cadastro
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>[  ] Botão &quot;Consultar Alunos&quot; abre janela de consulta
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>[  ] Botão &quot;Sair&quot; pergunta confirmação e fecha o sistema
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>[  ] Pressionar Esc na janela principal pergunta se deseja sair
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>📝 CADASTRO (CRUD)
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>[  ] Janela abre centralizada
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>[  ] Campos: Nome, Idade, Turma (Combobox)
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>[  ] Salvar com campos vazios → aviso
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>[  ] Salvar com idade não numérica → erro
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>[  ] Salvar com idade negativa → erro
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>[  ] Salvar com dados válidos → sucesso, tabela atualiza
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>[  ] Selecionar uma linha → formulário preenche
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>[  ] Modo edição: Salvar desabilitado, Editar/Excluir habilitados
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>[  ] Editar um registro → sucesso, tabela atualiza
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>[  ] Excluir um registro → confirmação → sucesso, tabela atualiza
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>[  ] Limpar formulário → volta ao modo inserção
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>[  ] Busca por nome → filtra tabela
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>[  ] Busca vazia → mostra todos
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>[  ] Indicador de status mostra Online/Offline
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>[  ] Botão Sincronizar funciona quando online
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>[  ] Botão Sincronizar mostra erro amigável quando offline
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>[  ] Pressionar Esc fecha a janela
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>🔄 PERSISTÊNCIA
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>[  ] Cadastrar alunos, fechar sistema, reabrir → dados mantidos
+<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>[  ] Sincronizar com nuvem → dados aparecem no Firebase Console
+<a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>[  ] Baixar da nuvem → dados aparecem no sistema local
+</code></pre></div>
+<p>Execute este roteiro antes de continuar. Os problemas que você encontrar guiarão as correções deste capítulo.</p>
+<h3 id="passo-2-atalhos-de-teclado">Passo 2 — Atalhos de teclado<a class="headerlink" href="#passo-2-atalhos-de-teclado" title="Permanent link">&para;</a></h3>
+<p>Usuários experientes preferem o teclado ao mouse. Adicionar atalhos torna o sistema mais ágil.</p>
+<h4 id="21-atalho-escape-para-fechar-janelas">2.1 — Atalho Escape para fechar janelas<a class="headerlink" href="#21-atalho-escape-para-fechar-janelas" title="Permanent link">&para;</a></h4>
+<p>Em <code>views/cadastro.py</code>, dentro de <code>abrir_janela_cadastro</code>, adicione após a criação da janela:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># ===== ADICIONE APÓS janela.protocol(&quot;WM_DELETE_WINDOW&quot;, janela.destroy) =====</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># Eu permito que o usuário feche a janela pressionando a tecla Esc.</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">janela</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s2">&quot;&lt;Escape&gt;&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">event</span><span class="p">:</span> <span class="n">janela</span><span class="o">.</span><span class="n">destroy</span><span class="p">())</span>
+</code></pre></div>
+<p>Faça o mesmo em qualquer outra janela Toplevel que você tenha (ex: janela de consulta, se implementada).</p>
+<h4 id="22-atalho-escape-na-janela-principal-para-sair-do-sistema">2.2 — Atalho Escape na janela principal para sair do sistema<a class="headerlink" href="#22-atalho-escape-na-janela-principal-para-sair-do-sistema" title="Permanent link">&para;</a></h4>
+<p>Em <code>main.py</code>, adicione após a criação da janela:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># ===== ADICIONE APÓS janela.resizable(False, False) =====</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># Eu pergunto se o usuário deseja sair ao pressionar Esc.</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">tkinter</span><span class="w"> </span><span class="kn">import</span> <span class="n">messagebox</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">ao_pressionar_esc</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="k">if</span> <span class="n">messagebox</span><span class="o">.</span><span class="n">askyesno</span><span class="p">(</span><span class="s2">&quot;Sair&quot;</span><span class="p">,</span> <span class="s2">&quot;Deseja realmente sair do sistema?&quot;</span><span class="p">):</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        <span class="n">janela</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="n">janela</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s2">&quot;&lt;Escape&gt;&quot;</span><span class="p">,</span> <span class="n">ao_pressionar_esc</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="23-atalho-enter-no-login">2.3 — Atalho Enter no login<a class="headerlink" href="#23-atalho-enter-no-login" title="Permanent link">&para;</a></h4>
+<p>O atalho Enter no campo de senha já foi implementado no Capítulo 03 com <code>entry_senha.bind("&lt;Return&gt;", ...)</code>. Verifique se continua funcionando. Se não, adicione-o novamente em <code>views/login.py</code>.</p>
+<h3 id="passo-3-barra-de-status">Passo 3 — Barra de status<a class="headerlink" href="#passo-3-barra-de-status" title="Permanent link">&para;</a></h3>
+<p>Uma barra de status no rodapé fornece informações contextuais ao usuário sem atrapalhar o fluxo.</p>
+<h4 id="31-barra-de-status-na-tela-de-cadastro">3.1 — Barra de status na tela de cadastro<a class="headerlink" href="#31-barra-de-status-na-tela-de-cadastro" title="Permanent link">&para;</a></h4>
+<p>Em <code>views/cadastro.py</code>, substitua o <code>frame_status</code> simples que criamos no Capítulo 09 por uma barra de status mais completa. Localize o frame de status e modifique:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># ===== SUBSTITUA O frame_status EXISTENTE POR ESTE =====</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># ---------- BARRA DE STATUS (RODAPÉ) ----------</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">frame_status</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Frame</span><span class="p">(</span><span class="n">janela</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;#ecf0f1&quot;</span><span class="p">,</span> <span class="n">bd</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">relief</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">SUNKEN</span><span class="p">)</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">frame_status</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">BOTTOM</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">X</span><span class="p">)</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1"># Label de contagem de registros</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">lbl_contagem</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="n">frame_status</span><span class="p">,</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;#ecf0f1&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;#2c3e50&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;w&quot;</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="p">)</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="n">lbl_contagem</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">LEFT</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="c1"># Label de status da nuvem</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="n">lbl_status_nuvem</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>    <span class="n">frame_status</span><span class="p">,</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;🔴 Offline&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>    <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;bold&quot;</span><span class="p">),</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>    <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;#ecf0f1&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>    <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;#e74c3c&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>    <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;e&quot;</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="p">)</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="n">lbl_status_nuvem</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">RIGHT</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="c1"># Botão de sincronizar na barra de status (opcional)</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="n">btn_sincronizar</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span>
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>    <span class="n">frame_status</span><span class="p">,</span>
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;☁️ Sincronizar&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>    <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>    <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;#bdc3c7&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>    <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;#2c3e50&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>    <span class="n">activebackground</span><span class="o">=</span><span class="s2">&quot;#95a5a6&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>    <span class="n">activeforeground</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>    <span class="n">width</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+<a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a>    <span class="n">height</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a>    <span class="n">bd</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a>    <span class="n">cursor</span><span class="o">=</span><span class="s2">&quot;hand2&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a>    <span class="n">command</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">ao_clicar_sincronizar</span><span class="p">()</span>
+<a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a><span class="p">)</span>
+<a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a><span class="n">btn_sincronizar</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">RIGHT</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+<p>Agora, atualize a função <code>atualizar_tabela</code> para também atualizar o contador na barra de status:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Dentro de atualizar_tabela, após o loop, adicione:</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">total</span> <span class="o">=</span> <span class="n">contar_alunos</span><span class="p">(</span><span class="n">filtro_nome</span><span class="p">)</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">frame_lista</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot; Alunos Cadastrados (</span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s2">) &quot;</span><span class="p">)</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">lbl_contagem</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;📋 </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s2"> aluno(s) cadastrado(s)&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>E atualize a função <code>verificar_status</code> para usar o novo label:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">verificar_status</span><span class="p">():</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>        <span class="n">online</span> <span class="o">=</span> <span class="n">verificar_conexao</span><span class="p">()</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>        <span class="k">if</span> <span class="n">online</span><span class="p">:</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>            <span class="n">lbl_status_nuvem</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;🟢 Online&quot;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;#27ae60&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>            <span class="n">lbl_status_nuvem</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;🔴 Offline&quot;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;#e74c3c&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>        <span class="n">lbl_status_nuvem</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;🔴 Offline&quot;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;#e74c3c&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Remova o <code>frame_status</code> antigo (com <code>pack(side=tk.LEFT)</code> etc.) e o <code>lbl_status</code> que estava nele, para evitar duplicação.</p>
+<h3 id="passo-4-padronizacao-de-mensagens">Passo 4 — Padronização de mensagens<a class="headerlink" href="#passo-4-padronizacao-de-mensagens" title="Permanent link">&para;</a></h3>
+<p>Mensagens inconsistentes confundem o usuário. Defina um padrão:</p>
+<ul>
+<li><strong>Sucesso:</strong> <code>messagebox.showinfo("✅ Sucesso", "Mensagem...")</code></li>
+<li><strong>Erro:</strong> <code>messagebox.showerror("❌ Erro", "Mensagem...")</code></li>
+<li><strong>Aviso:</strong> <code>messagebox.showwarning("⚠️ Atenção", "Mensagem...")</code></li>
+<li><strong>Confirmação:</strong> <code>messagebox.askyesno("❓ Confirmar", "Mensagem...")</code></li>
+</ul>
+<p>Revise todas as chamadas de messagebox no seu código e padronize os títulos. Exemplo em <code>views/cadastro.py</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># ===== PADRONIZAÇÃO DE MENSAGENS =====</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1"># Em ao_clicar_salvar:</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">messagebox</span><span class="o">.</span><span class="n">showinfo</span><span class="p">(</span><span class="s2">&quot;✅ Sucesso&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Aluno &#39;</span><span class="si">{</span><span class="n">nome</span><span class="si">}</span><span class="s2">&#39; cadastrado com sucesso!&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="c1"># Em ao_clicar_editar:</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="n">messagebox</span><span class="o">.</span><span class="n">showinfo</span><span class="p">(</span><span class="s2">&quot;✅ Sucesso&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Aluno &#39;</span><span class="si">{</span><span class="n">nome</span><span class="si">}</span><span class="s2">&#39; atualizado com sucesso!&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="c1"># Em ao_clicar_excluir:</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="n">resposta</span> <span class="o">=</span> <span class="n">messagebox</span><span class="o">.</span><span class="n">askyesno</span><span class="p">(</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>    <span class="s2">&quot;❓ Confirmar Exclusão&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>    <span class="sa">f</span><span class="s2">&quot;Tem certeza que deseja excluir o aluno &#39;</span><span class="si">{</span><span class="n">nome</span><span class="si">}</span><span class="s2">&#39;?</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>    <span class="s2">&quot;⚠️ Esta ação não pode ser desfeita.&quot;</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="p">)</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="k">if</span> <span class="n">resposta</span><span class="p">:</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>    <span class="n">remover_aluno</span><span class="p">(</span><span class="n">id_selecionado</span><span class="p">)</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>    <span class="n">messagebox</span><span class="o">.</span><span class="n">showinfo</span><span class="p">(</span><span class="s2">&quot;✅ Sucesso&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Aluno &#39;</span><span class="si">{</span><span class="n">nome</span><span class="si">}</span><span class="s2">&#39; removido do sistema.&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="c1"># Em validar_campos (campos vazios):</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="n">messagebox</span><span class="o">.</span><span class="n">showwarning</span><span class="p">(</span><span class="s2">&quot;⚠️ Atenção&quot;</span><span class="p">,</span> <span class="s2">&quot;Por favor, preencha todos os campos antes de salvar.&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="c1"># Em validar_campos (idade inválida):</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="n">messagebox</span><span class="o">.</span><span class="n">showerror</span><span class="p">(</span><span class="s2">&quot;❌ Erro&quot;</span><span class="p">,</span> <span class="s2">&quot;O campo &#39;Idade&#39; deve ser um número inteiro.</span><span class="se">\n</span><span class="s2">Exemplo: 15&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="c1"># Em ao_clicar_sincronizar (erro):</span>
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="n">messagebox</span><span class="o">.</span><span class="n">showerror</span><span class="p">(</span><span class="s2">&quot;❌ Erro de Sincronização&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Não foi possível sincronizar.</span><span class="se">\n\n</span><span class="si">{</span><span class="n">erro</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Dica Profissional</p>
+<p>Considere criar um módulo <code>utils/mensagens.py</code> com funções como <code>msg_sucesso(texto)</code>, <code>msg_erro(texto)</code>, etc., para garantir padronização em todo o sistema.</p>
+</div>
+<h3 id="passo-5-tratamento-de-excecoes-em-pontos-criticos">Passo 5 — Tratamento de exceções em pontos críticos<a class="headerlink" href="#passo-5-tratamento-de-excecoes-em-pontos-criticos" title="Permanent link">&para;</a></h3>
+<p>O sistema lida com banco de dados, rede e entrada do usuário — três fontes comuns de falhas. Adicione try/except nos seguintes locais:</p>
+<h4 id="51-no-controller-alunopy">5.1 — No controller aluno.py<a class="headerlink" href="#51-no-controller-alunopy" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># ===== MODIFIQUE AS FUNÇÕES DO CONTROLLER =====</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">database.conexao</span><span class="w"> </span><span class="kn">import</span> <span class="n">conectar</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">salvar_aluno</span><span class="p">(</span><span class="n">nome</span><span class="p">,</span> <span class="n">idade</span><span class="p">,</span> <span class="n">turma</span><span class="p">):</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>        <span class="n">id_gerado</span> <span class="o">=</span> <span class="n">inserir_aluno</span><span class="p">(</span><span class="n">nome</span><span class="p">,</span> <span class="n">idade</span><span class="p">,</span> <span class="n">turma</span><span class="p">)</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">id_gerado</span><span class="p">,</span> <span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="n">nome</span><span class="p">,</span> <span class="s2">&quot;idade&quot;</span><span class="p">:</span> <span class="n">idade</span><span class="p">,</span> <span class="s2">&quot;turma&quot;</span><span class="p">:</span> <span class="n">turma</span><span class="p">}</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>    <span class="k">except</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erro ao salvar aluno no banco de dados: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="k">def</span><span class="w"> </span><span class="nf">listar_alunos</span><span class="p">(</span><span class="n">filtro_nome</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>        <span class="k">return</span> <span class="n">listar_alunos_db</span><span class="p">(</span><span class="n">filtro_nome</span><span class="p">)</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>    <span class="k">except</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erro ao consultar alunos: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="k">def</span><span class="w"> </span><span class="nf">editar_aluno</span><span class="p">(</span><span class="n">id_aluno</span><span class="p">,</span> <span class="n">nome</span><span class="p">,</span> <span class="n">idade</span><span class="p">,</span> <span class="n">turma</span><span class="p">):</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>        <span class="n">atualizar_aluno_db</span><span class="p">(</span><span class="n">id_aluno</span><span class="p">,</span> <span class="n">nome</span><span class="p">,</span> <span class="n">idade</span><span class="p">,</span> <span class="n">turma</span><span class="p">)</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>    <span class="k">except</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erro ao atualizar aluno: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>
+<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="k">def</span><span class="w"> </span><span class="nf">remover_aluno</span><span class="p">(</span><span class="n">id_aluno</span><span class="p">):</span>
+<a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a>        <span class="n">excluir_aluno_db</span><span class="p">(</span><span class="n">id_aluno</span><span class="p">)</span>
+<a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a>    <span class="k">except</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erro ao excluir aluno: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="52-na-view-cadastropy">5.2 — Na view cadastro.py<a class="headerlink" href="#52-na-view-cadastropy" title="Permanent link">&para;</a></h4>
+<p>Envolva as chamadas ao controller em try/except:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Em ao_clicar_salvar:</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="n">salvar_aluno</span><span class="p">(</span><span class="n">nome</span><span class="p">,</span> <span class="n">idade</span><span class="p">,</span> <span class="n">turma</span><span class="p">)</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    <span class="n">messagebox</span><span class="o">.</span><span class="n">showinfo</span><span class="p">(</span><span class="s2">&quot;✅ Sucesso&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Aluno &#39;</span><span class="si">{</span><span class="n">nome</span><span class="si">}</span><span class="s2">&#39; cadastrado com sucesso!&quot;</span><span class="p">)</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="n">limpar_campos</span><span class="p">()</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    <span class="n">atualizar_tabela</span><span class="p">()</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">erro</span><span class="p">:</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    <span class="n">messagebox</span><span class="o">.</span><span class="n">showerror</span><span class="p">(</span><span class="s2">&quot;❌ Erro&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Falha ao salvar:</span><span class="se">\n</span><span class="si">{</span><span class="n">erro</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Repita o padrão para <code>ao_clicar_editar</code>, <code>ao_clicar_excluir</code> e <code>ao_clicar_sincronizar</code>.</p>
+<h4 id="53-no-carregamento-inicial-da-tabela">5.3 — No carregamento inicial da tabela<a class="headerlink" href="#53-no-carregamento-inicial-da-tabela" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Substitua a chamada final atualizar_tabela() por:</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="n">atualizar_tabela</span><span class="p">()</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">erro</span><span class="p">:</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    <span class="n">messagebox</span><span class="o">.</span><span class="n">showerror</span><span class="p">(</span><span class="s2">&quot;❌ Erro&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Falha ao carregar dados:</span><span class="se">\n</span><span class="si">{</span><span class="n">erro</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="passo-6-verificacao-do-gitignore">Passo 6 — Verificação do .gitignore<a class="headerlink" href="#passo-6-verificacao-do-gitignore" title="Permanent link">&para;</a></h3>
+<p>Abra o arquivo <code>.gitignore</code> na raiz do projeto e confirme que contém:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>.env
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>database/credenciais-firebase.json
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>escola.db
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>__pycache__/
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>*.pyc
+</code></pre></div>
+<p>Se algum item estiver faltando, adicione-o agora. Execute <code>git status</code> (se estiver usando Git) para verificar se arquivos sensíveis não estão sendo rastreados.</p>
+<h2 id="exercicio">📝 Exercício<a class="headerlink" href="#exercicio" title="Permanent link">&para;</a></h2>
+<p><strong>Tempo estimado:</strong> 20-25 minutos</p>
+<p><strong>Tarefa:</strong> Siga o Roteiro de Testes completo (apresentado no Passo 1). Para cada item que falhar, corrija o problema e documente a solução em um arquivo <code>CORRECOES.md</code> na raiz do projeto.</p>
+<p>Exemplo de entrada no <code>CORRECOES.md</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="gh"># Correções — Integração</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="gu">## 1. Atalho Enter no login não funcionava</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="gs">**Causa:**</span> O bind havia sido removido acidentalmente na refatoração.
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="gs">**Solução:**</span> Readicionado <span class="sb">`entry_senha.bind(&quot;&lt;Return&gt;&quot;, lambda event: ao_clicar_entrar())`</span> em <span class="sb">`views/login.py`</span>.
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="gu">## 2. ...</span>
+</code></pre></div>
+<details class="hint">
+<summary>Dica</summary>
+<p>Não tente corrigir tudo de uma vez. Execute o roteiro item por item. Se algo falhar, anote, corrija e teste novamente aquele item antes de prosseguir.</p>
+</details>
+<details class="success">
+<summary>Checklist de verificação rápida</summary>
+<ul>
+<li>[ ] Todos os binds de teclado funcionam</li>
+<li>[ ] Nenhum botão "Em construção" permanece</li>
+<li>[ ] As mensagens de erro são informativas (não mostram traceback)</li>
+<li>[ ] O sistema não trava ao ficar offline</li>
+<li>[ ] Os dados sobrevivem ao fechar e reabrir</li>
+</ul>
+</details>
+<h2 id="missao-da-equipe">🏆 Missão da Equipe<a class="headerlink" href="#missao-da-equipe" title="Permanent link">&para;</a></h2>
+<p><strong>Tempo estimado:</strong> 30-45 minutos</p>
+<p><strong>Tarefa:</strong> Executem o roteiro de testes no projeto da equipe e realizem as melhorias de integração.</p>
+<p><strong>Entregável:</strong> O sistema da equipe com:</p>
+<ul>
+<li>Roteiro de testes executado e aprovado</li>
+<li>Atalhos de teclado funcionais (Enter, Escape)</li>
+<li>Barra de status na tela principal de cadastro</li>
+<li>Mensagens padronizadas</li>
+<li>Tratamento de exceções em todas as operações</li>
+<li><code>.gitignore</code> verificado</li>
+</ul>
+<p><strong>Checklist da Missão:</strong></p>
+<ul>
+<li>[ ] Roteiro de testes executado — todos os itens passam</li>
+<li>[ ] Atalho Enter no login funciona</li>
+<li>[ ] Atalho Escape fecha janelas secundárias</li>
+<li>[ ] Atalho Escape na janela principal pergunta se deseja sair</li>
+<li>[ ] Barra de status mostra contagem de registros e status da nuvem</li>
+<li>[ ] Mensagens de sucesso/erro/aviso seguem padrão consistente</li>
+<li>[ ] Erros de banco e rede são capturados com mensagens amigáveis</li>
+<li>[ ] <code>.gitignore</code> inclui <code>.env</code>, credenciais e <code>.db</code></li>
+<li>[ ] O professor validou o fluxo completo sem erros</li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Nota para o Professor</p>
+<p>Verifique: Peça que cada equipe demonstre o sistema do início ao fim: login, cadastro de um item, edição do item, exclusão com confirmação, sincronização com nuvem (se configurada) e fechamento. Observe se os atalhos de teclado funcionam e se as mensagens de erro são amigáveis. Teste também o comportamento offline (desconecte a internet e veja se o sistema continua operando).</p>
+</div>
+<h2 id="desafio">⚡ Desafio<a class="headerlink" href="#desafio" title="Permanent link">&para;</a></h2>
+<p><strong>Vá além:</strong> Implemente logging com o módulo <code>logging</code> do Python para registrar operações importantes.</p>
+<p>Crie um arquivo <code>utils/logger.py</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="c1"># Configuração do logger</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="n">LOG_FILE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">&quot;sistema.log&quot;</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>    <span class="n">filename</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">LOG_FILE</span><span class="p">),</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>    <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> [</span><span class="si">%(levelname)s</span><span class="s2">] </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">,</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>    <span class="n">datefmt</span><span class="o">=</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">,</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>    <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span>
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="p">)</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;sistema_escolar&quot;</span><span class="p">)</span>
+<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>
+<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="k">def</span><span class="w"> </span><span class="nf">log_operacao</span><span class="p">(</span><span class="n">operacao</span><span class="p">,</span> <span class="n">detalhes</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+<a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Registra uma operação no arquivo de log.&quot;&quot;&quot;</span>
+<a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">operacao</span><span class="si">}</span><span class="s2"> — </span><span class="si">{</span><span class="n">detalhes</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>
+<a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a><span class="k">def</span><span class="w"> </span><span class="nf">log_erro</span><span class="p">(</span><span class="n">operacao</span><span class="p">,</span> <span class="n">erro</span><span class="p">):</span>
+<a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Registra um erro no arquivo de log.&quot;&quot;&quot;</span>
+<a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a>    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">operacao</span><span class="si">}</span><span class="s2"> — </span><span class="si">{</span><span class="n">erro</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Integre o logger nas operações do controller e nas sincronizações:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">utils.logger</span><span class="w"> </span><span class="kn">import</span> <span class="n">log_operacao</span><span class="p">,</span> <span class="n">log_erro</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="c1"># Exemplo em ao_clicar_salvar:</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    <span class="n">salvar_aluno</span><span class="p">(</span><span class="n">nome</span><span class="p">,</span> <span class="n">idade</span><span class="p">,</span> <span class="n">turma</span><span class="p">)</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>    <span class="n">log_operacao</span><span class="p">(</span><span class="s2">&quot;INSERT&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Aluno &#39;</span><span class="si">{</span><span class="n">nome</span><span class="si">}</span><span class="s2">&#39; cadastrado&quot;</span><span class="p">)</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>    <span class="c1"># ...</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">erro</span><span class="p">:</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>    <span class="n">log_erro</span><span class="p">(</span><span class="s2">&quot;INSERT&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">erro</span><span class="p">))</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>    <span class="c1"># ...</span>
+</code></pre></div>
+<p>Adicione <code>sistema.log</code> ao <code>.gitignore</code>. Isso criará um arquivo de auditoria que registra tudo o que acontece no sistema.</p>
+<h2 id="erros-comuns">⚠️ Erros Comuns<a class="headerlink" href="#erros-comuns" title="Permanent link">&para;</a></h2>
+<div class="admonition danger">
+<p class="admonition-title">Esquecer de testar o fluxo completo</p>
+<p><strong>Sintoma:</strong> O sistema funciona nos testes isolados, mas falha quando o usuário executa uma sequência real (ex: cadastrar, editar o mesmo registro, excluir e cadastrar outro).</p>
+<p><strong>Causa:</strong> Falta de testes de integração. Testes unitários (uma função por vez) não detectam problemas de estado (ex: id_selecionado não resetado).</p>
+<p><strong>Solução:</strong> Execute o roteiro de testes completo na ordem apresentada. Simule o uso real: faça login, cadastre 3 alunos, edite o segundo, exclua o primeiro, busque pelo terceiro, sincronize, saia e reabra.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Mensagens de erro genéricas</p>
+<p><strong>Sintoma:</strong> Ao ocorrer um erro, aparece uma janela com o traceback do Python ou uma mensagem vaga como "Erro".</p>
+<p><strong>Causa:</strong> <code>try/except</code> ausente ou capturando a exceção mas não exibindo uma mensagem útil.</p>
+<p><strong>Solução:</strong> Todo <code>try/except</code> deve incluir um <code>messagebox.showerror</code> com uma descrição clara do que aconteceu e, se possível, uma sugestão de ação.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Barra de status sobreposta ou oculta</p>
+<p><strong>Sintoma:</strong> A barra de status aparece em cima dos outros widgets ou some quando a janela é redimensionada.</p>
+<p><strong>Causa:</strong> Uso incorreto de <code>pack(side=tk.BOTTOM)</code> combinado com <code>expand=True</code> em outros frames.</p>
+<p><strong>Solução:</strong> A barra de status deve ser empacotada com <code>side=tk.BOTTOM</code> e <code>fill=tk.X</code> antes dos frames que usam <code>expand=True</code>. No nosso código, o <code>frame_lista</code> usa <code>expand=True</code> e a barra de status é empacotada antes — isso garante que ela fique no rodapé.</p>
+</div>
+<h2 id="boas-praticas">💡 Boas Práticas<a class="headerlink" href="#boas-praticas" title="Permanent link">&para;</a></h2>
+<p><strong>1. Testes de integração manuais</strong></p>
+<p>Antes de automatizar testes, execute o fluxo completo manualmente. Anote cada passo e o resultado esperado. Um roteiro de testes como o que criamos é um artefato valioso que pode ser reutilizado em futuras versões do sistema.</p>
+<p><strong>2. Atalhos de teclado como diferencial de UX</strong></p>
+<p>Enter para confirmar e Escape para cancelar/fechar são esperados em qualquer software profissional. Implementá-los demonstra atenção aos detalhes e respeito pelo tempo do usuário.</p>
+<p><strong>3. Barra de status informativa</strong></p>
+<p>Uma barra de status discreta no rodapé evita o uso excessivo de pop-ups para informações triviais. O usuário sabe quantos registros existem e se está online sem precisar clicar em nada.</p>
+<p><strong>4. Padronização de mensagens</strong></p>
+<p>Usar emojis consistentes (✅, ❌, ⚠️) nos títulos das mensagens cria uma linguagem visual que o usuário aprende rapidamente. Em sistemas corporativos, essa padronização geralmente é definida em um guia de estilo.</p>
+<p><strong>5. Logging para diagnóstico</strong></p>
+<p>O módulo <code>logging</code> do Python é uma ferramenta poderosa. Em produção, os logs são essenciais para diagnosticar problemas que os usuários reportam mas não sabem descrever tecnicamente. Registre operações de escrita (INSERT, UPDATE, DELETE) e erros sempre.</p>
+<h2 id="checklist">☑️ Checklist<a class="headerlink" href="#checklist" title="Permanent link">&para;</a></h2>
+<p>Antes de prosseguir para o próximo capítulo, confirme:</p>
+<ul>
+<li>[ ] Roteiro de testes executado — todos os itens passam</li>
+<li>[ ] Atalho Enter no login funciona</li>
+<li>[ ] Atalho Escape fecha janelas secundárias</li>
+<li>[ ] Atalho Escape na janela principal pergunta confirmação para sair</li>
+<li>[ ] Barra de status exibe contagem de registros e status online/offline</li>
+<li>[ ] Mensagens padronizadas com ✅, ❌, ⚠️ e ❓</li>
+<li>[ ] Todas as operações de banco estão envoltas em try/except</li>
+<li>[ ] Sincronização com nuvem tem tratamento de erro de rede</li>
+<li>[ ] <code>.gitignore</code> verificado e completo</li>
+<li>[ ] O sistema funciona offline (sem internet) sem travar</li>
+<li>[ ] Minha equipe concluiu a Missão da Equipe</li>
+</ul>
+<h2 id="proximo-capitulo">➡️ Próximo Capítulo<a class="headerlink" href="#proximo-capitulo" title="Permanent link">&para;</a></h2>
+<p>No <strong>Capítulo 11 — Refatoração</strong>, você fará a limpeza final do código: remover comentários desnecessários, extrair funções duplicadas, garantir que os nomes seguem um padrão consistente e preparar o projeto para a apresentação final.</p>
+<p>Pense na refatoração como a faxina antes da visita: o sistema já funciona, mas queremos que ele esteja impecável para a entrega de 20 de agosto. 🧹</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar ao topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.path", "navigation.top", "toc.integrate", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
