@@ -78,6 +78,7 @@ TEMPLATE_PLACEHOLDER_CAPITULO: str = "placeholder_capitulo.md"
 PROMPT_CAPITULO: str = "prompt_capitulo.txt"
 PROMPT_EXERCICIOS: str = "prompt_exercicios.txt"
 PROMPT_PROJETO: str = "prompt_projeto.txt"
+PROMPT_PROJETO_FINALIZADOR: str = "prompt_projeto_finalizador.txt"
 
 # ------------------------------------------------------------------ #
 # Limites de validação                                                #
