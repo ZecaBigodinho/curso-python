@@ -1,14 +1,14 @@
 # :mortar_board: CourseForge — Python para Desktop
 
-> Sua plataforma de estudos para dominar **Python aplicado a interfaces gráficas e banco de dados**.
+> Sua plataforma de estudos para dominar **Python aplicado a interfaces gráficas, banco de dados e desenvolvimento profissional com Git & GitHub**.
 
 ---
 
 ## :dart: O que é este curso?
 
-Este é um curso **prático e intensivo** de Python voltado para o desenvolvimento de **aplicações desktop completas** — da lógica de programação até a entrega de um software funcional com interface gráfica e banco de dados.
+Este é um curso **prático e intensivo** de Python voltado para o desenvolvimento de **aplicações desktop completas** — da lógica de programação até a entrega de um software funcional com interface gráfica, banco de dados e versionamento profissional com Git & GitHub.
 
-Ao final do curso, você será capaz de criar programas reais com janelas interativas, armazenamento de dados persistente e boas práticas de configuração com variáveis de ambiente.
+Ao final do curso, você será capaz de criar programas reais com janelas interativas, armazenamento de dados persistente, boas práticas de configuração com variáveis de ambiente, e um **portfólio profissional no GitHub** com repositórios organizados e README pessoal.
 
 ---
 
@@ -74,6 +74,7 @@ Aprenda a **versionar, colaborar e publicar** seu projeto como um profissional:
 - README profissional com badges, screenshots e instruções
 - Releases e versionamento (`v1.0.0`)
 - **Usando IA para gerar documentação** — prompts prontos
+- **README pessoal de perfil** — gráfico de commits, projetos destacados e stats
 - Preparação do **portfólio profissional** no GitHub
 
 ---
@@ -81,7 +82,7 @@ Aprenda a **versionar, colaborar e publicar** seu projeto como um profissional:
 ## :trophy: Certificado
 
 !!! warning "Importante"
-    O **Projeto Final** (Módulo 03) é **obrigatório** para a emissão do certificado. Ele integra tudo que foi aprendido: Python + Interface Gráfica + Banco de Dados.
+    O **Projeto Final** (Módulo 04) é **obrigatório** para a emissão do certificado. Ele integra tudo que foi aprendido: Python + Interface Gráfica + Banco de Dados + Nuvem + Git.
 
 ---
 

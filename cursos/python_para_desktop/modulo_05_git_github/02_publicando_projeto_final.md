@@ -444,40 +444,157 @@ comentários explicando cada uma.
 [COLE O CÓDIGO]
 ```
 
-### Passo 8 — Configurando o perfil do GitHub como portfólio
+### Passo 8 — Criando seu README Pessoal de Perfil
 
-Seu perfil do GitHub é seu cartão de visita profissional. Configure-o:
+Seu perfil do GitHub é seu **cartão de visita profissional**. Recrutadores olham seu perfil antes de ligar para uma entrevista. Vamos configurá-lo:
+
+**Configuração básica do perfil:**
 
 1. **Foto de perfil** — use uma foto profissional ou um avatar decente
 2. **Bio** — escreva uma frase sobre você: "Estudante de Desenvolvimento de Sistemas | Python | Desktop & Web"
 3. **Repositórios fixados (Pinned)** — no seu perfil, clique em "Customize your pins" e selecione os melhores projetos (máximo 6). Coloque o Projeto Final em primeiro!
 
-**README de perfil (bônus):**
+**Criando o README especial de perfil:**
 
-O GitHub permite criar um README especial para seu perfil. Crie um repositório com o **mesmo nome do seu usuário** (ex: `joaosilva/joaosilva`) e adicione um `README.md`:
+O GitHub permite criar um README que aparece na página principal do seu perfil. Para isso:
+
+1. Crie um repositório com o **mesmo nome do seu usuário** (ex: se seu usuário é `joaosilva`, crie o repositório `joaosilva`)
+2. O GitHub mostrará: *"joaosilva/joaosilva is a ✨ special ✨ repository"*
+3. Marque **Add a README file** e clique em **Create repository**
+4. Edite o `README.md` com o template abaixo
+
+**Template completo com gráficos e stats:**
 
 ```markdown
+<div align="center">
+
 # Olá! 👋 Eu sou [Seu Nome]
 
 🎓 Estudante de Desenvolvimento de Sistemas
-🐍 Apaixonado por Python
-💻 Desktop & Web
+🐍 Apaixonado por Python | 💻 Desktop & Web
 
-## 🔧 Tecnologias
+</div>
 
-![Python](https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![SQLite](https://img.shields.io/badge/-SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white)
-![Git](https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white)
+---
+
+## 🚀 Sobre mim
+
+- 🔭 Estou trabalhando no **Sistema Escolar** (Python + Tkinter + SQLite)
+- 🌱 Estou aprendendo **Python, Git, Banco de Dados e Interfaces Gráficas**
+- 💬 Pergunte-me sobre **Python, Tkinter e CustomTkinter**
+- 📫 Como me encontrar: **seu@email.com**
+
+---
+
+## 🔧 Tecnologias e Ferramentas
+
+![Python](https://img.shields.io/badge/-Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![SQLite](https://img.shields.io/badge/-SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+![Git](https://img.shields.io/badge/-Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/-GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+![VS Code](https://img.shields.io/badge/-VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+
+---
+
+## 📊 GitHub Stats
+
+<div align="center">
+
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=SEU_USUARIO&show_icons=true&theme=tokyonight&hide_border=true&count_private=true)
+
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=SEU_USUARIO&layout=compact&theme=tokyonight&hide_border=true)
+
+</div>
+
+---
+
+## 🔥 Streak de Commits
+
+<div align="center">
+
+![GitHub Streak](https://streak-stats.demolab.com/?user=SEU_USUARIO&theme=tokyonight&hide_border=true)
+
+</div>
+
+---
 
 ## 📌 Projetos em Destaque
 
-- 🎓 [Sistema Escolar](link) — App desktop com CRUD e banco em nuvem
-- 🗂️ [Gerenciador de Tarefas](link) — App web com Streamlit + Neon
+<div align="center">
+
+[![Sistema Escolar](https://github-readme-stats.vercel.app/api/pin/?username=SEU_USUARIO&repo=sistema-escolar&theme=tokyonight&hide_border=true)](https://github.com/SEU_USUARIO/sistema-escolar)
+
+[![Gerenciador de Tarefas](https://github-readme-stats.vercel.app/api/pin/?username=SEU_USUARIO&repo=gerenciador-tarefas&theme=tokyonight&hide_border=true)](https://github.com/SEU_USUARIO/gerenciador-tarefas)
+
+</div>
+
+---
+
+## 📈 Gráfico de Atividade
+
+![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=SEU_USUARIO&theme=tokyo-night&hide_border=true)
+
+---
 
 ## 📫 Contato
 
-- Email: seu@email.com
-- LinkedIn: [linkedin.com/in/seu-perfil](link)
+[![Email](https://img.shields.io/badge/-Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:seu@email.com)
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/seu-perfil)
+
+---
+
+<div align="center">
+
+![Visitors](https://komarev.com/ghpvc/?username=SEU_USUARIO&color=blueviolet&style=flat-square)
+
+</div>
+```
+
+!!! warning "Importante"
+    Substitua **`SEU_USUARIO`** pelo seu nome de usuário do GitHub em **todos** os lugares do template. Se seu usuário é `joaosilva`, troque `SEU_USUARIO` por `joaosilva`.
+
+**O que cada card faz:**
+
+| Card | O que mostra | Serviço |
+|------|-------------|---------|
+| **GitHub Stats** | Total de commits, PRs, issues, stars e contribuições | `github-readme-stats` |
+| **Top Languages** | Linguagens mais usadas nos seus repositórios | `github-readme-stats` |
+| **Streak** | Dias consecutivos com commits (sequência atual e recorde) | `streak-stats.demolab.com` |
+| **Pin Cards** | Cartões clicáveis dos seus repositórios (como botões) | `github-readme-stats` |
+| **Activity Graph** | Gráfico de ondas com sua atividade dos últimos 30 dias | `github-readme-activity-graph` |
+| **Visitors** | Contador de visitas ao seu perfil | `komarev.com` |
+
+!!! tip "Dica Profissional"
+    Os temas disponíveis para os cards incluem: `tokyonight`, `dracula`, `radical`, `merko`, `gruvbox`, `onedark`, `dark`. Experimente trocar `theme=tokyonight` por outro tema para personalizar o visual. A lista completa está em [github-readme-stats themes](https://github.com/anuraghazra/github-readme-stats/blob/master/themes/README.md).
+
+**Prompt para a IA gerar seu README de perfil:**
+
+```text
+Crie um README.md para meu perfil pessoal do GitHub.
+
+Meu nome: [SEU NOME]
+Meu usuário GitHub: [SEU_USUARIO]
+Meu curso: Desenvolvimento de Sistemas
+Tecnologias que sei: Python, Tkinter, CustomTkinter, SQLite, Git
+Meus projetos:
+- Sistema Escolar (repo: sistema-escolar) — App desktop com CRUD e banco
+- Gerenciador de Tarefas (repo: gerenciador-tarefas) — App web com Streamlit
+
+Inclua:
+- Saudação com emoji
+- Seção "Sobre mim" com bullets
+- Badges de tecnologias (style=for-the-badge)
+- GitHub Stats card (github-readme-stats, theme tokyonight)
+- Top Languages card (layout compact)
+- GitHub Streak (streak-stats.demolab.com)
+- Pin cards clicáveis para cada projeto
+- Activity Graph (github-readme-activity-graph)
+- Seção de contato com badges de email e LinkedIn
+- Contador de visitas (komarev.com)
+- Tudo centralizado com <div align="center">
+- Use Markdown formatado para GitHub
+
+Escreva em português do Brasil.
 ```
 
 ### Passo 9 — Checklist final de entrega do projeto

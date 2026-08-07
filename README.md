@@ -24,7 +24,7 @@ O repositório também contém o **CourseForge**, uma plataforma CLI desenvolvid
 
 ### ✨ Destaques
 
-- 📚 **4 módulos** com **35+ capítulos** de conteúdo aprofundado
+- 📚 **5 módulos** com **35+ capítulos** de conteúdo aprofundado
 - 🏗️ **Project Based Learning** — todo o módulo final constrói um único sistema real
 - 🌐 **Site responsivo** acessível de qualquer dispositivo
 - 🌙 **Modo escuro/claro** com tema Material Design
@@ -121,7 +121,7 @@ O curso está dividido em **4 módulos progressivos + 1 bônus**:
 | 01 | Criando um Projeto Profissional | Git, GitHub, repositório, README, .gitignore, GitHub Desktop, terminal, equipe |
 | 02 | Publicando o Projeto Final | Commits profissionais, releases, badges, screenshots, IA para docs, portfólio |
 
-> Módulo bônus que ensina os alunos a **versionar código com Git**, **colaborar via GitHub** e **publicar o Projeto Final** como portfólio profissional. Inclui templates de prompts para gerar documentação com IA.
+> Módulo bônus que ensina os alunos a **versionar código com Git**, **colaborar via GitHub**, **criar um README pessoal de perfil** com gráficos de commits e projetos destacados, e **publicar o Projeto Final** como portfólio profissional. Inclui templates de prompts para gerar documentação com IA.
 
 ---
 
@@ -255,7 +255,8 @@ CourseForge/
 │       ├── modulo_01_fundamentos/         # 11 capítulos
 │       ├── modulo_02_interfaces_graficas/ # 5 capítulos
 │       ├── modulo_03_banco_de_dados/      # 4 capítulos
-│       └── modulo_04_projeto_finalizador/ # 13 capítulos
+│       ├── modulo_04_projeto_finalizador/ # 13+ capítulos
+│       └── modulo_05_git_github/          # 2 capítulos (bônus)
 │
 ├── mkdocs/                     # 🌐 Configuração do site
 │   ├── mkdocs.yml              #    Configuração gerada automaticamente
