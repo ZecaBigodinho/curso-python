@@ -67,8 +67,6 @@ TEMPLATE_MODULO: str = "modulo.md"
 TEMPLATE_CAPITULO: str = "capitulo.md"
 TEMPLATE_EXERCICIOS: str = "exercicios.md"
 TEMPLATE_PROJETO: str = "projeto.md"
-TEMPLATE_QUIZ: str = "quiz.md"
-TEMPLATE_LABORATORIO: str = "laboratorio.md"
 TEMPLATE_PLACEHOLDER_CAPITULO: str = "placeholder_capitulo.md"
 
 # ------------------------------------------------------------------ #
