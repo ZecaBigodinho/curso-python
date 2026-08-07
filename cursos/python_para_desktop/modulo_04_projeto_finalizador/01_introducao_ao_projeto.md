@@ -1,4 +1,4 @@
-# 01 — Introdução ao Projeto
+# 1. Introdução ao Projeto
 
 ## 🎯 Objetivo
 
