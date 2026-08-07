@@ -1,20 +1,20 @@
 # :mortar_board: CourseForge — Python para Desktop
 
-> Sua plataforma de estudos para dominar **Python aplicado a interfaces gráficas e banco de dados**.
+> Sua plataforma de estudos para dominar **Python aplicado a interfaces gráficas, banco de dados e desenvolvimento profissional com Git & GitHub**.
 
 ---
 
 ## :dart: O que é este curso?
 
-Este é um curso **prático e intensivo** de Python voltado para o desenvolvimento de **aplicações desktop completas** — da lógica de programação até a entrega de um software funcional com interface gráfica e banco de dados.
+Este é um curso **prático e intensivo** de Python voltado para o desenvolvimento de **aplicações desktop completas** — da lógica de programação até a entrega de um software funcional com interface gráfica, banco de dados e versionamento profissional com Git & GitHub.
 
-Ao final do curso, você será capaz de criar programas reais com janelas interativas, armazenamento de dados persistente e boas práticas de configuração com variáveis de ambiente.
+Ao final do curso, você será capaz de criar programas reais com janelas interativas, armazenamento de dados persistente, boas práticas de configuração com variáveis de ambiente, e um **portfólio profissional no GitHub** com repositórios organizados e README pessoal.
 
 ---
 
 ## :books: Estrutura do Curso
 
-O material está dividido em **3 módulos progressivos**, cada um com aulas teóricas, exemplos de código e projetos práticos:
+O material está dividido em **4 módulos progressivos + 1 bônus**, cada um com aulas teóricas, exemplos de código e projetos práticos:
 
 ### :snake: Módulo 01 — Fundamentos de Python
 
@@ -53,10 +53,36 @@ Seus programas precisam guardar informações! Aqui você conecta sua interface 
 
 ---
 
+### :building_construction: Módulo 04 — Projeto Finalizador
+
+Construção incremental de um **sistema desktop completo** — do login ao deploy:
+
+- Arquitetura MVC e organização profissional
+- Tela de Login, Menu Principal e navegação entre janelas
+- CRUD completo com SQLite e sincronização com nuvem
+- Exercício bônus com **Streamlit + Neon Database** (Python na web)
+
+---
+
+### :twisted_rightwards_arrows: Módulo 05 — Git & GitHub (Bônus)
+
+Aprenda a **versionar, colaborar e publicar** seu projeto como um profissional:
+
+- Git e GitHub do zero — conta, repositório, README, .gitignore
+- GitHub Desktop e Git no terminal (5 comandos essenciais)
+- Trabalho em equipe — clone, commit, push, pull, conflitos
+- README profissional com badges, screenshots e instruções
+- Releases e versionamento (`v1.0.0`)
+- **Usando IA para gerar documentação** — prompts prontos
+- **README pessoal de perfil** — gráfico de commits, projetos destacados e stats
+- Preparação do **portfólio profissional** no GitHub
+
+---
+
 ## :trophy: Certificado
 
 !!! warning "Importante"
-    O **Projeto Final** (Módulo 03) é **obrigatório** para a emissão do certificado. Ele integra tudo que foi aprendido: Python + Interface Gráfica + Banco de Dados.
+    O **Projeto Final** (Módulo 04) é **obrigatório** para a emissão do certificado. Ele integra tudo que foi aprendido: Python + Interface Gráfica + Banco de Dados + Nuvem + Git.
 
 ---
 

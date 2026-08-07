@@ -24,7 +24,7 @@ O repositório também contém o **CourseForge**, uma plataforma CLI desenvolvid
 
 ### ✨ Destaques
 
-- 📚 **4 módulos** com **35+ capítulos** de conteúdo aprofundado
+- 📚 **5 módulos** com **35+ capítulos** de conteúdo aprofundado
 - 🏗️ **Project Based Learning** — todo o módulo final constrói um único sistema real
 - 🌐 **Site responsivo** acessível de qualquer dispositivo
 - 🌙 **Modo escuro/claro** com tema Material Design
@@ -44,7 +44,7 @@ O material está hospedado no **GitHub Pages** e pode ser acessado de qualquer d
 
 ## 📚 Conteúdo do Curso
 
-O curso está dividido em **4 módulos progressivos**:
+O curso está dividido em **4 módulos progressivos + 1 bônus**:
 
 ### 🐍 Módulo 01 — Fundamentos de Python
 > Os alicerces da linguagem · 11 capítulos
@@ -113,6 +113,18 @@ O curso está dividido em **4 módulos progressivos**:
 
 ---
 
+### 🔀 Módulo 05 — Git & GitHub (Bônus)
+> Versionamento, colaboração e portfólio profissional · 2 capítulos
+
+| # | Capítulo | Descrição |
+|---|----------|-----------|
+| 01 | Criando um Projeto Profissional | Git, GitHub, repositório, README, .gitignore, GitHub Desktop, terminal, equipe |
+| 02 | Publicando o Projeto Final | Commits profissionais, releases, badges, screenshots, IA para docs, portfólio |
+
+> Módulo bônus que ensina os alunos a **versionar código com Git**, **colaborar via GitHub**, **criar um README pessoal de perfil** com gráficos de commits e projetos destacados, e **publicar o Projeto Final** como portfólio profissional. Inclui templates de prompts para gerar documentação com IA.
+
+---
+
 ## 🏆 Certificado
 
 O **Projeto Final** (Módulo 04, Capítulo 12) é **obrigatório** para emissão do certificado.
@@ -148,6 +160,8 @@ As tecnologias que os **alunos** aprendem durante o curso:
 | **Neon Database** | PostgreSQL serverless em nuvem (Exercício) |
 | **psycopg2** | Driver PostgreSQL para Python |
 | **python-dotenv** | Variáveis de ambiente e segurança |
+| **Git** | Controle de versão (Módulo Bônus) |
+| **GitHub** | Colaboração e portfólio (Módulo Bônus) |
 
 ---
 
@@ -241,7 +255,8 @@ CourseForge/
 │       ├── modulo_01_fundamentos/         # 11 capítulos
 │       ├── modulo_02_interfaces_graficas/ # 5 capítulos
 │       ├── modulo_03_banco_de_dados/      # 4 capítulos
-│       └── modulo_04_projeto_finalizador/ # 13 capítulos
+│       ├── modulo_04_projeto_finalizador/ # 13+ capítulos
+│       └── modulo_05_git_github/          # 2 capítulos (bônus)
 │
 ├── mkdocs/                     # 🌐 Configuração do site
 │   ├── mkdocs.yml              #    Configuração gerada automaticamente
@@ -371,8 +386,8 @@ Este é um material educacional em desenvolvimento ativo. Se encontrar erros ou 
 
 | Métrica | Valor |
 |---------|-------|
-| Módulos | 4 |
-| Capítulos | 33+ |
+| Módulos | 5 (4 + 1 bônus) |
+| Capítulos | 35+ |
 | Horas estimadas | ~50h |
 | Projetos práticos | 4 |
 | Exercícios | 30+ |

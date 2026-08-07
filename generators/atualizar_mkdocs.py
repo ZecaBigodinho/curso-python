@@ -55,6 +55,7 @@ class MkDocsUpdater:
         "machine": "🧠",
         "ia": "🧠",
         "rede": "🌐",
+        "git": "🔀",
     }
 
     def __init__(self, fm: FileManager, config_global: dict) -> None:
