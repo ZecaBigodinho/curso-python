@@ -231,11 +231,8 @@ CourseForge/
 │   ├── capitulo.md             #    Template de capítulo
 │   ├── curso.md                #    Template de curso
 │   ├── exercicios.md           #    Template de exercícios
-│   ├── laboratorio.md          #    Template de laboratório
 │   ├── modulo.md               #    Template de módulo
 │   ├── projeto.md              #    Template de projeto
-│   ├── quiz.md                 #    Template de quiz
-│   └── resumo.md               #    Template de resumo
 │
 ├── tests/                      # 🧪 Testes automatizados
 │   ├── test_generators.py      #    Testes dos geradores
