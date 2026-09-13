@@ -39,6 +39,8 @@ class MkDocsUpdater:
     # Mapeamento de palavras-chave → ícone para módulos do sidebar.
     # Quando o nome do módulo contém uma dessas palavras, o ícone é prefixado.
     ICONES_MODULO: dict[str, str] = {
+        "revisao": "🧠",
+        "fixacao": "🎯",
         "fundament": "🐍",
         "interface": "🖥️",
         "grafica": "🖥️",

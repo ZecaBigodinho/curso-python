@@ -56,6 +56,21 @@ nav:
 - Home: index.md
 - Python para Desktop:
   - Índice: python_para_desktop/docs/index.md
+  - 🧠 Revisao E Fixacao:
+    - Visão Geral: python_para_desktop/modulo_00_revisao_e_fixacao/index.md
+    - If Else Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/01_if_else_revisao.md
+    - Variaveis Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/02_variaveis_revisao.md
+    - Operadores Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/03_operadores_revisao.md
+    - Repeticoes Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/04_repeticoes_revisao.md
+    - Funcoes Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/05_funcoes_revisao.md
+    - Colecoes Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/06_colecoes_revisao.md
+    - Excecoes Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/07_excecoes_revisao.md
+    - Tkinter Ui Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/08_tkinter_ui_revisao.md
+    - Sqlite Db Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/09_sqlite_db_revisao.md
+    - Git Github Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/10_git_github_revisao.md
+    - Strings Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/11_strings_revisao.md
+    - Modulos Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/12_modulos_revisao.md
+    - Arquivos Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/13_arquivos_revisao.md
   - 🐍 Fundamentos:
     - Visão Geral: python_para_desktop/modulo_01_fundamentos/index.md
     - Variaveis: python_para_desktop/modulo_01_fundamentos/01_variaveis.md
@@ -90,14 +105,10 @@ nav:
     - Menu Principal: python_para_desktop/modulo_04_projeto_finalizador/04_menu_principal.md
     - Multiplas Janelas: python_para_desktop/modulo_04_projeto_finalizador/05_multiplas_janelas.md
     - Cadastro De Alunos: python_para_desktop/modulo_04_projeto_finalizador/06_cadastro_de_alunos.md
-    - Sqlite: python_para_desktop/modulo_04_projeto_finalizador/07_sqlite.md
     - Sqlite Local: python_para_desktop/modulo_04_projeto_finalizador/07_sqlite_local.md
-    - Crud: python_para_desktop/modulo_04_projeto_finalizador/08_crud.md
     - Crud Completo: python_para_desktop/modulo_04_projeto_finalizador/08_crud_completo.md
     - Banco Em Nuvem: python_para_desktop/modulo_04_projeto_finalizador/09_banco_em_nuvem.md
-    - Integracao: python_para_desktop/modulo_04_projeto_finalizador/10_integracao.md
     - Integracao E Testes: python_para_desktop/modulo_04_projeto_finalizador/10_integracao_e_testes.md
-    - Refatoracao: python_para_desktop/modulo_04_projeto_finalizador/11_refatoracao.md
     - Refatoracao E Entrega: python_para_desktop/modulo_04_projeto_finalizador/11_refatoracao_e_entrega.md
     - Projeto Final: python_para_desktop/modulo_04_projeto_finalizador/12_projeto_final.md
     - Exercicio Neon Streamlit: python_para_desktop/modulo_04_projeto_finalizador/13_exercicio_neon_streamlit.md

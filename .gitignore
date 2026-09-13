@@ -80,3 +80,19 @@ implementation_plan2
 relatorio_sprint3.md
 walkthrough.md
 walkthrough2
+
+# ------------------------------------------------------------------ #
+# Segredos e chaves (NUNCA versionar)                                #
+# ------------------------------------------------------------------ #
+.env
+*.pem
+*.key
+id_courseforge*
+*.db
+
+# ------------------------------------------------------------------ #
+# Hermes / Watcher (dados locais)                                    #
+# ------------------------------------------------------------------ #
+hermes/courseforge_jobs.db
+hermes/*.db
+

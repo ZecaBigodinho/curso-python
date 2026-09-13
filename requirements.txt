@@ -13,6 +13,13 @@ PyYAML>=6.0
 # Conversor HTML → Markdown
 beautifulsoup4>=4.12.0
 
+# HTTP client (para watcher e API Hermes)
+requests>=2.31.0
+
+# Variáveis de ambiente (.env)
+python-dotenv>=1.0.0
+
 # Testes
 pytest>=7.4.0
 pytest-cov>=4.1.0
+

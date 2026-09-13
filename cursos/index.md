@@ -14,7 +14,13 @@ Ao final do curso, você será capaz de criar programas reais com janelas intera
 
 ## :books: Estrutura do Curso
 
-O material está dividido em **4 módulos progressivos + 1 bônus**, cada um com aulas teóricas, exemplos de código e projetos práticos:
+O material está dividido em **5 módulos progressivos + Central de Revisão Visual**, cada um com aulas teóricas, exemplos de código, diagramas interativos e projetos práticos:
+
+### :brain: Central de Revisão Visual & Fixação Didática
+
+Aulas especiais com analogias físicas do cotidiano, fluxogramas em Mermaid.js e guia humanizado de erros para quem busca fixar conceitos com facilidade.
+
+---
 
 ### :snake: Módulo 01 — Fundamentos de Python
 
@@ -89,9 +95,10 @@ Aprenda a **versionar, colaborar e publicar** seu projeto como um profissional:
 ## :rocket: Como usar este material
 
 1. **Siga a ordem dos módulos** — cada um depende do anterior
-2. **Digite os exemplos** — não apenas copie, escreva o código você mesmo
-3. **Faça os exercícios** — a prática é o que fixa o conteúdo
-4. **Complete os projetos** — eles simulam situações reais de desenvolvimento
+2. **Consulte a Central de Revisão Visual** sempre que tiver dúvidas sobre algum conceito
+3. **Digite os exemplos** — não apenas copie, escreva o código você mesmo
+4. **Faça os exercícios** — a prática é o que fixa o conteúdo
+5. **Complete os projetos** — eles simulam situações reais de desenvolvimento
 
 !!! tip "Navegação"
     Use o **menu lateral** para acessar cada módulo e aula. Os capítulos estão numerados na ordem recomendada de estudo.

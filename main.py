@@ -59,6 +59,7 @@ _MENU_OPCOES = [
     ("7", "Atualizar mkdocs.yml"),
     ("8", "Converter HTML para Markdown"),
     ("9", "Dividir HTML em Capítulos"),
+    ("10", "Gerar capítulo com IA (automático)"),
     ("0", "Sair"),
 ]
 
@@ -265,6 +266,108 @@ class CourseForgeApp:
         UI.secao("✅ FLUXO CONCLUÍDO")
         UI.muted(f"Tempo estimado da criação: rápido e eficiente!")
 
+    def fluxo_gerar_ia(self) -> None:
+        """Assistente interativo: gera capítulo via IA (OpenCode + NVIDIA NIM)."""
+        UI.banner()
+        UI.secao("GERAR CAPÍTULO COM IA (AUTOMÁTICO)")
+
+        from utils.selectors import selecionar_curso, selecionar_modulo
+        from generators.gerar_conteudo_ia import gerar_e_publicar_capitulo
+
+        curso_slug = selecionar_curso(self.fm)
+        if not curso_slug:
+            return
+
+        modulo_dir = selecionar_modulo(self.fm, curso_slug)
+        if not modulo_dir:
+            return
+
+        try:
+            tema = UI.perguntar("Tema do capítulo")
+            if not tema.strip():
+                UI.erro("Tema não pode ser vazio.")
+                return
+            objetivo = UI.perguntar("Objetivo do capítulo (opcional)", padrao="")
+            nivel = UI.selecionar(
+                "Nível de dificuldade",
+                ["iniciante", "intermediário", "avançado"],
+            )
+            auto_publish = UI.confirmar("Publicar automaticamente (gh-deploy)?", padrao=False)
+        except KeyboardInterrupt:
+            console.print()
+            UI.aviso("Cancelado pelo usuário.")
+            return
+
+        UI.info("Gerando capítulo via IA... Isso pode levar alguns minutos.")
+        with UI.progresso_spinner("Gerando conteúdo com IA...") as p:
+            p.add_task("", total=None)
+            resultado = gerar_e_publicar_capitulo(
+                curso_slug=curso_slug,
+                modulo_dir=modulo_dir,
+                tema=tema,
+                objetivo=objetivo,
+                nivel=nivel,
+                auto_publish=auto_publish,
+            )
+
+        if resultado["status"] == "error":
+            UI.erro(f"Falha na geração: {resultado['erro']}")
+            logger.error("Falha na geração IA: %s", resultado["erro"])
+        elif resultado["status"] == "pending_approval":
+            UI.sucesso(f"Capítulo gerado e validado (build OK)!")
+            UI.info(f"Arquivo: {resultado['capitulo_filename']}")
+            UI.info(f"Link (após deploy): {resultado['link']}")
+            UI.aviso("Deploy NÃO executado. Use 'python main.py publicar' + gh-deploy quando quiser.")
+        else:
+            UI.sucesso(f"Capítulo publicado com sucesso! 🎉")
+            UI.info(f"Arquivo: {resultado['capitulo_filename']}")
+            UI.info(f"Link: {resultado['link']}")
+
+    def fluxo_gerar_ia_cli(self) -> None:
+        """Gera capítulo via IA a partir de argumentos CLI (não-interativo)."""
+        import argparse
+
+        parser = argparse.ArgumentParser(
+            prog="courseforge gerar-ia",
+            description="Gera capítulo via IA (OpenCode + NVIDIA NIM)",
+        )
+        parser.add_argument("curso", help="Slug do curso")
+        parser.add_argument("modulo", help="Diretório do módulo")
+        parser.add_argument("tema", help="Tema do capítulo")
+        parser.add_argument("--objetivo", default="", help="Objetivo do capítulo")
+        parser.add_argument("--nivel", default="intermediário",
+                            choices=["iniciante", "intermediário", "avançado"])
+        parser.add_argument("--auto-publish", action="store_true",
+                            help="Publicar automaticamente via gh-deploy")
+        parser.add_argument("--model", default=None,
+                            help="Modelo do OpenCode (default: env OPENCODE_MODEL)")
+        parser.add_argument("--numero", type=int, default=None,
+                            help="Número do capítulo (auto-detectado se omitido)")
+
+        args = parser.parse_args(sys.argv[2:])
+
+        from generators.gerar_conteudo_ia import gerar_e_publicar_capitulo
+
+        UI.info(f"Gerando capítulo: '{args.tema}' em {args.curso}/{args.modulo}")
+
+        resultado = gerar_e_publicar_capitulo(
+            curso_slug=args.curso,
+            modulo_dir=args.modulo,
+            tema=args.tema,
+            objetivo=args.objetivo,
+            nivel=args.nivel,
+            auto_publish=args.auto_publish,
+            model=args.model,
+            numero=args.numero,
+        )
+
+        # Output JSON para uso programático (pelo watcher)
+        import json
+        print(json.dumps(resultado, ensure_ascii=False, indent=2))
+
+        if resultado["status"] == "error":
+            sys.exit(1)
+
     def _mostrar_menu(self) -> None:
         """Exibe o menu principal."""
         console.print()
@@ -322,8 +425,12 @@ class CourseForgeApp:
             self.splitter.dividir_interativo()
             UI.aguardar_enter()
 
+        elif escolha == "10":
+            self.fluxo_gerar_ia()
+            UI.aguardar_enter()
+
         else:
-            UI.aviso(f"Opcao invalida: '{escolha}'. Escolha entre 0 e 9.")
+            UI.aviso(f"Opcao invalida: '{escolha}'. Escolha entre 0 e 10.")
 
 
 # ------------------------------------------------------------------ #
@@ -339,9 +446,11 @@ if __name__ == "__main__":
             app.fluxo_publicar()
         elif comando == "gerar-capitulo":
             app.fluxo_gerar_capitulo()
+        elif comando == "gerar-ia":
+            app.fluxo_gerar_ia_cli()
         else:
             UI.erro(f"Comando desconhecido: '{comando}'")
-            print("Comandos disponíveis: publicar, gerar-capitulo")
+            print("Comandos disponíveis: publicar, gerar-capitulo, gerar-ia")
             sys.exit(1)
     else:
         app.executar()

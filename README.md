@@ -3,12 +3,12 @@
 # 🎓 CourseForge — Python para Desktop
 
 [![Acessar Curso](https://img.shields.io/badge/📖_Acessar_Curso-GitHub_Pages-7c4dff?style=for-the-badge)](https://zecabigodinho.github.io/curso-python/)
-[![Status](https://img.shields.io/badge/Status-Em_Andamento-00bfa5?style=for-the-badge)]()
+[![Status](https://img.shields.io/badge/Status-Atualizado-00bfa5?style=for-the-badge)]()
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)]()
 [![MkDocs](https://img.shields.io/badge/MkDocs-Material-526CFE?style=for-the-badge&logo=materialformkdocs&logoColor=white)]()
 [![License](https://img.shields.io/badge/Licença-Educacional-E91E63?style=for-the-badge)]()
 
-**Curso completo de Python aplicado ao desenvolvimento Desktop — da lógica de programação até a criação de aplicações com interface gráfica, banco de dados e integração com serviços em nuvem.**
+**Curso completo de Python aplicado ao desenvolvimento Desktop — da lógica de programação até a criação de aplicações com interface gráfica, banco de dados, integração com serviços em nuvem, central de revisão visual e versionamento profissional com Git & GitHub.**
 
 [Acessar o Curso](https://zecabigodinho.github.io/curso-python/) · [Reportar Problema](https://github.com/ZecaBigodinho/curso-python/issues) · [Plano de Estudos](https://zecabigodinho.github.io/curso-python/plano_de_estudos/)
 
@@ -18,19 +18,19 @@
 
 ## 📋 Sobre o Projeto
 
-Este repositório contém o material completo do curso **Python para Desktop**, hospedado via GitHub Pages e construído com [MkDocs Material](https://squidfunk.github.io/mkdocs-material/). O conteúdo é utilizado em aulas presenciais com duração de 3 horas cada, seguindo a metodologia **Project Based Learning (PBL)** — os alunos aprendem construindo um sistema real do início ao fim.
+Este repositório contém o material completo do curso **Python para Desktop**, hospedado via GitHub Pages e construído com [MkDocs Material](https://squidfunk.github.io/mkdocs-material/). O conteúdo é utilizado em aulas presenciais e online seguindo a metodologia **Project Based Learning (PBL)** — os alunos aprendem construindo um sistema real do início ao fim.
 
-O repositório também contém o **CourseForge**, uma plataforma CLI desenvolvida em Python para automatizar a criação, organização e publicação do conteúdo didático.
+O repositório inclui a plataforma **CourseForge** + o motor de automação **CourseForge Hermes & Watcher**, permitindo gerar, publicar e revisar conteúdos didáticos altamente didáticos e visuais com IA.
 
 ### ✨ Destaques
 
-- 📚 **5 módulos** com **35+ capítulos** de conteúdo aprofundado
-- 🏗️ **Project Based Learning** — todo o módulo final constrói um único sistema real
-- 🌐 **Site responsivo** acessível de qualquer dispositivo
+- 🧠 **Central de Revisão Visual & Fixação** — 13 aulas didáticas com metáforas do mundo real, diagramas `Mermaid.js` e solução de erros comuns
+- 📚 **5 módulos progressivos** com **35+ capítulos** de conteúdo prático e aprofundado
+- 🏗️ **Project Based Learning** — construção incremental de um sistema desktop profissional (MVC + SQLite + Nuvem)
+- 🌐 **Site responsivo** acessível de qualquer dispositivo via GitHub Pages
 - 🌙 **Modo escuro/claro** com tema Material Design
-- 🔍 **Busca integrada** com sugestões em tempo real
-- 📋 **Código copiável** com um clique em todos os blocos de código
-- 🤖 **CourseForge CLI** — geração automatizada de conteúdo e publicação
+- 🔍 **Busca integrada** com sugestões em tempo real e visualizadores em abas
+- 🤖 **CourseForge CLI & Hermes Automation** — pipeline de geração com IA e atualizações em segundo plano
 
 ---
 
@@ -38,13 +38,34 @@ O repositório também contém o **CourseForge**, uma plataforma CLI desenvolvid
 
 ### 👉 [**zecabigodinho.github.io/curso-python**](https://zecabigodinho.github.io/curso-python/)
 
-O material está hospedado no **GitHub Pages** e pode ser acessado de qualquer dispositivo (computador, tablet ou celular). Não precisa instalar nada — é só abrir o link!
+O material está hospedado no **GitHub Pages** e pode ser acessado de qualquer computador, tablet ou celular.
 
 ---
 
 ## 📚 Conteúdo do Curso
 
-O curso está dividido em **4 módulos progressivos + 1 bônus**:
+O curso está dividido em **Central de Revisão Visual + 5 Módulos Progressivos**:
+
+### 🧠 Central de Revisão Visual & Fixação Didática
+> Material didático com analogias do cotidiano, fluxogramas Mermaid e guia de erros
+
+| # | Aula de Revisão | Tema & Metáfora Visual |
+|---|-----------------|------------------------|
+| 01 | Tomada de Decisão (`if/elif/else`) | O *Guarda de Trânsito no Semáforo Inteligente* |
+| 02 | Memória, Variáveis e Tipos | O *Armazém de Caixas Etiquetadas* (`int`, `float`, `str`, `bool`) |
+| 03 | Operadores Aritméticos e Lógicos | A *Balança da Comparação* e a Catraca de Entrada (`and`/`or`/`not`) |
+| 04 | Laços de Repetição (`for`/`while`) | A *Esteira de Fábrica* (`for`) vs *Tanque de Combustível* (`while`) |
+| 05 | Funções, Parâmetros e `return` | A *Máquina de Fazer Suco* (Processador e retorno) |
+| 06 | Módulos e Organização de Código | A *Caixa de Ferramentas com Compartimentos* |
+| 07 | Coleções (Listas, Dicionários, Tuplas)| O *Gaveteiro Numerado* (`[ ]`) vs *Armário de Etiquetas* (`{ }`) |
+| 08 | Strings e Manipulação de Textos | O *Trem de Caracteres* e limpadores de texto (`.strip()`, `.split()`) |
+| 09 | Manipulação de Arquivos | O *Caderno de Anotações* (`with open`) e persistência JSON/CSV |
+| 10 | Tratamento de Erros (`try/except`) | A *Rede de Segurança do Circo* e resiliência |
+| 11 | Interfaces Gráficas (Tkinter/CustomTkinter) | A *Árvore de Componentes & Layouts* (`pack`/`grid`) |
+| 12 | Banco de Dados SQLite & SQL | O *Arquivo Morto com Secretário SQL* (CRUD Completo) |
+| 13 | Versionamento com Git & GitHub | A *Máquina do Tempo do Código* (`add`, `commit`, `push`) |
+
+---
 
 ### 🐍 Módulo 01 — Fundamentos de Python
 > Os alicerces da linguagem · 11 capítulos
@@ -98,310 +119,59 @@ O curso está dividido em **4 módulos progressivos + 1 bônus**:
 | 01 | Introdução ao Projeto | Planejamento e escopo do sistema |
 | 02 | Arquitetura do Sistema | Estrutura de pastas e MVC |
 | 03 | Tela de Login | Autenticação com validação |
-| 04 | Menu Principal | Navegação entre funcionalidades |
-| 05 | Múltiplas Janelas | Transição controlada entre telas |
-| 06 | Cadastro de Alunos | Formulário e validação de dados |
-| 07 | SQLite Local | Persistência com banco de dados |
-| 08 | CRUD Completo | Create, Read, Update e Delete |
-| 09 | Banco em Nuvem | Sincronização com Firebase |
-| 10 | Integração e Testes | Revisão de fluxo completo |
-| 11 | Refatoração e Entrega | Código limpo e documentação |
-| 12 | Projeto Final | Apresentação e certificação |
-| 13 | **Exercício: Neon + Streamlit** | 🆕 App web com PostgreSQL em nuvem |
-
-> **Capítulo 13** é um exercício prático bônus que demonstra Python na web: os alunos constroem um **Gerenciador de Tarefas** usando Streamlit + Neon Database (PostgreSQL em nuvem), com cadastro de usuários, CRUD de tarefas e `.env`.
+| 04 | Menu Principal | Janela principal com navegação entre módulos |
+| 05 | Múltiplas Janelas | Gerenciamento de janelas filhas e modais |
+| 06 | Cadastro de Alunos | Formulário com validação de campos |
+| 07 | SQLite Local | Conexão, criação de tabelas e persistência |
+| 08 | CRUD Completo | Inserir, listar, atualizar e deletar dados |
+| 09 | Banco em Nuvem | Conexão com banco relacional na nuvem |
+| 10 | Integração e Testes | Conectando UI + Banco + Validações |
+| 11 | Refatoração e Entrega | Limpeza de código e tratamento de erros |
+| 12 | Projeto Final | Apresentação da aplicação desktop completa |
+| 13 | Exercício Bônus | Aplicação web com Streamlit + Neon Database |
 
 ---
 
 ### 🔀 Módulo 05 — Git & GitHub (Bônus)
-> Versionamento, colaboração e portfólio profissional · 2 capítulos
+> Versionamento, colaboração e portfólio · 2 capítulos
 
 | # | Capítulo | Descrição |
 |---|----------|-----------|
-| 01 | Criando um Projeto Profissional | Git, GitHub, repositório, README, .gitignore, GitHub Desktop, terminal, equipe |
-| 02 | Publicando o Projeto Final | Commits profissionais, releases, badges, screenshots, IA para docs, portfólio |
-
-> Módulo bônus que ensina os alunos a **versionar código com Git**, **colaborar via GitHub**, **criar um README pessoal de perfil** com gráficos de commits e projetos destacados, e **publicar o Projeto Final** como portfólio profissional. Inclui templates de prompts para gerar documentação com IA.
+| 01 | Criando Projeto Profissional | Git init, commits, .gitignore e repositório no GitHub |
+| 02 | Publicando Projeto Final | README profissional, releases e portfólio |
 
 ---
 
-## 🏆 Certificado
+## 🛠️ Instalação e Execução Local
 
-O **Projeto Final** (Módulo 04, Capítulo 12) é **obrigatório** para emissão do certificado.
-Ele integra tudo que foi aprendido: **Python + Interface Gráfica + Banco de Dados + Nuvem**.
-
----
-
-## 📅 Cronograma
-
-| Info | Detalhe |
-|------|---------|
-| **Início** | Julho 2026 |
-| **Prazo Final** | **20 de Agosto de 2026** |
-| **Carga Horária** | ~50 horas (aulas + estudo individual) |
-| **Formato** | Aulas presenciais de 3 horas |
-| **Metodologia** | Project Based Learning (PBL) |
-| **Entregável** | Projeto Final funcional e apresentado |
-
----
-
-## 🛠️ Tecnologias do Curso
-
-As tecnologias que os **alunos** aprendem durante o curso:
-
-| Tecnologia | Uso no Curso |
-|------------|--------------|
-| **Python 3.10+** | Linguagem principal |
-| **Tkinter** | Interfaces gráficas nativas |
-| **CustomTkinter** | UI moderna e estilizada |
-| **SQLite** | Banco de dados local |
-| **Firebase** | Banco de dados em nuvem (Módulo 04) |
-| **Streamlit** | Framework web para Python (Exercício) |
-| **Neon Database** | PostgreSQL serverless em nuvem (Exercício) |
-| **psycopg2** | Driver PostgreSQL para Python |
-| **python-dotenv** | Variáveis de ambiente e segurança |
-| **Git** | Controle de versão (Módulo Bônus) |
-| **GitHub** | Colaboração e portfólio (Módulo Bônus) |
-
----
-
-## ⚙️ CourseForge — Plataforma de Criação
-
-O **CourseForge** é o motor por trás deste curso. É uma CLI Python que automatiza:
-
-| Comando | Descrição |
-|---------|-----------|
-| `python main.py` | Menu interativo com todas as opções |
-| `python main.py publicar` | Atualiza mkdocs.yml, builda e faz deploy |
-| `python main.py gerar-capitulo` | Gera estrutura de um novo capítulo |
-
-### Funcionalidades do CourseForge
-
-- 📝 **Criar Curso** — scaffold completo com metadados e estrutura de pastas
-- 📦 **Criar Módulo** — módulo numerado com index.md e configuração
-- 📄 **Criar Capítulo** — capítulo com template padronizado (11 seções)
-- 📋 **Criar Exercícios** — atividades com dica e solução colapsáveis
-- 🏗️ **Criar Projeto Prático** — projeto guiado com checklist
-- 🤖 **Gerar Prompt para IA** — prompts estruturados para geração de conteúdo
-- 🔄 **Atualizar mkdocs.yml** — regeneração automática da navegação
-- 🔀 **Converter HTML → Markdown** — importação de conteúdo existente
-- ✂️ **Dividir HTML em Capítulos** — split automático por headings
-
-### Arquitetura
-
-```
-CourseForge/
-│
-├── main.py                     # 🚀 Ponto de entrada (CLI)
-│
-├── config/
-│   └── config.yaml             # ⚙️ Configuração global da plataforma
-│
-├── models/                     # 📊 Modelos de dados
-│   ├── course.py               #    Modelo de Curso
-│   ├── module.py               #    Modelo de Módulo
-│   ├── chapter.py              #    Modelo de Capítulo
-│   └── enums.py                #    Enumerações compartilhadas
-│
-├── generators/                 # 🏭 Geradores de conteúdo
-│   ├── gerar_curso.py          #    Gerador de cursos
-│   ├── gerar_modulo.py         #    Gerador de módulos
-│   ├── gerar_capitulo.py       #    Gerador de capítulos
-│   ├── gerar_exercicio.py      #    Gerador de exercícios
-│   ├── gerar_projeto.py        #    Gerador de projetos práticos
-│   ├── gerar_prompt.py         #    Gerador de prompts para IA
-│   └── atualizar_mkdocs.py     #    Gerador automático do mkdocs.yml
-│
-├── converter/                  # 🔀 Conversores de formato
-│   ├── html_to_markdown.py     #    Conversor HTML → Markdown
-│   └── markdown_splitter.py    #    Divisor de Markdown por seções
-│
-├── utils/                      # 🔧 Utilitários compartilhados
-│   ├── cli_ui.py               #    Interface de terminal (Rich)
-│   ├── config_loader.py        #    Carregador de configuração YAML
-│   ├── constants.py            #    Constantes do projeto
-│   ├── file_manager.py         #    Gerenciador de arquivos
-│   ├── logger.py               #    Sistema de logging
-│   ├── selectors.py            #    Seletores interativos (CLI)
-│   ├── slugify.py              #    Geração de slugs
-│   ├── template_engine.py      #    Motor de templates Jinja2
-│   └── validators.py           #    Validações de entrada
-│
-├── templates/                  # 📝 Templates Jinja2
-│   ├── capitulo.md             #    Template de capítulo
-│   ├── curso.md                #    Template de curso
-│   ├── exercicios.md           #    Template de exercícios
-│   ├── modulo.md               #    Template de módulo
-│   ├── projeto.md              #    Template de projeto
-│
-├── tests/                      # 🧪 Testes automatizados
-│   ├── test_generators.py      #    Testes dos geradores
-│   ├── test_html_converter.py  #    Testes do conversor HTML
-│   ├── test_mkdocs.py          #    Testes do gerador MkDocs
-│   ├── test_models.py          #    Testes dos modelos
-│   ├── test_prompt_generator.py#    Testes do gerador de prompts
-│   └── test_slugify.py         #    Testes do slugify
-│
-├── cursos/                     # 📖 Conteúdo do curso (Markdown)
-│   ├── index.md                #    Página inicial do site
-│   ├── plano_de_estudos.md     #    Cronograma e organização
-│   ├── stylesheets/            #    CSS customizado do site
-│   └── python_para_desktop/    #    📚 Curso principal
-│       ├── .courseforge.yaml   #        Metadados do curso
-│       ├── docs/               #        Documentação do curso
-│       ├── modulo_01_fundamentos/         # 11 capítulos
-│       ├── modulo_02_interfaces_graficas/ # 5 capítulos
-│       ├── modulo_03_banco_de_dados/      # 4 capítulos
-│       ├── modulo_04_projeto_finalizador/ # 13+ capítulos
-│       └── modulo_05_git_github/          # 2 capítulos (bônus)
-│
-├── mkdocs/                     # 🌐 Configuração do site
-│   ├── mkdocs.yml              #    Configuração gerada automaticamente
-│   └── site/                   #    Build estático (não versionado)
-│
-├── prompts/                    # 🤖 Templates de prompts para IA
-├── requirements.txt            # 📦 Dependências Python
-├── pyproject.toml              # ⚙️ Configuração do pytest
-└── .gitignore                  # 🚫 Arquivos ignorados pelo Git
-```
-
----
-
-## 🚀 Instalação e Uso
-
-### Pré-requisitos
-
-- **Python 3.10** ou superior
-- **Git** instalado e configurado
-- **pip** atualizado (`python -m pip install --upgrade pip`)
-
-### Setup do ambiente
+Para testar ou desenvolver o material no seu computador:
 
 ```bash
-# 1. Clone o repositório
+# 1. Clonar o repositório
 git clone https://github.com/ZecaBigodinho/curso-python.git
 cd curso-python
 
-# 2. Crie e ative um ambiente virtual (recomendado)
-python -m venv .venv
-# Windows:
-.venv\Scripts\activate
-# Linux/macOS:
-source .venv/bin/activate
-
-# 3. Instale as dependências
+# 2. Instalar dependências Python
 pip install -r requirements.txt
 
-# 4. Instale o MkDocs Material (para visualização local)
-pip install mkdocs-material
+# 3. Executar o servidor de desenvolvimento MkDocs
+python -m mkdocs serve -f mkdocs/mkdocs.yml
 ```
 
-### Visualizar o site localmente
+O site estará disponível localmente em **`http://localhost:8000`**.
+
+---
+
+## 🚀 Publicação no GitHub Pages
+
+Para publicar as atualizações no site oficial:
 
 ```bash
-# Inicia o servidor de desenvolvimento do MkDocs
-python -m mkdocs serve --config-file mkdocs/mkdocs.yml
-
-# Acesse: http://localhost:8000
-```
-
-### Publicar no GitHub Pages
-
-```bash
-# Opção 1: Usando o CourseForge (atualiza nav + build)
-python main.py publicar
-
-# Opção 2: Deploy direto para gh-pages
-python -m mkdocs gh-deploy --config-file mkdocs/mkdocs.yml --force
-```
-
-### Executar testes
-
-```bash
-# Rodar todos os testes
-pytest
-
-# Rodar com cobertura
-pytest --cov=. --cov-report=html
+python -m mkdocs gh-deploy -f mkdocs/mkdocs.yml
 ```
 
 ---
 
-## 🧰 Dependências
+## 📄 Licença
 
-| Pacote | Versão | Uso |
-|--------|--------|-----|
-| `rich` | ≥13.0 | Interface de terminal colorida |
-| `Jinja2` | ≥3.1 | Motor de templates para geração de conteúdo |
-| `PyYAML` | ≥6.0 | Leitura/escrita de configurações YAML |
-| `beautifulsoup4` | ≥4.12 | Conversão HTML → Markdown |
-| `pytest` | ≥7.4 | Framework de testes automatizados |
-| `pytest-cov` | ≥4.1 | Relatórios de cobertura de testes |
-| `mkdocs-material` | — | Tema e build do site (instalação separada) |
-
----
-
-## 📝 Metodologia
-
-O Módulo 04 segue a metodologia **Project Based Learning (PBL)**:
-
-- 🎯 **Todo capítulo contribui para um único projeto real** (Sistema Escolar)
-- 🔗 **Continuidade absoluta** — cada capítulo começa onde o anterior terminou
-- 💡 **Código comentado com intenção** — explica o "porquê", não o "como"
-- 🏆 **Missões de equipe** — atividades colaborativas com entregáveis verificáveis
-- ⚡ **Desafios opcionais** — extensões avançadas para quem terminar antes
-
-### Estrutura dos capítulos (11 seções obrigatórias)
-
-| # | Seção | Descrição |
-|---|-------|-----------|
-| 1 | 🎯 Objetivo | O que será construído |
-| 2 | 📍 Contextualização | Conexão com o capítulo anterior |
-| 3 | ✅ Resultado Esperado | Visual e comportamento final |
-| 4 | 💻 Implementação Guiada | Passo a passo com código |
-| 5 | 📝 Exercício | Atividade individual (15-20 min) |
-| 6 | 🏆 Missão da Equipe | Atividade colaborativa (30-45 min) |
-| 7 | ⚡ Desafio | Extensão avançada opcional |
-| 8 | ⚠️ Erros Comuns | Diagnóstico e soluções |
-| 9 | 💡 Boas Práticas | Padrões profissionais |
-| 10 | ☑️ Checklist | Verificação de conclusão |
-| 11 | ➡️ Próximo Capítulo | Ponte para a próxima aula |
-
----
-
-## 🤝 Contribuindo
-
-Este é um material educacional em desenvolvimento ativo. Se encontrar erros ou tiver sugestões:
-
-1. Abra uma [**Issue**](https://github.com/ZecaBigodinho/curso-python/issues) descrevendo o problema ou sugestão
-2. Indique o **módulo e capítulo** onde o problema foi encontrado
-3. Se possível, sugira a correção
-
----
-
-## 📊 Estatísticas do Curso
-
-| Métrica | Valor |
-|---------|-------|
-| Módulos | 5 (4 + 1 bônus) |
-| Capítulos | 35+ |
-| Horas estimadas | ~50h |
-| Projetos práticos | 4 |
-| Exercícios | 30+ |
-| Formato de aulas | Presencial (3h/aula) |
-
----
-
-<div align="center">
-
-### 🔗 Links Úteis
-
-[📖 Site do Curso](https://zecabigodinho.github.io/curso-python/) · [📅 Plano de Estudos](https://zecabigodinho.github.io/curso-python/plano_de_estudos/) · [🐛 Reportar Bug](https://github.com/ZecaBigodinho/curso-python/issues)
-
----
-
-Feito com 💜 para os alunos
-
-**CourseForge** v1.0.0 · Python para Desktop · 2026
-
-</div>
+Este projeto é destinado a fins **educacionais**. O código fonte e o material didático podem ser utilizados livremente por alunos e professores.

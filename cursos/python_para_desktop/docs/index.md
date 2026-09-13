@@ -2,9 +2,9 @@
 
 > **Autor:** Professor  
 > **Versão:** 1.0.0  
-> **Data:** 2026-07-17  
-> **Módulos:** 5 (4 progressivos + 1 bônus)  
-> **Capítulos:** 35+
+> **Atualização:** 2026-09-13  
+> **Módulos:** 5 Módulos Progressivos + Central de Revisão Visual & Fixação  
+> **Capítulos:** 35+ Aulas Práticas e Guiadas  
 
 ---
 
@@ -17,6 +17,16 @@ Ao final do curso, você será capaz de criar programas reais com janelas intera
 ---
 
 ## 🗂 Estrutura do Curso
+
+### 🧠 Central de Revisão Visual & Fixação Didática
+> Material especial com analogias do mundo real, fluxogramas Mermaid.js e guia de erros
+
+- Metáforas físicas para desmistificar conceitos de programação
+- Visualizador de fluxos de tomada de decisão (`if`, `elif`, `else`)
+- Guia de correção rápida dos erros mais comuns de iniciantes
+- Quizzes interativos de fixação
+
+---
 
 ### 🐍 Módulo 01 — Fundamentos de Python
 > 11 capítulos · Os alicerces da linguagem
@@ -101,15 +111,16 @@ Ao final do curso, você será capaz de criar programas reais com janelas intera
 ## 🚀 Como Usar este Material
 
 1. **Siga a ordem dos módulos** — cada um depende do anterior
-2. **Digite os exemplos** — não apenas copie, escreva o código você mesmo
-3. **Faça os exercícios** — a prática é o que fixa o conteúdo
-4. **Complete os projetos** — eles simulam situações reais de desenvolvimento
-5. **Use o Git** — versione seu projeto desde o primeiro dia
+2. **Consulte a Central de Revisão Visual** sempre que tiver dúvidas em algum conceito
+3. **Digite os exemplos** — não apenas copie, escreva o código você mesmo
+4. **Faça os exercícios** — a prática é o que fixa o conteúdo
+5. **Complete os projetos** — eles simulam situações reais de desenvolvimento
+6. **Use o Git** — versione seu projeto desde o primeiro dia
 
 ---
 
 !!! tip "Navegação"
-    Use o **menu lateral** para acessar cada módulo e aula. Os capítulos estão numerados na ordem recomendada de estudo.
+    Use o **menu lateral** para acessar cada módulo, aula e a central de revisão visual. Os capítulos estão numerados na ordem recomendada de estudo.
 
 !!! warning "Certificado"
     O **Projeto Final** (Módulo 04) é **obrigatório** para emissão do certificado. Ele integra tudo: Python + Interface Gráfica + Banco de Dados + Nuvem + Git.

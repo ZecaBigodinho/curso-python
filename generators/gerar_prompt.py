@@ -139,6 +139,12 @@ class PromptGenerator:
             contexto["objetivo"] = UI.perguntar("Objetivo do projeto")
             contexto["tecnologias"] = UI.perguntar("Tecnologias (ex: Python, SQLite, Tkinter)")
 
+        elif tipo is TipoPrompt.REVISAO_VISUAL:
+            contexto["objetivo"] = UI.perguntar("Objetivo principal da revisão")
+            contexto["palavras_minimas"] = UI.perguntar_numero(
+                "Mínimo de palavras", padrao=1200, minimo=500, maximo=10000
+            )
+
         return contexto
 
     # ------------------------------------------------------------------ #

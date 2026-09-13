@@ -7,6 +7,7 @@ from .gerar_modulo import ModuleGenerator
 from .gerar_capitulo import ChapterGenerator
 from .atualizar_mkdocs import MkDocsUpdater
 from .gerar_prompt import PromptGenerator
+from .gerar_conteudo_ia import gerar_e_publicar_capitulo
 
 __all__ = [
     "CourseGenerator",
@@ -14,4 +15,5 @@ __all__ = [
     "ChapterGenerator",
     "MkDocsUpdater",
     "PromptGenerator",
+    "gerar_e_publicar_capitulo",
 ]
