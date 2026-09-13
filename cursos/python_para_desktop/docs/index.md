@@ -3,8 +3,8 @@
 > **Autor:** Professor  
 > **Versão:** 1.0.0  
 > **Atualização:** 2026-09-13  
-> **Módulos:** 5 Módulos Progressivos + Central de Revisão Visual & Fixação  
-> **Capítulos:** 35+ Aulas Práticas e Guiadas  
+> **Módulos:** 5 Módulos Progressivos + Central de Revisão Visual & Fixação + Módulo Bônus (VS Code)  
+> **Capítulos:** 40+ Aulas Práticas e Guiadas  
 
 ---
 
@@ -18,10 +18,21 @@ Ao final do curso, você será capaz de criar programas reais com janelas intera
 
 ## 🗂 Estrutura do Curso
 
+### 🛠️ Módulo 06 — Configuração do VS Code & Ambiente Python (Bônus)
+> Guia passo a passo para instalar e configurar o ambiente no seu computador pessoal
+
+- Instalando o Python 3.10+ e marcando a opção "Add to PATH"
+- Instalação e configuração do VS Code com extensões profissionais (Pylance, Error Lens, Material Icons)
+- Atalhos de teclado indispensáveis do dia a dia
+- Ambientes Virtuais (`venv`) e resolução de erros do PowerShell
+- Gerenciamento de pacotes com `pip` e `requirements.txt`
+
+---
+
 ### 🧠 Central de Revisão Visual & Fixação Didática
 > Material especial com analogias do mundo real, fluxogramas Mermaid.js e guia de erros
 
-- Metáforas físicas para desmistificar conceitos de programação
+- Metáforas físicas para desmistificar conceitos de programação (Variáveis, Loops, Funções, Classes)
 - Visualizador de fluxos de tomada de decisão (`if`, `elif`, `else`)
 - Guia de correção rápida dos erros mais comuns de iniciantes
 - Quizzes interativos de fixação
@@ -110,12 +121,13 @@ Ao final do curso, você será capaz de criar programas reais com janelas intera
 
 ## 🚀 Como Usar este Material
 
-1. **Siga a ordem dos módulos** — cada um depende do anterior
-2. **Consulte a Central de Revisão Visual** sempre que tiver dúvidas em algum conceito
-3. **Digite os exemplos** — não apenas copie, escreva o código você mesmo
-4. **Faça os exercícios** — a prática é o que fixa o conteúdo
-5. **Complete os projetos** — eles simulam situações reais de desenvolvimento
-6. **Use o Git** — versione seu projeto desde o primeiro dia
+1. **Comece pelo Módulo Bônus de Configuração (Módulo 06)** se quiser preparar seu computador de casa
+2. **Siga a ordem dos módulos** — cada um depende do anterior
+3. **Consulte a Central de Revisão Visual** sempre que tiver dúvidas em algum conceito
+4. **Digite os exemplos** — não apenas copie, escreva o código você mesmo
+5. **Faça os exercícios** — a prática é o que fixa o conteúdo
+6. **Complete os projetos** — eles simulam situações reais de desenvolvimento
+7. **Use o Git** — versione seu projeto desde o primeiro dia
 
 ---
 

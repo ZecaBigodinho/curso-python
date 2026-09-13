@@ -20,16 +20,16 @@
 
 Este repositório contém o material completo do curso **Python para Desktop**, hospedado via GitHub Pages e construído com [MkDocs Material](https://squidfunk.github.io/mkdocs-material/). O conteúdo é utilizado em aulas presenciais e online seguindo a metodologia **Project Based Learning (PBL)** — os alunos aprendem construindo um sistema real do início ao fim.
 
-O repositório inclui a plataforma **CourseForge** + o motor de automação **CourseForge Hermes & Watcher**, permitindo gerar, publicar e revisar conteúdos didáticos altamente didáticos e visuais com IA.
+O repositório também inclui a plataforma **CourseForge** (organizada no diretório `src/`) + o motor de automação **CourseForge Hermes & Watcher**, permitindo gerar, publicar e revisar conteúdos didáticos altamente didáticos e visuais com IA.
 
 ### ✨ Destaques
 
 - 🧠 **Central de Revisão Visual & Fixação** — 13 aulas didáticas com metáforas do mundo real, diagramas `Mermaid.js` e solução de erros comuns
-- 📚 **5 módulos progressivos** com **35+ capítulos** de conteúdo prático e aprofundado
+- 🛠️ **Módulo Bônus de Configuração (VS Code)** — Guia completo passo a passo de instalação do VS Code, Python 3, extensões e ambientes virtuais (`venv`)
+- 📚 **5 módulos progressivos** com **40+ capítulos** de conteúdo prático e aprofundado
 - 🏗️ **Project Based Learning** — construção incremental de um sistema desktop profissional (MVC + SQLite + Nuvem)
 - 🌐 **Site responsivo** acessível de qualquer dispositivo via GitHub Pages
 - 🌙 **Modo escuro/claro** com tema Material Design
-- 🔍 **Busca integrada** com sugestões em tempo real e visualizadores em abas
 - 🤖 **CourseForge CLI & Hermes Automation** — pipeline de geração com IA e atualizações em segundo plano
 
 ---
@@ -44,7 +44,17 @@ O material está hospedado no **GitHub Pages** e pode ser acessado de qualquer c
 
 ## 📚 Conteúdo do Curso
 
-O curso está dividido em **Central de Revisão Visual + 5 Módulos Progressivos**:
+O curso está dividido em **Módulo Bônus de Configuração + Central de Revisão Visual + 5 Módulos Progressivos**:
+
+### 🛠️ Módulo 06 — Configuração do VS Code & Ambiente (Bônus)
+> Guia passo a passo para instalar e preparar a máquina de casa
+
+| # | Capítulo | Descrição |
+|---|----------|-----------|
+| 01 | Instalando o VS Code do Zero | Instalação do Python 3 ("Add to PATH"), VS Code, extensões indispensáveis e atalhos |
+| 02 | Ambientes Virtuais (`venv`) | Criando e ativando `venv`, resolução do erro do PowerShell e `pip install` |
+
+---
 
 ### 🧠 Central de Revisão Visual & Fixação Didática
 > Material didático com analogias do cotidiano, fluxogramas Mermaid e guia de erros
@@ -139,6 +149,29 @@ O curso está dividido em **Central de Revisão Visual + 5 Módulos Progressivos
 |---|----------|-----------|
 | 01 | Criando Projeto Profissional | Git init, commits, .gitignore e repositório no GitHub |
 | 02 | Publicando Projeto Final | README profissional, releases e portfólio |
+
+---
+
+## 🏗️ Estrutura do Repositório
+
+```text
+curso-python/
+├── cursos/              # Conteúdo dos cursos e módulos em Markdown
+├── mkdocs/              # Configuração e estilo customizado do MkDocs
+├── src/                 # Plataforma CourseForge (Engine CLI, utilitários, templates)
+│   ├── config/          # Arquivos de configuração global
+│   ├── converter/       # Conversores de formato
+│   ├── generators/      # Geradores de módulos, capítulos e prompts
+│   ├── models/          # Modelos e enums do domínio
+│   ├── prompts/         # Templates de prompts para IA
+│   ├── templates/       # Templates Jinja2 para arquivos Markdown
+│   └── utils/           # Utilitários de logging, UI e gerenciamento de arquivos
+├── hermes/              # API de background e fila de automação
+├── tests/               # Suíte de testes unitários
+├── main.py              # Ponto de entrada da plataforma CourseForge
+├── courseforge_watcher.py # Serviço watcher de automação no PC
+└── README.md            # Documentação principal
+```
 
 ---
 

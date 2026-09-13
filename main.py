@@ -23,9 +23,10 @@ if sys.platform == "win32":
     except AttributeError:
         pass  # Ambiente sem buffer (IDE, redirect)
 
-# Garantir que a raiz do projeto está no sys.path
+# Garantir que a raiz do projeto e a pasta src estao no sys.path
 PROJECT_ROOT = Path(__file__).parent.resolve()
 sys.path.insert(0, str(PROJECT_ROOT))
+sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 from utils.logger import configurar_logging, get_logger
 from utils.config_loader import ConfigLoader
@@ -88,7 +89,7 @@ class CourseForgeApp:
         configurar_logging(self.root)
 
         # 2. Configuração com validação e defaults
-        config_path = self.root / "config" / "config.yaml"
+        config_path = self.root / "src" / "config" / "config.yaml"
         self.config_loader = ConfigLoader(config_path)
 
         # 3. Gerenciador de arquivos
@@ -99,7 +100,7 @@ class CourseForgeApp:
             self.fm.criar_diretorio(self.fm.path(d))
 
         # 5. Motor de templates
-        self.te = TemplateEngine(self.root / "templates")
+        self.te = TemplateEngine(self.root / "src" / "templates")
 
         # 6. Geradores (injeção de dependências)
         config_dict = self.config_loader.as_dict()

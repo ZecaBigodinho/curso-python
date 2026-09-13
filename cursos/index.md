@@ -14,7 +14,13 @@ Ao final do curso, você será capaz de criar programas reais com janelas intera
 
 ## :books: Estrutura do Curso
 
-O material está dividido em **5 módulos progressivos + Central de Revisão Visual**, cada um com aulas teóricas, exemplos de código, diagramas interativos e projetos práticos:
+O material está dividido em **5 módulos progressivos + Central de Revisão Visual + Módulo Bônus (VS Code)**, cada um com aulas teóricas, exemplos de código, diagramas interativos e projetos práticos:
+
+### :hammer_and_wrench: Módulo 06 — Configuração do VS Code & Ambiente (Bônus)
+
+Passo a passo completo para instalar o Python 3, o VS Code, extensões profissionais e ambientes virtuais (`venv`) no seu computador pessoal.
+
+---
 
 ### :brain: Central de Revisão Visual & Fixação Didática
 
@@ -94,11 +100,12 @@ Aprenda a **versionar, colaborar e publicar** seu projeto como um profissional:
 
 ## :rocket: Como usar este material
 
-1. **Siga a ordem dos módulos** — cada um depende do anterior
-2. **Consulte a Central de Revisão Visual** sempre que tiver dúvidas sobre algum conceito
-3. **Digite os exemplos** — não apenas copie, escreva o código você mesmo
-4. **Faça os exercícios** — a prática é o que fixa o conteúdo
-5. **Complete os projetos** — eles simulam situações reais de desenvolvimento
+1. **Comece pelo Módulo Bônus de Configuração (Módulo 06)** se quiser preparar seu computador de casa
+2. **Siga a ordem dos módulos** — cada um depende do anterior
+3. **Consulte a Central de Revisão Visual** sempre que tiver dúvidas sobre algum conceito
+4. **Digite os exemplos** — não apenas copie, escreva o código você mesmo
+5. **Faça os exercícios** — a prática é o que fixa o conteúdo
+6. **Complete os projetos** — eles simulam situações reais de desenvolvimento
 
 !!! tip "Navegação"
     Use o **menu lateral** para acessar cada módulo e aula. Os capítulos estão numerados na ordem recomendada de estudo.

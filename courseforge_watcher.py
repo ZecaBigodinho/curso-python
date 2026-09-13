@@ -29,9 +29,10 @@ import time
 import traceback
 from pathlib import Path
 
-# Garantir que a raiz do projeto está no path
+# Garantir que a raiz do projeto e a pasta src estao no path
 PROJECT_ROOT = Path(__file__).parent.resolve()
 sys.path.insert(0, str(PROJECT_ROOT))
+sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 # Carregar .env antes de qualquer import que use os.environ
 try:

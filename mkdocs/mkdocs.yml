@@ -116,4 +116,8 @@ nav:
     - Visão Geral: python_para_desktop/modulo_05_git_github/index.md
     - Criando Projeto Profissional: python_para_desktop/modulo_05_git_github/01_criando_projeto_profissional.md
     - Publicando Projeto Final: python_para_desktop/modulo_05_git_github/02_publicando_projeto_final.md
+  - 🛠️ Vscode Config:
+    - Visão Geral: python_para_desktop/modulo_06_vscode_config/index.md
+    - Instalacao E Configuracao Vscode: python_para_desktop/modulo_06_vscode_config/01_instalacao_e_configuracao_vscode.md
+    - Ambiente Virtual E Terminal: python_para_desktop/modulo_06_vscode_config/02_ambiente_virtual_e_terminal.md
 docs_dir: ../cursos

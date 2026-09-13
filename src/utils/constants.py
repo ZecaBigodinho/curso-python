@@ -50,10 +50,10 @@ DIR_CONVERTIDOS: str = "convertidos"
 DIR_PROMPTS_GERADOS: str = "prompts_gerados"
 
 #: Diretório de templates Jinja2
-DIR_TEMPLATES: str = "templates"
+DIR_TEMPLATES: str = "src/templates"
 
 #: Diretório de templates de prompt para IA
-DIR_PROMPTS: str = "prompts"
+DIR_PROMPTS: str = "src/prompts"
 
 #: Subdiretório de docs dentro de cada curso
 CURSO_DOCS_SUBDIR: str = "docs"
