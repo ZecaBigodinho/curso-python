@@ -1,6 +1,6 @@
 # :mortar_board: CourseForge — Python para Desktop
 
-> Sua plataforma de estudos para dominar **Python aplicado a interfaces gráficas, banco de dados e desenvolvimento profissional com Git & GitHub**.
+> Sua plataforma de estudos para dominar **Python aplicado a interfaces gráficas, banco de dados, orientação a objetos e desenvolvimento profissional com Git & GitHub**.
 
 ---
 
@@ -8,23 +8,13 @@
 
 Este é um curso **prático e intensivo** de Python voltado para o desenvolvimento de **aplicações desktop completas** — da lógica de programação até a entrega de um software funcional com interface gráfica, banco de dados e versionamento profissional com Git & GitHub.
 
-Ao final do curso, você será capaz de criar programas reais com janelas interativas, armazenamento de dados persistente, boas práticas de configuração com variáveis de ambiente, e um **portfólio profissional no GitHub** com repositórios organizados e README pessoal.
+Ao final do curso, você será capaz de criar programas reais com janelas interativas, armazenamento de dados persistente, modelagem orientada a objetos, boas práticas de configuração com variáveis de ambiente, e um **portfólio profissional no GitHub** com repositórios organizados e README pessoal.
 
 ---
 
 ## :books: Estrutura do Curso
 
-O material está dividido em **5 módulos progressivos + Central de Revisão Visual + Módulo Bônus (VS Code)**, cada um com aulas teóricas, exemplos de código, diagramas interativos e projetos práticos:
-
-### :hammer_and_wrench: Módulo 06 — Configuração do VS Code & Ambiente (Bônus)
-
-Passo a passo completo para instalar o Python 3, o VS Code, extensões profissionais e ambientes virtuais (`venv`) no seu computador pessoal.
-
----
-
-### :brain: Central de Revisão Visual & Fixação Didática
-
-Aulas especiais com analogias físicas do cotidiano, fluxogramas em Mermaid.js e guia humanizado de erros para quem busca fixar conceitos com facilidade.
+O material está dividido em **7 módulos progressivos + Central de Revisão Visual**, cada um com aulas teóricas, exemplos de código, diagramas interativos e projetos práticos:
 
 ---
 
@@ -91,6 +81,31 @@ Aprenda a **versionar, colaborar e publicar** seu projeto como um profissional:
 
 ---
 
+### :hammer_and_wrench: Módulo 06 — Configuração do VS Code & Ambiente (Bônus)
+
+Passo a passo completo para instalar o Python 3, o VS Code, extensões profissionais e ambientes virtuais (`venv`) no seu computador pessoal.
+
+---
+
+### :ice_cube: Módulo 07 — Programação Orientada a Objetos (POO)
+
+Aprofundamento no paradigma de POO em Python:
+
+- Paradigma POO vs Programação Procedural
+- Conceito de Classes (molde) e Objetos (instâncias)
+- O construtor `__init__`, o parâmetro `self` e métodos de instância
+- Encapsulamento de dados (`_` e `__`)
+- Propriedades com `@property` e `@property.setter`
+- **Desenvolvimento Prático** de um sistema real orientado a objetos
+
+---
+
+### :brain: Central de Revisão Visual & Fixação Didática
+
+Aulas especiais no final do curso com analogias físicas do cotidiano, fluxogramas em Mermaid.js e guia humanizado de erros para quem busca fixar conceitos com facilidade.
+
+---
+
 ## :trophy: Certificado
 
 !!! warning "Importante"
@@ -100,12 +115,11 @@ Aprenda a **versionar, colaborar e publicar** seu projeto como um profissional:
 
 ## :rocket: Como usar este material
 
-1. **Comece pelo Módulo Bônus de Configuração (Módulo 06)** se quiser preparar seu computador de casa
-2. **Siga a ordem dos módulos** — cada um depende do anterior
-3. **Consulte a Central de Revisão Visual** sempre que tiver dúvidas sobre algum conceito
-4. **Digite os exemplos** — não apenas copie, escreva o código você mesmo
-5. **Faça os exercícios** — a prática é o que fixa o conteúdo
-6. **Complete os projetos** — eles simulam situações reais de desenvolvimento
+1. **Siga a ordem dos módulos** — cada um depende do anterior
+2. **Consulte a Central de Revisão Visual** sempre que tiver dúvidas sobre algum conceito
+3. **Digite os exemplos** — não apenas copie, escreva o código você mesmo
+4. **Faça os exercícios** — a prática é o que fixa o conteúdo
+5. **Complete os projetos** — eles simulam situações reais de desenvolvimento
 
 !!! tip "Navegação"
     Use o **menu lateral** para acessar cada módulo e aula. Os capítulos estão numerados na ordem recomendada de estudo.

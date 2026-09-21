@@ -8,7 +8,7 @@
 [![MkDocs](https://img.shields.io/badge/MkDocs-Material-526CFE?style=for-the-badge&logo=materialformkdocs&logoColor=white)]()
 [![License](https://img.shields.io/badge/Licença-Educacional-E91E63?style=for-the-badge)]()
 
-**Curso completo de Python aplicado ao desenvolvimento Desktop — da lógica de programação até a criação de aplicações com interface gráfica, banco de dados, integração com serviços em nuvem, central de revisão visual e versionamento profissional com Git & GitHub.**
+**Curso completo de Python aplicado ao desenvolvimento Desktop — da lógica de programação até a criação de aplicações com interface gráfica, banco de dados, integração com serviços em nuvem, programação orientada a objetos (POO), central de revisão visual e versionamento profissional com Git & GitHub.**
 
 [Acessar o Curso](https://zecabigodinho.github.io/curso-python/) · [Reportar Problema](https://github.com/ZecaBigodinho/curso-python/issues) · [Plano de Estudos](https://zecabigodinho.github.io/curso-python/plano_de_estudos/)
 
@@ -24,9 +24,9 @@ O repositório também inclui a plataforma **CourseForge** (organizada no diret�
 
 ### ✨ Destaques
 
-- 🧠 **Central de Revisão Visual & Fixação** — 13 aulas didáticas com metáforas do mundo real, diagramas `Mermaid.js` e solução de erros comuns
+- 🧠 **Central de Revisão Visual & Fixação** — 14 aulas didáticas com metáforas do mundo real, diagramas `Mermaid.js` e solução de erros comuns
 - 🛠️ **Módulo Bônus de Configuração (VS Code)** — Guia completo passo a passo de instalação do VS Code, Python 3, extensões e ambientes virtuais (`venv`)
-- 📚 **5 módulos progressivos** com **40+ capítulos** de conteúdo prático e aprofundado
+- 📚 **7 módulos progressivos** (incluindo POO) com **45+ capítulos** de conteúdo prático e aprofundado
 - 🏗️ **Project Based Learning** — construção incremental de um sistema desktop profissional (MVC + SQLite + Nuvem)
 - 🌐 **Site responsivo** acessível de qualquer dispositivo via GitHub Pages
 - 🌙 **Modo escuro/claro** com tema Material Design
@@ -44,38 +44,7 @@ O material está hospedado no **GitHub Pages** e pode ser acessado de qualquer c
 
 ## 📚 Conteúdo do Curso
 
-O curso está dividido em **Módulo Bônus de Configuração + Central de Revisão Visual + 5 Módulos Progressivos**:
-
-### 🛠️ Módulo 06 — Configuração do VS Code & Ambiente (Bônus)
-> Guia passo a passo para instalar e preparar a máquina de casa
-
-| # | Capítulo | Descrição |
-|---|----------|-----------|
-| 01 | Instalando o VS Code do Zero | Instalação do Python 3 ("Add to PATH"), VS Code, extensões indispensáveis e atalhos |
-| 02 | Ambientes Virtuais (`venv`) | Criando e ativando `venv`, resolução do erro do PowerShell e `pip install` |
-
----
-
-### 🧠 Central de Revisão Visual & Fixação Didática
-> Material didático com analogias do cotidiano, fluxogramas Mermaid e guia de erros
-
-| # | Aula de Revisão | Tema & Metáfora Visual |
-|---|-----------------|------------------------|
-| 01 | Tomada de Decisão (`if/elif/else`) | O *Guarda de Trânsito no Semáforo Inteligente* |
-| 02 | Memória, Variáveis e Tipos | O *Armazém de Caixas Etiquetadas* (`int`, `float`, `str`, `bool`) |
-| 03 | Operadores Aritméticos e Lógicos | A *Balança da Comparação* e a Catraca de Entrada (`and`/`or`/`not`) |
-| 04 | Laços de Repetição (`for`/`while`) | A *Esteira de Fábrica* (`for`) vs *Tanque de Combustível* (`while`) |
-| 05 | Funções, Parâmetros e `return` | A *Máquina de Fazer Suco* (Processador e retorno) |
-| 06 | Módulos e Organização de Código | A *Caixa de Ferramentas com Compartimentos* |
-| 07 | Coleções (Listas, Dicionários, Tuplas)| O *Gaveteiro Numerado* (`[ ]`) vs *Armário de Etiquetas* (`{ }`) |
-| 08 | Strings e Manipulação de Textos | O *Trem de Caracteres* e limpadores de texto (`.strip()`, `.split()`) |
-| 09 | Manipulação de Arquivos | O *Caderno de Anotações* (`with open`) e persistência JSON/CSV |
-| 10 | Tratamento de Erros (`try/except`) | A *Rede de Segurança do Circo* e resiliência |
-| 11 | Interfaces Gráficas (Tkinter/CustomTkinter) | A *Árvore de Componentes & Layouts* (`pack`/`grid`) |
-| 12 | Banco de Dados SQLite & SQL | O *Arquivo Morto com Secretário SQL* (CRUD Completo) |
-| 13 | Versionamento com Git & GitHub | A *Máquina do Tempo do Código* (`add`, `commit`, `push`) |
-
----
+O curso está dividido em **7 Módulos Progressivos + Central de Revisão Visual**:
 
 ### 🐍 Módulo 01 — Fundamentos de Python
 > Os alicerces da linguagem · 11 capítulos
@@ -149,6 +118,49 @@ O curso está dividido em **Módulo Bônus de Configuração + Central de Revis�
 |---|----------|-----------|
 | 01 | Criando Projeto Profissional | Git init, commits, .gitignore e repositório no GitHub |
 | 02 | Publicando Projeto Final | README profissional, releases e portfólio |
+
+---
+
+### 🛠️ Módulo 06 — Configuração do VS Code & Ambiente (Bônus)
+> Guia passo a passo para instalar e preparar a máquina de casa · 2 capítulos
+
+| # | Capítulo | Descrição |
+|---|----------|-----------|
+| 01 | Instalando o VS Code do Zero | Instalação do Python 3 ("Add to PATH"), VS Code, extensões indispensáveis e atalhos |
+| 02 | Ambientes Virtuais (`venv`) | Criando e ativando `venv`, resolução do erro do PowerShell e `pip install` |
+
+---
+
+### 🧊 Módulo 07 — Programação Orientada a Objetos (POO)
+> Paradigma POO, métodos, propriedades e desenvolvimento de aplicações · 3 capítulos
+
+| # | Capítulo | Descrição |
+|---|----------|-----------|
+| 01 | Estudo do Paradigma POO | Classes, Objetos, Instanciação e estado da entidade |
+| 02 | Métodos e Propriedades | O construtor `__init__`, `self`, encapsulamento e `@property` |
+| 03 | Desenvolvimento Prático com POO | Modelagem de sistema real com composição e regras de negócio |
+
+---
+
+### 🧠 Central de Revisão Visual & Fixação Didática
+> Material didático com analogias do cotidiano, fluxogramas Mermaid e guia de erros
+
+| # | Aula de Revisão | Tema & Metáfora Visual |
+|---|-----------------|------------------------|
+| 01 | Tomada de Decisão (`if/elif/else`) | O *Guarda de Trânsito no Semáforo Inteligente* |
+| 02 | Memória, Variáveis e Tipos | O *Armazém de Caixas Etiquetadas* (`int`, `float`, `str`, `bool`) |
+| 03 | Operadores Aritméticos e Lógicos | A *Balança da Comparação* e a Catraca de Entrada (`and`/`or`/`not`) |
+| 04 | Laços de Repetição (`for`/`while`) | A *Esteira de Fábrica* (`for`) vs *Tanque de Combustível* (`while`) |
+| 05 | Funções, Parâmetros e `return` | A *Máquina de Fazer Suco* (Processador e retorno) |
+| 06 | Módulos e Organização de Código | A *Caixa de Ferramentas com Compartimentos* |
+| 07 | Coleções (Listas, Dicionários, Tuplas)| O *Gaveteiro Numerado* (`[ ]`) vs *Armário de Etiquetas* (`{ }`) |
+| 08 | Strings e Manipulação de Textos | O *Trem de Caracteres* e limpadores de texto (`.strip()`, `.split()`) |
+| 09 | Manipulação de Arquivos | O *Caderno de Anotações* (`with open`) e persistência JSON/CSV |
+| 10 | Tratamento de Erros (`try/except`) | A *Rede de Segurança do Circo* e resiliência |
+| 11 | Interfaces Gráficas (Tkinter/CustomTkinter) | A *Árvore de Componentes & Layouts* (`pack`/`grid`) |
+| 12 | Banco de Dados SQLite & SQL | O *Arquivo Morto com Secretário SQL* (CRUD Completo) |
+| 13 | Versionamento com Git & GitHub | A *Máquina do Tempo do Código* (`add`, `commit`, `push`) |
+| 14 | Programação Orientada a Objetos (POO) | A *Planta Industrial de Automóveis* (`class`, `self`, `@property`) |
 
 ---
 
