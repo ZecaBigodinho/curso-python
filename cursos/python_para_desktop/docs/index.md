@@ -1,43 +1,22 @@
 # Python para Desktop
 
 > **Autor:** Professor  
-> **Versão:** 1.0.0  
-> **Atualização:** 2026-09-13  
-> **Módulos:** 5 Módulos Progressivos + Central de Revisão Visual & Fixação + Módulo Bônus (VS Code)  
-> **Capítulos:** 40+ Aulas Práticas e Guiadas  
+> **Versão:** 1.1.0  
+> **Atualização:** 2026-09-20  
+> **Módulos:** 7 Módulos Progressivos + Central de Revisão Visual & Fixação  
+> **Capítulos:** 45+ Aulas Práticas e Guiadas  
 
 ---
 
 ## 📋 Sobre este Curso
 
-Curso **prático e intensivo** de Python voltado para o desenvolvimento de **aplicações desktop completas** — da lógica de programação até a entrega de um software funcional com interface gráfica, banco de dados, integração com serviços em nuvem e versionamento profissional com Git & GitHub.
+Curso **prático e intensivo** de Python voltado para o desenvolvimento de **aplicações desktop completas** — da lógica de programação até a entrega de um software funcional com interface gráfica, banco de dados, integração com serviços em nuvem, programação orientada a objetos (POO) e versionamento profissional com Git & GitHub.
 
-Ao final do curso, você será capaz de criar programas reais com janelas interativas, armazenamento de dados persistente, boas práticas de configuração e um repositório profissional como portfólio.
+Ao final do curso, você será capaz de criar programas reais com janelas interativas, armazenamento de dados persistente, estrutura orientada a objetos, boas práticas de configuração e um repositório profissional como portfólio.
 
 ---
 
 ## 🗂 Estrutura do Curso
-
-### 🛠️ Módulo 06 — Configuração do VS Code & Ambiente Python (Bônus)
-> Guia passo a passo para instalar e configurar o ambiente no seu computador pessoal
-
-- Instalando o Python 3.10+ e marcando a opção "Add to PATH"
-- Instalação e configuração do VS Code com extensões profissionais (Pylance, Error Lens, Material Icons)
-- Atalhos de teclado indispensáveis do dia a dia
-- Ambientes Virtuais (`venv`) e resolução de erros do PowerShell
-- Gerenciamento de pacotes com `pip` e `requirements.txt`
-
----
-
-### 🧠 Central de Revisão Visual & Fixação Didática
-> Material especial com analogias do mundo real, fluxogramas Mermaid.js e guia de erros
-
-- Metáforas físicas para desmistificar conceitos de programação (Variáveis, Loops, Funções, Classes)
-- Visualizador de fluxos de tomada de decisão (`if`, `elif`, `else`)
-- Guia de correção rápida dos erros mais comuns de iniciantes
-- Quizzes interativos de fixação
-
----
 
 ### 🐍 Módulo 01 — Fundamentos de Python
 > 11 capítulos · Os alicerces da linguagem
@@ -99,9 +78,40 @@ Ao final do curso, você será capaz de criar programas reais com janelas intera
 
 ---
 
+### 🛠️ Módulo 06 — Configuração do VS Code & Ambiente Python (Bônus)
+> 2 capítulos · Guia passo a passo para instalar e configurar o ambiente no seu computador pessoal
+
+- Instalando o Python 3.10+ e marcando a opção "Add to PATH"
+- Instalação e configuração do VS Code com extensões profissionais (Pylance, Error Lens, Material Icons)
+- Atalhos de teclado indispensáveis do dia a dia
+- Ambientes Virtuais (`venv`) e resolução de erros do PowerShell
+- Gerenciamento de pacotes com `pip` e `requirements.txt`
+
+---
+
+### 🧊 Módulo 07 — Programação Orientada a Objetos (POO)
+> 3 capítulos · Paradigma POO, métodos, propriedades e desenvolvimento de aplicações
+
+- Estudo do Paradigma POO vs Programação Procedural (Classes e Objetos)
+- Conceito de Métodos, Construtor `__init__`, `self` e Encapsulamento (`_` e `__`)
+- Propriedades com `@property` e `@property.setter` com validações
+- **Desenvolvimento Prático de Programas em POO** (Modelagem de Sistema com Composição)
+
+---
+
+### 🧠 Central de Revisão Visual & Fixação Didática
+> 14 aulas didáticas · Material especial com analogias do mundo real, fluxogramas Mermaid.js e guia de erros
+
+- Metáforas físicas para desmistificar conceitos de programação (Variáveis, Loops, Funções, Classes, POO)
+- Visualizador de fluxos de tomada de decisão (`if`, `elif`, `else`)
+- Guia de correção rápida dos erros mais comuns de iniciantes
+- Quizzes interativos de fixação
+
+---
+
 ## 🎯 Objetivos Gerais
 
-- Dominar os fundamentos de Python com confiança
+- Dominar os fundamentos de Python e o paradigma de Programação Orientada a Objetos (POO) com confiança
 - Criar aplicações desktop com interface gráfica profissional
 - Persistir e gerenciar dados com banco de dados
 - Construir um sistema completo do zero ao deploy
@@ -121,8 +131,8 @@ Ao final do curso, você será capaz de criar programas reais com janelas intera
 
 ## 🚀 Como Usar este Material
 
-1. **Comece pelo Módulo Bônus de Configuração (Módulo 06)** se quiser preparar seu computador de casa
-2. **Siga a ordem dos módulos** — cada um depende do anterior
+1. **Siga a ordem dos módulos** — cada um depende do anterior
+2. **Consulte o Módulo Bônus de Configuração (Módulo 06)** se quiser preparar seu computador de casa
 3. **Consulte a Central de Revisão Visual** sempre que tiver dúvidas em algum conceito
 4. **Digite os exemplos** — não apenas copie, escreva o código você mesmo
 5. **Faça os exercícios** — a prática é o que fixa o conteúdo
