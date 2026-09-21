@@ -86,4 +86,10 @@ Esta central foi criada para ser seu **porto seguro** sempre que algum assunto p
     Domine a *Máquina do Tempo do Código* e os comandos `add`, `commit` e `push`.  
     👉 [Acessar Revisão de Git & GitHub](10_git_github_revisao.md)
 
+-   :material-cube-outline: **14. Programação Orientada a Objetos (POO)**
+    ---
+    Aprenda Classes, Objetos, `self` e `@property` com a metáfora da *Planta Industrial de Automóveis*.  
+    👉 [Acessar Revisão de POO](14_poo_revisao.md)
+
 </div>
+

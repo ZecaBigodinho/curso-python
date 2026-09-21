@@ -56,21 +56,6 @@ nav:
 - Home: index.md
 - Python para Desktop:
   - Índice: python_para_desktop/docs/index.md
-  - 🧠 Revisao E Fixacao:
-    - Visão Geral: python_para_desktop/modulo_00_revisao_e_fixacao/index.md
-    - If Else Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/01_if_else_revisao.md
-    - Variaveis Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/02_variaveis_revisao.md
-    - Operadores Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/03_operadores_revisao.md
-    - Repeticoes Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/04_repeticoes_revisao.md
-    - Funcoes Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/05_funcoes_revisao.md
-    - Colecoes Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/06_colecoes_revisao.md
-    - Excecoes Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/07_excecoes_revisao.md
-    - Tkinter Ui Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/08_tkinter_ui_revisao.md
-    - Sqlite Db Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/09_sqlite_db_revisao.md
-    - Git Github Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/10_git_github_revisao.md
-    - Strings Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/11_strings_revisao.md
-    - Modulos Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/12_modulos_revisao.md
-    - Arquivos Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/13_arquivos_revisao.md
   - 🐍 Fundamentos:
     - Visão Geral: python_para_desktop/modulo_01_fundamentos/index.md
     - Variaveis: python_para_desktop/modulo_01_fundamentos/01_variaveis.md
@@ -120,4 +105,25 @@ nav:
     - Visão Geral: python_para_desktop/modulo_06_vscode_config/index.md
     - Instalacao E Configuracao Vscode: python_para_desktop/modulo_06_vscode_config/01_instalacao_e_configuracao_vscode.md
     - Ambiente Virtual E Terminal: python_para_desktop/modulo_06_vscode_config/02_ambiente_virtual_e_terminal.md
+  - 🧊 Poo:
+    - Visão Geral: python_para_desktop/modulo_07_poo/index.md
+    - Paradigma Poo: python_para_desktop/modulo_07_poo/01_paradigma_poo.md
+    - Metodos E Propriedades: python_para_desktop/modulo_07_poo/02_metodos_e_propriedades.md
+    - Desenvolvimento Pratico Poo: python_para_desktop/modulo_07_poo/03_desenvolvimento_pratico_poo.md
+  - 🧠 Revisao E Fixacao:
+    - Visão Geral: python_para_desktop/modulo_00_revisao_e_fixacao/index.md
+    - If Else Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/01_if_else_revisao.md
+    - Variaveis Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/02_variaveis_revisao.md
+    - Operadores Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/03_operadores_revisao.md
+    - Repeticoes Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/04_repeticoes_revisao.md
+    - Funcoes Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/05_funcoes_revisao.md
+    - Colecoes Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/06_colecoes_revisao.md
+    - Excecoes Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/07_excecoes_revisao.md
+    - Tkinter Ui Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/08_tkinter_ui_revisao.md
+    - Sqlite Db Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/09_sqlite_db_revisao.md
+    - Git Github Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/10_git_github_revisao.md
+    - Strings Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/11_strings_revisao.md
+    - Modulos Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/12_modulos_revisao.md
+    - Arquivos Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/13_arquivos_revisao.md
+    - Poo Revisao: python_para_desktop/modulo_00_revisao_e_fixacao/14_poo_revisao.md
 docs_dir: ../cursos
